@@ -66,3 +66,6 @@ SQLGame/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 SQLGame/[Aa]ssets/[Ss]treamingAssets/aa.meta
 SQLGame/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Banco de dados (o conteúdo do banco deve ser gerado pelo sistema então não deve estar no github
+SQLGame/MasterSQLite.db
