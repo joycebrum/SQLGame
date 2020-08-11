@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TestingDataBase : MonoBehaviour
 {
+    public string nameField;
+    public string number;
     public DataBase database;
 
     public void Start()
@@ -16,7 +18,7 @@ public class TestingDataBase : MonoBehaviour
 
     public void Inserir()
     {
-        string sql = "INSERT INTO teste(name, score) VALUES('Joyce', 7200)";
+        string sql = "INSERT INTO teste(name, score) VALUES('" + nameField + "', "+ number +")";
         database.NonQueryCommand(sql);
         Debug.Log("Inserido com sucesso");
     }
