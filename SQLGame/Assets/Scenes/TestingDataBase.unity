@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b70d94b88d94744a89fe18bf6b6407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  urlDataBase: URI=file:MasterSQLite.db
+  urlDataBase: URI=file:db/MasterSQLite.db
 --- !u!4 &711355761
 Transform:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6f1246174729542a5ca90a56f473a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameField: Thiago
+  nameField: Joyce
   number: 1000
   database: {fileID: 711355760}
 --- !u!4 &917274489
