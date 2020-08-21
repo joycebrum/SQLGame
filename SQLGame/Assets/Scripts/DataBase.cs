@@ -6,46 +6,31 @@ using Mono.Data.SqliteClient;
 
 public class DataBase : MonoBehaviour
 {
-    // caminho para o arquivo do banco
-
-    string urlDataBase = "URI=file:MasterSQLite.db";
-    private IDbConnection _connection;
+    //path just to be a test database. This path can be configured
+    public string urlDataBase = "URI=file:db/MasterSQLite.db"; 
+    private IDbConnection connection;
 
     public void Start()
     {
-        string sql = "CREATE TABLE IF NOT EXISTS teste(name VARCHAR(20), score INT)";
-        _connection = new SqliteConnection(urlDataBase);
-        _connection.Open();
-
-        IDbCommand _command = _connection.CreateCommand();
-
-        _command.CommandText = sql;
-        _command.ExecuteNonQuery();
-        Debug.Log("Criado com sucesso");
+        connection = new SqliteConnection(urlDataBase);
+        connection.Open();
+    }
+    public void OnDestroy()
+    {
+        connection.Close();
     }
 
-    public void Inserir() {
-        string sql = "INSERT INTO teste(name, score) VALUES('Me', 3000)";
-        IDbCommand _command = _connection.CreateCommand();
-        _command.CommandText = sql;
-        _command.ExecuteNonQuery();
-        Debug.Log("Inserido com sucesso");
-    }
-     
-    public void Recuperar() {
-        string sqlQuery = "SELECT * FROM teste";
-        IDbCommand _command = _connection.CreateCommand();
-        _command.CommandText = sqlQuery;
-
-        IDataReader reader = _command.ExecuteReader();
-
-        while (reader.Read()) {
-            string name = (string)reader["name"];
-            int value = (int)reader["score"];
-
-            Debug.Log( "value = " + value + " name = " + name);
-        }
+    public void NonQueryCommand(string sql)
+    {
+        IDbCommand command = connection.CreateCommand();
+        command.CommandText = sql;
+        command.ExecuteNonQuery();
     }
 
-    public void uselessButton() { }
+    public IDataReader QueryCommand(string query)
+    {
+        IDbCommand command = connection.CreateCommand();
+        command.CommandText = query;
+        return command.ExecuteReader();
+    }
 }
