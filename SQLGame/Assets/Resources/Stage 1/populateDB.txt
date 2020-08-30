@@ -1,0 +1,1 @@
+INSERT INTO Alunos(matricula, nome, telefone, sobrenome, dataDeNascimento) VALUES('000001', 'Joyce', '(21) 11111-1111', 'Brum', '1998-05-13');
