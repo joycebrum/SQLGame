@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ChatBoxFunctions : MonoBehaviour
 {
-    [SerializeField] Transform messageParentPanel;
-    [SerializeField] GameObject newMessagePrefab;
+    [SerializeField] Transform messageParentPanel = null;
+    [SerializeField] GameObject newMessagePrefab = null;
     string message = "";
-    //TODO: salvar o histórico para exibir
-    List<string> messages = null;
 
     public void Start()
     {
@@ -32,7 +30,16 @@ public class ChatBoxFunctions : MonoBehaviour
             clone.transform.SetParent(messageParentPanel);
             //clone.transform.SetSiblingIndex(messageParentPanel.childCount - 2);
             clone.transform.localScale = new Vector3(1f, 1f, 1f);
+            RectTransform rectTransform = clone.GetComponent<RectTransform>();
+            if (message.Length > 28) {
+                rectTransform.sizeDelta = new Vector2(150, 20 + ((int)message.Length / 28) * 20);
+            }
+            else
+            {
+                rectTransform.sizeDelta = new Vector2(150, 20);
+            }
             clone.GetComponent<MessageFunctions>().ShowMessage(message);
+            this.message = null;
         }
     }
 }
