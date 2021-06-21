@@ -11,6 +11,7 @@ public class TestingDataBase : MonoBehaviour
 
     public void Start()
     {
+        this.database.Connect("URI=file:db/MasterSQLite.db");
         string sql = "CREATE TABLE IF NOT EXISTS teste(name VARCHAR(20), score INT)";
         database.NonQueryCommand(sql);
         Debug.Log("Criado com sucesso");

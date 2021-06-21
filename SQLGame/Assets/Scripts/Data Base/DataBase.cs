@@ -7,17 +7,24 @@ using Mono.Data.SqliteClient;
 public class DataBase : MonoBehaviour
 {
     //path just to be a test database. This path can be configured
-    public string urlDataBase = "URI=file:db/MasterSQLite.db"; 
+    private string urlDataBase = ""; 
     private IDbConnection connection;
-
-    public void Start()
-    {
-        connection = new SqliteConnection(urlDataBase);
-        connection.Open();
-    }
+    
     public void OnDestroy()
     {
         connection.Close();
+    }
+
+    public void CloseConnection()
+    {
+        connection.Close();
+    }
+
+    public void Connect(string urlDataBase)
+    {
+        this.urlDataBase = urlDataBase;
+        connection = new SqliteConnection(urlDataBase);
+        connection.Open();
     }
 
     public void NonQueryCommand(string sql)

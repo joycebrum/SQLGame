@@ -69,3 +69,4 @@ SQLGame/[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Banco de dados (o conteúdo do banco deve ser gerado pelo sistema então não deve estar no github
 SQLGame/db/
+*.sln
