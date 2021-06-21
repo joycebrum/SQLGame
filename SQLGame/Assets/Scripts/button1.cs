@@ -25,10 +25,14 @@ public class button1 : MonoBehaviour
             case "Message":
                 Debug.Log("Message");
                 break;
+            case "IA":
+                Debug.Log("IA");
+                break;
+            case "Menu":
+                HideMenu();
+                break;
             default:
                 break;
-
-
         }
     }
 
@@ -37,4 +41,9 @@ public class button1 : MonoBehaviour
     {
         
     }
+
+    private void HideMenu()
+    {
+        Debug.Log("Menu");
+    } 
 }
