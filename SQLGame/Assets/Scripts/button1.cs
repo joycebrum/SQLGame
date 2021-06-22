@@ -6,14 +6,15 @@ public class button1 : MonoBehaviour
 {
     public string type;
     public GameObject menuBackgroungVertical;
-    public GameObject MenuArrow;
+    public GameObject menuArrow;
+    public GameObject menuButton;
 
     private int MenuVerticalHeight = 125;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void onClick()
@@ -50,18 +51,23 @@ public class button1 : MonoBehaviour
     {
         Debug.Log("Menu");
         var rectTransform = menuBackgroungVertical.GetComponent<RectTransform>();
-        var arrowHeight = MenuArrow.GetComponent<RectTransform>().sizeDelta[1];
-        if (rectTransform.sizeDelta[1] == 0)
+        var menuTransform = menuButton.GetComponent<RectTransform>();
+        var arrowPosition = menuArrow.transform.position;
+        var buttonPosition = menuButton.transform.localPosition;
+        var rectPosition = menuBackgroungVertical.transform.localPosition;
+        if (menuBackgroungVertical.activeSelf)
         {
-            rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, MenuVerticalHeight);
-            var arrowPosition = MenuArrow.transform.position;
-            MenuArrow.transform.position = new Vector3(arrowPosition.x, arrowPosition.y - MenuVerticalHeight + arrowHeight/2, arrowPosition.z);
+            menuBackgroungVertical.SetActive(false);
+            var v = menuArrow.transform.position;
+            v.Set(arrowPosition.x, 0109, arrowPosition.z);
+            menuArrow.transform.position = v;
         } else
         {
-            rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 0);
-            var arrowPosition = MenuArrow.transform.position;
-            MenuArrow.transform.position = new Vector3(arrowPosition.x, arrowPosition.y + MenuVerticalHeight - arrowHeight/2, arrowPosition.z);
+            menuBackgroungVertical.SetActive(true);
+            var v = menuArrow.transform.position;
+            v.Set(arrowPosition.x, 0, arrowPosition.z);
+            menuArrow.transform.position = v;
         }
-        MenuArrow.transform.Rotate(0.0f, 0.0f, 180.0f);
+        menuArrow.transform.Rotate(0.0f, 0.0f, 180.0f);
     } 
 }
