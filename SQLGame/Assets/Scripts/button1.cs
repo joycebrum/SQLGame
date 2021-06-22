@@ -50,24 +50,12 @@ public class button1 : MonoBehaviour
     private void HideMenu()
     {
         Debug.Log("Menu");
-        var rectTransform = menuBackgroungVertical.GetComponent<RectTransform>();
-        var menuTransform = menuButton.GetComponent<RectTransform>();
-        var arrowPosition = menuArrow.transform.position;
-        var buttonPosition = menuButton.transform.localPosition;
-        var rectPosition = menuBackgroungVertical.transform.localPosition;
         if (menuBackgroungVertical.activeSelf)
         {
             menuBackgroungVertical.SetActive(false);
-            var v = menuArrow.transform.position;
-            v.Set(arrowPosition.x, 0109, arrowPosition.z);
-            menuArrow.transform.position = v;
         } else
         {
             menuBackgroungVertical.SetActive(true);
-            var v = menuArrow.transform.position;
-            v.Set(arrowPosition.x, 0, arrowPosition.z);
-            menuArrow.transform.position = v;
         }
-        menuArrow.transform.Rotate(0.0f, 0.0f, 180.0f);
     } 
 }
