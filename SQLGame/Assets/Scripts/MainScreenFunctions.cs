@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class button1 : MonoBehaviour
+public class MainScreenFunctions : MonoBehaviour
 {
     public string type;
     public GameObject menuBackgroungVertical;
