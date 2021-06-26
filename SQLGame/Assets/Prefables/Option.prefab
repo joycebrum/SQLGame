@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4139473704685753967}
   - component: {fileID: 4139473704685753966}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,4 +219,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "N\xE3o t\xF4 a fim de trote"
+  m_Text: Testando

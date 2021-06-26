@@ -4,20 +4,39 @@ using UnityEngine;
 
 public class ChatDialogController : MonoBehaviour
 {
-    private List<ChatDialogMessages> stage1 = new List<ChatDialogMessages>{
-        new ChatDialogMessages("Mina", 
-            new List<string>{"Ah Joyce que bom poder falar com você"}, 
-            new List<DialogOption> {
-                new DialogOption("Quem é você?", "Como assim? Quem é você?", 1), 
-                new DialogOption("Não tô afim de trote.", "Não tô afim de receber trote hoje, obrigada", 2)})
-    };
+    [SerializeField] Transform messageParentPanel = null;
+    [SerializeField] GameObject newMessagePrefab = null;
+    string message = "";
+
 
     public void Start()
     {
-        /*show messages from history*/
-        ChatBoxFunctions chatBoxFunctions = gameObject.GetComponent<ChatBoxFunctions>();
-        chatBoxFunctions.SetMessage(stage1[0].msgs[0]);
-        chatBoxFunctions.ShowMessage();
     }
 
+
+    public void SetMessage(string message)
+    {
+        this.message = message;
+    }
+
+    public void ShowMessage()
+    {
+        if (message != "")
+        {
+            GameObject clone = (GameObject)Instantiate(newMessagePrefab);
+            clone.transform.SetParent(messageParentPanel);
+            clone.transform.localScale = new Vector3(1f, 1f, 1f);
+            RectTransform rectTransform = clone.GetComponent<RectTransform>();
+            if (message.Length > 28)
+            {
+                rectTransform.sizeDelta = new Vector2(150, 20 + ((int)message.Length / 28) * 20);
+            }
+            else
+            {
+                rectTransform.sizeDelta = new Vector2(150, 20);
+            }
+            clone.GetComponent<MessageFunctions>().ShowMessage(message);
+            this.message = null;
+        }
+    }
 }
