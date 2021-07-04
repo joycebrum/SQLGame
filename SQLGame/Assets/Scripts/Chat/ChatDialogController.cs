@@ -54,6 +54,15 @@ public class ChatDialogController : MonoBehaviour
         }
     }
 
+    public void OnContactSelect(int index)
+    {
+        switch (index)
+        {
+            case 0: ShowChat(index, Configuration.AIName); break;
+            default: break;
+        }
+    }
+
     public void ShowChat(int spritePos, string name)
     {
         this.contactScreen.SetActive(false);
