@@ -18,6 +18,11 @@ public class ChatDialogController : MonoBehaviour
     {
     }
 
+    public void OnBackButton()
+    {
+        this.gameObject.SetActive(false);
+    }
+
 
     public void SetMessage(string message)
     {
