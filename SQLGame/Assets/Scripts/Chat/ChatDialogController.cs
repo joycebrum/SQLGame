@@ -83,7 +83,14 @@ public class ChatDialogController : MonoBehaviour
     {
         switch (index)
         {
-            case 0: ShowChat(index, Configuration.AIName); break;
+            case 0:
+                this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = Configuration.AIChat;
+                ShowChat(index, Configuration.AIName); 
+                break;
+            case 1:
+                this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = Configuration.bossChat;
+                ShowChat(index, Configuration.bossName);
+                break;
             default: break;
         }
     }
