@@ -59,7 +59,7 @@ public class VIDEUIManager : MonoBehaviour
     {
         ChatDialogController chatDialogController = gameObject.GetComponent<ChatDialogController>();
         chatDialogController.SetMessage(msg);
-        chatDialogController.ShowMessage();
+        chatDialogController.ShowPlayerMessage();
     }
 
     //Called by the OnNodeChange event
