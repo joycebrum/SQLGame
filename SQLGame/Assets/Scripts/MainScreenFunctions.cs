@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class MainScreenFunctions : MonoBehaviour
 {
-    public string type;
     public GameObject menuBackgroungVertical;
-    public GameObject menuArrow;
     public GameObject menuButton;
 
     private int MenuVerticalHeight = 125;
@@ -17,28 +15,29 @@ public class MainScreenFunctions : MonoBehaviour
 
     }
 
-    public void onClick()
+    public void OnHomeClick()
     {
-        switch (type)
-        {
-            case "Home":
-                Debug.Log("Home");
-                break;
-            case "Back":
-                Debug.Log("Back");
-                break;
-            case "Message":
-                Debug.Log("Message");
-                break;
-            case "IA":
-                Debug.Log("IA");
-                break;
-            case "Menu":
-                HideMenu();
-                break;
-            default:
-                break;
-        }
+        Debug.Log("Home");
+    }
+
+    public void OnBackClick()
+    {
+        Debug.Log("Back");
+    }
+
+    public void OnMessageClick()
+    {
+        Debug.Log("Message");
+    }
+
+    public void OnIAClick()
+    {
+        Debug.Log("IA");
+    }
+
+    public void OnMenuClick()
+    {
+        HideMenu();
     }
 
     // Update is called once per frame
@@ -46,6 +45,7 @@ public class MainScreenFunctions : MonoBehaviour
     {
         
     }
+
 
     private void HideMenu()
     {

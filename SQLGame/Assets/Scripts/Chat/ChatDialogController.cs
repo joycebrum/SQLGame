@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class ChatDialogController : MonoBehaviour
 {
     [SerializeField] Transform messageParentPanel = null;
     [SerializeField] GameObject newMessagePrefab = null;
+    [SerializeField] GameObject profile = null;
+    [SerializeField] Text textName = null;
+
     string message = "";
 
 
