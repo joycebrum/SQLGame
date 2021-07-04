@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class ChatDialogController : MonoBehaviour
 {
     [SerializeField] Transform messageParentPanel = null;
@@ -14,7 +13,7 @@ public class ChatDialogController : MonoBehaviour
 
     [SerializeField] GameObject chatScreen = null;
     [SerializeField] GameObject contactScreen = null;
-    [SerializeField] List<Sprite> sprites;
+    [SerializeField] List<Sprite> sprites = new List<Sprite>();
 
     private float messageWidth = 155;
 
@@ -54,7 +53,7 @@ public class ChatDialogController : MonoBehaviour
     {
         if (message.Length > 28)
         {
-            return ((int)message.Length / 28) * 20;
+            return Mathf.Ceil(message.Length / 28f) * 20;
         }
         else
         {
