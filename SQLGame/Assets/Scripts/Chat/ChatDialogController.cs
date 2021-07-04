@@ -30,7 +30,7 @@ public class ChatDialogController : MonoBehaviour
 
     public void SetMessage(string message)
     {
-        this.message = message.Replace("#{player}", "Nome do Player").Replace("#{npc}", textName.text);
+        this.message = message.Replace("#{player}", PlayerPrefs.GetString("playerName")).Replace("#{npc}", textName.text);
     }
 
     public void ShowMessage()
