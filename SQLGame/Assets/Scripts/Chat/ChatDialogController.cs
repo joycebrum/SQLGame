@@ -8,8 +8,12 @@ public class ChatDialogController : MonoBehaviour
 {
     [SerializeField] Transform messageParentPanel = null;
     [SerializeField] GameObject newMessagePrefab = null;
-    [SerializeField] GameObject profile = null;
+    [SerializeField] Image profile = null;
     [SerializeField] Text textName = null;
+
+    [SerializeField] GameObject chatScreen = null;
+    [SerializeField] GameObject contactScreen = null;
+    [SerializeField] List<Sprite> sprites;
 
     string message = "";
 
@@ -26,7 +30,7 @@ public class ChatDialogController : MonoBehaviour
 
     public void SetMessage(string message)
     {
-        this.message = message;
+        this.message = message.Replace("#{player}", "Nome do Player").Replace("#{npc}", textName.text);
     }
 
     public void ShowMessage()
@@ -48,5 +52,19 @@ public class ChatDialogController : MonoBehaviour
             clone.GetComponent<MessageFunctions>().ShowMessage(message);
             this.message = null;
         }
+    }
+
+    public void ShowChat(int spritePos, string name)
+    {
+        this.contactScreen.SetActive(false);
+        this.chatScreen.SetActive(true);
+        this.profile.sprite = this.sprites[spritePos];
+        this.textName.text = name;
+    }
+
+    public void ShowContacts()
+    {
+        this.contactScreen.SetActive(true);
+        this.chatScreen.SetActive(false);
     }
 }

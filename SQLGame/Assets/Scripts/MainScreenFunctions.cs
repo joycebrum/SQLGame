@@ -29,13 +29,14 @@ public class MainScreenFunctions : MonoBehaviour
 
     public void OnMessageClick()
     {
-        Debug.Log("Message");
+        phoneObject.SetActive(true);
+        phoneObject.GetComponent<ChatDialogController>().ShowContacts();
     }
 
     public void OnIAClick()
     {
-        Debug.Log("IA");
         phoneObject.SetActive(true);
+        phoneObject.GetComponent<ChatDialogController>().ShowChat(0, Configuration.AIName);
     }
 
     public void OnMenuClick()

@@ -15,7 +15,6 @@ public class VIDEUIManager : MonoBehaviour
 {
     public string dialogueNameToLoad;
     public GameObject[] playerChoices;
-    [SerializeField] private string chatName;
 
     void Start()
     {
