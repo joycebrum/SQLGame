@@ -101,6 +101,7 @@ public class ChatDialogController : MonoBehaviour
         this.chatScreen.SetActive(true);
         this.profile.sprite = this.sprites[spritePos];
         this.textName.text = name;
+        this.gameObject.GetComponent<VIDEUIManager>().LoadChat();
     }
 
     public void ShowContacts()

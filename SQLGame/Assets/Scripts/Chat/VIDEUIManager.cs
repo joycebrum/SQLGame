@@ -18,7 +18,12 @@ public class VIDEUIManager : MonoBehaviour
 
     void Start()
     {
+        
+    }
+    public void LoadChat()
+    {
         //Sets the temp VIDE_Assign’s variables for the given dialogue.
+        if (VD.isActive) End(null);
         VD.SetAssigned(dialogueNameToLoad, "Chat", -1, null, null);
         Begin();
     }
