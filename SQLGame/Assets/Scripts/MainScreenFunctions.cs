@@ -4,41 +4,44 @@ using UnityEngine;
 
 public class MainScreenFunctions : MonoBehaviour
 {
-    public string type;
     public GameObject menuBackgroungVertical;
-    public GameObject menuArrow;
     public GameObject menuButton;
+    
+    [SerializeField] GameObject phoneObject;
 
     private int MenuVerticalHeight = 125;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //PlayerPrefs.SetString("playerName", "Joyce");
     }
 
-    public void onClick()
+    public void OnHomeClick()
     {
-        switch (type)
-        {
-            case "Home":
-                Debug.Log("Home");
-                break;
-            case "Back":
-                Debug.Log("Back");
-                break;
-            case "Message":
-                Debug.Log("Message");
-                break;
-            case "IA":
-                Debug.Log("IA");
-                break;
-            case "Menu":
-                HideMenu();
-                break;
-            default:
-                break;
-        }
+        Debug.Log("Home");
+    }
+
+    public void OnBackClick()
+    {
+        Debug.Log("Back");
+    }
+
+    public void OnMessageClick()
+    {
+        phoneObject.SetActive(true);
+        phoneObject.GetComponent<ChatDialogController>().ShowContacts();
+    }
+
+    public void OnIAClick()
+    {
+        phoneObject.SetActive(true);
+        phoneObject.GetComponent<ChatDialogController>().ShowChat(0, Configuration.AIName);
+    }
+
+    public void OnMenuClick()
+    {
+        HideMenu();
     }
 
     // Update is called once per frame
@@ -46,6 +49,7 @@ public class MainScreenFunctions : MonoBehaviour
     {
         
     }
+
 
     private void HideMenu()
     {
