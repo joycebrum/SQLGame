@@ -19,9 +19,9 @@ public class ChatDialogController : MonoBehaviour
 
     string message = "";
 
-
-    public void Start()
+    void OnDisable()
     {
+        DestroyAllMessages();
     }
 
     public void OnBackButton()
@@ -33,6 +33,14 @@ public class ChatDialogController : MonoBehaviour
     public void SetMessage(string message)
     {
         this.message = message.Replace("#{player}", PlayerPrefs.GetString("playerName")).Replace("#{npc}", textName.text);
+    }
+     
+    public void DestroyAllMessages()
+    {
+        foreach( Transform child in messageParentPanel)
+        {
+            DestroyImmediate(child.gameObject);
+        }
     }
 
     public void ShowMessage()
