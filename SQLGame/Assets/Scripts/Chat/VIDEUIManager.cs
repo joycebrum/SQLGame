@@ -15,16 +15,20 @@ public class VIDEUIManager : MonoBehaviour
 {
     public string dialogueNameToLoad;
     public GameObject[] playerChoices;
+    private VIDE_Assign VA;
+    private ChatDialogController chatDialogController;
 
     void Start()
     {
-        
+        chatDialogController = gameObject.GetComponent<ChatDialogController>();
     }
     public void LoadChat()
     {
         //Sets the temp VIDE_Assign’s variables for the given dialogue.
         if (VD.isActive) End(null);
-        VD.SetAssigned(dialogueNameToLoad, "Chat", -1, null, null);
+        VA = GameObject.Find(dialogueNameToLoad + "Assignee").GetComponent<VIDE_Assign>();
+        VA.LoadState(dialogueNameToLoad);
+        VD.SetAssigned(dialogueNameToLoad, VA.alias, VA.overrideStartNode, null, null);
         Begin();
     }
 
@@ -49,20 +53,20 @@ public class VIDEUIManager : MonoBehaviour
 
     void OnDisable()
     {
+        VA.overrideStartNode = VD.nodeData.nodeID;
+        VA.SaveState(dialogueNameToLoad);
         //If the script gets destroyed, let's make sure we force-end the dialogue to prevent errors
         End(null);
     }
 
     void CreateNewNPCMessage(string msg)
     {
-        ChatDialogController chatDialogController = gameObject.GetComponent<ChatDialogController>();
         chatDialogController.SetMessage(msg);
         chatDialogController.ShowMessage();
     }
 
     void CreateNewPlayerMessage(string msg)
     {
-        ChatDialogController chatDialogController = gameObject.GetComponent<ChatDialogController>();
         chatDialogController.SetMessage(msg);
         chatDialogController.ShowPlayerMessage();
     }
