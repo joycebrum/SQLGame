@@ -55,7 +55,6 @@ public class ChatDialogController : MonoBehaviour
             DestroyImmediate(child.gameObject);
         }
 
-        Debug.Log(messageParentPanel.childCount);
     }
 
     public void ShowMessage()
