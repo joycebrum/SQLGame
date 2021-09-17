@@ -24,7 +24,7 @@ public class DataBaseScreenFunctions: MonoBehaviour
         //Header
         headerMock.Add("aaa");
         headerMock.Add("bbb");
-        headerMock.Add("cccccccccccccccccccccc");
+        headerMock.Add("MMMMMMMMMMMMMMMMMM MMMMMMMMMMMMMMMMMMMMMMM MMMMMMMM MMMMMMMMMMMM");
         headerMock.Add("ddd");
         // table
         List<List<string>> mock = new List<List<string>>();
