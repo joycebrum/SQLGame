@@ -383,6 +383,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1252282054}
     m_Modifications:
+    - target: {fileID: 4580115554345035665, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115554345035670, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115554345035670, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4580115554362790103, guid: 75abad258733f1749886ee9033496ddb, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
@@ -482,6 +494,38 @@ PrefabInstance:
     - target: {fileID: 4580115554572117550, guid: 75abad258733f1749886ee9033496ddb, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115554914002990, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115554914002991, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115554914002991, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115555526723250, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115555526723250, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115555526723250, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115555526723250, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580115555703110359, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 544
       objectReference: {fileID: 0}
     - target: {fileID: 4580115555819922083, guid: 75abad258733f1749886ee9033496ddb, type: 3}
       propertyPath: m_AnchorMax.x
