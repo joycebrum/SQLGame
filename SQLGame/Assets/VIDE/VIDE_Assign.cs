@@ -32,6 +32,8 @@ public class VIDE_Assign : MonoBehaviour, ISerializationCallbackReceiver
 
     public GameObject targetManager;
 
+    public List<object> messageHistory = new List<object>();
+
     void OnEnable()
     {
         //Sends preloaded data
@@ -103,6 +105,7 @@ public class VIDE_Assign : MonoBehaviour, ISerializationCallbackReceiver
         dict.Add("aIndex", assignedIndex);
         dict.Add("aID", assignedID);
         dict.Add("aDialogue", assignedDialogue);
+        dict.Add("messageHistory", messageHistory);
 
         SerializeHelper.WriteToFile(dict as Dictionary<string, object>, filename + ".json");
     }
@@ -130,6 +133,8 @@ public class VIDE_Assign : MonoBehaviour, ISerializationCallbackReceiver
         assignedIndex = ((int)((long)dict["aIndex"]));
         assignedID = ((int)((long)dict["aID"]));
         assignedDialogue = (string)dict["aDialogue"];
+
+        messageHistory = (List<object>)dict["messageHistory"];
     }
 
     class SerializeHelper

@@ -1019,6 +1019,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5910825519571976285, guid: 8a721a89956a7a948b114bce86c45ed2, type: 3}
   m_PrefabInstance: {fileID: 1482726224}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &720435004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720435002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diags:
+  - IAChat
+  - PatrocinioChat
+  assignedIndex: 0
+  assignedID: 65145
+  assignedDialogue: IAChat
+  interactionCount: 0
+  alias: IA
+  overrideStartNode: -1
+  defaultNPCSprite: {fileID: 0}
+  defaultPlayerSprite: {fileID: 0}
+  targetManager: {fileID: 0}
+  preload: 0
+  notuptodate: 0
+  startp: 0
+  loadtag: 
+  langs: []
+  S_playerDiags: []
+  S_actionNodes: []
 --- !u!1 &858799123
 GameObject:
   m_ObjectHideFlags: 0
