@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using VIDE_Data;
 
@@ -15,16 +16,25 @@ public class VIDEUIManager : MonoBehaviour
 {
     public string dialogueNameToLoad;
     public GameObject[] playerChoices;
+    private VIDE_Assign VA;
+    private ChatDialogController chatDialogController;
+
+    private const string PLAYER_MSG = "player";
+    private const string NPC_MSG = "npc";
+
 
     void Start()
     {
-        
+        chatDialogController = gameObject.GetComponent<ChatDialogController>();
     }
     public void LoadChat()
     {
         //Sets the temp VIDE_Assign’s variables for the given dialogue.
         if (VD.isActive) End(null);
-        VD.SetAssigned(dialogueNameToLoad, "Chat", -1, null, null);
+        VA = GameObject.Find(dialogueNameToLoad + "Assignee").GetComponent<VIDE_Assign>();
+        VA.LoadState(dialogueNameToLoad);
+        VD.SetAssigned(dialogueNameToLoad, VA.alias, VA.overrideStartNode, null, null);
+        LoadHistory();
         Begin();
     }
 
@@ -42,27 +52,29 @@ public class VIDEUIManager : MonoBehaviour
     //Called by UI buttons, every button sends a different choice index
     public void ButtonChoice(int choice)
     {
-        CreateNewPlayerMessage(VD.nodeData.extraVars[choice.ToString()].ToString());
+        string msg = VD.nodeData.extraVars[choice.ToString()].ToString();
+        VA.messageHistory.Add(new Dictionary<string, string>() { { "type", PLAYER_MSG }, { "msg", msg } });
+        CreateNewPlayerMessage(msg);
         VD.nodeData.commentIndex = choice; //Set commentIndex as it acts as the picked choice
         VD.Next();
     }
 
     void OnDisable()
     {
+        VA.overrideStartNode = VD.nodeData.nodeID;
+        VA.SaveState(dialogueNameToLoad);
         //If the script gets destroyed, let's make sure we force-end the dialogue to prevent errors
         End(null);
     }
 
     void CreateNewNPCMessage(string msg)
     {
-        ChatDialogController chatDialogController = gameObject.GetComponent<ChatDialogController>();
         chatDialogController.SetMessage(msg);
         chatDialogController.ShowMessage();
     }
 
     void CreateNewPlayerMessage(string msg)
     {
-        ChatDialogController chatDialogController = gameObject.GetComponent<ChatDialogController>();
         chatDialogController.SetMessage(msg);
         chatDialogController.ShowPlayerMessage();
     }
@@ -108,9 +120,29 @@ public class VIDEUIManager : MonoBehaviour
     IEnumerator ShowNPCText()
     {
         yield return new WaitForSeconds(3f);
-        CreateNewNPCMessage(VD.nodeData.comments[VD.nodeData.commentIndex]);
+        string msg = VD.nodeData.comments[VD.nodeData.commentIndex];
+        VA.messageHistory.Add(new Dictionary<string, string>() { { "type", NPC_MSG }, { "msg", msg } });
+        CreateNewNPCMessage(msg);
         //Automatically call next.
         VD.Next();
+    }
+
+    private void LoadHistory()
+    {
+        foreach (Dictionary<string, object> regs in VA.messageHistory)
+        {
+            switch(regs["type"])
+            {
+                case PLAYER_MSG:
+                    CreateNewPlayerMessage((string)regs["msg"]);
+                    break;
+                case NPC_MSG:
+                    CreateNewNPCMessage((string)regs["msg"]);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     void End(VD.NodeData data)
