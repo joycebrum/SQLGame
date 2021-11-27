@@ -156,12 +156,12 @@ RectTransform:
   m_Children:
   - {fileID: 1827953878}
   - {fileID: 2144328822}
-  m_Father: {fileID: 1961325259}
-  m_RootOrder: 2
+  m_Father: {fileID: 1699305787}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 23, y: -14}
+  m_AnchoredPosition: {x: 22.999878, y: -0.00012207031}
   m_SizeDelta: {x: 290, y: 104}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &13938854
@@ -225,24 +225,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96444d9820e0435498a227c3fd4bd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instructionText: {fileID: 2144328823}
+  movingArea: {fileID: 1699305787}
   tutorialSteps:
   - gameObject: {fileID: 858799123}
     instructions:
     - "Este bot\xE3o permite que voc\xEA abra o seu celular e visualiza as conversas"
     - String teste 2
+    position: {x: 0, y: -230, z: 0}
   - gameObject: {fileID: 239352954}
     instructions:
     - "Este bot\xE3o permite que voc\xEA abra o seu celular e visualiza as conversas"
     - String teste 2
+    position: {x: 10, y: -230, z: 0}
   - gameObject: {fileID: 252473289}
     instructions:
     - "Este bot\xE3o permite que voc\xEA abra o seu celular e visualiza as conversas"
     - String teste 2
+    position: {x: 800, y: -230, z: 0}
   - gameObject: {fileID: 468111732}
     instructions:
     - "Este bot\xE3o permite que voc\xEA abra o seu celular e visualiza as conversas"
     - String teste 2
-  instructionText: {fileID: 2144328823}
+    position: {x: 800, y: -20, z: 0}
 --- !u!1 &79295760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2126,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1699305786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1699305787}
+  - component: {fileID: 1699305789}
+  - component: {fileID: 1699305788}
+  m_Layer: 5
+  m_Name: IA Moving Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1699305787
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699305786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 13938853}
+  m_Father: {fileID: 1961325259}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 34.356995}
+  m_SizeDelta: {x: 0, y: -96.713745}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1699305788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699305786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1699305789
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699305786}
+  m_CullTransparentMesh: 0
 --- !u!1 &1728474372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,7 +2604,7 @@ RectTransform:
   m_Children:
   - {fileID: 1082343027}
   - {fileID: 611679584}
-  - {fileID: 13938853}
+  - {fileID: 1699305787}
   - {fileID: 720435003}
   m_Father: {fileID: 1557286603}
   m_RootOrder: 0

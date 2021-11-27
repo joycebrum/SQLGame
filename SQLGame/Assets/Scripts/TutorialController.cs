@@ -11,35 +11,40 @@ public class TutorialController : MonoBehaviour
     {
         public GameObject gameObject;
         public string[] instructions;
+        public Vector3 position;
     }
-    [SerializeField] private TutorialStep[] tutorialSteps;
     [SerializeField] private Text instructionText;
+    [SerializeField] private RectTransform movingArea;
+    [SerializeField] private TutorialStep[] tutorialSteps;
 
     // Start is called before the first frame update
     void Start()
     {
+        //TODO: Remover a chamada o Start e chamá-lo no momento apropriadao.
         StartCoroutine("StartTutorial");
     }
 
     public IEnumerator StartTutorial()
     {
-        foreach(TutorialStep tutorialStep in tutorialSteps)
+        foreach (TutorialStep tutorialStep in tutorialSteps)
         {
             yield return StartCoroutine("ExecuteTutorialStep", tutorialStep);
         }
         gameObject.GetComponent<ScaleTween>().RestorePosition();
+        instructionText.text = "";
     }
 
     private IEnumerator ExecuteTutorialStep(TutorialStep tutorialStep)
     {
         tutorialStep.gameObject.GetComponent<ScaleTween>().FocusWithAnimation();
-        gameObject.GetComponent<ScaleTween>().MoveToPosition(tutorialStep.gameObject.transform.position - new Vector3(290, -104, 0));
+        gameObject.GetComponent<ScaleTween>().MoveToPosition(tutorialStep.position);
 
         foreach (string instruction in tutorialStep.instructions)
         {
             instructionText.text = instruction;
             yield return new WaitForSeconds(5f);
         }
+        tutorialStep.gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
     }
 
 

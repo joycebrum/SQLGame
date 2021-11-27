@@ -8,7 +8,7 @@ public class ScaleTween : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private Vector3 scaleChange = new Vector3(0.08f, 0.08f, 0.08f);
     [SerializeField] private float duration = 0.2f;
-    [SerializeField] private Vector3 focusScaleChange = new Vector3(0.16f, 0.16f, 0.16f);
+    [SerializeField] private Vector3 focusScaleChange = new Vector3(0.2f, 0.2f, 0.2f);
 
     private LTDescr myTween;
     private Vector3 oldPosition;
@@ -40,8 +40,11 @@ public class ScaleTween : MonoBehaviour
         {
             wasMoved = true;
             oldPosition = transform.position;
+            print(oldPosition);
+            print(GetComponent<RectTransform>().position);
         }
-        LeanTween.move(gameObject, newPosition, 1f);
+
+        LeanTween.move(gameObject.GetComponent<RectTransform>(), newPosition, 1f);
     }
 
     public void RestorePosition()
