@@ -11,6 +11,8 @@ public class ScaleTween : MonoBehaviour
     [SerializeField] private Vector3 focusScaleChange = new Vector3(0.16f, 0.16f, 0.16f);
 
     private LTDescr myTween;
+    private Vector3 oldPosition;
+    private bool wasMoved;
 
     public void OnPointerEnter(BaseEventData baseEventData)
     {
@@ -30,5 +32,24 @@ public class ScaleTween : MonoBehaviour
     public void UnfocusWithAnimation()
     {
         LeanTween.cancel(myTween.id);
+    }
+
+    public void MoveToPosition(Vector3 newPosition)
+    {
+        if (!wasMoved)
+        {
+            wasMoved = true;
+            oldPosition = transform.position;
+        }
+        LeanTween.move(gameObject, newPosition, 1f);
+    }
+
+    public void RestorePosition()
+    {
+        if(wasMoved)
+        {
+            wasMoved = false;
+            LeanTween.move(gameObject, oldPosition, 1f);
+        }
     }
 }
