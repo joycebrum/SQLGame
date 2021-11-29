@@ -8,11 +8,12 @@ public class ScaleTween : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private Vector3 scaleChange = new Vector3(0.08f, 0.08f, 0.08f);
     [SerializeField] private float duration = 0.2f;
-    [SerializeField] private Vector3 focusScaleChange = new Vector3(0.2f, 0.2f, 0.2f);
+    private Vector3 focusScaleChange = new Vector3(0.2f, 0.2f, 0.2f);
 
-    private LTDescr myTween;
+    private List<LTDescr> myTweens = new List<LTDescr>();
     private Vector3 oldPosition;
     private bool wasMoved;
+    private Color originalColor = Color.white;
 
     public void OnPointerEnter(BaseEventData baseEventData)
     {
@@ -26,12 +27,18 @@ public class ScaleTween : MonoBehaviour
 
     public void FocusWithAnimation()
     {
-        myTween = LeanTween.scale(gameObject, transform.localScale + scaleChange, 0.5f).setLoopType(LeanTweenType.pingPong);
+        //originalColor = gameObject.GetComponent<RectTransform>().LeanColor();
+        myTweens.Add(LeanTween.scale(gameObject, transform.localScale + focusScaleChange, 0.5f).setLoopType(LeanTweenType.pingPong));
+        myTweens.Add(LeanTween.color(gameObject.GetComponent<RectTransform>(), Color.green, 0.5f).setLoopPingPong());
     }
 
     public void UnfocusWithAnimation()
     {
-        LeanTween.cancel(myTween.id);
+        foreach(LTDescr myTween in myTweens)
+        {
+            LeanTween.cancel(myTween.id);
+        }
+        LeanTween.color(gameObject.GetComponent<RectTransform>(), originalColor, 0.1f);
     }
 
     public void MoveToPosition(Vector3 newPosition)

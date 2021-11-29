@@ -226,7 +226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
   duration: 0.2
-  focusScaleChange: {x: 0.16, y: 0.16, z: 0.16}
 --- !u!114 &13938858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +540,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
   duration: 0.2
-  focusScaleChange: {x: 5, y: 5, z: 5}
 --- !u!1 &252473289
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +732,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
   duration: 0.2
-  focusScaleChange: {x: 5, y: 5, z: 5}
 --- !u!1 &424664966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1003,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
   duration: 0.2
-  focusScaleChange: {x: 5, y: 5, z: 5}
 --- !u!1 &563665900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,7 +1453,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
   duration: 0.2
-  focusScaleChange: {x: 5, y: 5, z: 5}
 --- !u!1 &1082343026
 GameObject:
   m_ObjectHideFlags: 0

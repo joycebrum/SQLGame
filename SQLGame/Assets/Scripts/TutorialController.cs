@@ -49,6 +49,7 @@ public class TutorialController : MonoBehaviour
     {
         if(instructionIdx == 0)
         {
+            if(tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
             tutorialStep.gameObject.GetComponent<ScaleTween>().FocusWithAnimation();
         }
 
@@ -57,7 +58,6 @@ public class TutorialController : MonoBehaviour
 
         if (instructionIdx >= tutorialStep.instructions.Length)
         {
-            tutorialStep.gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
             instructionIdx = 0;
             tutorialStepIdx += 1;
         }
