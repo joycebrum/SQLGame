@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ScaleTween : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class ScaleTween : MonoBehaviour
 
     public void FocusWithAnimation()
     {
-        //originalColor = gameObject.GetComponent<RectTransform>().LeanColor();
+        originalColor = gameObject.GetComponent<Image>().color;
         myTweens.Add(LeanTween.scale(gameObject, transform.localScale + focusScaleChange, 0.5f).setLoopType(LeanTweenType.pingPong));
         myTweens.Add(LeanTween.color(gameObject.GetComponent<RectTransform>(), Color.green, 0.5f).setLoopPingPong());
     }
