@@ -16,35 +16,51 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private Text instructionText;
     [SerializeField] private RectTransform movingArea;
     [SerializeField] private TutorialStep[] tutorialSteps;
+    private int tutorialStepIdx = 0;
+    private int instructionIdx = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         //TODO: Remover a chamada o Start e chamá-lo no momento apropriadao.
-        StartCoroutine("StartTutorial");
+        NextTutorialStep();
     }
 
-    public IEnumerator StartTutorial()
+    private void OnMouseDown()
     {
-        foreach (TutorialStep tutorialStep in tutorialSteps)
-        {
-            yield return StartCoroutine("ExecuteTutorialStep", tutorialStep);
-        }
-        gameObject.GetComponent<ScaleTween>().RestorePosition();
-        instructionText.text = "";
+        if(tutorialStepIdx >= 0) NextTutorialStep();
     }
 
-    private IEnumerator ExecuteTutorialStep(TutorialStep tutorialStep)
+    private void NextTutorialStep()
     {
-        tutorialStep.gameObject.GetComponent<ScaleTween>().FocusWithAnimation();
-        gameObject.GetComponent<ScaleTween>().MoveToPosition(tutorialStep.position);
-
-        foreach (string instruction in tutorialStep.instructions)
+        if (tutorialStepIdx >= tutorialSteps.Length)
         {
-            instructionText.text = instruction;
-            yield return new WaitForSeconds(5f);
+            instructionText.text = "";
+            tutorialStepIdx = -1;
+            return;
         }
-        tutorialStep.gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
+
+        TutorialStep tutorialStep = tutorialSteps[tutorialStepIdx];
+
+        NextInstruction(tutorialStep);
+    }
+
+    private void NextInstruction(TutorialStep tutorialStep)
+    {
+        if(instructionIdx == 0)
+        {
+            tutorialStep.gameObject.GetComponent<ScaleTween>().FocusWithAnimation();
+        }
+
+        instructionText.text = tutorialStep.instructions[instructionIdx];
+        instructionIdx += 1;
+
+        if (instructionIdx >= tutorialStep.instructions.Length)
+        {
+            tutorialStep.gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
+            instructionIdx = 0;
+            tutorialStepIdx += 1;
+        }
     }
 
 
