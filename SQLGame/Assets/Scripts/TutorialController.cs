@@ -36,6 +36,7 @@ public class TutorialController : MonoBehaviour
         if (tutorialStepIdx >= tutorialSteps.Length)
         {
             instructionText.text = "";
+            if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
             tutorialStepIdx = -1;
             return;
         }

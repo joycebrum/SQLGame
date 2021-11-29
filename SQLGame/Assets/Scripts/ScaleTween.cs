@@ -16,6 +16,7 @@ public class ScaleTween : MonoBehaviour
     private bool wasMoved;
     private Color originalColor = Color.white;
     private Vector3 originalScale;
+    private bool onFocus = false;
 
     public void Start()
     {
@@ -25,22 +26,24 @@ public class ScaleTween : MonoBehaviour
     }
     public void OnPointerEnter(BaseEventData baseEventData)
     {
-        LeanTween.scale(gameObject, transform.localScale + scaleChange, duration);
+        if (!onFocus) LeanTween.scale(gameObject, transform.localScale + scaleChange, duration);
     }
 
     public void OnPointerExit(BaseEventData baseEventData)
     {
-        LeanTween.scale(gameObject, transform.localScale - scaleChange, duration);
+        if(!onFocus) LeanTween.scale(gameObject, transform.localScale - scaleChange, duration);
     }
 
     public void FocusWithAnimation()
     {
+        onFocus = true;
         myTweens.Add(LeanTween.scale(gameObject, transform.localScale + focusScaleChange, 0.5f).setLoopType(LeanTweenType.pingPong));
         myTweens.Add(LeanTween.color(gameObject.GetComponent<RectTransform>(), Color.green, 0.5f).setLoopPingPong());
     }
 
     public void UnfocusWithAnimation()
     {
+        onFocus = false;
         foreach(LTDescr myTween in myTweens)
         {
             LeanTween.cancel(myTween.id);
@@ -49,25 +52,4 @@ public class ScaleTween : MonoBehaviour
         LeanTween.scale(gameObject.GetComponent<RectTransform>(), originalScale, 0.1f);
     }
 
-    public void MoveToPosition(Vector3 newPosition)
-    {
-        if (!wasMoved)
-        {
-            wasMoved = true;
-            oldPosition = transform.position;
-            print(oldPosition);
-            print(GetComponent<RectTransform>().position);
-        }
-
-        LeanTween.move(gameObject.GetComponent<RectTransform>(), newPosition, 1f);
-    }
-
-    public void RestorePosition()
-    {
-        if(wasMoved)
-        {
-            wasMoved = false;
-            LeanTween.move(gameObject, oldPosition, 1f);
-        }
-    }
 }
