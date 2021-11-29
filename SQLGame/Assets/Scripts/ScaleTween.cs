@@ -15,7 +15,14 @@ public class ScaleTween : MonoBehaviour
     private Vector3 oldPosition;
     private bool wasMoved;
     private Color originalColor = Color.white;
+    private Vector3 originalScale;
 
+    public void Start()
+    {
+        originalColor = gameObject.GetComponent<Image>().color;
+        originalScale = transform.localScale;
+
+    }
     public void OnPointerEnter(BaseEventData baseEventData)
     {
         LeanTween.scale(gameObject, transform.localScale + scaleChange, duration);
@@ -28,7 +35,6 @@ public class ScaleTween : MonoBehaviour
 
     public void FocusWithAnimation()
     {
-        originalColor = gameObject.GetComponent<Image>().color;
         myTweens.Add(LeanTween.scale(gameObject, transform.localScale + focusScaleChange, 0.5f).setLoopType(LeanTweenType.pingPong));
         myTweens.Add(LeanTween.color(gameObject.GetComponent<RectTransform>(), Color.green, 0.5f).setLoopPingPong());
     }
@@ -40,6 +46,7 @@ public class ScaleTween : MonoBehaviour
             LeanTween.cancel(myTween.id);
         }
         LeanTween.color(gameObject.GetComponent<RectTransform>(), originalColor, 0.1f);
+        LeanTween.scale(gameObject.GetComponent<RectTransform>(), originalScale, 0.1f);
     }
 
     public void MoveToPosition(Vector3 newPosition)
