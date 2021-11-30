@@ -20,9 +20,7 @@ public class DataBaseScreenFunctions: MonoBehaviour
     void Start()
     {
         StartMock();
-        StartDB();
-        PopulateDB();
-        Test();
+        GetDBValues();
         StartTable();
     }
 
@@ -49,24 +47,7 @@ public class DataBaseScreenFunctions: MonoBehaviour
         tableMock = mock;
     }
 
-    void StartDB()
-    {
-        this.database.Connect("URI=file:db/MasterSQLite.db");
-        string sql = "drop table teste";
-        database.QueryCommand(sql);
-        sql = "CREATE TABLE teste(name VARCHAR(20), score INT)";
-        database.NonQueryCommand(sql);
-    }
-
-    void PopulateDB()
-    {
-        string sql = "INSERT INTO teste(name, score) VALUES('Thiago', 45)";
-        database.NonQueryCommand(sql);
-        sql = "INSERT INTO teste(name, score) VALUES('Jocye', 40)";
-        database.NonQueryCommand(sql);
-    }
-
-    void Test()
+    void GetDBValues()
     {
         string sqlQuery = "PRAGMA table_info(teste);";
         IDataReader reader = database.QueryCommand(sqlQuery);
