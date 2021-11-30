@@ -6,8 +6,9 @@ public class MainScreenFunctions : MonoBehaviour
 {
     public GameObject menuBackgroungVertical;
     public GameObject menuButton;
-    
+
     [SerializeField] GameObject phoneObject;
+    [SerializeField] GameObject tableObject;
 
     private int MenuVerticalHeight = 125;
 
@@ -41,6 +42,7 @@ public class MainScreenFunctions : MonoBehaviour
 
     public void OnMenuClick()
     {
+        tableObject.SetActive(true);
         HideMenu();
     }
 
