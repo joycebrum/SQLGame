@@ -3,23 +3,30 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.UI.TableUI;
+using System.Data;
 
 public class DataBaseScreenFunctions: MonoBehaviour
 {
     public TableUI table;
+    public DataBase database;
 
     List<string> headerMock = new List<string>();
     List<List<string>> tableMock = new List<List<string>>();
+    List<string> headerData = new List<string>();
+    List<List<string>> tableData = new List<List<string>>();
     List<float> columnWidth = new List<float>();
 
     // Start is called before the first frame update
     void Start()
     {
-        startMock();
-        startTable();
+        StartMock();
+        StartDB();
+        PopulateDB();
+        Test();
+        StartTable();
     }
 
-    void startMock()
+    void StartMock()
     {
         //Header
         headerMock.Add("aaa");
@@ -40,27 +47,72 @@ public class DataBaseScreenFunctions: MonoBehaviour
             mock.Add(temp);
         }
         tableMock = mock;
-    } 
+    }
 
-    void startTable()
+    void StartDB()
+    {
+        this.database.Connect("URI=file:db/MasterSQLite.db");
+        string sql = "drop table teste";
+        database.QueryCommand(sql);
+        sql = "CREATE TABLE teste(name VARCHAR(20), score INT)";
+        database.NonQueryCommand(sql);
+    }
+
+    void PopulateDB()
+    {
+        string sql = "INSERT INTO teste(name, score) VALUES('Thiago', 45)";
+        database.NonQueryCommand(sql);
+        sql = "INSERT INTO teste(name, score) VALUES('Jocye', 40)";
+        database.NonQueryCommand(sql);
+    }
+
+    void Test()
+    {
+        string sqlQuery = "PRAGMA table_info(teste);";
+        IDataReader reader = database.QueryCommand(sqlQuery);
+
+        while (reader.Read())
+        {
+            string columnName = (string)reader["name"];
+            headerData.Add(columnName);
+        }
+
+        sqlQuery = "SELECT * FROM teste";
+        reader = database.QueryCommand(sqlQuery);
+
+        while (reader.Read())
+        {
+            string name = (string)reader["name"];
+            int value = (int)reader["score"];
+            string score = value.ToString();
+
+            List<string> temp = new List<string>();
+            temp.Add(name);
+            temp.Add(score);
+            tableData.Add(temp);
+
+        }
+        Debug.Log("Coletado com sucesso");
+    }
+
+    void StartTable()
     {
         //setup table
 
-        table.Columns = headerMock.Count;
-        table.Rows = tableMock.Count+1;
+        table.Columns = headerData.Count;
+        table.Rows = tableData.Count+1;
+        Debug.Log(tableData.Count);
 
         //initialize table
-        for(int i=0; i<headerMock.Count; i++)
+        for(int i=0; i<headerData.Count; i++)
         {
-            table.GetCell(0, i).text = headerMock[i];
+            table.GetCell(0, i).text = headerData[i];
         }
-        for(int i=0; i< tableMock.Count; i++)
+        for(int i=0; i< tableData.Count; i++)
         {
-            print("count: " +tableMock[i].Count);
-            for (int j=0; j<tableMock[i].Count; j++)
+            for (int j=0; j< tableData[i].Count; j++)
             {
-                print("i: " + i + " | j: " + j);
-                table.GetCell(i + 1, j).text = tableMock[i][j]; 
+                table.GetCell(i + 1, j).text = tableData[i][j]; 
             }
         }
     }
