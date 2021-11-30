@@ -10,21 +10,20 @@ public class DataBaseScreenFunctions: MonoBehaviour
     public TableUI table;
     public DataBase database;
 
-    List<string> headerMock = new List<string>();
-    List<List<string>> tableMock = new List<List<string>>();
+    // List<string> headerMock = new List<string>();
+    // List<List<string>> tableMock = new List<List<string>>();
     List<string> headerData = new List<string>();
     List<List<string>> tableData = new List<List<string>>();
-    List<float> columnWidth = new List<float>();
 
     // Start is called before the first frame update
     void Start()
     {
-        StartMock();
+        // StartMock();
         GetDBValues();
         StartTable();
     }
 
-    void StartMock()
+    /*void StartMock()
     {
         //Header
         headerMock.Add("aaa");
@@ -45,7 +44,7 @@ public class DataBaseScreenFunctions: MonoBehaviour
             mock.Add(temp);
         }
         tableMock = mock;
-    }
+    }*/
 
     void GetDBValues()
     {
