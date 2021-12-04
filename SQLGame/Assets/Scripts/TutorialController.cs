@@ -13,8 +13,8 @@ public class TutorialController : MonoBehaviour
         public string[] instructions;
         public Vector3 position;
     }
+    [SerializeField] private GameObject instructionPanel;
     [SerializeField] private Text instructionText;
-    [SerializeField] private RectTransform movingArea;
     [SerializeField] private TutorialStep[] tutorialSteps;
     private int tutorialStepIdx = 0;
     private int instructionIdx = 0;
@@ -23,21 +23,33 @@ public class TutorialController : MonoBehaviour
     void Start()
     {
         //TODO: Remover a chamada o Start e chamá-lo no momento apropriadao.
+        StartTutorial();
+    }
+
+    public void OnClick()
+    {
+        if(tutorialStepIdx >= 0 && instructionPanel.activeSelf) NextTutorialStep();
+    }
+
+    public void StartTutorial()
+    {
+        instructionPanel.SetActive(true);
         NextTutorialStep();
     }
 
-    private void OnMouseDown()
+    public void StopTutorial()
     {
-        if(tutorialStepIdx >= 0) NextTutorialStep();
+        instructionText.text = "";
+        instructionPanel.SetActive(false);
+        if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
+        tutorialStepIdx = -1;
     }
 
     private void NextTutorialStep()
     {
         if (tutorialStepIdx >= tutorialSteps.Length)
         {
-            instructionText.text = "";
-            if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
-            tutorialStepIdx = -1;
+            StopTutorial();
             return;
         }
 
