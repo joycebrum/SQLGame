@@ -43,25 +43,5 @@ public class MainScreenFunctions : MonoBehaviour
     public void OnMenuClick()
     {
         tableObject.SetActive(true);
-        HideMenu();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    private void HideMenu()
-    {
-        Debug.Log("Menu");
-        if (menuBackgroungVertical.activeSelf)
-        {
-            menuBackgroungVertical.SetActive(false);
-        } else
-        {
-            menuBackgroungVertical.SetActive(true);
-        }
-    } 
 }
