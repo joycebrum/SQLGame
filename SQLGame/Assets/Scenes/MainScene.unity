@@ -746,6 +746,8 @@ GameObject:
   - component: {fileID: 303988116}
   - component: {fileID: 303988115}
   - component: {fileID: 303988114}
+  - component: {fileID: 303988118}
+  - component: {fileID: 303988117}
   m_Layer: 5
   m_Name: "Configura\xE7\xF5es"
   m_TagString: Untagged
@@ -853,6 +855,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303988112}
   m_CullTransparentMesh: 0
+--- !u!114 &303988117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303988112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 303988118}
+          m_TargetAssemblyTypeName: ScaleTween, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 303988118}
+          m_TargetAssemblyTypeName: ScaleTween, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &303988118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303988112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6739b5c2eb7b947bf7e91fe013369e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleChange: {x: 0.08, y: 0.08, z: 0.08}
+  duration: 0.2
+  shouldScaleOnPointEnter: 1
 --- !u!1 &468111732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1571,8 @@ GameObject:
   - component: {fileID: 1051596739}
   - component: {fileID: 1051596738}
   - component: {fileID: 1051596737}
+  - component: {fileID: 1051596741}
+  - component: {fileID: 1051596740}
   m_Layer: 5
   m_Name: "Not\xEDcias"
   m_TagString: Untagged
@@ -1616,6 +1680,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051596735}
   m_CullTransparentMesh: 0
+--- !u!114 &1051596740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051596735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1051596741}
+          m_TargetAssemblyTypeName: ScaleTween, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1051596741}
+          m_TargetAssemblyTypeName: ScaleTween, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1051596741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051596735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6739b5c2eb7b947bf7e91fe013369e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleChange: {x: 0.08, y: 0.08, z: 0.08}
+  duration: 0.2
+  shouldScaleOnPointEnter: 1
 --- !u!1 &1082343026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2258,8 @@ GameObject:
   - component: {fileID: 1577868960}
   - component: {fileID: 1577868959}
   - component: {fileID: 1577868958}
+  - component: {fileID: 1577868962}
+  - component: {fileID: 1577868961}
   m_Layer: 5
   m_Name: Banco de Dados
   m_TagString: Untagged
@@ -2241,6 +2367,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577868956}
   m_CullTransparentMesh: 0
+--- !u!114 &1577868961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577868956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1577868962}
+          m_TargetAssemblyTypeName: ScaleTween, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1577868962}
+          m_TargetAssemblyTypeName: ScaleTween, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1577868962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577868956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6739b5c2eb7b947bf7e91fe013369e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleChange: {x: 0.08, y: 0.08, z: 0.08}
+  duration: 0.2
+  shouldScaleOnPointEnter: 1
 --- !u!1 &1789714195
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2439,8 @@ GameObject:
   - component: {fileID: 1789714199}
   - component: {fileID: 1789714198}
   - component: {fileID: 1789714197}
+  - component: {fileID: 1789714201}
+  - component: {fileID: 1789714200}
   m_Layer: 5
   m_Name: Pistas
   m_TagString: Untagged
@@ -2360,6 +2548,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789714195}
   m_CullTransparentMesh: 0
+--- !u!114 &1789714200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789714195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1789714201}
+          m_TargetAssemblyTypeName: ScaleTween, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1789714201}
+          m_TargetAssemblyTypeName: ScaleTween, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1789714201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789714195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6739b5c2eb7b947bf7e91fe013369e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleChange: {x: 0.08, y: 0.08, z: 0.08}
+  duration: 0.2
+  shouldScaleOnPointEnter: 1
 --- !u!1 &1827953877
 GameObject:
   m_ObjectHideFlags: 0
