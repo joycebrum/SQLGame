@@ -19,6 +19,7 @@ public class DataBaseWindowController: MonoBehaviour
     void Start()
     {
         // StartMock();
+        Debug.Log(tableData.Count);
         GetDBValues();
         StartTable();
     }
@@ -94,11 +95,5 @@ public class DataBaseWindowController: MonoBehaviour
                 table.GetCell(i + 1, j).text = tableData[i][j]; 
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
