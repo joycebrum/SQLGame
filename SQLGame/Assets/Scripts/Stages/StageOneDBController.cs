@@ -31,7 +31,11 @@ public class StageOneDBController : MonoBehaviour
     {
         string sql = "INSERT INTO teste(name, score) VALUES('Thiago', 45)";
         database.NonQueryCommand(sql);
-        sql = "INSERT INTO teste(name, score) VALUES('Jocye', 40)";
+        sql = "INSERT INTO teste(name, score) VALUES('Joyce', 40)";
+        database.NonQueryCommand(sql);
+        sql = "INSERT INTO teste(name, score) VALUES('Joyce', 35)";
+        database.NonQueryCommand(sql);
+        sql = "INSERT INTO teste(name, score) VALUES('Joyce', 60)";
         database.NonQueryCommand(sql);
     }
 }

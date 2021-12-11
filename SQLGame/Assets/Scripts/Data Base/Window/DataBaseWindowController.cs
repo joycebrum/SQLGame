@@ -10,6 +10,13 @@ public class DataBaseWindowController: MonoBehaviour
     public TableUI table;
     public DataBase database;
 
+    public Dropdown firstDropDown;
+    public Dropdown secondDropDown;
+    public Dropdown thirdDropDown;
+    public InputField firstInputField;
+    public InputField secondInputField;
+    public InputField thirdInputField;
+
     // List<string> headerMock = new List<string>();
     // List<List<string>> tableMock = new List<List<string>>();
     List<string> headerData = new List<string>();
@@ -20,8 +27,9 @@ public class DataBaseWindowController: MonoBehaviour
     {
         // StartMock();
         Debug.Log(tableData.Count);
+        SetSearchMechanism();
         GetDBValues();
-        StartTable();
+        UpdateTable();
     }
 
     /*void StartMock()
@@ -47,6 +55,28 @@ public class DataBaseWindowController: MonoBehaviour
         tableMock = mock;
     }*/
 
+    void SetSearchMechanism()
+    {
+        List<string> firstList = new List<string> { "select", "insert" };
+        firstDropDown.options.Clear();
+        List<string> secondList = new List<string> { "from" };
+        secondDropDown.options.Clear();
+        List<string> thirdList = new List<string> { "where" };
+        thirdDropDown.options.Clear();
+        foreach (string option in firstList)
+        {
+            firstDropDown.options.Add(new Dropdown.OptionData(option));
+        }
+        foreach (string option in secondList)
+        {
+            secondDropDown.options.Add(new Dropdown.OptionData(option));
+        }
+        foreach (string option in thirdList)
+        {
+            thirdDropDown.options.Add(new Dropdown.OptionData(option));
+        }
+    }
+
     void GetDBValues()
     {
         string sqlQuery = "PRAGMA table_info(teste);";
@@ -61,21 +91,10 @@ public class DataBaseWindowController: MonoBehaviour
         sqlQuery = "SELECT * FROM teste";
         reader = database.QueryCommand(sqlQuery);
 
-        while (reader.Read())
-        {
-            string name = (string)reader["name"];
-            int value = (int)reader["score"];
-            string score = value.ToString();
-
-            List<string> temp = new List<string>();
-            temp.Add(name);
-            temp.Add(score);
-            tableData.Add(temp);
-
-        }
+        UpdateTableData(reader: reader);
     }
 
-    void StartTable()
+    void UpdateTable()
     {
         //setup table
 
@@ -95,5 +114,42 @@ public class DataBaseWindowController: MonoBehaviour
                 table.GetCell(i + 1, j).text = tableData[i][j]; 
             }
         }
+    }
+
+    void UpdateTableData(IDataReader reader)
+    {
+        while (reader.Read())
+        {
+            string name = (string)reader["name"];
+            int value = (int)reader["score"];
+            string score = value.ToString();
+
+            List<string> temp = new List<string>();
+            temp.Add(name);
+            temp.Add(score);
+            tableData.Add(temp);
+
+        }
+    }
+
+    void ClearTableData()
+    {
+        tableData.Clear();
+    }
+
+    public void OnClickSearchButton()
+    {
+        //string sqlQuery = "select * from teste where name='Thiago'";
+        string firstDropDownValue = firstDropDown.options[firstDropDown.value].text;
+        string secondDropDownValue = secondDropDown.options[secondDropDown.value].text;
+        string thirdDropDownValue = thirdDropDown.options[thirdDropDown.value].text;
+
+        string sqlQuery = firstDropDownValue + " " + firstInputField.text + " " + secondDropDownValue + " " + secondInputField.text + " " + thirdDropDownValue + " " + thirdInputField.text;
+        Debug.Log(sqlQuery);
+
+        IDataReader reader = database.QueryCommand(sqlQuery);
+
+        UpdateTableData(reader: reader);
+        UpdateTable();
     }
 }
