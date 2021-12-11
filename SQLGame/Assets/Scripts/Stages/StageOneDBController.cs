@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fase1 : MonoBehaviour
+public class StageOneDBController : MonoBehaviour
 {
     public DataBase database;
     // Start is called before the first frame update

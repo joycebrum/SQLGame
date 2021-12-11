@@ -44,4 +44,9 @@ public class MainScreenFunctions : MonoBehaviour
     {
         tableObject.SetActive(true);
     }
+
+    public void OnDBButtonClick()
+    {
+        tableObject.SetActive(true);
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI.TableUI;
 using System.Data;
 
-public class DataBaseScreenFunctions: MonoBehaviour
+public class DataBaseWindowController: MonoBehaviour
 {
     public TableUI table;
     public DataBase database;
@@ -72,7 +72,6 @@ public class DataBaseScreenFunctions: MonoBehaviour
             tableData.Add(temp);
 
         }
-        Debug.Log("Coletado com sucesso");
     }
 
     void StartTable()
