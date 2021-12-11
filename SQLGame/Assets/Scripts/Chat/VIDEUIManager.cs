@@ -61,8 +61,11 @@ public class VIDEUIManager : MonoBehaviour
 
     void OnDisable()
     {
-        VA.overrideStartNode = VD.nodeData.nodeID;
-        VA.SaveState(dialogueNameToLoad);
+        if (VA != null && VD.nodeData != null)
+        {
+            VA.overrideStartNode = VD.nodeData.nodeID;
+            VA.SaveState(dialogueNameToLoad);
+        }
         //If the script gets destroyed, let's make sure we force-end the dialogue to prevent errors
         End(null);
     }
