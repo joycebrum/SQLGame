@@ -1,4 +1,4 @@
-﻿public class Configuration
+﻿public class Constants
 {
     public const string AIName = "Lexa";
     public const string AIChat = "IAChat";

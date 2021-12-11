@@ -232,22 +232,18 @@ MonoBehaviour:
     instructions:
     - "Este bot\xE3o permite que voc\xEA abra o seu celular e visualiza as conversas"
     - String teste 2
-    position: {x: 0, y: -230, z: 0}
   - gameObject: {fileID: 239352954}
     instructions:
     - "Este bot\xE3o permite que voc\xEA abra o seu celular e visualiza as conversas"
     - String teste 2
-    position: {x: 10, y: -230, z: 0}
   - gameObject: {fileID: 252473289}
     instructions:
     - "Este bot\xE3o permite que voc\xEA abra o seu celular e visualiza as conversas"
     - String teste 2
-    position: {x: 800, y: -230, z: 0}
   - gameObject: {fileID: 468111732}
     instructions:
     - "Este bot\xE3o permite que voc\xEA abra o seu celular e visualiza as conversas"
     - String teste 2
-    position: {x: 800, y: -20, z: 0}
 --- !u!114 &13938859
 MonoBehaviour:
   m_ObjectHideFlags: 0

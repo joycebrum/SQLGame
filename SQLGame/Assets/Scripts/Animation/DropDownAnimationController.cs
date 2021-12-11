@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropDownMenuController : MonoBehaviour
+public class DropDownAnimationController : MonoBehaviour
 {
     private bool open = false;
     private float hiddenDuration = 0.3f;

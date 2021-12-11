@@ -9,13 +9,12 @@ public class TutorialController : MonoBehaviour
     [Serializable]
     private class TutorialStep
     {
-        public GameObject gameObject;
-        public string[] instructions;
-        public Vector3 position;
+        public GameObject gameObject = null;
+        public string[] instructions = null;
     }
-    [SerializeField] private GameObject instructionPanel;
-    [SerializeField] private Text instructionText;
-    [SerializeField] private TutorialStep[] tutorialSteps;
+    [SerializeField] private GameObject instructionPanel = null;
+    [SerializeField] private Text instructionText = null;
+    [SerializeField] private TutorialStep[] tutorialSteps = null;
     private int tutorialStepIdx = 0;
     private int instructionIdx = 0;
 
@@ -41,7 +40,7 @@ public class TutorialController : MonoBehaviour
     {
         instructionText.text = "";
         instructionPanel.SetActive(false);
-        if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
+        if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
         tutorialStepIdx = -1;
     }
 
@@ -62,8 +61,8 @@ public class TutorialController : MonoBehaviour
     {
         if(instructionIdx == 0)
         {
-            if(tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ScaleTween>().UnfocusWithAnimation();
-            tutorialStep.gameObject.GetComponent<ScaleTween>().FocusWithAnimation();
+            if(tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
+            tutorialStep.gameObject.GetComponent<ButtonAnimationController>().FocusWithAnimation();
         }
 
         instructionText.text = tutorialStep.instructions[instructionIdx];

@@ -37,7 +37,7 @@ public class MainScreenFunctions : MonoBehaviour
     public void OnIAClick()
     {
         phoneObject.SetActive(true);
-        phoneObject.GetComponent<ChatDialogController>().ShowChat(0, Configuration.AIName);
+        phoneObject.GetComponent<ChatDialogController>().ShowChat(0, Constants.AIName);
     }
 
     public void OnMenuClick()
