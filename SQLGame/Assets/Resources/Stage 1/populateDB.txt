@@ -1,1 +1,6 @@
-INSERT INTO Alunos(matricula, nome, telefone, sobrenome, dataDeNascimento) VALUES('000001', 'Joyce', '(21) 11111-1111', 'Brum', '1998-05-13');
+INSERT INTO Alunos(matricula, nome, telefone, sobrenome, dataDeNascimento, tipo) 
+VALUES
+	('110050', 'Joyce', '(21) 11111-1111', 'Brum', '1998-05-13', 'ampla'),
+	('110051', 'Marta', '(21) 11111-1111', 'Rocha', '1997-10-18', 'ampla'),
+	('110052', 'Pedro', '(21) 11111-1111', 'Carvalho', '1998-06-20', 'ampla'),
+	('110053', 'Letícia', '(21) 11111-1111', 'Ferreira', '1996-07-15', 'ampla');
