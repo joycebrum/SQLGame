@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS AcessoComputadores(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	login DATETIME,
 	logout DATETIME,
-	usuario VARCHAR(20),
 	matriculaAluno VARCHAR(10) NOT NULL,
 	FOREIGN KEY(matriculaAluno) REFERENCES Alunos(matricula)
 );
