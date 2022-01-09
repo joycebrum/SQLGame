@@ -233,29 +233,28 @@ VALUES
     ('182954', 'AlbertoBeatriz', 'Campos', '(11) 82024-7736', '2000-02-9', 'ampla'),
     ('194506', 'Adriana', 'de Sant Anna', '(84) 87618-7687', '1999-01-21', 'baixa renda'),
     ('195789', 'Camila', 'Sant Anna', '(71) 39830-7857', '1997-02-21', 'racial');
-INSERT INTO Segurancas(nome, sobrenome, telefone, dataDeNascimento) 
+INSERT INTO Segurancas(id, nome, sobrenome, telefone, dataDeNascimento) 
 VALUES
-    ('Elizete', 'Oliveira', '(44) 20738-7910', '1974-07-16'),
-    ('Lilian', 'Oliveira', '(28) 4826-4196', '1981-06-26'),
-    ('Kerolin', 'de Lima', '(49) 7781-8624', '1987-10-13'),
-    ('Bento', 'Oliveira', '(98) 14223-1027', '1981-05-16'),
-    ('Joselaine', 'Batista', '(74) 92655-1020', '1980-12-24'),
-    ('Davi', 'de Lima', '(54) 68421-8314', '1983-08-11'),
-    ('Adriano', 'Nunes', '(33) 22445-2940', '1980-08-24'),
-    ('Ivan', 'Sousa', '(33) 61029-1143', '1981-11-15'),
-    ('Fernanda', 'Oliveira', '(22) 90028-7892', '1981-06-10'),
-    ('Kerolin', 'Duarte', '(85) 12250-2591', '1981-03-18'),
-    ('Maicon', 'Cardoso', '(83) 46567-8704', '1978-05-2'),
-    ('Elena', 'Alves', '(38) 31479-5891', '1987-09-15'),
-    ('Natan', 'Cerqueira', '(66) 92210-4440', '1978-09-9'),
-    ('Ivan', 'Sant Anna', '(98) 98942-4681', '1974-10-10'),
-    ('Galvão', 'Rocha', '(75) 39659-9876', '1986-01-3'),
-    ('Laura', 'Pereira', '(81) 44641-4496', '1979-11-15'),
-    ('Bianca', 'Fernandes', '(54) 84802-2511', '1987-05-6'),
-    ('Kerolin', 'Costa', '(55) 7631-8555', '1980-08-12'),
-    ('Joyce', 'de Sant Anna', '(95) 91623-8264', '1980-03-8'),
-    ('Penelope', 'Carvalho', '(48) 9302-6985', '1983-11-8');
-
+    (1, 'Elizete', 'Oliveira', '(44) 20738-7910', '1974-07-16'),
+    (2, 'Lilian', 'Oliveira', '(28) 4826-4196', '1981-06-26'),
+    (3, 'Kerolin', 'de Lima', '(49) 7781-8624', '1987-10-13'),
+    (4, 'Bento', 'Oliveira', '(98) 14223-1027', '1981-05-16'),
+    (5, 'Joselaine', 'Batista', '(74) 92655-1020', '1980-12-24'),
+    (6, 'Davi', 'de Lima', '(54) 68421-8314', '1983-08-11'),
+    (7, 'Adriano', 'Nunes', '(33) 22445-2940', '1980-08-24'),
+    (8, 'Ivan', 'Sousa', '(33) 61029-1143', '1981-11-15'),
+    (9, 'Fernanda', 'Oliveira', '(22) 90028-7892', '1981-06-10'),
+    (10, 'Kerolin', 'Duarte', '(85) 12250-2591', '1981-03-18'),
+    (11, 'Maicon', 'Cardoso', '(83) 46567-8704', '1978-05-2'),
+    (12, 'Elena', 'Alves', '(38) 31479-5891', '1987-09-15'),
+    (13, 'Natan', 'Cerqueira', '(66) 92210-4440', '1978-09-9'),
+    (14, 'Ivan', 'Sant Anna', '(98) 98942-4681', '1974-10-10'),
+    (15, 'Galvão', 'Rocha', '(75) 39659-9876', '1986-01-3'),
+    (16, 'Laura', 'Pereira', '(81) 44641-4496', '1979-11-15'),
+    (17, 'Bianca', 'Fernandes', '(54) 84802-2511', '1987-05-6'),
+    (18, 'Kerolin', 'Costa', '(55) 7631-8555', '1980-08-12'),
+    (19, 'Joyce', 'de Sant Anna', '(95) 91623-8264', '1980-03-8'),
+    (20, 'Penelope', 'Carvalho', '(48) 9302-6985', '1983-11-8');
 INSERT INTO MateriasPorAluno(idMateria, nomeMateria, matriculaAluno, nomeAluno) 
 VALUES
     (7, 'Cálculo I', 152354, 'Caio'),
