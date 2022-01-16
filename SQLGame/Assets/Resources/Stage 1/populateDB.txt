@@ -31,8 +31,8 @@ INSERT INTO Materias(id, titulo) VALUES
 INSERT INTO Alunos(matricula, nome, sobrenome, telefone, dataDeNascimento, tipo) 
 VALUES
     ('152354', 'Caio', 'Bezerra', '(68) 59042-9182', '1997-09-24', 'baixa renda'),
-    ('155623', 'Vitor', 'Damasceno', '(27) 14680-8353', '1996-09-20', 'ampla'),
-    ('163224', 'Thiago', 'Milioni', '(73) 64304-1871', '1999-09-2', 'baixa renda'),
+    ('155623', 'Thiago', 'Damasceno', '(27) 14680-8353', '1996-09-20', 'ampla'),
+    ('163224', 'Vitor', 'Milioni', '(73) 64304-1871', '1999-09-2', 'baixa renda'),
     ('165057', 'Alberto', 'de Carvalho', '(74) 39139-9230', '1995-11-12', 'ampla'),
     ('186506', 'Armando', 'Medeiros', '(82) 79114-5440', '1999-09-26', 'racial'),
     ('162736', 'Beatriz', 'Ribeiro', '(89) 82901-7900', '1997-01-8', 'racial'),
@@ -1282,7 +1282,7 @@ VALUES
     ('2', '2022-04-23 07:09:54', '2022-04-23 15:06:57', 'Nenhum incidente a relatar'),
     ('10', '2022-04-23 13:12:22', '2022-04-23 21:14:56', 'Tudo nos conformes'),
     ('9', '2022-04-23 13:12:22', '2022-04-23 21:14:56', 'Nenhum incidente a relatar'),
-    ('5', '2022-04-23 13:12:22', '2022-04-23 21:14:56', 'Dois meninos brigaram feio perto da entrada do laboratório, acho que um deles era Vitor Damasceno e o outro era Mili-alguma-coisa. Nada mais a relatar. O que esses meninos fazem tão tarde na faculdade em um sábado?!'),
+    ('5', '2022-04-23 13:12:22', '2022-04-23 21:14:56', 'Dois meninos brigaram feio perto da entrada do laboratório, acho que um deles era Thiago Damasceno e o outro era Mili-alguma-coisa. Nada mais a relatar. O que esses meninos fazem tão tarde na faculdade em um sábado?!'),
     ('1', '2022-04-24 07:07:08', '2022-04-24 15:10:53', 'TODOS OS COMPUTADORES DESAPARECERAM! Inicio do turno a primeira coisa que fui fazer foi abrir as salas mas quando vi estavam todas vazias!'),
     ('11', '2022-04-24 07:07:08', '2022-04-24 15:10:53', 'Elizete viu que todos os computadores sumiram de manhã. Depois disso chamamos a polícia e tivemos que cumprir todas as burocracias'),
     ('2', '2022-04-24 07:07:08', '2022-04-24 15:10:53', 'Nada relevante a relatar'),
