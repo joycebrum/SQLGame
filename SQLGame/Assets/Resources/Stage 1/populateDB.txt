@@ -1282,7 +1282,7 @@ VALUES
     ('2', '2022-04-23 07:09:54', '2022-04-23 15:06:57', 'Nenhum incidente a relatar'),
     ('10', '2022-04-23 13:12:22', '2022-04-23 21:14:56', 'Tudo nos conformes'),
     ('9', '2022-04-23 13:12:22', '2022-04-23 21:14:56', 'Nenhum incidente a relatar'),
-    ('5', '2022-04-23 13:12:22', '2022-04-23 21:14:56', 'Dois meninos brigaram feio perto da entrada do laboratório, acho que um deles era Thiago Damasceno e o outro era Mili-alguma-coisa. Nada mais a relatar. O que esses meninos fazem tão tarde na faculdade em um sábado?!'),
+    ('5', '2022-04-23 13:12:22', '2022-04-23 21:14:56', 'Dois meninos brigaram feio perto da entrada do laboratório (acredito que os mesmos que Elizete vinha reclamando, mas o terceiro não estava por perto), acho que um deles era Thiago Damasceno e o outro era Mili-alguma-coisa. O que esses meninos fazem tão tarde na faculdade em um sábado?!'),
     ('1', '2022-04-24 07:07:08', '2022-04-24 15:10:53', 'TODOS OS COMPUTADORES DESAPARECERAM! Inicio do turno a primeira coisa que fui fazer foi abrir as salas mas quando vi estavam todas vazias!'),
     ('11', '2022-04-24 07:07:08', '2022-04-24 15:10:53', 'Elizete viu que todos os computadores sumiram de manhã. Depois disso chamamos a polícia e tivemos que cumprir todas as burocracias'),
     ('2', '2022-04-24 07:07:08', '2022-04-24 15:10:53', 'Nada relevante a relatar'),
