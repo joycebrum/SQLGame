@@ -1251,7 +1251,7 @@ VALUES
     ('1', '2022-04-18 07:07:33', '2022-04-18 15:11:14', 'Nada relevante a relatar'),
     ('11', '2022-04-18 07:07:33', '2022-04-18 15:11:14', 'Tudo nos conformes'),
     ('2', '2022-04-18 13:05:29', '2022-04-18 21:00:04', 'Derrubaram sorvete no projetor (não faço ideia de como)'),
-    ('3', '2022-04-18 13:05:29', '2022-04-18 21:00:04', 'Não houve nenhum incidente.'),
+    ('3', '2022-04-18 13:05:29', '2022-04-18 21:00:04', 'Um jovem que tem vindo quase todos os dias estava todo ferido sentado perto das máquinas. Perguntei o que houve e oferci levá-lo a delegacia mas ele recusou.'),
     ('9', '2022-04-18 13:05:29', '2022-04-18 21:00:04', 'Nenhum incidente a relatar'),
     ('11', '2022-04-19 07:09:21', '2022-04-19 15:07:36', 'Turno correu normalmente.'),
     ('8', '2022-04-19 07:09:21', '2022-04-19 15:07:36', 'Nada a relatar'),
