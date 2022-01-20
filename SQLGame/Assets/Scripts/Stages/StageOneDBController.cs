@@ -17,6 +17,7 @@ public class StageOneDBController : MonoBehaviour
 
     public void InitDabaBase()
     {
+        this.database.Connect("URI=file:" + this.dbPath);
         if (!System.IO.File.Exists(dbPath))
         {
             CreateDataBase();
@@ -26,8 +27,6 @@ public class StageOneDBController : MonoBehaviour
 
     private void CreateDataBase()
     {
-        this.database.Connect("URI=file:" + this.dbPath);
-
         database.NonQueryCommand(ReadFromFile(sqlCreatePath));
     }
 

@@ -22,7 +22,7 @@ public class TutorialController : MonoBehaviour
     void Start()
     {
         //TODO: Remover a chamada o Start e chamá-lo no momento apropriadao.
-        StartTutorial();
+        //StartTutorial();
     }
 
     public void OnClick()

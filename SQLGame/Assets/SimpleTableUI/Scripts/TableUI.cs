@@ -29,7 +29,7 @@ namespace UnityEngine.UI.TableUI
         public SelectionGrid selectionGrid;
 
         //Maximum values can be changed, but the minimun must be >= 1 
-        public static int MAX_ROWS = 20, MIN_ROWS = 1, MAX_COL = 20, MIN_COL = 1;
+        public static int MAX_ROWS = 500, MIN_ROWS = 1, MAX_COL = 20, MIN_COL = 1;
 
 
 
