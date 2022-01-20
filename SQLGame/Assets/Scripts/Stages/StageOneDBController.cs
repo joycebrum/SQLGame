@@ -17,6 +17,7 @@ public class StageOneDBController : MonoBehaviour
 
     public void InitDabaBase()
     {
+        this.database.Connect("URI=file:" + this.dbPath);
         if (!System.IO.File.Exists(dbPath))
         {
             CreateDataBase();
@@ -26,21 +27,12 @@ public class StageOneDBController : MonoBehaviour
 
     private void CreateDataBase()
     {
-        this.database.Connect("URI=file:" + this.dbPath);
-
         database.NonQueryCommand(ReadFromFile(sqlCreatePath));
     }
 
     private void PopulateDataBase()
     {
         string sql = ReadFromFile(sqlPopulatePath);
-        string sql = "INSERT INTO teste(name, score) VALUES('Thiago', 45)";
-        database.NonQueryCommand(sql);
-        sql = "INSERT INTO teste(name, score) VALUES('Joyce', 40)";
-        database.NonQueryCommand(sql);
-        sql = "INSERT INTO teste(name, score) VALUES('Joyce', 35)";
-        database.NonQueryCommand(sql);
-        sql = "INSERT INTO teste(name, score) VALUES('Joyce', 60)";
         database.NonQueryCommand(sql);
     }
 
