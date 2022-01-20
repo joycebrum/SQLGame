@@ -1,34 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class StageOneDBController : MonoBehaviour
 {
     public DataBase database;
+    private string sqlCreatePath = "Assets/Resources/Stage 1/createDB.txt";
+    private string sqlPopulatePath = "Assets/Resources/Stage 1/populateDB.txt";
+    private string dbPath = "db/Stage1SQLite.db";
     // Start is called before the first frame update
     void Start()
     {
-        StartDB();
-        PopulateDB();
+        InitDabaBase();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InitDabaBase()
     {
-        
+        if (!System.IO.File.Exists(dbPath))
+        {
+            CreateDataBase();
+            PopulateDataBase();
+        }
     }
 
-    void StartDB()
+    private void CreateDataBase()
     {
-        this.database.Connect("URI=file:db/MasterSQLite.db");
-        string sql = "drop table teste";
-        database.QueryCommand(sql);
-        sql = "CREATE TABLE teste(name VARCHAR(20), score INT)";
-        database.NonQueryCommand(sql);
+        this.database.Connect("URI=file:" + this.dbPath);
+
+        database.NonQueryCommand(ReadFromFile(sqlCreatePath));
     }
 
-    void PopulateDB()
+    private void PopulateDataBase()
     {
+        string sql = ReadFromFile(sqlPopulatePath);
         string sql = "INSERT INTO teste(name, score) VALUES('Thiago', 45)";
         database.NonQueryCommand(sql);
         sql = "INSERT INTO teste(name, score) VALUES('Joyce', 40)";
@@ -37,5 +42,13 @@ public class StageOneDBController : MonoBehaviour
         database.NonQueryCommand(sql);
         sql = "INSERT INTO teste(name, score) VALUES('Joyce', 60)";
         database.NonQueryCommand(sql);
+    }
+
+    private string ReadFromFile(string path)
+    {
+        StreamReader reader = new StreamReader(path);
+        string sqlCreateText = reader.ReadToEnd();
+        reader.Close();
+        return sqlCreateText;
     }
 }

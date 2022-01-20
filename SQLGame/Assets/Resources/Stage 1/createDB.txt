@@ -1,35 +1,16 @@
-CREATE TABLE IF NOT EXISTS CursosOferecidos (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	titulo VARCHAR(50) NOT NULL,
-	campus VARCHAR(50) NOT NULL
-);
 CREATE TABLE IF NOT EXISTS Alunos( 
 	matricula VARCHAR(10) NOT NULL,
     nome VARCHAR(20) NOT NULL, 
     telefone VARCHAR(20), 
     sobrenome VARCHAR(20), 
     dataDeNascimento DATE,
+	tipo VARCHAR(20),
     PRIMARY KEY(matricula)
-);
-CREATE TABLE IF NOT EXISTS EquipeManutencao (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	matriculaAluno VARCHAR(10) NOT NULL,
-	dataDeIngresso DATE,
-	dataDeDesligamento DATE,
-	FOREIGN KEY(matriculaAluno) REFERENCES Alunos(matricula)
-);
-CREATE TABLE IF NOT EXISTS CheckInEquipeManutencao(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	entrada DATETIME,
-	saida DATETIME,
-	idMembroEquipe INTEGER,
-	FOREIGN KEY(idMembroEquipe) REFERENCES EquipeManutencao(id)
 );
 CREATE TABLE IF NOT EXISTS AcessoComputadores(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	entrada DATETIME,
-	saida DATETIME,
-	usuario VARCHAR(20),
+	login DATETIME,
+	logout DATETIME,
 	matriculaAluno VARCHAR(10) NOT NULL,
 	FOREIGN KEY(matriculaAluno) REFERENCES Alunos(matricula)
 );
@@ -47,7 +28,7 @@ CREATE TABLE IF NOT EXISTS Segurancas(
     sobrenome VARCHAR(20), 
     dataDeNascimento DATE
 );
-CREATE TABLE IF NOT EXISTS CheckinSegurancas(
+CREATE TABLE IF NOT EXISTS ControleSegurancas(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	idSeguranca INTEGER NOT NULL,
 	entrada DATETIME,
@@ -59,17 +40,12 @@ CREATE TABLE IF NOT EXISTS Materias(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	titulo VARCHAR(30) NOT NULL
 );
-CREATE TABLE IF NOT EXISTS MateriasPorCurso(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	idMateria INTEGER NOT NULL,
-	idCurso INTEGER NOT NULL,
-	FOREIGN KEY(idMateria) REFERENCES Materias(id),
-	FOREIGN KEY(idCurso) REFERENCES CursosOferecidos(id)
-);
 CREATE TABLE IF NOT EXISTS MateriasPorAluno(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	idMateria INTEGER NOT NULL,
+	nomeMateria VARCHAR(30) NOT NULL,
 	matriculaAluno VARCHAR(10) NOT NULL,
+	nomeAluno VARCHAR(20) NOT NULL,
 	FOREIGN KEY(matriculaAluno) REFERENCES Alunos(matricula)
 	FOREIGN KEY(idMateria) REFERENCES Materias(id)
 );
