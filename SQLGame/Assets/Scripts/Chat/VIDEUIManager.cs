@@ -73,6 +73,7 @@ public class VIDEUIManager : MonoBehaviour
     void CreateNewNPCMessage(string msg)
     {
         chatDialogController.SetMessage(msg);
+        print(msg);
         chatDialogController.ShowMessage();
     }
 
