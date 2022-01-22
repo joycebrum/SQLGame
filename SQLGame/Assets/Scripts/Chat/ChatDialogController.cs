@@ -94,8 +94,9 @@ public class ChatDialogController : MonoBehaviour
         float newHeight = GetMessageHeight();
         clone.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(this.messageWidth, newHeight);
 
+        // Align message on the left
         RectTransform rectTransform = clone.GetComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta[0] - 28 , newHeight);
+        rectTransform.sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta[0] - 40, newHeight);
 
         clone.GetComponentInChildren<MessageFunctions>().ShowMessage(message);
         this.message = null;
