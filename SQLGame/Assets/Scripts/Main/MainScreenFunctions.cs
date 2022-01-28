@@ -30,8 +30,15 @@ public class MainScreenFunctions : MonoBehaviour
 
     public void OnMessageClick()
     {
-        phoneObject.SetActive(true);
-        phoneObject.GetComponent<ChatDialogController>().ShowContacts();
+        if(phoneObject.activeInHierarchy)
+        {
+            phoneObject.SetActive(false);
+        }
+        else
+        {
+            phoneObject.SetActive(true);
+            phoneObject.GetComponent<ChatDialogController>().ShowContacts();
+        }
     }
 
     public void OnIAClick()

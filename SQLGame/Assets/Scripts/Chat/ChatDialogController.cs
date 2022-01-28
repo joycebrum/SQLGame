@@ -26,7 +26,7 @@ public class ChatDialogController : MonoBehaviour
 
     public void OnBackButton()
     {
-        this.gameObject.SetActive(false);
+        ShowContacts();
     }
 
 
