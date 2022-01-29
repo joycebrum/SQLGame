@@ -15,8 +15,6 @@ public class ChatDialogController : MonoBehaviour
     [SerializeField] GameObject contactScreen = null;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
 
-    private float messageWidth = 155;
-
     string message = "";
 
     void OnDisable()

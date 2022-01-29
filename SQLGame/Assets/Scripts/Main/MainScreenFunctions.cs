@@ -10,8 +10,6 @@ public class MainScreenFunctions : MonoBehaviour
     [SerializeField] GameObject phoneObject;
     [SerializeField] GameObject tableObject;
 
-    private int MenuVerticalHeight = 125;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +52,6 @@ public class MainScreenFunctions : MonoBehaviour
 
     public void OnDBButtonClick()
     {
-        tableObject.SetActive(!tableObject.active);
+        tableObject.SetActive(!tableObject.activeInHierarchy);
     }
 }

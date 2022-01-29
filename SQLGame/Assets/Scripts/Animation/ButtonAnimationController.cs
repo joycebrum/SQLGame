@@ -17,8 +17,6 @@ public class ButtonAnimationController : MonoBehaviour
     private Vector3 originalScale = new Vector3(1f, 1f, 1f);
     private bool onFocus = false;
 
-    private float hiddenDuration = 0.2f;
-
     public void Start()
     {
         originalColor = gameObject.GetComponent<Image>().color;
