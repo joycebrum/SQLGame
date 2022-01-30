@@ -1007,6 +1007,16 @@ MonoBehaviour:
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
   duration: 0.2
   shouldScaleOnPointEnter: 1
+--- !u!1 &498106181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3841585931858341321, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+  m_PrefabInstance: {fileID: 1831331940}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &498106182 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+  m_PrefabInstance: {fileID: 1831331940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &563665900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,7 +3494,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1789714198}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1961325262}
+        m_TargetAssemblyTypeName: MainScreenFunctions, Assembly-CSharp
+        m_MethodName: ToggleCluesWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1789714198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3736,6 +3758,139 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!1001 &1831331940
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1961325259}
+    m_Modifications:
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565792239891656374, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592402286279515768, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841585931858341321, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_Name
+      value: Clues Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841585931858341321, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442910310911435623, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442910310911435623, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442910310911435623, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1961325262}
+    - target: {fileID: 4442910310911435623, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442910310911435623, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleCluesWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442910310911435623, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainScreenFunctions, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442910310911435623, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
 --- !u!1 &1840209381
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,6 +4087,7 @@ RectTransform:
   - {fileID: 611679584}
   - {fileID: 720435003}
   - {fileID: 1211028731}
+  - {fileID: 498106182}
   m_Father: {fileID: 1557286603}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3994,6 +4150,7 @@ MonoBehaviour:
   menuButton: {fileID: 468111732}
   phoneObject: {fileID: 720435002}
   tableObject: {fileID: 1211028730}
+  cluesWindow: {fileID: 498106181}
 --- !u!1 &2144328821
 GameObject:
   m_ObjectHideFlags: 0

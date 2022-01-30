@@ -9,6 +9,7 @@ public class MainScreenFunctions : MonoBehaviour
 
     [SerializeField] GameObject phoneObject;
     [SerializeField] GameObject tableObject;
+    [SerializeField] GameObject cluesWindow;
 
     // Start is called before the first frame update
     void Start()
@@ -53,5 +54,10 @@ public class MainScreenFunctions : MonoBehaviour
     public void OnDBButtonClick()
     {
         tableObject.SetActive(!tableObject.activeInHierarchy);
+    }
+
+    public void ToggleCluesWindow()
+    {
+        cluesWindow.SetActive(!cluesWindow.activeInHierarchy);
     }
 }
