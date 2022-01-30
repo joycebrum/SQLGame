@@ -21,7 +21,7 @@ public class ClueController : MonoBehaviour
         this.initialClue = this.clueText.text;
         this.clueText.text = clueContent;
 
-        this.clueText.  color = new Color32(0, 0, 0, 255);
+        this.clueText.color = new Color32(0, 0, 0, 255);
 
         GetComponent<Image>().color = new Color32(255, 255, 255, 255);
     }
