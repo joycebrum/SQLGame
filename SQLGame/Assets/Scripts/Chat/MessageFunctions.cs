@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MessageFunctions : MonoBehaviour
 {
-    [SerializeField] Text text = null;
+    [SerializeField] TextMeshProUGUI text = null;
     public void ShowMessage(string message)
     {
         text.text = message;

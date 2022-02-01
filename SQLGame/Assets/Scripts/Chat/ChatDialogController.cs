@@ -15,8 +15,6 @@ public class ChatDialogController : MonoBehaviour
     [SerializeField] GameObject contactScreen = null;
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
 
-    private float messageWidth = 155;
-
     string message = "";
 
     void OnDisable()
@@ -26,7 +24,7 @@ public class ChatDialogController : MonoBehaviour
 
     public void OnBackButton()
     {
-        this.gameObject.SetActive(false);
+        ShowContacts();
     }
 
 
@@ -64,8 +62,6 @@ public class ChatDialogController : MonoBehaviour
             GameObject clone = (GameObject)Instantiate(newMessagePrefab);
             clone.transform.SetParent(messageParentPanel);
             clone.transform.localScale = new Vector3(1f, 1f, 1f);
-            float newHeight = GetMessageHeight();
-            clone.GetComponent<RectTransform>().sizeDelta = new Vector2(this.messageWidth, newHeight);
             clone.GetComponent<MessageFunctions>().ShowMessage(message);
             this.message = null;
         }
@@ -89,13 +85,6 @@ public class ChatDialogController : MonoBehaviour
 
         clone.transform.SetParent(messageParentPanel);
         clone.transform.localScale = new Vector3(1f, 1f, 1f);
-        clone.transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
-
-        float newHeight = GetMessageHeight();
-        clone.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(this.messageWidth, newHeight);
-
-        RectTransform rectTransform = clone.GetComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta[0] - 28 , newHeight);
 
         clone.GetComponentInChildren<MessageFunctions>().ShowMessage(message);
         this.message = null;

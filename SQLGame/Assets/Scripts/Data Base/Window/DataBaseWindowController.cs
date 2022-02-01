@@ -11,13 +11,6 @@ public class DataBaseWindowController: MonoBehaviour
     public TableUI table;
     public DataBase database;
 
-    public Dropdown firstDropDown;
-    public Dropdown secondDropDown;
-    public Dropdown thirdDropDown;
-    public InputField firstInputField;
-    public InputField secondInputField;
-    public InputField thirdInputField;
-
     // List<string> headerMock = new List<string>();
     // List<List<string>> tableMock = new List<List<string>>();
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
@@ -26,33 +19,9 @@ public class DataBaseWindowController: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetSearchMechanism();
         GetDBValues();
         UpdateTable();
     }
-
-    void SetSearchMechanism()
-    {
-        List<string> firstList = new List<string> { "select", "insert" };
-        firstDropDown.options.Clear();
-        List<string> secondList = new List<string> { "from" };
-        secondDropDown.options.Clear();
-        List<string> thirdList = new List<string> { "where" };
-        thirdDropDown.options.Clear();
-        foreach (string option in firstList)
-        {
-            firstDropDown.options.Add(new Dropdown.OptionData(option));
-        }
-        foreach (string option in secondList)
-        {
-            secondDropDown.options.Add(new Dropdown.OptionData(option));
-        }
-        foreach (string option in thirdList)
-        {
-            thirdDropDown.options.Add(new Dropdown.OptionData(option));
-        }
-    }
-
     void GetDBValues()
     {
         string sqlQuery = "PRAGMA table_info(Alunos);";
@@ -121,13 +90,7 @@ public class DataBaseWindowController: MonoBehaviour
 
     public void OnClickSearchButton()
     {
-        //string sqlQuery = "select * from teste where name='Thiago'";
-        string firstDropDownValue = firstDropDown.options[firstDropDown.value].text;
-        string secondDropDownValue = secondDropDown.options[secondDropDown.value].text;
-        string thirdDropDownValue = thirdDropDown.options[thirdDropDown.value].text;
-
-        string sqlQuery = firstDropDownValue + " " + firstInputField.text + " " + secondDropDownValue + " " + secondInputField.text + " " + thirdDropDownValue + " " + thirdInputField.text;
-        Debug.Log(sqlQuery);
+        string sqlQuery = "";
 
         IDataReader reader = database.QueryCommand(sqlQuery);
 

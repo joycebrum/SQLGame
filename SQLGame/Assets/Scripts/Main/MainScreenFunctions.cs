@@ -9,8 +9,7 @@ public class MainScreenFunctions : MonoBehaviour
 
     [SerializeField] GameObject phoneObject;
     [SerializeField] GameObject tableObject;
-
-    private int MenuVerticalHeight = 125;
+    [SerializeField] GameObject cluesWindow;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +29,15 @@ public class MainScreenFunctions : MonoBehaviour
 
     public void OnMessageClick()
     {
-        phoneObject.SetActive(true);
-        phoneObject.GetComponent<ChatDialogController>().ShowContacts();
+        if(phoneObject.activeInHierarchy)
+        {
+            phoneObject.SetActive(false);
+        }
+        else
+        {
+            phoneObject.SetActive(true);
+            phoneObject.GetComponent<ChatDialogController>().ShowContacts();
+        }
     }
 
     public void OnIAClick()
@@ -47,6 +53,11 @@ public class MainScreenFunctions : MonoBehaviour
 
     public void OnDBButtonClick()
     {
-        tableObject.SetActive(!tableObject.active);
+        tableObject.SetActive(!tableObject.activeInHierarchy);
+    }
+
+    public void ToggleCluesWindow()
+    {
+        cluesWindow.SetActive(!cluesWindow.activeInHierarchy);
     }
 }
