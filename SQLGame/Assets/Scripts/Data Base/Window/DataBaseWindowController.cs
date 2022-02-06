@@ -134,6 +134,7 @@ public class DataBaseWindowController: MonoBehaviour
                 this.GetDBValues(sqlQuery);
                 this.UpdateTable();
 
+                errorText.gameObject.SetActive(false);
                 this.scrollView.SetActive(true);
             }
             catch (SqliteSyntaxException e)
