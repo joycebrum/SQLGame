@@ -95,11 +95,7 @@ public class DataBaseWindowController: MonoBehaviour
     {
         string sqlQuery = queryInput.text;
 
-        if(String.IsNullOrEmpty(sqlQuery) || !this.IsSqlValid(sqlQuery))
-        {
-            this.scrollView.SetActive(false);
-        } 
-        else
+        if(!String.IsNullOrEmpty(sqlQuery) && this.IsSqlValid(sqlQuery))
         {
             try
             {
@@ -112,8 +108,7 @@ public class DataBaseWindowController: MonoBehaviour
             }
             catch (SqliteSyntaxException e)
             {
-                errorText.text = translateErrorMessage(e.Message);
-                errorText.gameObject.SetActive(true);
+                SetErrorMessage(translateErrorMessage(e.Message));
             }
         }
     }
@@ -136,18 +131,23 @@ public class DataBaseWindowController: MonoBehaviour
         List<string> errors = SqlValidator.Validate(sqlQuery);
         if (errors != null && errors.Count != 0)
         {
-            errorText.text = "";
+            string msg = "";
 
             foreach (string error in errors)
             {
-                errorText.text += error;
-                errorText.text += "\n";
+                msg += error;
+                msg += "\n";
             }
-
-            errorText.gameObject.SetActive(true);
-
+            SetErrorMessage(msg);
             return false;
         }
         return true;
+    }
+
+    private void SetErrorMessage(string msg)
+    {
+        errorText.text = msg;
+        this.scrollView.SetActive(false);
+        errorText.gameObject.SetActive(true);
     }
 }
