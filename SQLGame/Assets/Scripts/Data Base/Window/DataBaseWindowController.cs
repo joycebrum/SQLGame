@@ -37,7 +37,6 @@ public class DataBaseWindowController: MonoBehaviour
 
         while (reader.Read())
         {
-            print((string)reader["name"]);
             string tableName = (string)reader["name"];
 
             if (tableName == "sqlite_sequence") continue;
@@ -52,8 +51,6 @@ public class DataBaseWindowController: MonoBehaviour
 
             while (tableData.Read())
             {
-                print((string)tableData["name"]);
-                print((string)tableData["type"]);
                 tableDataController.AddColumn((string)tableData["name"], (string)tableData["type"]);
             }
 
