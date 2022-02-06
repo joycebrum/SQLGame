@@ -5,26 +5,30 @@ using UnityEngine;
 
 public class SqlValidator
 {
-    private static string sqlPattern = @"^(?i)(?<select>select)\s+(?<columns>\*|(?:\w+,\s*)*\w+)\s+(?<from>from)\s+(?<tableName>\w+);$";
-    private static string semicolonError = @"[^;]$";
+    /*private static string tableNamePattern = @"\w+(?:\s+\w+)?";
+    private static string returnPattern = @"\*|(?:\w+,\s*)*\w+";
+    private static string joinClausePattern = @"\s+(?:inner|left|right|full\s+outer)?\s+join\s+(?<innerTable>\w+(?<innerAlias>\s+\w+)?)\s+on\s+(?:\w+\.\w+\s+=\s+\w+\.\w+)";
+    private static string wherePattern = @"\s+where\s+[\w=<>\s']+";*/
+
     public static List<string> Validate(string sql)
     {
-        Match match = Regex.Match(sql, sqlPattern);
-        if (!match.Success)
-        {
-            return SelectError(sql);
-        }
-        return null;
+        return SelectError(sql);
     }
     private static List<string> SelectError(string sql)
     {
-        List<string> errors = new List<string> { "O comando não está no formato correto. Tente colocá-lo no formato <color=green>SELECT <Lista de Colunas> FROM <Nome da Tabela>;</color>\n" };
+        List<string> errors = new List<string>();
 
-        if (Regex.Match(sql, semicolonError).Success)
-        {
-            errors.Add("O comando deve terminar com um <color=green>;</color>");
-        }
+        CheckRule(sql, @"[^;]$", errors, "O comando deve terminar com um <color=green>;</color>");
+        CheckRule(sql, @"(?i)^(?<select>select)\s+(?<columns>\*\s+(?:\w+,?)+)\s+from", errors, "Se for utilizado o <color=green>*</color> para retorno no select, nenhuma outra coluna deve ser listada");
 
         return errors;
+    }
+
+    private static void CheckRule(string sql, string rule, List<string> errors, string errorMsg)
+    {
+        if (Regex.Match(sql, rule).Success)
+        {
+            errors.Add(errorMsg);
+        }
     }
 }

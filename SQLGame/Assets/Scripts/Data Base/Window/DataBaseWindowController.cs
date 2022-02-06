@@ -6,6 +6,7 @@ using UnityEngine.UI.TableUI;
 using System.Data;
 using System;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 public class DataBaseWindowController: MonoBehaviour
 {
@@ -20,26 +21,20 @@ public class DataBaseWindowController: MonoBehaviour
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();
 
-    private string tableNamePattern = @"(?i)from\s+([\w_]+)(?:\s|;)";
-
     private void Start()
     {
         this.scrollView.SetActive(false);
     }
 
-    void GetDBValues(string sqlQuery, string tableName)
+    void GetDBValues(string sqlQuery)
     {
-        string pragmaQuery = "PRAGMA table_info(" + tableName +  ");";
-        IDataReader reader = database.QueryCommand(pragmaQuery);
-
-        while (reader.Read())
+        //string pragmaQuery = "PRAGMA table_info(" + tableName +  ");";
+        IDataReader reader = database.QueryCommand(sqlQuery);
+        
+        for (int i = 0; i < reader.FieldCount; i++)
         {
-            string columnName = (string)reader["name"];
-            string columnType = (string)reader["type"];
-            headerData.Add(new Tuple<string, string>(columnName, columnType));
+            headerData.Add(new Tuple<string, string>(reader.GetName(i), reader.GetDataTypeName(i)));
         }
-
-        reader = database.QueryCommand(sqlQuery);
 
         UpdateTableData(reader: reader);
     }
@@ -80,6 +75,7 @@ public class DataBaseWindowController: MonoBehaviour
 
     void ClearTableData()
     {
+        headerData.Clear();
         tableData.Clear();
     }
 
@@ -87,7 +83,7 @@ public class DataBaseWindowController: MonoBehaviour
     {
         switch(type)
         {
-            case "DATE":
+            case "date":
                 return ((DateTime)reader[name]).ToString();
             default:
                 return(string)reader[name];
@@ -107,18 +103,8 @@ public class DataBaseWindowController: MonoBehaviour
             this.scrollView.SetActive(true);
             this.ClearTableData();
 
-            Match m = Regex.Match(sqlQuery, this.tableNamePattern);
-            if(m.Success)
-            {
-                errorText.gameObject.SetActive(false);
-
-                this.GetDBValues(sqlQuery, m.Groups[1].ToString());
-                this.UpdateTable();
-            }
-            else
-            {
-                print("Erro ao capturar o nome da Tabela");
-            }
+            this.GetDBValues(sqlQuery);
+            this.UpdateTable();
         }
     }
 
