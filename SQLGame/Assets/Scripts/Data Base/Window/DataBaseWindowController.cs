@@ -7,6 +7,7 @@ using System.Data;
 using System;
 using System.Text.RegularExpressions;
 using System.Linq;
+using Mono.Data.SqliteClient;
 
 public class DataBaseWindowController: MonoBehaviour
 {
@@ -100,12 +101,34 @@ public class DataBaseWindowController: MonoBehaviour
         } 
         else
         {
-            this.scrollView.SetActive(true);
-            this.ClearTableData();
+            try
+            {
+                this.ClearTableData();
 
-            this.GetDBValues(sqlQuery);
-            this.UpdateTable();
+                this.GetDBValues(sqlQuery);
+                this.UpdateTable();
+
+                this.scrollView.SetActive(true);
+            }
+            catch (SqliteSyntaxException e)
+            {
+                errorText.text = translateErrorMessage(e.Message);
+                errorText.gameObject.SetActive(true);
+            }
         }
+    }
+
+    private string translateErrorMessage(string msg)
+    {
+        if(msg.StartsWith("no such column:"))
+        {
+            return msg.Replace("no such column:", "Nenhuma coluna <color=red>") + "</color> encontrada";
+        }
+        if(msg.StartsWith("no such table:"))
+        {
+            return msg.Replace("no such table:", "Nenhuma tabela <color=red>") + "</color> encontrada";
+        }
+        return msg;
     }
 
     private bool IsSqlValid(string sqlQuery)
