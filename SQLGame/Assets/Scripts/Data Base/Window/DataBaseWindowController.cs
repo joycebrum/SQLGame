@@ -5,27 +5,32 @@ using UnityEngine;
 using UnityEngine.UI.TableUI;
 using System.Data;
 using System;
+using System.Text.RegularExpressions;
 
 public class DataBaseWindowController: MonoBehaviour
 {
-    public TableUI table;
-    public DataBase database;
+    [SerializeField] private TableUI table;
+    [SerializeField] private DataBase database;
+    [SerializeField] private GameObject scrollView;
+    [SerializeField] private InputField queryInput;
+    [SerializeField] private Text errorText;
 
     // List<string> headerMock = new List<string>();
     // List<List<string>> tableMock = new List<List<string>>();
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();
 
-    // Start is called before the first frame update
-    void Start()
+    private string tableNamePattern = @"(?i)from\s+([\w_]+)(?:\s|;)";
+
+    private void Start()
     {
-        GetDBValues();
-        UpdateTable();
+        this.scrollView.SetActive(false);
     }
-    void GetDBValues()
+
+    void GetDBValues(string sqlQuery, string tableName)
     {
-        string sqlQuery = "PRAGMA table_info(Alunos);";
-        IDataReader reader = database.QueryCommand(sqlQuery);
+        string pragmaQuery = "PRAGMA table_info(" + tableName +  ");";
+        IDataReader reader = database.QueryCommand(pragmaQuery);
 
         while (reader.Read())
         {
@@ -34,7 +39,6 @@ public class DataBaseWindowController: MonoBehaviour
             headerData.Add(new Tuple<string, string>(columnName, columnType));
         }
 
-        sqlQuery = "SELECT * FROM Alunos";
         reader = database.QueryCommand(sqlQuery);
 
         UpdateTableData(reader: reader);
@@ -64,19 +68,10 @@ public class DataBaseWindowController: MonoBehaviour
     {
         while (reader.Read())
         {
-            /*string name = (string)reader["name"];
-            int value = (int)reader["score"];
-            string score = value.ToString();
-
-            List<string> temp = new List<string>();
-            temp.Add(name);
-            temp.Add(score);
-            tableData.Add(temp);*/
-
             List<string> lineContent = new List<string>();
             foreach (Tuple<string, string> columnData in headerData)
             {
-                lineContent.Add(cast(columnData.Item1, columnData.Item2, reader));
+                lineContent.Add(Cast(columnData.Item1, columnData.Item2, reader));
             }
             tableData.Add(lineContent);
 
@@ -88,17 +83,7 @@ public class DataBaseWindowController: MonoBehaviour
         tableData.Clear();
     }
 
-    public void OnClickSearchButton()
-    {
-        string sqlQuery = "";
-
-        IDataReader reader = database.QueryCommand(sqlQuery);
-
-        UpdateTableData(reader: reader);
-        UpdateTable();
-    }
-
-    private string cast(string name, string type, IDataReader reader)
+    private string Cast(string name, string type, IDataReader reader)
     {
         switch(type)
         {
@@ -107,5 +92,53 @@ public class DataBaseWindowController: MonoBehaviour
             default:
                 return(string)reader[name];
         }
+    }
+
+    public void Search()
+    {
+        string sqlQuery = queryInput.text;
+
+        if(String.IsNullOrEmpty(sqlQuery) || !this.IsSqlValid(sqlQuery))
+        {
+            this.scrollView.SetActive(false);
+        } 
+        else
+        {
+            this.scrollView.SetActive(true);
+            this.ClearTableData();
+
+            Match m = Regex.Match(sqlQuery, this.tableNamePattern);
+            if(m.Success)
+            {
+                errorText.gameObject.SetActive(false);
+
+                this.GetDBValues(sqlQuery, m.Groups[1].ToString());
+                this.UpdateTable();
+            }
+            else
+            {
+                print("Erro ao capturar o nome da Tabela");
+            }
+        }
+    }
+
+    private bool IsSqlValid(string sqlQuery)
+    {
+        List<string> errors = SqlValidator.Validate(sqlQuery);
+        if (errors != null && errors.Count != 0)
+        {
+            errorText.text = "";
+
+            foreach (string error in errors)
+            {
+                errorText.text += error;
+                errorText.text += "\n";
+            }
+
+            errorText.gameObject.SetActive(true);
+
+            return false;
+        }
+        return true;
     }
 }
