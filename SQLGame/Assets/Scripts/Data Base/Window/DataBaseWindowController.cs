@@ -17,6 +17,9 @@ public class DataBaseWindowController: MonoBehaviour
     [SerializeField] private InputField queryInput;
     [SerializeField] private Text errorText;
 
+    [SerializeField] GameObject tableDataPrefable;
+    [SerializeField] Transform sideBar;
+
     // List<string> headerMock = new List<string>();
     // List<List<string>> tableMock = new List<List<string>>();
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
@@ -25,6 +28,36 @@ public class DataBaseWindowController: MonoBehaviour
     private void Start()
     {
         this.scrollView.SetActive(false);
+        InitializeTableData();
+    }
+
+    void InitializeTableData()
+    {
+        IDataReader reader = database.QueryCommand("SELECT name FROM sqlite_master WHERE type='table';");
+
+        while (reader.Read())
+        {
+            print((string)reader["name"]);
+            string tableName = (string)reader["name"];
+
+            if (tableName == "sqlite_sequence") continue;
+            
+            GameObject clone = Instantiate(tableDataPrefable);
+            clone.transform.SetParent(sideBar);
+
+            TableDataController tableDataController = clone.GetComponent<TableDataController>();
+            tableDataController.TableTitle = tableName;
+            
+            IDataReader tableData = database.QueryCommand("PRAGMA table_info(" + tableName + ");");
+
+            while (tableData.Read())
+            {
+                print((string)tableData["name"]);
+                print((string)tableData["type"]);
+                tableDataController.AddColumn((string)tableData["name"], (string)tableData["type"]);
+            }
+
+        }
     }
 
     void GetDBValues(string sqlQuery)
