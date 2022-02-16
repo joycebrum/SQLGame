@@ -5,37 +5,67 @@ using UnityEngine;
 using UnityEngine.UI.TableUI;
 using System.Data;
 using System;
+using System.Text.RegularExpressions;
+using System.Linq;
+using Mono.Data.SqliteClient;
 
 public class DataBaseWindowController: MonoBehaviour
 {
-    public TableUI table;
-    public DataBase database;
+    [SerializeField] private TableUI table;
+    [SerializeField] private DataBase database;
+    [SerializeField] private GameObject scrollView;
+    [SerializeField] private InputField queryInput;
+    [SerializeField] private Text errorText;
+
+    [SerializeField] GameObject tableDataPrefable;
+    [SerializeField] Transform sideBar;
 
     // List<string> headerMock = new List<string>();
     // List<List<string>> tableMock = new List<List<string>>();
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        GetDBValues();
-        UpdateTable();
+        this.scrollView.SetActive(false);
+        InitializeTableData();
     }
-    void GetDBValues()
+
+    void InitializeTableData()
     {
-        string sqlQuery = "PRAGMA table_info(Alunos);";
-        IDataReader reader = database.QueryCommand(sqlQuery);
+        IDataReader reader = database.QueryCommand("SELECT name FROM sqlite_master WHERE type='table';");
 
         while (reader.Read())
         {
-            string columnName = (string)reader["name"];
-            string columnType = (string)reader["type"];
-            headerData.Add(new Tuple<string, string>(columnName, columnType));
-        }
+            string tableName = (string)reader["name"];
 
-        sqlQuery = "SELECT * FROM Alunos";
-        reader = database.QueryCommand(sqlQuery);
+            if (tableName == "sqlite_sequence") continue;
+            
+            GameObject clone = Instantiate(tableDataPrefable);
+            clone.transform.SetParent(sideBar);
+
+            TableDataController tableDataController = clone.GetComponent<TableDataController>();
+            tableDataController.TableTitle = tableName;
+            
+            IDataReader tableData = database.QueryCommand("PRAGMA table_info(" + tableName + ");");
+
+            while (tableData.Read())
+            {
+                tableDataController.AddColumn((string)tableData["name"], (string)tableData["type"]);
+            }
+
+        }
+    }
+
+    void GetDBValues(string sqlQuery)
+    {
+        //string pragmaQuery = "PRAGMA table_info(" + tableName +  ");";
+        IDataReader reader = database.QueryCommand(sqlQuery);
+        
+        for (int i = 0; i < reader.FieldCount; i++)
+        {
+            headerData.Add(new Tuple<string, string>(reader.GetName(i), reader.GetDataTypeName(i)));
+        }
 
         UpdateTableData(reader: reader);
     }
@@ -64,19 +94,10 @@ public class DataBaseWindowController: MonoBehaviour
     {
         while (reader.Read())
         {
-            /*string name = (string)reader["name"];
-            int value = (int)reader["score"];
-            string score = value.ToString();
-
-            List<string> temp = new List<string>();
-            temp.Add(name);
-            temp.Add(score);
-            tableData.Add(temp);*/
-
             List<string> lineContent = new List<string>();
             foreach (Tuple<string, string> columnData in headerData)
             {
-                lineContent.Add(cast(columnData.Item1, columnData.Item2, reader));
+                lineContent.Add(Cast(columnData.Item1, columnData.Item2, reader));
             }
             tableData.Add(lineContent);
 
@@ -85,27 +106,79 @@ public class DataBaseWindowController: MonoBehaviour
 
     void ClearTableData()
     {
+        headerData.Clear();
         tableData.Clear();
     }
 
-    public void OnClickSearchButton()
-    {
-        string sqlQuery = "";
-
-        IDataReader reader = database.QueryCommand(sqlQuery);
-
-        UpdateTableData(reader: reader);
-        UpdateTable();
-    }
-
-    private string cast(string name, string type, IDataReader reader)
+    private string Cast(string name, string type, IDataReader reader)
     {
         switch(type)
         {
-            case "DATE":
+            case "date":
                 return ((DateTime)reader[name]).ToString();
             default:
                 return(string)reader[name];
         }
+    }
+
+    public void Search()
+    {
+        string sqlQuery = queryInput.text;
+
+        if(!String.IsNullOrEmpty(sqlQuery) && this.IsSqlValid(sqlQuery))
+        {
+            try
+            {
+                this.ClearTableData();
+
+                this.GetDBValues(sqlQuery);
+                this.UpdateTable();
+
+                errorText.gameObject.SetActive(false);
+                this.scrollView.SetActive(true);
+            }
+            catch (SqliteSyntaxException e)
+            {
+                SetErrorMessage(translateErrorMessage(e.Message));
+            }
+        }
+    }
+
+    private string translateErrorMessage(string msg)
+    {
+        if(msg.StartsWith("no such column:"))
+        {
+            return msg.Replace("no such column:", "Nenhuma coluna <color=red>") + "</color> encontrada";
+        }
+        if(msg.StartsWith("no such table:"))
+        {
+            return msg.Replace("no such table:", "Nenhuma tabela <color=red>") + "</color> encontrada";
+        }
+        return msg;
+    }
+
+    private bool IsSqlValid(string sqlQuery)
+    {
+        List<string> errors = SqlValidator.Validate(sqlQuery);
+        if (errors != null && errors.Count != 0)
+        {
+            string msg = "";
+
+            foreach (string error in errors)
+            {
+                msg += error;
+                msg += "\n";
+            }
+            SetErrorMessage(msg);
+            return false;
+        }
+        return true;
+    }
+
+    private void SetErrorMessage(string msg)
+    {
+        errorText.text = msg;
+        this.scrollView.SetActive(false);
+        errorText.gameObject.SetActive(true);
     }
 }
