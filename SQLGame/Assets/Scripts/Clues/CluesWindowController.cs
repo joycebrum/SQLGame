@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CluesWindowController: MonoBehaviour
 {
     [SerializeField] private StageOneController stageOneControlls;
-    [SerializeField] private List<ClueController> clues;
-    [SerializeField] private List<ClueController> clueSolutions;
-    [SerializeField] private ClueController finalSolution;
+    [SerializeField] private List<GameObject> clues;
+    [SerializeField] private List<GameObject> clueSolutions;
+    [SerializeField] private GameObject finalSolution;
 
     private List<bool> solvedClues;
     // Start is called before the first frame update
@@ -20,13 +21,13 @@ public class CluesWindowController: MonoBehaviour
         {
             print("solvedClues.count: " + solvedClues.Count + " | i: " + (i));
             if (solvedClues.Count <= i) {
-                clues[i].setAsHidden();
+                clues[i].GetComponent<ClueController>().setAsHidden();
             } else if(solvedClues[i])
             {
-                clues[i].SetAsFound("Achou");
+                clues[i].GetComponent<ClueController>().SetAsFound("Achou");
             } else
             {
-                clues[i].SetAsNotFound();
+                clues[i].GetComponent<ClueController>().SetAsNotFound();
             }
         }
 
@@ -36,30 +37,43 @@ public class CluesWindowController: MonoBehaviour
             print("solvedClues.count: " + solvedClues.Count + " | i*2: " + (i * 2));
             if (solvedClues.Count <= i*2)
             {
-                clueSolutions[i].setAsHidden();
+                clueSolutions[i].GetComponent<ClueController>().setAsHidden();
                 continue;
             } else if(solvedClues[i*2] && solvedClues[i*2+1])
             {
-                clueSolutions[i].SetAsFound("Chegou a conlusão");
+                clueSolutions[i].GetComponent<ClueController>().SetAsFound("Chegou a conlusão");
             } else
             {
                 isSolved = false;
-                clueSolutions[i].SetAsSolutionNotFound();
+                clueSolutions[i].GetComponent<ClueController>().SetAsSolutionNotFound();
             }
         }
         if(isSolved)
         {
-            finalSolution.SetAsFound("Parabéns voce venceu");
+            finalSolution.GetComponent<ClueController>().SetAsFound("Parabéns voce venceu");
         } else
         {
-            finalSolution.SetAsSolutionNotFound();
+            finalSolution.GetComponent<ClueController>().SetAsSolutionNotFound();
         }
-
+        UpdateSizes();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateSizes();
+    }
+
+    void UpdateSizes()
+    {
+        for (int i = 0; i < clues.Count; i++)
+        {
+            clues[i].GetComponent<LayoutElement>().preferredWidth = Screen.width / 5;
+        }
+        for (int i = 0; i < clueSolutions.Count; i++)
+        {
+            clueSolutions[i].GetComponent<LayoutElement>().preferredWidth = Screen.width / 5;
+        }
+        finalSolution.GetComponent<LayoutElement>().preferredWidth = Screen.width / 5;
     }
 }
