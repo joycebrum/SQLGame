@@ -20,8 +20,8 @@ public class DataBaseWindowController: MonoBehaviour
     [SerializeField] GameObject tableDataPrefable;
     [SerializeField] Transform sideBar;
 
-    // List<string> headerMock = new List<string>();
-    // List<List<string>> tableMock = new List<List<string>>();
+    [SerializeField] private StageOneController stageOneController;
+
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();
 
@@ -87,6 +87,10 @@ public class DataBaseWindowController: MonoBehaviour
             {
                 table.GetCell(i + 1, j).text = tableData[i][j]; 
             }
+        }
+
+        if(table.Rows == 2) {
+            CheckResult();
         }
     }
 
@@ -180,5 +184,10 @@ public class DataBaseWindowController: MonoBehaviour
         errorText.text = msg;
         this.scrollView.SetActive(false);
         errorText.gameObject.SetActive(true);
+    }
+
+    private void CheckResult()
+    {
+        stageOneController.FindClue(3);
     }
 }

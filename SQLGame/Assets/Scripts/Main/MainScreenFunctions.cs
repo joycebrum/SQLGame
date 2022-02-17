@@ -60,4 +60,10 @@ public class MainScreenFunctions : MonoBehaviour
     {
         cluesWindow.SetActive(!cluesWindow.activeInHierarchy);
     }
+
+    public void UpdateClues()
+    {
+        print("cheguei na main");
+        cluesWindow.GetComponent<CluesWindowController>().SetupClues();
+    }
 }

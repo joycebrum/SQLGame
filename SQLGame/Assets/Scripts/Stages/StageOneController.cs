@@ -4,6 +4,7 @@ using UnityEngine;
 public class StageOneController : MonoBehaviour
 {
     private List<bool> solvedClue = new List<bool> { true, true, true, false, true, false, true, false };
+    [SerializeField] private MainScreenFunctions main;
     public List<bool> SolvedClue
     { 
         get
@@ -25,5 +26,11 @@ public class StageOneController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void FindClue(int index)
+    {
+        solvedClue[index] = true;
+        main.UpdateClues();
     }
 }

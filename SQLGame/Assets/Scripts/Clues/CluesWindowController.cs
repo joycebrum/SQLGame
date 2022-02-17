@@ -14,18 +14,30 @@ public class CluesWindowController: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        solvedClues = stageOneControlls.SolvedClue;
-        print("clues.count: " + clues.Count);
+        SetupClues();
+    }
 
-        for(int i = 0; i < clues.Count; i++)
+    // Update is called once per frame
+    void Update()
+    {
+        UpdateSizes();
+    }
+
+    public void SetupClues()
+    {
+        solvedClues = stageOneControlls.SolvedClue;
+
+        for (int i = 0; i < clues.Count; i++)
         {
-            print("solvedClues.count: " + solvedClues.Count + " | i: " + (i));
-            if (solvedClues.Count <= i) {
+            if (solvedClues.Count <= i)
+            {
                 clues[i].GetComponent<ClueController>().setAsHidden();
-            } else if(solvedClues[i])
+            }
+            else if (solvedClues[i])
             {
                 clues[i].GetComponent<ClueController>().SetAsFound("Achou");
-            } else
+            }
+            else
             {
                 clues[i].GetComponent<ClueController>().SetAsNotFound();
             }
@@ -34,33 +46,29 @@ public class CluesWindowController: MonoBehaviour
         bool isSolved = true;
         for (int i = 0; i < clueSolutions.Count; i++)
         {
-            print("solvedClues.count: " + solvedClues.Count + " | i*2: " + (i * 2));
-            if (solvedClues.Count <= i*2)
+            if (solvedClues.Count <= i * 2)
             {
                 clueSolutions[i].GetComponent<ClueController>().setAsHidden();
                 continue;
-            } else if(solvedClues[i*2] && solvedClues[i*2+1])
+            }
+            else if (solvedClues[i * 2] && solvedClues[i * 2 + 1])
             {
                 clueSolutions[i].GetComponent<ClueController>().SetAsFound("Chegou a conlusão");
-            } else
+            }
+            else
             {
                 isSolved = false;
                 clueSolutions[i].GetComponent<ClueController>().SetAsSolutionNotFound();
             }
         }
-        if(isSolved)
+        if (isSolved)
         {
             finalSolution.GetComponent<ClueController>().SetAsFound("Parabéns voce venceu");
-        } else
+        }
+        else
         {
             finalSolution.GetComponent<ClueController>().SetAsSolutionNotFound();
         }
-        UpdateSizes();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         UpdateSizes();
     }
 
