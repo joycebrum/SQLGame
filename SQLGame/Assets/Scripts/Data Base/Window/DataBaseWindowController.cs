@@ -20,7 +20,7 @@ public class DataBaseWindowController: MonoBehaviour
     [SerializeField] GameObject tableDataPrefable;
     [SerializeField] Transform sideBar;
 
-    [SerializeField] private StageOneController stageOneController;
+    [SerializeField] private StageController stageOneController;
 
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();

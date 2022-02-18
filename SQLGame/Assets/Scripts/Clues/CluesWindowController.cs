@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CluesWindowController: MonoBehaviour
 {
-    [SerializeField] private StageOneController stageOneControlls;
+    [SerializeField] private StageController stageController;
     [SerializeField] private List<GameObject> clues;
     [SerializeField] private List<GameObject> clueSolutions;
     [SerializeField] private GameObject finalSolution;
@@ -14,18 +14,23 @@ public class CluesWindowController: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        solvedClues = stageController.currentStage.solvedClue;
         SetupClues();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateSizes();
+        List<bool> tempSolvedClues = stageController.currentStage.solvedClue;
+        if (solvedClues != tempSolvedClues)
+        {
+            solvedClues = tempSolvedClues;
+            SetupClues();
+        }
     }
 
     public void SetupClues()
     {
-        solvedClues = stageOneControlls.SolvedClue;
 
         for (int i = 0; i < clues.Count; i++)
         {
