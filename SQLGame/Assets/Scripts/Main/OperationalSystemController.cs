@@ -83,4 +83,9 @@ public class OperationalSystemController : MonoBehaviour
     {
         phoneObject.GetComponent<ChatDialogController>().ReleaseChat(1);
     }
+
+    public void ContinueReporterChat()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(2);
+    }
 }

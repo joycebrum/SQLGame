@@ -13,7 +13,6 @@ public class ChatDialogController : MonoBehaviour
 
     [SerializeField] GameObject chatScreen = null;
     [SerializeField] GameObject contactScreen = null;
-    [SerializeField] List<Sprite> sprites = new List<Sprite>();
 
     string message = "";
 
@@ -24,6 +23,7 @@ public class ChatDialogController : MonoBehaviour
 
     public void OnBackButton()
     {
+        DestroyAllMessages();
         ShowContacts();
     }
 
@@ -86,6 +86,7 @@ public class ChatDialogController : MonoBehaviour
         {
             case 0: return Constants.AIChat;
             case 1: return Constants.bossChat;
+            case 2: return Constants.reporterChat;
             default: return null;
         }
     }
@@ -96,6 +97,7 @@ public class ChatDialogController : MonoBehaviour
         {
             case 0: return Constants.AIName;
             case 1: return Constants.bossName;
+            case 2: return Constants.reporterName;
             default: return null;
         }
     }
@@ -115,9 +117,10 @@ public class ChatDialogController : MonoBehaviour
     {
         this.contactScreen.SetActive(false);
         this.chatScreen.SetActive(true);
-        this.profile.sprite = this.sprites[spritePos];
         this.textName.text = name;
-        this.gameObject.GetComponent<VIDEUIManager>().LoadChat();
+        VIDEUIManager videUiManager = this.gameObject.GetComponent<VIDEUIManager>();
+        this.profile.sprite = videUiManager.getNPCSprite();
+        videUiManager.LoadChat();
     }
 
     public void ReleaseChat(int index)

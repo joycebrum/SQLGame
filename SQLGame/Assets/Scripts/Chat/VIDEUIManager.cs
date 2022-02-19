@@ -39,6 +39,12 @@ public class VIDEUIManager : MonoBehaviour
         Begin();
     }
 
+    public Sprite getNPCSprite()
+    {
+        VA = GameObject.Find(dialogueNameToLoad + "Assignee").GetComponent<VIDE_Assign>();
+        return VA.defaultNPCSprite;
+    }
+
     //Called by UI button
     public void Begin()
     {
