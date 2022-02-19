@@ -11,6 +11,8 @@ public class MainScreenFunctions : MonoBehaviour
     [SerializeField] GameObject tableObject;
     [SerializeField] GameObject cluesWindow;
 
+    [SerializeField] StageController stageController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class MainScreenFunctions : MonoBehaviour
     public void OnHomeClick()
     {
         Debug.Log("Home");
+        stageController.NextStage();
+
     }
 
     public void OnBackClick()
@@ -59,5 +63,11 @@ public class MainScreenFunctions : MonoBehaviour
     public void ToggleCluesWindow()
     {
         cluesWindow.SetActive(!cluesWindow.activeInHierarchy);
+    }
+
+    public void UpdateClues()
+    {
+        print("cheguei na main");
+        cluesWindow.GetComponent<CluesWindowController>().SetupClues();
     }
 }
