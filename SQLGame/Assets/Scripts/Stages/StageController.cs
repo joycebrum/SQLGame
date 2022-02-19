@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StageController : MonoBehaviour
 {
-    [SerializeField] private MainScreenFunctions main;
+    [SerializeField] private OperationalSystemController main;
     public Stage currentStage;
     int currentStageIndex;
     [SerializeReference] List<Stage> stages;
