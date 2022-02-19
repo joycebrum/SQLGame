@@ -59,7 +59,11 @@ public class VIDEUIManager : MonoBehaviour
     //Called by UI buttons, every button sends a different choice index
     public void ButtonChoice(int choice)
     {
-        string msg = VD.nodeData.extraVars[choice.ToString()].ToString();
+        string msg = VD.nodeData.comments[choice];
+        if (VD.nodeData.extraVars.Count > choice)
+        {
+            msg = VD.nodeData.extraVars[choice.ToString()].ToString();
+        }
         VA.messageHistory.Add(new Dictionary<string, string>() { { "type", PLAYER_MSG }, { "msg", msg } });
         CreateNewPlayerMessage(msg);
         VD.nodeData.commentIndex = choice; //Set commentIndex as it acts as the picked choice
