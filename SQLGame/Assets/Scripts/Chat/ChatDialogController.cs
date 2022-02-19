@@ -78,20 +78,35 @@ public class ChatDialogController : MonoBehaviour
         this.message = null;
     }
 
-    public void OnContactSelect(int index)
+    private string GetDialogueName(int index)
     {
         switch (index)
         {
-            case 0:
-                this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = Constants.AIChat;
-                ShowChat(index, Constants.AIName); 
-                break;
-            case 1:
-                this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = Constants.bossChat;
-                ShowChat(index, Constants.bossName);
-                break;
-            default: break;
+            case 0: return Constants.AIChat;
+            case 1: return Constants.bossChat;
+            default: return null;
         }
+    }
+
+    private string GetNPCName(int index)
+    {
+        switch (index)
+        {
+            case 0: return Constants.AIName;
+            case 1: return Constants.bossName;
+            default: return null;
+        }
+    }
+
+    public void OnContactSelect(int index)
+    {
+        string dialogName = GetDialogueName(index);
+        if (dialogName != null)
+        {
+            this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = dialogName;
+            ShowChat(index, GetNPCName(index));
+        }
+            
     }
 
     public void ShowChat(int spritePos, string name)
@@ -101,6 +116,16 @@ public class ChatDialogController : MonoBehaviour
         this.profile.sprite = this.sprites[spritePos];
         this.textName.text = name;
         this.gameObject.GetComponent<VIDEUIManager>().LoadChat();
+    }
+
+    public void ReleaseChat(int index)
+    {
+        string dialogName = GetDialogueName(index);
+        if (dialogName != null)
+        {
+            PlayerPrefs.SetInt(GetDialogueName(index), 2); // 0 or null - not blocked; 1 - blocked; 2 - released
+            // TODO: Add visual notification of new message
+        }
     }
 
     public void ShowContacts()

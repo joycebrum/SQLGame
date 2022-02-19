@@ -71,4 +71,16 @@ public class OperationalSystemController : MonoBehaviour
         print("cheguei na main");
         cluesWindow.GetComponent<CluesWindowController>().SetupClues();
     }
+
+    /* Trigger Chats */
+
+    public void ContinueAIChat()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(0);
+    }
+
+    public void ContinueBossChat()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(1);
+    }
 }
