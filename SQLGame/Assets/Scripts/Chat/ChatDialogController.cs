@@ -67,18 +67,6 @@ public class ChatDialogController : MonoBehaviour
         }
     }
 
-    private float GetMessageHeight()
-    {
-        if (message.Length > 28)
-        {
-            return Mathf.Ceil(message.Length / 28f) * 20;
-        }
-        else
-        {
-            return 20;
-        }
-    }
-
     public void ShowPlayerMessage()
     {
         GameObject clone = (GameObject)Instantiate(newPlayerMessagePrefab);
