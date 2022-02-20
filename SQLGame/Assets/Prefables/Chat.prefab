@@ -1286,16 +1286,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messageParentPanel: {fileID: 5910825520188297799}
+  scrollRect: {fileID: 5910825519584802631}
   newPlayerMessagePrefab: {fileID: 4791816585350755085, guid: 2087380f36591eb45b5bcab0f827596f, type: 3}
   newMessagePrefab: {fileID: 6431735343563057783, guid: b01b8b3ba3f38fe4eb7e5319f7492bf6, type: 3}
   profile: {fileID: 0}
   textName: {fileID: 0}
   chatScreen: {fileID: 8214504404044397103}
   contactScreen: {fileID: 7635571392193803549}
-  sprites:
-  - {fileID: 21300000, guid: 2307710b7104e3e40a775cccfd131299, type: 3}
-  - {fileID: 21300000, guid: 0f7b4b76ee7025e4090d7b7822207ef0, type: 3}
-  - {fileID: 21300000, guid: a39f28494d848764fa23ff60a47d940d, type: 3}
 --- !u!114 &5910825519571976284
 MonoBehaviour:
   m_ObjectHideFlags: 0

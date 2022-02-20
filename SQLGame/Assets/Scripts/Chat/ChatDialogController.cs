@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class ChatDialogController : MonoBehaviour
 {
-    [SerializeField] Transform messageParentPanel = null;
-    [SerializeField] GameObject newPlayerMessagePrefab = null;
-    [SerializeField] GameObject newMessagePrefab = null;
-    [SerializeField] Image profile = null;
-    [SerializeField] Text textName = null;
+    [SerializeField] private Transform messageParentPanel = null;
+    [SerializeField] private ScrollRect scrollRect = null;
 
-    [SerializeField] GameObject chatScreen = null;
-    [SerializeField] GameObject contactScreen = null;
+    [SerializeField] private GameObject newPlayerMessagePrefab = null;
+    [SerializeField] private GameObject newMessagePrefab = null;
+    [SerializeField] private Image profile = null;
+    [SerializeField] private Text textName = null;
+
+    [SerializeField] private GameObject chatScreen = null;
+    [SerializeField] private GameObject contactScreen = null;
 
     string message = "";
 
@@ -21,12 +23,21 @@ public class ChatDialogController : MonoBehaviour
         DestroyAllMessages();
     }
 
+    private void UpdateScrollRect()
+    {
+        Canvas.ForceUpdateCanvases();
+
+        messageParentPanel.GetComponent<VerticalLayoutGroup>().CalculateLayoutInputVertical();
+        messageParentPanel.GetComponent<ContentSizeFitter>().SetLayoutVertical();
+
+        scrollRect.verticalNormalizedPosition = 0;
+    }
+
     public void OnBackButton()
     {
         DestroyAllMessages();
         ShowContacts();
     }
-
 
     public void SetMessage(string message)
     {
@@ -66,6 +77,8 @@ public class ChatDialogController : MonoBehaviour
             clone.transform.localScale = new Vector3(1f, 1f, 1f);
             clone.GetComponent<MessageFunctions>().ShowMessage(message);
             this.message = null;
+
+            UpdateScrollRect();
         }
     }
 
@@ -78,6 +91,8 @@ public class ChatDialogController : MonoBehaviour
 
         clone.GetComponentInChildren<MessageFunctions>().ShowMessage(message);
         this.message = null;
+
+        UpdateScrollRect();
     }
 
     private string GetDialogueName(int index)
