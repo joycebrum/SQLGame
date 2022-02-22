@@ -99,9 +99,9 @@ public class ChatDialogController : MonoBehaviour
         UpdateScrollRect();
     }
 
-    private string GetDialogueName(int index)
+    private string GetDialogueName(ChatEnum type)
     {
-        switch ((ChatEnum)index)
+        switch (type)
         {
             case ChatEnum.ia: return Constants.AIChat;
             case ChatEnum.patrocinio: return Constants.bossChat;
@@ -110,9 +110,9 @@ public class ChatDialogController : MonoBehaviour
         }
     }
 
-    private string GetNPCName(int index)
+    private string GetNPCName(ChatEnum type)
     {
-        switch ((ChatEnum)index)
+        switch (type)
         {
             case ChatEnum.ia: return Constants.AIName;
             case ChatEnum.patrocinio: return Constants.bossName;
@@ -123,11 +123,12 @@ public class ChatDialogController : MonoBehaviour
 
     public void OnContactSelect(int index)
     {
-        string dialogName = GetDialogueName(index);
+        ChatEnum type = (ChatEnum)index;
+        string dialogName = GetDialogueName(type);
         if (dialogName != null)
         {
             this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = dialogName;
-            ShowChat(index, GetNPCName(index));
+            ShowChat(index, GetNPCName(type));
         }
             
     }
@@ -142,12 +143,12 @@ public class ChatDialogController : MonoBehaviour
         videUiManager.LoadChat();
     }
 
-    public void ReleaseChat(int index)
+    public void ReleaseChat(ChatEnum type)
     {
-        string dialogName = GetDialogueName(index);
+        string dialogName = GetDialogueName(type);
         if (dialogName != null)
         {
-            PlayerPrefs.SetInt(GetDialogueName(index), 2); // 0 or null - not blocked; 1 - blocked; 2 - released
+            PlayerPrefs.SetInt(GetDialogueName(type), 2); // 0 or null - not blocked; 1 - blocked; 2 - released
             // TODO: Add visual notification of new message
         }
     }
