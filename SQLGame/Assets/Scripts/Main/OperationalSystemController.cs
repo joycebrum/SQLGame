@@ -76,16 +76,16 @@ public class OperationalSystemController : MonoBehaviour
 
     public void ContinueAIChat()
     {
-        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(0);
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat((int) ChatEnum.ia);
     }
 
     public void ContinueBossChat()
     {
-        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(1);
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat((int)ChatEnum.patrocinio);
     }
 
     public void ContinueReporterChat()
     {
-        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(2);
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat((int)ChatEnum.reporter);
     }
 }

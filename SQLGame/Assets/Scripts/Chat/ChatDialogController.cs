@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ChatEnum { 
+    ia = 0, patrocinio = 1, reporter = 2 
+}
+
 public class ChatDialogController : MonoBehaviour
 {
     [SerializeField] private Transform messageParentPanel = null;
@@ -97,22 +101,22 @@ public class ChatDialogController : MonoBehaviour
 
     private string GetDialogueName(int index)
     {
-        switch (index)
+        switch ((ChatEnum)index)
         {
-            case 0: return Constants.AIChat;
-            case 1: return Constants.bossChat;
-            case 2: return Constants.reporterChat;
+            case ChatEnum.ia: return Constants.AIChat;
+            case ChatEnum.patrocinio: return Constants.bossChat;
+            case ChatEnum.reporter: return Constants.reporterChat;
             default: return null;
         }
     }
 
     private string GetNPCName(int index)
     {
-        switch (index)
+        switch ((ChatEnum)index)
         {
-            case 0: return Constants.AIName;
-            case 1: return Constants.bossName;
-            case 2: return Constants.reporterName;
+            case ChatEnum.ia: return Constants.AIName;
+            case ChatEnum.patrocinio: return Constants.bossName;
+            case ChatEnum.reporter: return Constants.reporterName;
             default: return null;
         }
     }
