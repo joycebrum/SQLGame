@@ -92,7 +92,7 @@ public class StageOne : Stage
                 })
             }),
 
-            new ClueNote("Talvez os seguranças tenham visto algo interessante", "Caio, Thiago e Vitor ficaram um longo período no laboratório perambulado sem de fato usar os computadores", new List<Clue>
+            new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório perambulado sem de fato usar os computadores", new List<Clue>
             {
                 new Clue(new List<ClueIdentifier>
                 {
@@ -104,6 +104,10 @@ public class StageOne : Stage
                     new ClueIdentifier("matriculaAluno", "152354"),
                     new ClueIdentifier("login", @"(19|20|21|22)/04/2022"),
                 }),
+            }),
+
+            new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Thiago ficou um longo período no laboratório perambulado sem de fato usar os computadores", new List<Clue>
+            {
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("matriculaAluno", "155623"),
@@ -114,6 +118,10 @@ public class StageOne : Stage
                     new ClueIdentifier("matriculaAluno", "155623"),
                     new ClueIdentifier("login", @"(19|20|21|22)/04/2022"),
                 }),
+            }),
+
+            new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Vitor ficou um longo período no laboratório perambulado sem de fato usar os computadores", new List<Clue>
+            {
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("matriculaAluno", "163224"),
