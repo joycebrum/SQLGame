@@ -28,7 +28,7 @@ public class Stage: MonoBehaviour
 
     protected void InitializeStage() { /*should be override by subclasses*/ }
     protected bool UpdateStatuses(List<bool> clueStatuses) {
-        if (this.clueNotes.Count <= 0) return false;
+        if (this.clueNotes == null || this.clueNotes.Count <= 0) return false;
 
         for(int i = 0; i < this.clueNotes.Count; i++)
         {
