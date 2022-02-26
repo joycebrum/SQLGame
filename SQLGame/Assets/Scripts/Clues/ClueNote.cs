@@ -5,7 +5,7 @@ using UnityEngine;
 public struct ClueIdentifier
 {
     public string column { get; private set; }
-    public string content { get; private set; };
+    public string content { get; private set; }
 
     public ClueIdentifier(string column, string content)
     {
