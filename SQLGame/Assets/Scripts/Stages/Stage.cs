@@ -6,17 +6,15 @@ using UnityEngine;
 public class Stage: MonoBehaviour
 {
     public List<bool> solvedClue { get; protected set; }
-    public List<ClueNote> clueNotes;
+    protected List<ClueNote> clueNotes;
+    protected List<ClueSolution> clueSolutions;
 
     protected string stageIdentifier = "Default";
-    protected List<ClueController> clueGameObjects;
-    protected List<ClueController> solutionGameObjects;
 
-    public void OnStart(List<ClueController> clueGameObjects, List<ClueController> solutionGameObjects)
+    public void OnStart(List<ClueController> clueControllers, List<ClueController> solutionControllers)
     {
-        this.clueGameObjects = clueGameObjects;
-        this.solutionGameObjects = solutionGameObjects;
-        InitializeStage(clueGameObjects, solutionGameObjects);
+        this.clueSolutions = new List<ClueSolution>();
+        InitializeStage(clueControllers, solutionControllers);
         UpdateStatuses(RetrieveSolvedClues());
     }
 
@@ -25,7 +23,7 @@ public class Stage: MonoBehaviour
         solvedClue[index] = true;
     }
 
-    protected void InitializeStage(List<ClueController> clueGameObjects, List<ClueController> solutionGameObjects) { /*should be override by subclasses*/ }
+    protected virtual void InitializeStage(List<ClueController> clueGameObjects, List<ClueController> solutionGameObjects) { /*should be override by subclasses*/ }
     protected bool UpdateStatuses(List<bool> clueStatuses) {
         if (this.clueNotes == null || this.clueNotes.Count <= 0) return false;
 

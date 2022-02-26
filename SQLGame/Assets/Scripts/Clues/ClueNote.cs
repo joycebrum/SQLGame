@@ -14,6 +14,12 @@ public struct ClueIdentifier
     }
 }
 
+public class SolutionPart
+{
+    public string description;
+    public virtual bool IsFound() { return false; } //to be implemented in subclasses
+}
+
 public class Clue
 {
     public List<ClueIdentifier> identifiers;
@@ -27,21 +33,44 @@ public class Clue
     }
 }
 
-public class ClueNote
+public class ClueNote : SolutionPart
 {
     public string hint;
-    public string description;
-    public List<Clue> clues;
+    public Clue clue;
+    public ClueController clueController;
 
-    public ClueNote(string hint, string description, List<Clue> clues)
+    public ClueNote(string hint, string description, Clue clue)
     {
         this.hint = hint;
         this.description = description;
-        this.clues = clues;
+        this.clue = clue;
     }
 
-    public bool IsFound()
+    public override bool IsFound()
     {
-        return this.clues.TrueForAll(clue => clue.found);
+        if (this.clue.found) this.clueController.SetAsFound(description);
+        
+        return this.clue.found;
     }
+
+    public void SetController(ClueController clueController)
+    {
+        this.clueController = clueController;
+        this.clueController.SetAsNotFound(hint);
+    }
+}
+
+public class ClueSolution : SolutionPart
+{
+    private List<SolutionPart> solutionParts;
+    public ClueSolution(string description)
+    {
+        this.description = description;
+    }
+    public override bool IsFound()
+    {
+        return this.solutionParts.TrueForAll(clue => clue.IsFound());
+    }
+
+    public void Add(SolutionPart solutionPart) { this.solutionParts.Add(solutionPart); }
 }

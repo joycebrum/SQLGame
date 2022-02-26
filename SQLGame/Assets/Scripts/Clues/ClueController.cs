@@ -12,25 +12,15 @@ public class ClueController : MonoBehaviour
     public bool isSolution;
 
     private string initialClue = "não achado ainda";
-    private ClueNote clueNote;
     
     // Start is called before the first frame update
     void Start()
     {
     }
 
-    private void UpdateStatus()
+    public void SetClueNote(string notFoundText)
     {
-        if(this.clueNote != null)
-        {
-            if(this.clueNote.IsFound()) SetAsFound(this.clueNote.description);
-        }
-    }
-
-    public void SetClueNote(ClueNote clueNote)
-    {
-        this.clueNote = clueNote;
-        SetAsNotFound();
+        SetAsNotFound(notFoundText);
     }
 
     public void SetAsFound(string clueContent)
@@ -45,10 +35,10 @@ public class ClueController : MonoBehaviour
         GetComponent<Image>().color = new Color32(255, 255, 255, 255);
     }
 
-    public void SetAsNotFound()
+    public void SetAsNotFound(string notFoundText)
     {
         this.gameObject.SetActive(true);
-        this.clueText.text = this.clueNote.hint;
+        this.clueText.text = notFoundText;
 
         this.clueText.color = new Color32(154, 150, 150, 255);
 
