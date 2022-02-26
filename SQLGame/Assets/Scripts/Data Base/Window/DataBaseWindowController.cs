@@ -193,8 +193,7 @@ public class DataBaseWindowController: MonoBehaviour
 
     private void CheckResult()
     {
-        popUp.GetComponent<PopUpController>().setupText("Parabéns, voce encontrou uma pista!");
-        popUp.SetActive(true);
+        popUp.GetComponent<PopUpController>().showPopUp("Parabéns, voce encontrou uma pista!");
         stageOneController.FindClue(3);
     }
 }

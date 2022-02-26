@@ -11,8 +11,9 @@ public class PopUpController : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void setupText(string text)
+    public void showPopUp(string text)
     {
         GOtext.GetComponent<Text>().text = text;
+        this.gameObject.SetActive(true);
     }
 }
