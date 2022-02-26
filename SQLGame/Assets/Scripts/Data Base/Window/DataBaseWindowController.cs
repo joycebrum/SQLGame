@@ -22,6 +22,8 @@ public class DataBaseWindowController: MonoBehaviour
 
     [SerializeField] private StageController stageOneController;
 
+    [SerializeField] private GameObject popUp;
+
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();
 
@@ -191,6 +193,7 @@ public class DataBaseWindowController: MonoBehaviour
 
     private void CheckResult()
     {
+        popUp.SetActive(true);
         stageOneController.FindClue(3);
     }
 }
