@@ -31,9 +31,9 @@ public class StageController : MonoBehaviour
         this.currentStage.SaveSolvedClues();
     }
 
-    public bool CheckForClues(List<List<string>> result)
+    public bool CheckForClues(List<string> header, List< string > result)
     {
-        return currentStage.CheckForClues(result);
+        return currentStage.CheckForClues(header, result);
     }
 
     public void NextStage()

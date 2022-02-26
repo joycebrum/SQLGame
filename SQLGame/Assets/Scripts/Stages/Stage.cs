@@ -22,13 +22,18 @@ public class Stage: MonoBehaviour
         UpdateStatuses(RetrieveSolvedClues());
     }
 
-    public bool CheckForClues(List<List<string>> result)
+    public bool CheckForClues(List<string> header, List<string> result)
     {
         bool anyFound = false;
         foreach(ClueNote clue in clueNotes)
         {
             if (clue.IsFound()) continue;
-            anyFound |= clue.Check(result);
+
+            if(clue.Check(header, result))
+            {
+                anyFound = true;
+                clueSolutions.ForEach(clueSolution => clueSolution.Check());
+            }
         }
         return anyFound;
     }

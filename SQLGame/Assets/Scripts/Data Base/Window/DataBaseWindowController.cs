@@ -92,7 +92,7 @@ public class DataBaseWindowController: MonoBehaviour
         }
 
         if(table.Rows == 2) {
-            CheckResult(tableData);
+            CheckResult();
         }
     }
 
@@ -191,9 +191,17 @@ public class DataBaseWindowController: MonoBehaviour
         errorText.gameObject.SetActive(true);
     }
 
-    private void CheckResult(List<List<string>> result)
+    private void CheckResult()
     {
-        stageController.CheckForClues(result);
-        popUp.GetComponent<PopUpController>().showPopUp("Parabéns, voce encontrou uma pista!");
+        List<string> headerNames = headerData.ConvertAll<string>(FirstItemsConverter);
+        if (stageController.CheckForClues(headerNames, tableData[0]))
+        {
+            popUp.GetComponent<PopUpController>().showPopUp("Parabéns, voce encontrou uma pista!");
+        }
+    }
+
+    public static string FirstItemsConverter(Tuple<string,string> tuple)
+    {
+        return tuple.Item1;
     }
 }

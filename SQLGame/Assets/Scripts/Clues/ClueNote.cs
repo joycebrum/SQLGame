@@ -33,17 +33,20 @@ public class Clue
         this.found = false;
     }
 
-    public bool Check(List<List<string>> result)
+    public bool Check(List<string> header, List<string> result)
     {
-        return identifiers.TrueForAll(identifier => ResultHasIdentifier(result, identifier));
+        return identifiers.TrueForAll(identifier => ResultHasIdentifier(header, result, identifier));
     }
 
-    private bool ResultHasIdentifier(List<List<string>> result, ClueIdentifier identifier)
+    private bool ResultHasIdentifier(List<string> header, List<string> result, ClueIdentifier identifier)
     {
-        if(result == null || result.Count != 2) return false;
+        if(result == null || result.Count == 0 || header.Count == 0) return false;
         
-        int column_index = result[0].FindIndex(column_name => column_name == identifier.column);
-        return result[1][column_index] == identifier.content;
+        int column_index = header.FindIndex(column_name => column_name == identifier.column);
+
+        if(column_index < 0 || column_index >= result.Count) return false;
+
+        return result[column_index] == identifier.content;
     }
 }
 
@@ -72,9 +75,12 @@ public class ClueNote : SolutionPart
         this.clueController.InitializeClue(hint);
     }
 
-    public bool Check(List<List<string>> result)
+    public bool Check(List<string> header, List<string> result)
     {
-        return clue.Check(result);
+        bool found = clue.Check(header, result);
+        if(found) this.clueController.SetAsFound(description);
+
+        return found;
     }
 }
 
@@ -99,4 +105,14 @@ public class ClueSolution : SolutionPart
 
     public void AddSolutionPart(SolutionPart solutionPart) { this.solutionParts.Add(solutionPart); }
     public void AddSolutionParts(List<SolutionPart> solutionParts) { this.solutionParts.AddRange(solutionParts); }
+
+    public bool Check()
+    {
+        if(IsFound())
+        {
+            clueController.SetAsFound(description);
+            return true;
+        }
+        return false;
+    }
 }
