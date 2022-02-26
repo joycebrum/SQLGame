@@ -18,6 +18,7 @@ public class SolutionPart
 {
     public string description;
     public virtual bool IsFound() { return false; } //to be implemented in subclasses
+    public ClueController clueController;
 }
 
 public class Clue
@@ -37,7 +38,6 @@ public class ClueNote : SolutionPart
 {
     public string hint;
     public Clue clue;
-    public ClueController clueController;
 
     public ClueNote(string hint, string description, Clue clue)
     {
@@ -56,7 +56,7 @@ public class ClueNote : SolutionPart
     public void SetController(ClueController clueController)
     {
         this.clueController = clueController;
-        this.clueController.SetAsNotFound(hint);
+        this.clueController.InitializeClue(hint);
     }
 }
 
@@ -66,11 +66,19 @@ public class ClueSolution : SolutionPart
     public ClueSolution(string description)
     {
         this.description = description;
+        this.solutionParts = new List<SolutionPart>();
     }
     public override bool IsFound()
     {
         return this.solutionParts.TrueForAll(clue => clue.IsFound());
     }
 
-    public void Add(SolutionPart solutionPart) { this.solutionParts.Add(solutionPart); }
+    public void SetController(ClueController clueController)
+    {
+        this.clueController = clueController;
+        this.clueController.InitializeSolution();
+    }
+
+    public void AddSolutionPart(SolutionPart solutionPart) { this.solutionParts.Add(solutionPart); }
+    public void AddSolutionParts(List<SolutionPart> solutionParts) { this.solutionParts.AddRange(solutionParts); }
 }

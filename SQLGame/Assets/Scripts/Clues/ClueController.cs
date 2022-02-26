@@ -9,24 +9,29 @@ public class ClueController : MonoBehaviour
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private List<Sprite> conclusionSprites;
 
-    public bool isSolution;
-
-    private string initialClue = "não achado ainda";
+    private bool inUse = false;
     
     // Start is called before the first frame update
     void Start()
     {
+        if(!inUse) SetAsHidden();
     }
 
-    public void SetClueNote(string notFoundText)
+    public void InitializeClue(string notFoundText)
     {
+        inUse = true;
         SetAsNotFound(notFoundText);
+    }
+
+    public void InitializeSolution()
+    {
+        inUse = true;
+        SetAsSolutionNotFound();
     }
 
     public void SetAsFound(string clueContent)
     {
         this.gameObject.SetActive(true);
-        this.initialClue = this.clueText.text;
         this.clueText.text = clueContent;
 
         this.clueText.color = new Color32(0, 0, 0, 255);
@@ -57,7 +62,7 @@ public class ClueController : MonoBehaviour
         GetComponent<Image>().color = new Color32(255, 255, 225, 50);
     }
 
-    public void setAsHidden()
+    public void SetAsHidden()
     {
         this.gameObject.SetActive(false);
     }

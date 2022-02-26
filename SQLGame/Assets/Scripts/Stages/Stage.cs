@@ -8,13 +8,17 @@ public class Stage: MonoBehaviour
     public List<bool> solvedClue { get; protected set; }
     protected List<ClueNote> clueNotes;
     protected List<ClueSolution> clueSolutions;
+    protected ClueSolution finalSolution;
+
+    [SerializeReference] protected List<ClueController> clueControllers;
+    [SerializeReference] protected List<ClueController> solutionControllers;
+    [SerializeReference] protected ClueController finalSolutionController;
 
     protected string stageIdentifier = "Default";
 
-    public void OnStart(List<ClueController> clueControllers, List<ClueController> solutionControllers)
+    public void OnStart()
     {
-        this.clueSolutions = new List<ClueSolution>();
-        InitializeStage(clueControllers, solutionControllers);
+        InitializeStage();
         UpdateStatuses(RetrieveSolvedClues());
     }
 
@@ -23,14 +27,42 @@ public class Stage: MonoBehaviour
         solvedClue[index] = true;
     }
 
-    protected virtual void InitializeStage(List<ClueController> clueGameObjects, List<ClueController> solutionGameObjects) { /*should be override by subclasses*/ }
+    protected virtual List<ClueNote> InitializeClueNotes() { return null; }
+    protected virtual List<ClueSolution> InitializeClueSolutions() { return null; }
+
+    protected virtual ClueSolution InitializeFinalSolution() { return null; }
+
+    protected virtual void InitializeStage() {
+        this.clueNotes = InitializeClueNotes();
+
+        int i = 0;
+        foreach (ClueNote clueNote in clueNotes)
+        {
+            if (i >= clueControllers.Count) break;
+            clueNote.SetController(clueControllers[i]);
+            i++;
+        }
+
+        this.clueSolutions = InitializeClueSolutions();
+
+        i = 0;
+        foreach (ClueSolution clueSolution in clueSolutions)
+        {
+            if (i >= solutionControllers.Count) break;
+            clueSolution.SetController(solutionControllers[i]);
+            i++;
+        }
+        this.finalSolution = InitializeFinalSolution();
+        this.finalSolution.SetController(finalSolutionController);
+    }
+
     protected bool UpdateStatuses(List<bool> clueStatuses) {
-        if (this.clueNotes == null || this.clueNotes.Count <= 0) return false;
+        if (clueStatuses == null || this.clueNotes == null || this.clueNotes.Count <= 0) return false;
 
         for(int i = 0; i < this.clueNotes.Count; i++)
         {
             if (i >= clueStatuses.Count) break;
-            this.clueNotes[i].clues.ForEach(clue => clue.found = clueStatuses[i]);
+            this.clueNotes[i].clue.found = clueStatuses[i];
         }
 
         return true;

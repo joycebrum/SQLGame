@@ -10,9 +10,6 @@ public class StageController : MonoBehaviour
     int currentStageIndex;
     [SerializeReference] List<Stage> stages;
 
-    private List<ClueController> clueGameObjects;
-    private List<ClueController> solutionGameObjects;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,20 +20,7 @@ public class StageController : MonoBehaviour
         }
         currentStage = stages[0];
 
-        var allClues = this.clueContainer.GetComponents<ClueController>();
-        foreach (ClueController clue in allClues)
-        {
-            if (clue.isSolution)
-            {
-                solutionGameObjects.Add(clue);
-            }
-            else
-            {
-                clueGameObjects.Add(clue);
-            }
-        }
-
-        this.currentStage.OnStart(clueGameObjects, solutionGameObjects);
+        this.currentStage.OnStart();
     }
 
     private void OnApplicationQuit()
