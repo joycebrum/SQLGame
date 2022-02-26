@@ -31,10 +31,9 @@ public class StageController : MonoBehaviour
         this.currentStage.SaveSolvedClues();
     }
 
-    public void FindClue(int index)
+    public bool CheckForClues(List<List<string>> result)
     {
-        currentStage.FindClue(index);
-        main.UpdateClues();
+        return currentStage.CheckForClues(result);
     }
 
     public void NextStage()

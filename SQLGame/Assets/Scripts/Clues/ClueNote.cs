@@ -4,8 +4,8 @@ using UnityEngine;
 
 public struct ClueIdentifier
 {
-    string column;
-    string content;
+    public string column { get; private set; }
+    public string content { get; private set; };
 
     public ClueIdentifier(string column, string content)
     {
@@ -32,6 +32,19 @@ public class Clue
         this.identifiers = identifiers;
         this.found = false;
     }
+
+    public bool Check(List<List<string>> result)
+    {
+        return identifiers.TrueForAll(identifier => ResultHasIdentifier(result, identifier));
+    }
+
+    private bool ResultHasIdentifier(List<List<string>> result, ClueIdentifier identifier)
+    {
+        if(result == null || result.Count != 2) return false;
+        
+        int column_index = result[0].FindIndex(column_name => column_name == identifier.column);
+        return result[1][column_index] == identifier.content;
+    }
 }
 
 public class ClueNote : SolutionPart
@@ -57,6 +70,11 @@ public class ClueNote : SolutionPart
     {
         this.clueController = clueController;
         this.clueController.InitializeClue(hint);
+    }
+
+    public bool Check(List<List<string>> result)
+    {
+        return clue.Check(result);
     }
 }
 

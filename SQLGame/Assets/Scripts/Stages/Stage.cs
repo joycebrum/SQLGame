@@ -22,9 +22,15 @@ public class Stage: MonoBehaviour
         UpdateStatuses(RetrieveSolvedClues());
     }
 
-    public void FindClue(int index)
+    public bool CheckForClues(List<List<string>> result)
     {
-        solvedClue[index] = true;
+        bool anyFound = false;
+        foreach(ClueNote clue in clueNotes)
+        {
+            if (clue.IsFound()) continue;
+            anyFound |= clue.Check(result);
+        }
+        return anyFound;
     }
 
     protected virtual List<ClueNote> InitializeClueNotes() { return null; }

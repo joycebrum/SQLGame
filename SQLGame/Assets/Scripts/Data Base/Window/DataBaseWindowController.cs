@@ -92,7 +92,7 @@ public class DataBaseWindowController: MonoBehaviour
         }
 
         if(table.Rows == 2) {
-            CheckResult();
+            CheckResult(tableData);
         }
     }
 
@@ -191,10 +191,9 @@ public class DataBaseWindowController: MonoBehaviour
         errorText.gameObject.SetActive(true);
     }
 
-    private void CheckResult()
+    private void CheckResult(List<List<string>> result)
     {
-        stageController.FindClue(3);
+        stageController.CheckForClues(result);
         popUp.GetComponent<PopUpController>().showPopUp("Parabéns, voce encontrou uma pista!");
-        stageOneController.FindClue(3);
     }
 }
