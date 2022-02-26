@@ -17,8 +17,9 @@ public class StageOneDBController : MonoBehaviour
 
     public void InitDabaBase()
     {
+        bool fileExists = System.IO.File.Exists(dbPath);
         this.database.Connect("URI=file:" + this.dbPath);
-        if (!System.IO.File.Exists(dbPath))
+        if (!fileExists)
         {
             CreateDataBase();
             PopulateDataBase();

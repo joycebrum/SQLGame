@@ -1,24 +1,21 @@
 CREATE TABLE IF NOT EXISTS Alunos( 
 	matricula VARCHAR(10) NOT NULL,
-    nome VARCHAR(20) NOT NULL, 
-    telefone VARCHAR(20), 
-    sobrenome VARCHAR(20), 
-    dataDeNascimento DATE,
+    	nome VARCHAR(20) NOT NULL, 
+    	telefone VARCHAR(20), 
+    	sobrenome VARCHAR(20), 
+    	dataDeNascimento DATE,
 	tipo VARCHAR(20),
-    PRIMARY KEY(matricula)
-);
-CREATE TABLE IF NOT EXISTS AcessoComputadores(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	login DATETIME,
-	logout DATETIME,
-	matriculaAluno VARCHAR(10) NOT NULL,
-	FOREIGN KEY(matriculaAluno) REFERENCES Alunos(matricula)
+    	PRIMARY KEY(matricula)
 );
 CREATE TABLE IF NOT EXISTS AcessoLaboratorios(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	matriculaAluno VARCHAR(10) NOT NULL, 
+    	nomeAluno VARCHAR(20) NOT NULL,
+    	sobrenomeAluno VARCHAR(20), 
 	entrada DATETIME,
+	login DATETIME,
+	logout DATETIME,
 	saida DATETIME,
-	matriculaAluno VARCHAR(10) NOT NULL,
 	FOREIGN KEY(matriculaAluno) REFERENCES Alunos(matricula)
 );
 CREATE TABLE IF NOT EXISTS Segurancas(

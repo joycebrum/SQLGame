@@ -116,12 +116,16 @@ public class DataBaseWindowController: MonoBehaviour
 
     private string Cast(string name, string type, IDataReader reader)
     {
+        print("type: " + type);
         switch(type)
         {
             case "date":
+            case "datetime":
                 return ((DateTime)reader[name]).ToString();
+            case "integer":
+                return reader[name].ToString();
             default:
-                return(string)reader[name];
+                return (string)reader[name];
         }
     }
 
