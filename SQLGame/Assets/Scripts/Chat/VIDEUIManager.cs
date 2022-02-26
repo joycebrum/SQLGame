@@ -27,6 +27,7 @@ public class VIDEUIManager : MonoBehaviour
     {
         chatDialogController = gameObject.GetComponent<ChatDialogController>();
     }
+
     public void LoadChat()
     {
         //Sets the temp VIDE_Assign’s variables for the given dialogue.
@@ -38,21 +39,37 @@ public class VIDEUIManager : MonoBehaviour
         Begin();
     }
 
+    public Sprite getNPCSprite()
+    {
+        VA = GameObject.Find(dialogueNameToLoad + "Assignee").GetComponent<VIDE_Assign>();
+        return VA.defaultNPCSprite;
+    }
+
     //Called by UI button
     public void Begin()
     {
         if (!VD.isActive)
         {
             VD.OnNodeChange += NodeChangeAction; //Required events
+            VD.OnActionNode += ActionNodeHandler;
             VD.OnEnd += End; //Required events
             VD.BeginDialogue(dialogueNameToLoad);
+        }
+        if (PlayerPrefs.GetInt(dialogueNameToLoad) == 2) // 0 or null - not blocked; 1 - blocked; 2 - released
+        {
+            PlayerPrefs.SetInt(dialogueNameToLoad, 0);
+            VD.Next();
         }
     }
 
     //Called by UI buttons, every button sends a different choice index
     public void ButtonChoice(int choice)
     {
-        string msg = VD.nodeData.extraVars[choice.ToString()].ToString();
+        string msg = VD.nodeData.comments[choice];
+        if (VD.nodeData.extraVars.Count > choice)
+        {
+            msg = VD.nodeData.extraVars[choice.ToString()].ToString();
+        }
         VA.messageHistory.Add(new Dictionary<string, string>() { { "type", PLAYER_MSG }, { "msg", msg } });
         CreateNewPlayerMessage(msg);
         VD.nodeData.commentIndex = choice; //Set commentIndex as it acts as the picked choice
@@ -63,11 +80,18 @@ public class VIDEUIManager : MonoBehaviour
     {
         if (VA != null && VD.nodeData != null)
         {
-            VA.overrideStartNode = VD.nodeData.nodeID;
+            // Do not override if blocked because the action has already override
+            if (PlayerPrefs.GetInt(dialogueNameToLoad) != 1) OverrideStartNode(VD.nodeData.nodeID);
             VA.SaveState(dialogueNameToLoad);
         }
         //If the script gets destroyed, let's make sure we force-end the dialogue to prevent errors
+
         End(null);
+    }
+
+    public void OverrideStartNode(int idNode)
+    {
+        VA.overrideStartNode = idNode;
     }
 
     void CreateNewNPCMessage(string msg)
@@ -94,6 +118,13 @@ public class VIDEUIManager : MonoBehaviour
             WipePlayerChoices();
             StartCoroutine(ShowNPCText());
         }
+    }
+
+    void ActionNodeHandler(int actionNodeID)
+    {
+        OverrideStartNode(actionNodeID);
+        if(PlayerPrefs.GetInt(dialogueNameToLoad) == 0) PlayerPrefs.SetInt(dialogueNameToLoad, 1);
+        WipePlayerChoices();
     }
 
     void WipePlayerChoices()
@@ -152,6 +183,7 @@ public class VIDEUIManager : MonoBehaviour
     {
         WipePlayerChoices();
         VD.OnNodeChange -= NodeChangeAction;
+        VD.OnActionNode -= ActionNodeHandler;
         VD.OnEnd -= End;
         VD.EndDialogue();
     }

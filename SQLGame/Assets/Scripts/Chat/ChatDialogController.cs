@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ChatEnum { 
+    ia = 0, patrocinio = 1, reporter = 2 
+}
+
 public class ChatDialogController : MonoBehaviour
 {
-    [SerializeField] Transform messageParentPanel = null;
-    [SerializeField] GameObject newPlayerMessagePrefab = null;
-    [SerializeField] GameObject newMessagePrefab = null;
-    [SerializeField] Image profile = null;
-    [SerializeField] Text textName = null;
+    [SerializeField] private Transform messageParentPanel = null;
+    [SerializeField] private ScrollRect scrollRect = null;
 
-    [SerializeField] GameObject chatScreen = null;
-    [SerializeField] GameObject contactScreen = null;
-    [SerializeField] List<Sprite> sprites = new List<Sprite>();
+    [SerializeField] private GameObject newPlayerMessagePrefab = null;
+    [SerializeField] private GameObject newMessagePrefab = null;
+    [SerializeField] private Image profile = null;
+    [SerializeField] private Text textName = null;
+
+    [SerializeField] private GameObject chatScreen = null;
+    [SerializeField] private GameObject contactScreen = null;
 
     string message = "";
 
@@ -22,15 +27,27 @@ public class ChatDialogController : MonoBehaviour
         DestroyAllMessages();
     }
 
+    private void UpdateScrollRect()
+    {
+        Canvas.ForceUpdateCanvases();
+
+        messageParentPanel.GetComponent<VerticalLayoutGroup>().CalculateLayoutInputVertical();
+        messageParentPanel.GetComponent<ContentSizeFitter>().SetLayoutVertical();
+
+        scrollRect.verticalNormalizedPosition = 0;
+    }
+
     public void OnBackButton()
     {
+        DestroyAllMessages();
         ShowContacts();
     }
 
-
     public void SetMessage(string message)
     {
-        this.message = message.Replace("#{player}", PlayerPrefs.GetString("playerName")).Replace("#{npc}", textName.text);
+        this.message = message.Replace("#{player}", PlayerPrefs.GetString("playerName"))
+            .Replace("#{npc}", textName.text)
+            .Replace("#{playerFull}", PlayerPrefs.GetString("playerFullName"));
     }
      
     public void DestroyAllMessages()
@@ -64,18 +81,8 @@ public class ChatDialogController : MonoBehaviour
             clone.transform.localScale = new Vector3(1f, 1f, 1f);
             clone.GetComponent<MessageFunctions>().ShowMessage(message);
             this.message = null;
-        }
-    }
 
-    private float GetMessageHeight()
-    {
-        if (message.Length > 28)
-        {
-            return Mathf.Ceil(message.Length / 28f) * 20;
-        }
-        else
-        {
-            return 20;
+            UpdateScrollRect();
         }
     }
 
@@ -88,31 +95,62 @@ public class ChatDialogController : MonoBehaviour
 
         clone.GetComponentInChildren<MessageFunctions>().ShowMessage(message);
         this.message = null;
+
+        UpdateScrollRect();
+    }
+
+    private string GetDialogueName(ChatEnum type)
+    {
+        switch (type)
+        {
+            case ChatEnum.ia: return Constants.AIChat;
+            case ChatEnum.patrocinio: return Constants.bossChat;
+            case ChatEnum.reporter: return Constants.reporterChat;
+            default: return null;
+        }
+    }
+
+    private string GetNPCName(ChatEnum type)
+    {
+        switch (type)
+        {
+            case ChatEnum.ia: return Constants.AIName;
+            case ChatEnum.patrocinio: return Constants.bossName;
+            case ChatEnum.reporter: return Constants.reporterName;
+            default: return null;
+        }
     }
 
     public void OnContactSelect(int index)
     {
-        switch (index)
+        ChatEnum type = (ChatEnum)index;
+        string dialogName = GetDialogueName(type);
+        if (dialogName != null)
         {
-            case 0:
-                this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = Constants.AIChat;
-                ShowChat(index, Constants.AIName); 
-                break;
-            case 1:
-                this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = Constants.bossChat;
-                ShowChat(index, Constants.bossName);
-                break;
-            default: break;
+            this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = dialogName;
+            ShowChat(index, GetNPCName(type));
         }
+            
     }
 
     public void ShowChat(int spritePos, string name)
     {
         this.contactScreen.SetActive(false);
         this.chatScreen.SetActive(true);
-        this.profile.sprite = this.sprites[spritePos];
         this.textName.text = name;
-        this.gameObject.GetComponent<VIDEUIManager>().LoadChat();
+        VIDEUIManager videUiManager = this.gameObject.GetComponent<VIDEUIManager>();
+        this.profile.sprite = videUiManager.getNPCSprite();
+        videUiManager.LoadChat();
+    }
+
+    public void ReleaseChat(ChatEnum type)
+    {
+        string dialogName = GetDialogueName(type);
+        if (dialogName != null)
+        {
+            PlayerPrefs.SetInt(GetDialogueName(type), 2); // 0 or null - not blocked; 1 - blocked; 2 - released
+            // TODO: Add visual notification of new message
+        }
     }
 
     public void ShowContacts()

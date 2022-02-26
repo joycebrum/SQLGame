@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainScreenFunctions : MonoBehaviour
+public class OperationalSystemController : MonoBehaviour
 {
     public GameObject menuBackgroungVertical;
     public GameObject menuButton;
@@ -16,7 +16,8 @@ public class MainScreenFunctions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.SetString("playerName", "Joyce");
+        PlayerPrefs.SetString("playerName", "Cris");
+        PlayerPrefs.SetString("playerFullName", "Cristiano Pereira");
     }
 
     public void OnHomeClick()
@@ -69,5 +70,22 @@ public class MainScreenFunctions : MonoBehaviour
     {
         print("cheguei na main");
         cluesWindow.GetComponent<CluesWindowController>().SetupClues();
+    }
+
+    /* Trigger Chats */
+
+    public void ContinueAIChat()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.ia);
+    }
+
+    public void ContinueBossChat()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.patrocinio);
+    }
+
+    public void ContinueReporterChat()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.reporter);
     }
 }

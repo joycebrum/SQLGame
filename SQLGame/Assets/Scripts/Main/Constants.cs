@@ -5,4 +5,7 @@
 
     public const string bossName = "Sr Patrocinio";
     public const string bossChat = "PatrocinioChat";
+
+    public const string reporterName = "Reporter";
+    public const string reporterChat = "Reporter";
 }
