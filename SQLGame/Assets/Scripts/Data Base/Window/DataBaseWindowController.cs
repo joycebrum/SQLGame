@@ -20,7 +20,7 @@ public class DataBaseWindowController: MonoBehaviour
     [SerializeField] GameObject tableDataPrefable;
     [SerializeField] Transform sideBar;
 
-    [SerializeField] private StageController stageOneController;
+    [SerializeField] private StageController stageController;
 
     [SerializeField] private GameObject popUp;
 
@@ -193,6 +193,7 @@ public class DataBaseWindowController: MonoBehaviour
 
     private void CheckResult()
     {
+        stageController.FindClue(3);
         popUp.GetComponent<PopUpController>().showPopUp("Parabéns, voce encontrou uma pista!");
         stageOneController.FindClue(3);
     }
