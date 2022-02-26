@@ -63,10 +63,14 @@ public class ClueNote : SolutionPart
     }
 
     public override bool IsFound()
-    {
-        if (this.clue.found) this.clueController.SetAsFound(description);
-        
+    {        
         return this.clue.found;
+    }
+
+    public void UpdateController()
+    {
+        if (IsFound()) this.clueController.SetAsFound(description);
+        else this.clueController.SetAsNotFound(hint);
     }
 
     public void SetController(ClueController clueController)
@@ -77,10 +81,10 @@ public class ClueNote : SolutionPart
 
     public bool Check(List<string> header, List<string> result)
     {
-        bool found = clue.Check(header, result);
-        if(found) this.clueController.SetAsFound(description);
+        clue.Check(header, result);
+        UpdateController();
 
-        return found;
+        return IsFound();
     }
 }
 
