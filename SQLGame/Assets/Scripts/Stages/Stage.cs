@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class Stage: MonoBehaviour
@@ -8,17 +9,15 @@ public class Stage: MonoBehaviour
     public List<ClueNote> clueNotes;
 
     protected string stageIdentifier = "Default";
+    protected List<ClueController> clueGameObjects;
+    protected List<ClueController> solutionGameObjects;
 
-    void Start()
+    public void OnStart(List<ClueController> clueGameObjects, List<ClueController> solutionGameObjects)
     {
-        InitializeStage();
+        this.clueGameObjects = clueGameObjects;
+        this.solutionGameObjects = solutionGameObjects;
+        InitializeStage(clueGameObjects, solutionGameObjects);
         UpdateStatuses(RetrieveSolvedClues());
-    }
-
-    void OnApplicationQuit()
-    {
-        Debug.Log("Application ending after " + Time.time + " seconds");
-        SaveSolvedClues();
     }
 
     public void FindClue(int index)
@@ -26,7 +25,7 @@ public class Stage: MonoBehaviour
         solvedClue[index] = true;
     }
 
-    protected void InitializeStage() { /*should be override by subclasses*/ }
+    protected void InitializeStage(List<ClueController> clueGameObjects, List<ClueController> solutionGameObjects) { /*should be override by subclasses*/ }
     protected bool UpdateStatuses(List<bool> clueStatuses) {
         if (this.clueNotes == null || this.clueNotes.Count <= 0) return false;
 
@@ -52,7 +51,7 @@ public class Stage: MonoBehaviour
         return clueStatuses;
     }
 
-    protected bool SaveSolvedClues()
+    public bool SaveSolvedClues()
     {
         if (this.stageIdentifier == null || this.stageIdentifier == "Default") return false;
 

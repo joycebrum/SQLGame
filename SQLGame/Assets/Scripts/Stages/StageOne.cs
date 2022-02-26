@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class StageOne : Stage
 {
-    protected void initializeStage()
+    protected void initializeStage(List<ClueController> clueGameObjects, List<ClueController> solutionGameObjects)
     {
         stageIdentifier = "Default";
 

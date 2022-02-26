@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -302, y: 134}
-  m_SizeDelta: {x: 250, y: 120}
+  m_AnchoredPosition: {x: -315.7666, y: 140.70679}
+  m_SizeDelta: {x: 222.4668, y: 106.5864}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6409150638226665805
 CanvasRenderer:
@@ -93,6 +93,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 97093d7921fdfce4a9ab5acfc04d2e56, type: 3}
   - {fileID: 21300000, guid: c849afca9c6877543890c9674aaae945, type: 3}
+  conclusionSprites: []
 --- !u!1 &7993370002212093791
 GameObject:
   m_ObjectHideFlags: 0
