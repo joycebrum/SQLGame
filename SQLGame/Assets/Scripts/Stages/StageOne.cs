@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public class StageOne : Stage
 {
+
     protected override void InitializeStage()
     {
         print("Initialize Stage One");
-        stageIdentifier = "Default";
+        this.stageIdentifier = "stage_one";
 
         this.solvedClue = new List<bool> { false, true, true, false, true, false, true, false };
 

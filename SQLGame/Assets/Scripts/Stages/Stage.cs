@@ -70,26 +70,28 @@ public class Stage: MonoBehaviour
 
     protected bool UpdateStatuses(List<bool> clueStatuses) {
         if (clueStatuses == null || this.clueNotes == null || this.clueNotes.Count <= 0) return false;
-
         for(int i = 0; i < this.clueNotes.Count; i++)
         {
             if (i >= clueStatuses.Count) break;
             this.clueNotes[i].clue.found = clueStatuses[i];
+            this.clueNotes[i].UpdateController();
         }
+
+        clueSolutions.ForEach(solution => solution.UpdateController());
+        finalSolution.UpdateController();
 
         return true;
     }
 
     protected List<bool> RetrieveSolvedClues()
     {
-        if(this.stageIdentifier == null || this.stageIdentifier == "Default" || !PlayerPrefs.HasKey(CountIdentifier())) return null;
+        if (this.stageIdentifier == null || this.stageIdentifier == "Default" || !PlayerPrefs.HasKey(CountIdentifier())) return null;
 
         List<bool> clueStatuses = new List<bool>();
         int count = PlayerPrefs.GetInt(CountIdentifier());
 
         for (int i = 0; i < count; i++)
             clueStatuses.Add(PlayerPrefs.GetInt(ClueIdentifier(i)) == 1);
-
         return clueStatuses;
     }
 
