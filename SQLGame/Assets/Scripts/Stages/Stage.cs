@@ -32,7 +32,8 @@ public class Stage: MonoBehaviour
             if(clue.Check(header, result))
             {
                 anyFound = true;
-                clueSolutions.ForEach(clueSolution => clueSolution.Check());
+                clueSolutions.ForEach(clueSolution => clueSolution.UpdateController());
+                finalSolution.UpdateController();
             }
         }
         return anyFound;
