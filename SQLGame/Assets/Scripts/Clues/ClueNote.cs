@@ -48,8 +48,8 @@ public class Clue
         int column_index = header.FindIndex(column_name => column_name == identifier.column);
 
         if(column_index < 0 || column_index >= result.Count) return false;
-
-        return result[column_index] == identifier.content;
+        
+        return Regex.Match(result[column_index], identifier.content).Success;
     }
 }
 
