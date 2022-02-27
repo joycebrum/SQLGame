@@ -13,6 +13,7 @@ public class TutorialController : MonoBehaviour
         public string[] instructions = null;
     }
     [SerializeField] private GameObject instructionPanel = null;
+    [SerializeField] private GameObject parentPanel = null;
     [SerializeField] private Text instructionText = null;
     [SerializeField] private TutorialStep[] tutorialSteps = null;
     private int tutorialStepIdx = 0;
@@ -54,25 +55,54 @@ public class TutorialController : MonoBehaviour
 
         TutorialStep tutorialStep = tutorialSteps[tutorialStepIdx];
 
+
+        List<Transform> components = new List<Transform>(parentPanel.GetComponentsInChildren<Transform>());
+        int actualIndex = 0; 
+        string highlightName = tutorialStep.gameObject.name;
+        foreach (Transform panel in components)
+        {
+            if (panel.parent.name == "Tutorial" || panel.parent.name == "Tutorial panel" || panel.parent.name == "Menu Drop Down" || panel.name == "Buttons Panel")
+            {
+                continue;
+            } else if (panel.name == "Tutorial panel") 
+            {
+                panel.SetSiblingIndex(3);
+            } else if (panel.name == highlightName)
+            {
+                panel.SetSiblingIndex(4);
+            } else
+            {
+                panel.SetSiblingIndex(actualIndex);
+                actualIndex++;
+            }
+        }
+
+
         NextInstruction(tutorialStep);
     }
 
     private void NextInstruction(TutorialStep tutorialStep)
     {
+        print("começei");
         if(instructionIdx == 0)
         {
-            if(tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
+            print("antes if dentro");
+            if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
+            print("depois if dentro");
             tutorialStep.gameObject.GetComponent<ButtonAnimationController>().FocusWithAnimation();
         }
+        print("pasou if 1");
 
         instructionText.text = tutorialStep.instructions[instructionIdx];
         instructionIdx += 1;
 
+        print("antes if 2");
         if (instructionIdx >= tutorialStep.instructions.Length)
         {
             instructionIdx = 0;
             tutorialStepIdx += 1;
         }
+        print("pasou if 2");
     }
 
 
