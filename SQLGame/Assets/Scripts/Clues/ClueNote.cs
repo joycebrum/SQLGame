@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public struct ClueIdentifier
@@ -18,6 +19,7 @@ public class SolutionPart
 {
     public string description;
     public virtual bool IsFound() { return false; } //to be implemented in subclasses
+    public virtual void UpdateController() { }
     public ClueController clueController;
 }
 
@@ -70,7 +72,7 @@ public class ClueNote : SolutionPart
         return this.clue.found;
     }
 
-    public void UpdateController()
+    public override void UpdateController()
     {
         if (IsFound()) this.clueController.SetAsFound(description);
         else this.clueController.SetAsNotFound(hint);
@@ -104,6 +106,12 @@ public class ClueSolution : SolutionPart
         return this.solutionParts.TrueForAll(clue => clue.IsFound());
     }
 
+    public override void UpdateController()
+    {
+        if (IsFound()) this.clueController.SetAsFound(description);
+        else this.clueController.SetAsSolutionNotFound();
+    }
+
     public void SetController(ClueController clueController)
     {
         this.clueController = clueController;
@@ -112,14 +120,4 @@ public class ClueSolution : SolutionPart
 
     public void AddSolutionPart(SolutionPart solutionPart) { this.solutionParts.Add(solutionPart); }
     public void AddSolutionParts(List<SolutionPart> solutionParts) { this.solutionParts.AddRange(solutionParts); }
-
-    public bool Check()
-    {
-        if(IsFound())
-        {
-            clueController.SetAsFound(description);
-            return true;
-        }
-        return false;
-    }
 }
