@@ -35,7 +35,10 @@ public class Clue
 
     public bool Check(List<string> header, List<string> result)
     {
-        return identifiers.TrueForAll(identifier => ResultHasIdentifier(header, result, identifier));
+        if (found) return true;
+
+        found = identifiers.TrueForAll(identifier => ResultHasIdentifier(header, result, identifier));
+        return found;
     }
 
     private bool ResultHasIdentifier(List<string> header, List<string> result, ClueIdentifier identifier)
