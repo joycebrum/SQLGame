@@ -1,6 +1,8 @@
-Tarefa ([Nome da tarefa](https://trello.com/.... link da tarefa))
+Tarefa(s) 
 =====
 _Descreva a tarefa_
+
+- ([Nome da tarefa](https://trello.com/.... link da tarefa))
 
 O que foi feito?
 =====
