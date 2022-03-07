@@ -11,23 +11,6 @@ public class CluesWindowController: MonoBehaviour
     [SerializeField] private GameObject finalSolution;
 
     private List<bool> solvedClues;
-    // Start is called before the first frame update
-    void Start()
-    {
-        solvedClues = stageController.currentStage.solvedClue;
-        SetupClues();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        List<bool> tempSolvedClues = stageController.currentStage.solvedClue;
-        if (solvedClues != tempSolvedClues)
-        {
-            solvedClues = tempSolvedClues;
-            SetupClues();
-        }
-    }
 
     public void SetupClues()
     {
@@ -36,7 +19,7 @@ public class CluesWindowController: MonoBehaviour
         {
             if (solvedClues.Count <= i)
             {
-                clues[i].GetComponent<ClueController>().setAsHidden();
+                clues[i].GetComponent<ClueController>().SetAsHidden();
             }
             else if (solvedClues[i])
             {
@@ -44,7 +27,7 @@ public class CluesWindowController: MonoBehaviour
             }
             else
             {
-                clues[i].GetComponent<ClueController>().SetAsNotFound();
+                clues[i].GetComponent<ClueController>().SetAsNotFound("");
             }
         }
 
@@ -53,7 +36,7 @@ public class CluesWindowController: MonoBehaviour
         {
             if (solvedClues.Count <= i * 2)
             {
-                clueSolutions[i].GetComponent<ClueController>().setAsHidden();
+                clueSolutions[i].GetComponent<ClueController>().SetAsHidden();
                 continue;
             }
             else if (solvedClues[i * 2] && solvedClues[i * 2 + 1])

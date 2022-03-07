@@ -5,18 +5,35 @@ using UnityEngine;
 public class StageController : MonoBehaviour
 {
     [SerializeField] private OperationalSystemController main;
+    [SerializeField] private GameObject clueContainer;
     public Stage currentStage;
     int currentStageIndex;
     [SerializeReference] List<Stage> stages;
+
     // Start is called before the first frame update
     void Start()
     {
+        currentStageIndex = 0;
+        if (PlayerPrefs.HasKey("currentStageIndex"))
+        {
+            currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");
+        }
         currentStage = stages[0];
+
+        this.currentStage.OnStart();
     }
-    public void FindClue(int index)
+
+    private void OnApplicationQuit()
     {
-        currentStage.FindClue(index);
-        main.UpdateClues();
+        Debug.Log("Application ending after " + Time.time + " seconds");
+        
+        PlayerPrefs.SetInt("currentStageIndex", this.currentStageIndex);
+        this.currentStage.SaveSolvedClues();
+    }
+
+    public bool CheckForClues(List<string> header, List< string > result)
+    {
+        return currentStage.CheckForClues(header, result);
     }
 
     public void NextStage()

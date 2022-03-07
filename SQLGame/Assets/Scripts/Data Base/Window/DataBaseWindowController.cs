@@ -20,7 +20,9 @@ public class DataBaseWindowController: MonoBehaviour
     [SerializeField] GameObject tableDataPrefable;
     [SerializeField] Transform sideBar;
 
-    [SerializeField] private StageController stageOneController;
+    [SerializeField] private StageController stageController;
+
+    [SerializeField] private GameObject popUp;
 
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();
@@ -116,7 +118,6 @@ public class DataBaseWindowController: MonoBehaviour
 
     private string Cast(string name, string type, IDataReader reader)
     {
-        print("type: " + type);
         switch(type)
         {
             case "date":
@@ -192,6 +193,15 @@ public class DataBaseWindowController: MonoBehaviour
 
     private void CheckResult()
     {
-        stageOneController.FindClue(3);
+        List<string> headerNames = headerData.ConvertAll<string>(FirstItemsConverter);
+        if (stageController.CheckForClues(headerNames, tableData[0]))
+        {
+            popUp.GetComponent<PopUpController>().showPopUp("Parabéns, voce encontrou uma pista!");
+        }
+    }
+
+    public static string FirstItemsConverter(Tuple<string,string> tuple)
+    {
+        return tuple.Item1;
     }
 }
