@@ -11,23 +11,6 @@ public class CluesWindowController: MonoBehaviour
     [SerializeField] private GameObject finalSolution;
 
     private List<bool> solvedClues;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //solvedClues = stageController.currentStage.solvedClue;
-        //SetupClues();
-    }
-
-    // Update is called once per frame
-    /*void Update()
-    {
-        List<bool> tempSolvedClues = stageController.currentStage.solvedClue;
-        if (solvedClues != tempSolvedClues)
-        {
-            solvedClues = tempSolvedClues;
-            SetupClues();
-        }
-    }*/
 
     public void SetupClues()
     {
