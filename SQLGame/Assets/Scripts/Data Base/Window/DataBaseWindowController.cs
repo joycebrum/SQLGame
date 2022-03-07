@@ -120,7 +120,7 @@ public class DataBaseWindowController: MonoBehaviour
     {
         switch(type)
         {
-            case "date": 
+            case "date":
             case "datetime":
                 return ((DateTime)reader[name]).ToString();
             case "integer":
