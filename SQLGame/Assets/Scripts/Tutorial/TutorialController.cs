@@ -15,6 +15,8 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private GameObject instructionPanel = null;
     [SerializeField] private Text instructionText = null;
     [SerializeField] private TutorialStep[] tutorialSteps = null;
+    [SerializeField] private GameObject[] siblings = null;
+
     private int tutorialStepIdx = 0;
     private int instructionIdx = 0;
 
@@ -61,7 +63,7 @@ public class TutorialController : MonoBehaviour
     {
         if(instructionIdx == 0)
         {
-            if(tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
+            if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
             tutorialStep.gameObject.GetComponent<ButtonAnimationController>().FocusWithAnimation();
         }
 
@@ -73,7 +75,34 @@ public class TutorialController : MonoBehaviour
             instructionIdx = 0;
             tutorialStepIdx += 1;
         }
+
+        changeSiblingsIndex(tutorialStep);
     }
 
+    private void changeSiblingsIndex(TutorialStep tutorialStep)
+    {
+        foreach (GameObject sibling in siblings)
+        {
+            if (sibling.CompareTag("TutorialComplementPanel"))
+            {
+                if (tutorialStep.gameObject.transform.parent.gameObject.name == sibling.name)
+                {
+                    sibling.transform.SetSiblingIndex(3);
+                }
+                else
+                {
+                    sibling.transform.SetSiblingIndex(0);
+                }
+            }
+            else if (sibling.name == instructionPanel.name)
+            {
+                sibling.transform.SetSiblingIndex(2);
+            }
+            else
+            {
+                sibling.GetComponent<ButtonAnimationController>().moveOnHierachy();
+            }
+        }
+    }
 
 }

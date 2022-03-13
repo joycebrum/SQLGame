@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class OperationalSystemController : MonoBehaviour
 {
-    public GameObject menuBackgroungVertical;
-    public GameObject menuButton;
 
     [SerializeField] GameObject phoneObject;
     [SerializeField] GameObject tableObject;
@@ -20,11 +18,10 @@ public class OperationalSystemController : MonoBehaviour
         PlayerPrefs.SetString("playerFullName", "Cristiano Pereira");
     }
 
-    public void OnHomeClick()
+    public void OnMenuClick()
     {
         Debug.Log("Home");
-        stageController.NextStage();
-
+        //stageController.NextStage();
     }
 
     public void OnBackClick()
@@ -49,11 +46,6 @@ public class OperationalSystemController : MonoBehaviour
     {
         phoneObject.SetActive(true);
         phoneObject.GetComponent<ChatDialogController>().ShowChat(0, Constants.AIName);
-    }
-
-    public void OnMenuClick()
-    {
-        tableObject.SetActive(true);
     }
 
     public void OnDBButtonClick()
