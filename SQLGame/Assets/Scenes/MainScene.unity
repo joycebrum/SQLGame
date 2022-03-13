@@ -527,7 +527,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructionPanel: {fileID: 1549673447}
-  parentPanel: {fileID: 1288849714}
   instructionText: {fileID: 2144328823}
   tutorialSteps:
   - gameObject: {fileID: 858799123}
@@ -545,6 +544,11 @@ MonoBehaviour:
   - gameObject: {fileID: 252473289}
     instructions:
     - "Bot\xE3o de mmensagens"
+  siblings:
+  - {fileID: 1827953877}
+  - {fileID: 858799123}
+  - {fileID: 1090698050}
+  - {fileID: 1549673447}
 --- !u!114 &434022357 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 477202242595280171, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
@@ -1023,7 +1027,7 @@ GameObject:
   - component: {fileID: 1090698056}
   m_Layer: 5
   m_Name: Buttons Bar
-  m_TagString: Untagged
+  m_TagString: TutorialComplementPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -17,6 +17,8 @@ public class ButtonAnimationController : MonoBehaviour
     private Vector3 originalScale = new Vector3(1f, 1f, 1f);
     private bool onFocus = false;
 
+    private int sibllingIndex = 0;
+
     public void Start()
     {
         originalColor = gameObject.GetComponent<Image>().color;
@@ -53,5 +55,15 @@ public class ButtonAnimationController : MonoBehaviour
     public void RestoreScale(float duration)
     {
         LeanTween.scale(gameObject.GetComponent<RectTransform>(), originalScale, duration);
+    }
+
+    public void moveOnHierachy()
+    {
+        if(onFocus)
+        {
+            this.transform.SetSiblingIndex(3);
+        } else {
+            this.transform.SetSiblingIndex(0);
+        }
     }
 }

@@ -13,9 +13,10 @@ public class TutorialController : MonoBehaviour
         public string[] instructions = null;
     }
     [SerializeField] private GameObject instructionPanel = null;
-    [SerializeField] private GameObject parentPanel = null;
     [SerializeField] private Text instructionText = null;
     [SerializeField] private TutorialStep[] tutorialSteps = null;
+    [SerializeField] private GameObject[] siblings = null;
+
     private int tutorialStepIdx = 0;
     private int instructionIdx = 0;
 
@@ -55,32 +56,6 @@ public class TutorialController : MonoBehaviour
 
         TutorialStep tutorialStep = tutorialSteps[tutorialStepIdx];
 
-
-        List<Transform> components = new List<Transform>(parentPanel.GetComponentsInChildren<Transform>());
-        int actualIndex = 0; 
-        string highlightName = tutorialStep.gameObject.name;
-        foreach (Transform panel in components)
-        {
-            if (panel.parent.name == "Tutorial" || panel.parent.name == "Tutorial panel" || panel.parent.name == "Buttons Bar" || panel.name == "Buttons Panel")
-            {
-                continue;
-            } else if (panel.name == "Tutorial panel")
-            {
-                panel.SetSiblingIndex(2);
-            } else if (panel.name == "Buttons Bar" && tutorialStep.gameObject.transform.parent.gameObject.name == "Buttons Bar")
-            {
-                panel.SetSiblingIndex(3);
-            } else if (panel.name == highlightName)
-            {
-                panel.SetSiblingIndex(3);
-            } else
-            {
-                panel.SetSiblingIndex(actualIndex);
-                actualIndex++;
-            }
-        }
-
-
         NextInstruction(tutorialStep);
     }
 
@@ -100,7 +75,34 @@ public class TutorialController : MonoBehaviour
             instructionIdx = 0;
             tutorialStepIdx += 1;
         }
+
+        changeSiblingsIndex(tutorialStep);
     }
 
+    private void changeSiblingsIndex(TutorialStep tutorialStep)
+    {
+        foreach (GameObject sibling in siblings)
+        {
+            if (sibling.CompareTag("TutorialComplementPanel"))
+            {
+                if (tutorialStep.gameObject.transform.parent.gameObject.name == sibling.name)
+                {
+                    sibling.transform.SetSiblingIndex(3);
+                }
+                else
+                {
+                    sibling.transform.SetSiblingIndex(0);
+                }
+            }
+            else if (sibling.name == instructionPanel.name)
+            {
+                sibling.transform.SetSiblingIndex(2);
+            }
+            else
+            {
+                sibling.GetComponent<ButtonAnimationController>().moveOnHierachy();
+            }
+        }
+    }
 
 }
