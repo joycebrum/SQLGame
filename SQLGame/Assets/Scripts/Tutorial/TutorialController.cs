@@ -59,27 +59,22 @@ public class TutorialController : MonoBehaviour
         List<Transform> components = new List<Transform>(parentPanel.GetComponentsInChildren<Transform>());
         int actualIndex = 0; 
         string highlightName = tutorialStep.gameObject.name;
-        print("-----------");
         foreach (Transform panel in components)
         {
-            if (panel.parent.name == "Tutorial" || panel.parent.name == "Tutorial panel" || panel.parent.name == "Menu Drop Down" || panel.name == "Buttons Panel")
+            if (panel.parent.name == "Tutorial" || panel.parent.name == "Tutorial panel" || panel.parent.name == "Buttons Bar" || panel.name == "Buttons Panel")
             {
                 continue;
             } else if (panel.name == "Tutorial panel")
             {
-                print(panel.name + " - 2");
                 panel.SetSiblingIndex(2);
-            } else if (panel.name == "Menu Drop Down" && tutorialStep.gameObject.transform.parent.gameObject.name == "Menu Drop Down")
+            } else if (panel.name == "Buttons Bar" && tutorialStep.gameObject.transform.parent.gameObject.name == "Buttons Bar")
             {
-                print(panel.name + " - 3");
                 panel.SetSiblingIndex(3);
             } else if (panel.name == highlightName)
             {
-                print(panel.name + " - 3");
                 panel.SetSiblingIndex(3);
             } else
             {
-                print(panel.name + " - " + actualIndex);
                 panel.SetSiblingIndex(actualIndex);
                 actualIndex++;
             }
