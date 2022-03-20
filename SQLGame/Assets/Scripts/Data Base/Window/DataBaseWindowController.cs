@@ -95,25 +95,17 @@ public class DataBaseWindowController: MonoBehaviour
                     maxCharacters = tableData[i][j].Length;
                 }
             }
-            //if (maxCharacters > 250)
-            //{
-            //    table.UpdateRowHeight(250, i + 1);
-            //    //table.updateOneRowHeight(200, i + 1);
-            //}
             if (maxCharacters > 150)
             {
                 table.UpdateRowHeight(200, i + 1);
-                //table.updateOneRowHeight(200, i + 1);
             }
             else if (maxCharacters > 100)
             {
                 table.UpdateRowHeight(150, i + 1);
-                //table.updateOneRowHeight(150, i + 1);
             }
             else
             {
                 table.UpdateRowHeight(70, i + 1);
-                //table.updateOneRowHeight(70, i + 1);
             }
         }
 

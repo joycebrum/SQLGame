@@ -514,12 +514,6 @@ namespace UnityEngine.UI.TableUI
             }
         }
 
-        public void updateOneRowHeight(int height, int pos)
-        {
-            _rowsHeight[pos] = height;
-            UpdateRowHeight();
-        }
-
         private void UpdateRowsWidth()
         {
             for (int i = 0; i < rows.Count; i++)
