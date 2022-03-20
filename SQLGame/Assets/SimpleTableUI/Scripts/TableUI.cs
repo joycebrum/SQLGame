@@ -46,7 +46,7 @@ namespace UnityEngine.UI.TableUI
         public List<float> RowsHeight
         {
             get { return _rowsHeight; }
-            private set { }
+            private set {  }
         }
 
         [SerializeField, HideInInspector]
@@ -206,7 +206,7 @@ namespace UnityEngine.UI.TableUI
         }
 
         [SerializeField, HideInInspector]
-        private List<GameObject> rows;
+        public List<GameObject> rows;
 
         [SerializeField, HideInInspector]
         public string undoRedoEvent;
@@ -512,6 +512,12 @@ namespace UnityEngine.UI.TableUI
                 UpdateTableSize(newSize);
                 GenerateBorders();
             }
+        }
+
+        public void updateOneRowHeight(int height, int pos)
+        {
+            _rowsHeight[pos] = height;
+            UpdateRowHeight();
         }
 
         private void UpdateRowsWidth()

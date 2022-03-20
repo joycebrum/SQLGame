@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UI.TableUI;
+using System.Collections.Generic;
 
 public class TableUIExample : MonoBehaviour
     {
@@ -33,7 +34,8 @@ public class TableUIExample : MonoBehaviour
 
         public void OnAddNewRowClick()
         {
-            table.Rows++;
+        //table.Rows++;
+        table.ColumnsWidth = new List<float> { 10, 20, 30, 40 };
         }
 
         public void OnAddNewColumnClick()
