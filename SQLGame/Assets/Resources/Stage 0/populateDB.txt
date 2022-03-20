@@ -1,0 +1,37 @@
+INSERT INTO Alunos(matricula, nome, sobrenome, salario) 
+VALUES
+    ('1', 'Fernando', 'Pereira', '95306'),
+    ('2', 'Fátima', 'Luna', '50900'),
+    ('3', 'Iasmim', 'Luna', '78410'),
+    ('4', 'Fernando', 'Ferreira', '72571'),
+    ('5', 'Igor', 'da Silva', '75202'),
+    ('6', 'Mario', 'Silva', '81469'),
+    ('7', 'Ivan', 'Ribeiro', '31906'),
+    ('8', 'Helen', 'Campos', '91905'),
+    ('9', 'Fátima', 'Oliveira', '62810'),
+    ('10', 'Maurício', 'Luna', '37016'),
+    ('11', 'Flávia', 'Arnaud', '69397'),
+    ('12', 'Igor', 'Ferreira', '49054'),
+    ('13', 'Pedro', 'Correa', '13420'),
+    ('14', 'Mariana', 'de Carvalho', '89327'),
+    ('15', 'Vivian', 'Brum', '87914'),
+    ('16', 'Ivone', 'do Nascimento', '34685');
+
+INSERT INTO Gastos(id, nome, sobrenome, mes, gasto)
+VALUES
+    ('1', 'Iasmim', 'Sant Anna', '3', '26680'),
+    ('2', 'Adriana', 'Sant Anna', '3', '88453'),
+    ('3', 'Natan', 'de Lima', '3', '5457'),
+    ('4', 'Isaac', 'Lima', '3', '1592'),
+    ('5', 'Vivian', 'Sant Anna', '3', '3054'),
+    ('6', 'Felipe', 'Campos', '3', '308'),
+    ('7', 'Vivian', 'Outeiro', '3', '34899'),
+    ('8', 'Hugo', 'Campos', '3', '2156'),
+    ('9', 'Isaac', 'Souza', '3', '40529'),
+    ('10', 'Igor', 'Brum', '3', '68543'),
+    ('11', 'Arthur', 'Luna', '3', '12028'),
+    ('12', 'Igor', 'Outeiro', '3', '6442'),
+    ('13', 'Pedro', 'Correa', '3', '37210'),
+    ('14', 'Alice', 'Rodrigues', '3', '38526'),
+    ('15', 'Hugo', 'Ferreira', '3', '75058'),
+    ('16', 'Fábio', 'Ferreira', '3', '1796');
