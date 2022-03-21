@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS Funcionarios(
 );
 CREATE TABLE IF NOT EXISTS Gastos(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-    	nomeFuncionario VARCHAR(20) NOT NULL,
-    	sobrenomeFuncionario VARCHAR(20), 
+    	nome VARCHAR(20) NOT NULL,
+    	sobrenome VARCHAR(20), 
 	mes DATETIME,
     	gasto VARCHAR(20) NOT NULL
 );

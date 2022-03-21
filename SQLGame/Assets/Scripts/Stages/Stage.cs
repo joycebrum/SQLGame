@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Stage: MonoBehaviour
 {
-    public List<bool> solvedClue { get; protected set; }
     protected List<ClueNote> clueNotes;
     protected List<ClueSolution> clueSolutions;
     protected ClueSolution finalSolution;
@@ -13,6 +12,11 @@ public class Stage: MonoBehaviour
     [SerializeReference] protected List<ClueController> clueControllers;
     [SerializeReference] protected List<ClueController> solutionControllers;
     [SerializeReference] protected ClueController finalSolutionController;
+    [SerializeReference] protected StageDBController dbController;
+
+    protected string sqlCreatePath = "";
+    protected string sqlPopulatePath = "";
+    protected string dbPath = "";
 
     protected string stageIdentifier = "Default";
 
@@ -20,6 +24,7 @@ public class Stage: MonoBehaviour
     {
         InitializeStage();
         UpdateStatuses(RetrieveSolvedClues());
+        this.dbController.InitDabaBase(dbPath, sqlCreatePath, sqlPopulatePath);
     }
 
     public bool CheckForClues(List<string> header, List<string> result)
@@ -40,7 +45,7 @@ public class Stage: MonoBehaviour
     }
 
     protected virtual List<ClueNote> InitializeClueNotes() { return null; }
-    protected virtual List<ClueSolution> InitializeClueSolutions() { return null; }
+    protected virtual List<ClueSolution> InitializeClueSolutions() { return new List<ClueSolution>(); }
 
     protected virtual ClueSolution InitializeFinalSolution() { return null; }
 

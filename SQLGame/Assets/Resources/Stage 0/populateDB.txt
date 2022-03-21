@@ -1,4 +1,4 @@
-INSERT INTO Alunos(matricula, nome, sobrenome, salario) 
+INSERT INTO Funcionarios(matricula, nome, sobrenome, salario) 
 VALUES
     ('1', 'Fernando', 'Pereira', '95306'),
     ('2', 'Fátima', 'Luna', '50900'),
