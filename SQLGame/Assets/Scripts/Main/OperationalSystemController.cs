@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OperationalSystemController : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class OperationalSystemController : MonoBehaviour
     public void OnMenuClick()
     {
         Debug.Log("Home");
-        //stageController.NextStage();
+        SceneManager.LoadScene("InitialScene", LoadSceneMode.Single);
     }
 
     public void OnBackClick()
