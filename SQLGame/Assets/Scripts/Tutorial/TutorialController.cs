@@ -24,7 +24,7 @@ public class TutorialController : MonoBehaviour
     void Start()
     {
         //TODO: Remover a chamada o Start e chamá-lo no momento apropriadao.
-        //StartTutorial();
+        StartTutorial();
     }
 
     public void OnClick()
@@ -42,7 +42,8 @@ public class TutorialController : MonoBehaviour
     {
         instructionText.text = "";
         instructionPanel.SetActive(false);
-        if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
+        if (tutorialStepIdx > 0 && tutorialSteps[tutorialStepIdx - 1].gameObject != null) 
+            tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
         tutorialStepIdx = -1;
     }
 
@@ -61,10 +62,12 @@ public class TutorialController : MonoBehaviour
 
     private void NextInstruction(TutorialStep tutorialStep)
     {
-        if(instructionIdx == 0)
+        if(instructionIdx == 0 )
         {
-            if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
-            tutorialStep.gameObject.GetComponent<ButtonAnimationController>().FocusWithAnimation();
+            if (tutorialStepIdx > 0 && tutorialSteps[tutorialStepIdx - 1].gameObject != null) 
+                tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
+            if (tutorialStep.gameObject != null)
+                tutorialStep.gameObject.GetComponent<ButtonAnimationController>().FocusWithAnimation();
         }
 
         instructionText.text = tutorialStep.instructions[instructionIdx];
@@ -75,8 +78,8 @@ public class TutorialController : MonoBehaviour
             instructionIdx = 0;
             tutorialStepIdx += 1;
         }
-
-        changeSiblingsIndex(tutorialStep);
+        if (tutorialStep.gameObject != null)
+            changeSiblingsIndex(tutorialStep);
     }
 
     private void changeSiblingsIndex(TutorialStep tutorialStep)
