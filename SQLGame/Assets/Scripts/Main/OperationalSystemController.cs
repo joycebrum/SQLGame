@@ -9,6 +9,7 @@ public class OperationalSystemController : MonoBehaviour
     [SerializeField] GameObject phoneObject;
     [SerializeField] GameObject tableObject;
     [SerializeField] GameObject cluesWindow;
+    [SerializeField] TutorialController tutorial;
 
     [SerializeField] StageController stageController;
 
@@ -17,6 +18,7 @@ public class OperationalSystemController : MonoBehaviour
     {
         PlayerPrefs.SetString("playerName", "Cris");
         PlayerPrefs.SetString("playerFullName", "Cristiano Pereira");
+        checkTutorial();
     }
 
     public void OnMenuClick()
@@ -80,5 +82,18 @@ public class OperationalSystemController : MonoBehaviour
     public void ContinueReporterChat()
     {
         phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.reporter);
+    }
+
+    private void checkTutorial()
+    {
+        if (PlayerPrefs.GetInt("tutorialComplete") == 0)
+        {
+            tutorial.StartTutorial();
+        }
+    }
+
+    private void finishTutorial()
+    {
+        PlayerPrefs.SetInt("tutorialComplete", 1);
     }
 }

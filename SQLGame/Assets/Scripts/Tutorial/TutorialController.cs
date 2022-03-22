@@ -20,13 +20,6 @@ public class TutorialController : MonoBehaviour
     private int tutorialStepIdx = 0;
     private int instructionIdx = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //TODO: Remover a chamada o Start e chamá-lo no momento apropriadao.
-        StartTutorial();
-    }
-
     public void OnClick()
     {
         if(tutorialStepIdx >= 0 && instructionPanel.activeSelf) NextTutorialStep();
