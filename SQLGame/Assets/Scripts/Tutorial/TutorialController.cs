@@ -83,7 +83,7 @@ public class TutorialController : MonoBehaviour
             {
                 if (tutorialStep.gameObject.transform.parent.gameObject.name == sibling.name)
                 {
-                    sibling.transform.SetSiblingIndex(3);
+                    sibling.transform.SetSiblingIndex(siblings.Length - 1);
                 }
                 else
                 {
@@ -92,7 +92,7 @@ public class TutorialController : MonoBehaviour
             }
             else if (sibling.name == instructionPanel.name)
             {
-                sibling.transform.SetSiblingIndex(2);
+                sibling.transform.SetSiblingIndex(siblings.Length - 2);
             }
             else
             {
