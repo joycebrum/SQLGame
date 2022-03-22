@@ -445,7 +445,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 334.59558, y: 106.43759}
+  m_SizeDelta: {x: 452.2974, y: 163.8295}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365225859
 MonoBehaviour:
@@ -529,21 +529,34 @@ MonoBehaviour:
   instructionPanel: {fileID: 1549673447}
   instructionText: {fileID: 2144328823}
   tutorialSteps:
+  - gameObject: {fileID: 0}
+    instructions:
+    - "Ola, meu nome \xE9 Lexa, uma IA de auxilio com banco de dados"
+    - "Pelos dados que tenho aqui, acho que voce me baixou para te ajudar com seu
+      trabalho de BD n\xE9?"
+    - Ok. Primeiro vou te explicar o basico de como funciona esse computador ta bom?
   - gameObject: {fileID: 858799123}
     instructions:
-    - "Bot\xE3o da home"
+    - "Este bot\xE3o serve para abrir a home (c\xE1 entre n\xF3s, ele s\xF3 volta
+      para o menu inicial)"
   - gameObject: {fileID: 1827953877}
     instructions:
-    - "Bot\xE3o da IA"
+    - "Este bot\xE3o abre sua conversa diretamente comigo :)."
   - gameObject: {fileID: 1577868956}
     instructions:
-    - "Bot\xE3o banco de dados"
+    - "Este \xE9 o bot\xE3o mais importante de todos."
+    - Ele ta da acesso ao banco de dados.
   - gameObject: {fileID: 1789714195}
     instructions:
-    - "Bot\xE3o de pistas"
+    - "Aqui \xE9 onde n\xF3s iremos juntar todas as informa\xE7\xF5es que descobrirmos"
+    - Vamos chamar isso de tela de pistas.
   - gameObject: {fileID: 252473289}
     instructions:
-    - "Bot\xE3o de mmensagens"
+    - "E aqui \xE9 onde voce pode ver suas mensagens (qualquer semelhan\xE7a entre
+      o icone e um aplicativo que voce ja conhece \xE9 mera coincidencia rs)"
+  - gameObject: {fileID: 0}
+    instructions:
+    - "Agora, para come\xE7armos, abra a tela de pistas"
   siblings:
   - {fileID: 1827953877}
   - {fileID: 858799123}
@@ -654,11 +667,11 @@ RectTransform:
   m_Father: {fileID: 365225858}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0}
-  m_SizeDelta: {x: 53.869095, y: 53.869095}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_SizeDelta: {x: 99.588, y: 88.8878}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &750059629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,7 +766,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 1961325262}
   clueContainer: {fileID: 930045040}
-  currentStage: {fileID: 1791781832}
   stages:
   - {fileID: 1931486415}
   - {fileID: 1791781832}
@@ -843,8 +855,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1961325262}
-        m_TargetAssemblyTypeName: MainScreenFunctions, Assembly-CSharp
-        m_MethodName: OnHomeClick
+        m_TargetAssemblyTypeName: OperationalSystemController, Assembly-CSharp
+        m_MethodName: OnMenuClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3370,6 +3382,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -236.74025
       objectReference: {fileID: 0}
+    - target: {fileID: 1459415043271445766, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 14.725769
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459415043271445766, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10.351868
+      objectReference: {fileID: 0}
     - target: {fileID: 1660659595226435242, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4235,6 +4255,7 @@ MonoBehaviour:
   phoneObject: {fileID: 720435002}
   tableObject: {fileID: 1211028730}
   cluesWindow: {fileID: 498106181}
+  tutorial: {fileID: 365225862}
   stageController: {fileID: 843035890}
 --- !u!1 &2144328821
 GameObject:
@@ -4270,8 +4291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.28379038}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0}
-  m_SizeDelta: {x: -0.00015259, y: 0.43800354}
+  m_AnchoredPosition: {x: 46.87599, y: -5.836502}
+  m_SizeDelta: {x: -105.42, y: -5.3985}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2144328823
 MonoBehaviour:
