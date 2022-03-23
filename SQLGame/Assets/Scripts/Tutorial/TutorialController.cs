@@ -20,13 +20,16 @@ public class TutorialController : MonoBehaviour
     private int tutorialStepIdx = 0;
     private int instructionIdx = 0;
 
+    private Action completion;
+
     public void OnClick()
     {
         if(tutorialStepIdx >= 0 && instructionPanel.activeSelf) NextTutorialStep();
     }
 
-    public void StartTutorial()
+    public void StartTutorial(Action completion)
     {
+        this.completion = completion;
         instructionPanel.SetActive(true);
         NextTutorialStep();
     }
@@ -38,6 +41,7 @@ public class TutorialController : MonoBehaviour
         if (tutorialStepIdx > 0 && tutorialSteps[tutorialStepIdx - 1].gameObject != null) 
             tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
         tutorialStepIdx = -1;
+        completion.Invoke();
     }
 
     private void NextTutorialStep()

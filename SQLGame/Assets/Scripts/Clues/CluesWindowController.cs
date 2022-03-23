@@ -9,8 +9,20 @@ public class CluesWindowController: MonoBehaviour
     [SerializeField] private List<GameObject> clues;
     [SerializeField] private List<GameObject> clueSolutions;
     [SerializeField] private GameObject finalSolution;
+    [SerializeField] private TutorialController tutorial;
 
     private List<bool> solvedClues;
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("CluesTutorialComplete") == 0)
+            tutorial.StartTutorial(finishTutorial);
+    }
+
+    private void finishTutorial()
+    {
+        PlayerPrefs.SetInt("CluesTutorialComplete", 1);
+    }
 
     public void SetupClues()
     {

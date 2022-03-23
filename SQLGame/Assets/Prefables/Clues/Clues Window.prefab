@@ -558,6 +558,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   finalSolution: {fileID: 0}
+  tutorial: {fileID: 5602594174495327102}
 --- !u!1 &4325080876324796275
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1459415043271445766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1034,7 +1035,7 @@ MonoBehaviour:
   - gameObject: {fileID: 4780536425681741292}
     instructions:
     - "Esta \xE9 uma pista ainda n\xE3o descoberta"
-    - "Nela est\xE1 escrito uma dica de como encontrar a pista"
+    - ca de como encontrar a pistae como encontrar a pista real.
   - gameObject: {fileID: 4742578124367941658}
     instructions:
     - "Est\xE1 \xE9 nossa solu\xE7\xE3o final, ainda n\xE3o sabemos nada sobre ela"
