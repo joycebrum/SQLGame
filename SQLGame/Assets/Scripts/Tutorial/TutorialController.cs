@@ -10,7 +10,8 @@ public class TutorialController : MonoBehaviour
     private class TutorialStep
     {
         public GameObject gameObject = null;
-        public string[] instructions = null;
+        public 
+            [] instructions = null;
     }
     [SerializeField] private GameObject instructionPanel = null;
     [SerializeField] private Text instructionText = null;
