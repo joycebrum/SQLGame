@@ -531,33 +531,26 @@ MonoBehaviour:
   instructionText: {fileID: 2144328823}
   tutorialSteps:
   - gameObject: {fileID: 0}
-    instructions:
-    - "Ola, meu nome \xE9 Lexa, uma IA de auxilio com banco de dados"
-    - "Pelos dados que tenho aqui, acho que voce me baixou para te ajudar com seu
-      trabalho de BD n\xE9?"
-    - Ok. Primeiro vou te explicar o basico de como funciona esse computador ta bom?
+    instructionType: 1
+    instructions: []
   - gameObject: {fileID: 858799123}
-    instructions:
-    - "Este bot\xE3o serve para abrir a home (c\xE1 entre n\xF3s, ele s\xF3 volta
-      para o menu inicial)"
+    instructionType: 2
+    instructions: []
   - gameObject: {fileID: 1827953877}
-    instructions:
-    - "Este bot\xE3o abre sua conversa diretamente comigo :)."
+    instructionType: 3
+    instructions: []
   - gameObject: {fileID: 1577868956}
-    instructions:
-    - "Este \xE9 o bot\xE3o mais importante de todos."
-    - Ele ta da acesso ao banco de dados.
+    instructionType: 4
+    instructions: []
   - gameObject: {fileID: 1789714195}
-    instructions:
-    - "Aqui \xE9 onde n\xF3s iremos juntar todas as informa\xE7\xF5es que descobrirmos"
-    - Vamos chamar isso de tela de pistas.
+    instructionType: 5
+    instructions: []
   - gameObject: {fileID: 252473289}
-    instructions:
-    - "E aqui \xE9 onde voce pode ver suas mensagens (qualquer semelhan\xE7a entre
-      o icone e um aplicativo que voce ja conhece \xE9 mera coincidencia rs)"
+    instructionType: 6
+    instructions: []
   - gameObject: {fileID: 0}
-    instructions:
-    - "Agora, para come\xE7armos, abra a tela de pistas"
+    instructionType: 7
+    instructions: []
   siblings:
   - {fileID: 1827953877}
   - {fileID: 858799123}

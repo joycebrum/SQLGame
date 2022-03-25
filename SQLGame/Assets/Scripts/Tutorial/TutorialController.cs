@@ -7,11 +7,28 @@ using UnityEngine.UI;
 public class TutorialController : MonoBehaviour
 {
     [Serializable]
+    public enum TutorialInstructions
+    {
+        none,
+        initialStart,
+        initialConfigButton,
+        initialIAButton,
+        initialBDButton,
+        initialCluesButton,
+        initialMessageButton,
+        initialEnding,
+        clueWindowStart,
+        clueWindowClue,
+        clueWindowFinalSolution,
+        clueWindowEnding
+    }
+
+    [Serializable]
     private class TutorialStep
     {
         public GameObject gameObject = null;
-        public 
-            [] instructions = null;
+        public TutorialInstructions instructionType = TutorialInstructions.none;
+        public string[] instructions = null;
     }
     [SerializeField] private GameObject instructionPanel = null;
     [SerializeField] private Text instructionText = null;
@@ -28,8 +45,56 @@ public class TutorialController : MonoBehaviour
         if(tutorialStepIdx >= 0 && instructionPanel.activeSelf) NextTutorialStep();
     }
 
+    public void setupTutorial()
+    {
+        for(int i = 0; i<tutorialSteps.Length; i++)
+        {
+            switch(tutorialSteps[i].instructionType)
+            {
+                case TutorialInstructions.initialStart:
+                    tutorialSteps[i].instructions = Constants.initialTutorialStartInstructions;
+                    break;
+                case TutorialInstructions.initialConfigButton:
+                    tutorialSteps[i].instructions = Constants.initialConfigButtonInstructions;
+                    break;
+                case TutorialInstructions.initialIAButton:
+                    tutorialSteps[i].instructions = Constants.initialIAButtonInstructions;
+                    break;
+                case TutorialInstructions.initialBDButton:
+                    tutorialSteps[i].instructions = Constants.initialBDButtonInstructions;
+                    break;
+                case TutorialInstructions.initialCluesButton:
+                    tutorialSteps[i].instructions = Constants.initialCluesButtonInstructions;
+                    break;
+                case TutorialInstructions.initialMessageButton:
+                    tutorialSteps[i].instructions = Constants.initialMessageButtonInstructions;
+                    break;
+                case TutorialInstructions.initialEnding:
+                    tutorialSteps[i].instructions = Constants.initialTutorialEndingInstructions;
+                    break;
+                case TutorialInstructions.clueWindowStart:
+                    tutorialSteps[i].instructions = Constants.clueWindowTutorialStartInstructions;
+                    break;
+                case TutorialInstructions.clueWindowClue:
+                    tutorialSteps[i].instructions = Constants.clueWindowClueInstructions;
+                    break;
+                case TutorialInstructions.clueWindowFinalSolution:
+                    tutorialSteps[i].instructions = Constants.clueWindowFinalSolutionInstructions;
+                    break;
+                case TutorialInstructions.clueWindowEnding:
+                    tutorialSteps[i].instructions = Constants.clueWindowTutorialEndingInstructions;
+                    break;
+                default:
+                    tutorialSteps[i].instructions = new string[] { };
+                    break;
+            }
+        }
+    }
+
     public void StartTutorial(Action completion)
     {
+        print("oiee");
+        print(tutorialSteps[0].instructions[0]);
         this.completion = completion;
         instructionPanel.SetActive(true);
         NextTutorialStep();

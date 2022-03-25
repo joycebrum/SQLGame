@@ -1028,24 +1028,17 @@ MonoBehaviour:
   instructionText: {fileID: 4292111876990924512}
   tutorialSteps:
   - gameObject: {fileID: 0}
-    instructions:
-    - Ola de novo.
-    - "Essa \xE9 a tela de pistas, aqui n\xF3s iremos anotar todas as pistas que
-      temos no momento, al\xE9m de voce poder checar dicas para as proximas pistas"
+    instructionType: 8
+    instructions: []
   - gameObject: {fileID: 4780536425681741292}
-    instructions:
-    - "Esta \xE9 uma pista ainda n\xE3o descoberta"
-    - ca de como encontrar a pistae como encontrar a pista real.
+    instructionType: 9
+    instructions: []
   - gameObject: {fileID: 4742578124367941658}
-    instructions:
-    - "Est\xE1 \xE9 nossa solu\xE7\xE3o final, ainda n\xE3o sabemos nada sobre ela"
-    - "Quando conseguirmos informa\xE7\xF5es suficientes, a solu\xE7\xE3o ser\xE1
-      mostrada"
+    instructionType: 10
+    instructions: []
   - gameObject: {fileID: 0}
-    instructions:
-    - "Vamos ver essas dicas: \"Qual o slario do suspeito\" e \"Quanto o suspeito
-      recebeu em mar\xE7o\""
-    - "Bom vamos ver o banco pra tentar descobrir essas informa\xE7\xF5es"
+    instructionType: 11
+    instructions: []
   siblings:
   - {fileID: 4780536425681741292}
   - {fileID: 4742578124367941658}
@@ -1733,6 +1726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
+  focusScaleChange: {x: 0.2, y: 0.2, z: 0.2}
   duration: 0.2
   shouldScaleOnPointEnter: 1
 --- !u!1001 &3733268655726621680
@@ -3781,6 +3775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
+  focusScaleChange: {x: 0.2, y: 0.2, z: 0.2}
   duration: 0.2
   shouldScaleOnPointEnter: 1
 --- !u!1001 &9193933463397252440
@@ -3903,5 +3898,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
+  focusScaleChange: {x: 0.2, y: 0.2, z: 0.2}
   duration: 0.2
   shouldScaleOnPointEnter: 1

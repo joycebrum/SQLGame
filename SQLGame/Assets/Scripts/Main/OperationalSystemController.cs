@@ -88,6 +88,7 @@ public class OperationalSystemController : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("firstStepTutorialComplete") == 0)
         {
+            tutorial.setupTutorial();
             tutorial.StartTutorial(finishTutorial);
         } else if (PlayerPrefs.GetInt("secondStepTutorialComplete") == 0)
         {
