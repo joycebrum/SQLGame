@@ -3,35 +3,29 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class StageOneDBController : MonoBehaviour
+public class StageDBController : MonoBehaviour
 {
     public DataBase database;
-    private string sqlCreatePath = "Assets/Resources/Stage 1/createDB.txt";
-    private string sqlPopulatePath = "Assets/Resources/Stage 1/populateDB.txt";
-    private string dbPath = "db/Stage1SQLite.db";
-    // Start is called before the first frame update
-    void Start()
-    {
-        InitDabaBase();
-    }
-
-    public void InitDabaBase()
+    public void InitDabaBase(string dbPath, string sqlCreatePath, string sqlPopulatePath)
     {
         bool fileExists = System.IO.File.Exists(dbPath);
-        this.database.Connect("URI=file:" + this.dbPath);
+        this.database.Connect("URI=file:" + dbPath);
         if (!fileExists)
         {
-            CreateDataBase();
-            PopulateDataBase();
+            print("inicio");
+            CreateDataBase(sqlCreatePath);
+            print("meio");
+            PopulateDataBase(sqlPopulatePath);
+            print("fim");
         }
     }
 
-    private void CreateDataBase()
+    private void CreateDataBase(string sqlCreatePath)
     {
         database.NonQueryCommand(ReadFromFile(sqlCreatePath));
     }
 
-    private void PopulateDataBase()
+    private void PopulateDataBase(string sqlPopulatePath)
     {
         string sql = ReadFromFile(sqlPopulatePath);
         database.NonQueryCommand(sql);

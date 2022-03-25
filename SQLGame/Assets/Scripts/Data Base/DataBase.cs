@@ -36,6 +36,7 @@ public class DataBase : MonoBehaviour
 
     public IDataReader QueryCommand(string query)
     {
+        print(query);
         IDbCommand command = connection.CreateCommand();
         command.CommandText = query;
         return command.ExecuteReader();

@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class StageOne : Stage
+public class Stage1 : Stage
 {
-
     protected override void InitializeStage()
     {
         print("Initialize Stage One");
         this.stageIdentifier = "stage_one";
-
-        this.solvedClue = new List<bool> { false, true, true, false, true, false, true, false };
+        this.sqlCreatePath = "Assets/Resources/Stage 1/createDB.txt";
+        this.sqlPopulatePath = "Assets/Resources/Stage 1/populateDB.txt";
+        this.dbPath = "db/Stage1SQLite.db";
 
         base.InitializeStage();
     }

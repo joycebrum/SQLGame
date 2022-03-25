@@ -6,7 +6,7 @@ public class StageController : MonoBehaviour
 {
     [SerializeField] private OperationalSystemController main;
     [SerializeField] private GameObject clueContainer;
-    public Stage currentStage;
+    private Stage currentStage;
     int currentStageIndex;
     [SerializeReference] List<Stage> stages;
 

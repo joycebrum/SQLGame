@@ -55,7 +55,6 @@ public class DataBaseWindowController: MonoBehaviour
             {
                 tableDataController.AddColumn((string)tableData["name"], (string)tableData["type"]);
             }
-
         }
     }
 
