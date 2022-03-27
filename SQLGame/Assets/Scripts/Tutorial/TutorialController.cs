@@ -54,7 +54,7 @@ public class TutorialController : MonoBehaviour
         if(tutorialStepIdx >= 0 && instructionPanel.activeSelf) NextTutorialStep();
     }
 
-    public void setupTutorial()
+    public void SetupTutorial()
     {
         for(int i = 0; i<tutorialSteps.Length; i++)
         {
