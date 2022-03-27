@@ -25,10 +25,11 @@ public class TutorialController : MonoBehaviour
         clueWindowClue,
         clueWindowFinalSolution,
         clueWindowEnding,
-        dbWindowStart,
-        dbWindowSearch,
-        dbWindowTree,
-        dbWindowEnding
+        tableWindowStart,
+        tableWindowSideBar,
+        tableWindowQueryBox,
+        tableWindowSearchButton,
+        tableWindowEnding
     }
 
     [Serializable]
@@ -104,21 +105,20 @@ public class TutorialController : MonoBehaviour
                 case TutorialInstructions.clueWindowEnding:
                     tutorialSteps[i].instructions = Constants.clueWindowTutorialEndingInstructions;
                     break;
-                case TutorialInstructions.dbWindowStart:
-                    print("1");
-                    tutorialSteps[i].instructions = Constants.dbWindowTutorialStartInstructions;
+                case TutorialInstructions.tableWindowStart:
+                    tutorialSteps[i].instructions = Constants.tableWindowTutorialStartInstructions;
                     break;
-                case TutorialInstructions.dbWindowSearch:
-                    print("2");
-                    tutorialSteps[i].instructions = Constants.dbWindowSearchInstructions;
+                case TutorialInstructions.tableWindowSideBar:
+                    tutorialSteps[i].instructions = Constants.tableWindowTutorialSideBarInstructions;
                     break;
-                case TutorialInstructions.dbWindowTree:
-                    print("3");
-                    tutorialSteps[i].instructions = Constants.dbWindowTreeInstructions;
+                case TutorialInstructions.tableWindowQueryBox:
+                    tutorialSteps[i].instructions = Constants.tableWindowTutorialQueryBoxInstructions;
                     break;
-                case TutorialInstructions.dbWindowEnding:
-                    print("4");
-                    tutorialSteps[i].instructions = Constants.dbWindowTutorialEndingInstructions;
+                case TutorialInstructions.tableWindowSearchButton:
+                    tutorialSteps[i].instructions = Constants.tableWindowTutorialSearchButtonInstructions;
+                    break;
+                case TutorialInstructions.tableWindowEnding:
+                    tutorialSteps[i].instructions = Constants.tableWindowTutorialEndingInstructions;
                     break;
                 default:
                     print("0");
