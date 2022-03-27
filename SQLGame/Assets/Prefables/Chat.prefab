@@ -2566,6 +2566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vitor
       objectReference: {fileID: 0}
+    - target: {fileID: 8691179419834712125, guid: e36ce7da076d03740a313eec5d2499aa, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e36ce7da076d03740a313eec5d2499aa, type: 3}
 --- !u!224 &3258733226257020544 stripped
@@ -2719,6 +2723,10 @@ PrefabInstance:
     - target: {fileID: 7357457624098860814, guid: e36ce7da076d03740a313eec5d2499aa, type: 3}
       propertyPath: m_Text
       value: Reporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691179419834712125, guid: e36ce7da076d03740a313eec5d2499aa, type: 3}
+      propertyPath: type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e36ce7da076d03740a313eec5d2499aa, type: 3}
@@ -3603,6 +3611,10 @@ PrefabInstance:
     - target: {fileID: 7357457624098860814, guid: e36ce7da076d03740a313eec5d2499aa, type: 3}
       propertyPath: m_Text
       value: "Sr Patroc\xEDnio"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691179419834712125, guid: e36ce7da076d03740a313eec5d2499aa, type: 3}
+      propertyPath: type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e36ce7da076d03740a313eec5d2499aa, type: 3}

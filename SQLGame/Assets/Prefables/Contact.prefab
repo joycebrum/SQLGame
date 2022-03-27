@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3143253085088862555}
   - component: {fileID: 2528717182520584730}
   - component: {fileID: 3468151495091347888}
+  - component: {fileID: 8691179419834712125}
   m_Layer: 5
   m_Name: Contact
   m_TagString: Untagged
@@ -143,6 +144,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8691179419834712125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737540539838224340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ec67051b3781a41aa0b3a91fd07f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4828174735389312408
 GameObject:
   m_ObjectHideFlags: 0

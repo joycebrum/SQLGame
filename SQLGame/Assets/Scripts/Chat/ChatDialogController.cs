@@ -99,7 +99,7 @@ public class ChatDialogController : MonoBehaviour
         UpdateScrollRect();
     }
 
-    private string GetDialogueName(ChatEnum type)
+    public static string GetDialogueName(ChatEnum type)
     {
         switch (type)
         {
@@ -111,7 +111,7 @@ public class ChatDialogController : MonoBehaviour
         }
     }
 
-    private string GetNPCName(ChatEnum type)
+    public static string GetNPCName(ChatEnum type)
     {
         switch (type)
         {
@@ -151,6 +151,14 @@ public class ChatDialogController : MonoBehaviour
         if (dialogName != null)
         {
             PlayerPrefs.SetInt(GetDialogueName(type), 2); // 0 or null - not blocked; 1 - blocked; 2 - released
+            foreach(ContactController contactController in this.contactScreen.GetComponentsInChildren<ContactController>())
+            {
+                if(contactController.GetDialogName() == dialogName)
+                {
+                    contactController.ShowContact();
+                    break;
+                }
+            }
             // TODO: Add visual notification of new message
         }
     }
