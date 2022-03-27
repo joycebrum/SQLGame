@@ -587,38 +587,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5910825519571976285, guid: 8a721a89956a7a948b114bce86c45ed2, type: 3}
   m_PrefabInstance: {fileID: 1482726224}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &720435004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720435002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diags:
-  - IAChat
-  - PatrocinioChat
-  - Reporter
-  assignedIndex: 0
-  assignedID: 65145
-  assignedDialogue: IAChat
-  interactionCount: 0
-  alias: IA
-  overrideStartNode: -1
-  defaultNPCSprite: {fileID: 0}
-  defaultPlayerSprite: {fileID: 0}
-  targetManager: {fileID: 0}
-  preload: 0
-  notuptodate: 0
-  startp: 0
-  loadtag: 
-  langs: []
-  S_playerDiags: []
-  S_actionNodes: []
 --- !u!114 &739208971 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1564188712575986820, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
@@ -1351,6 +1319,10 @@ PrefabInstance:
       propertyPath: newPlayerMessagePrefab
       value: 
       objectReference: {fileID: 6387033894816171497, guid: 030a3517035dba44e885547e2c072c50, type: 3}
+    - target: {fileID: 5910825519571976284, guid: 8a721a89956a7a948b114bce86c45ed2, type: 3}
+      propertyPath: dialogueNameToLoad
+      value: Friend
+      objectReference: {fileID: 0}
     - target: {fileID: 5910825519571976285, guid: 8a721a89956a7a948b114bce86c45ed2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3383,7 +3355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1459415043271445766, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 14.725769
+      value: 14.72583
       objectReference: {fileID: 0}
     - target: {fileID: 1459415043271445766, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
       propertyPath: m_AnchoredPosition.y

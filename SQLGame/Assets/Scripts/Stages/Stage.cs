@@ -102,7 +102,7 @@ public class Stage: MonoBehaviour
 
     public bool SaveSolvedClues()
     {
-        if (this.stageIdentifier == null || this.stageIdentifier == "Default") return false;
+        if (this.stageIdentifier == null || this.stageIdentifier == "Default" || this.clueNotes == null) return false;
 
         PlayerPrefs.SetInt(CountIdentifier(), this.clueNotes.Count);
 

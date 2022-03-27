@@ -53,12 +53,16 @@ public class VIDEUIManager : MonoBehaviour
             VD.OnNodeChange += NodeChangeAction; //Required events
             VD.OnActionNode += ActionNodeHandler;
             VD.OnEnd += End; //Required events
-            VD.BeginDialogue(dialogueNameToLoad);
         }
-        if (PlayerPrefs.GetInt(dialogueNameToLoad) == 2) // 0 or null - not blocked; 1 - blocked; 2 - released
+        int dialogStatus = PlayerPrefs.GetInt(dialogueNameToLoad);
+        if (dialogStatus != 1)
         {
-            PlayerPrefs.SetInt(dialogueNameToLoad, 0);
-            VD.Next();
+            VD.BeginDialogue(dialogueNameToLoad);
+            if (PlayerPrefs.GetInt(dialogueNameToLoad) == 2) // 0 or null - not blocked; 1 - blocked; 2 - released
+            {
+                PlayerPrefs.SetInt(dialogueNameToLoad, 0);
+                VD.Next();
+            }
         }
     }
 
@@ -78,14 +82,6 @@ public class VIDEUIManager : MonoBehaviour
 
     void OnDisable()
     {
-        if (VA != null && VD.nodeData != null)
-        {
-            // Do not override if blocked because the action has already override
-            if (PlayerPrefs.GetInt(dialogueNameToLoad) != 1) OverrideStartNode(VD.nodeData.nodeID);
-            VA.SaveState(dialogueNameToLoad);
-        }
-        //If the script gets destroyed, let's make sure we force-end the dialogue to prevent errors
-
         End(null);
     }
 
@@ -122,6 +118,7 @@ public class VIDEUIManager : MonoBehaviour
 
     void ActionNodeHandler(int actionNodeID)
     {
+        print("Action Node Handler");
         OverrideStartNode(actionNodeID);
         if(PlayerPrefs.GetInt(dialogueNameToLoad) == 0) PlayerPrefs.SetInt(dialogueNameToLoad, 1);
         WipePlayerChoices();
@@ -165,7 +162,7 @@ public class VIDEUIManager : MonoBehaviour
     {
         foreach (Dictionary<string, object> regs in VA.messageHistory)
         {
-            switch(regs["type"])
+            switch (regs["type"])
             {
                 case PLAYER_MSG:
                     CreateNewPlayerMessage((string)regs["msg"]);
@@ -179,8 +176,20 @@ public class VIDEUIManager : MonoBehaviour
         }
     }
 
+    private void SaveDialog()
+    {
+        if (VA != null && VD.nodeData != null)
+        {
+            // Do not override if blocked because the action has already override
+            if (PlayerPrefs.GetInt(dialogueNameToLoad) != 1) OverrideStartNode(VD.nodeData.nodeID);
+            VA.SaveState(dialogueNameToLoad);
+        }
+        //If the script gets destroyed, let's make sure we force-end the dialogue to prevent errors
+    }
+
     void End(VD.NodeData data)
     {
+        SaveDialog();
         WipePlayerChoices();
         VD.OnNodeChange -= NodeChangeAction;
         VD.OnActionNode -= ActionNodeHandler;

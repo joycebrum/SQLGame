@@ -9,6 +9,9 @@
     public const string reporterName = "Reporter";
     public const string reporterChat = "Reporter";
 
+    public const string friendName = "Vitor";
+    public const string friendChat = "Friend";
+
     public static readonly string[] initialTutorialStartInstructions = new string[] { "Ola, meu nome é Lexa, uma IA de auxilio com banco de dados",
                                                                                       "Pelos dados que tenho aqui, acho que voce me baixou para te ajudar com seu trabalho de BD né?",
                                                                                       "Ok. Primeiro vou te explicar o basico de como funciona esse computador ta bom?"};
