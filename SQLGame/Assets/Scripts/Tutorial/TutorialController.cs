@@ -54,77 +54,60 @@ public class TutorialController : MonoBehaviour
         if(tutorialStepIdx >= 0 && instructionPanel.activeSelf) NextTutorialStep();
     }
 
+    private string[] GetInstructionByType(TutorialInstructions instructionType)
+    {
+        switch (instructionType)
+        {
+            case TutorialInstructions.initialStart:
+                return Constants.initialTutorialStartInstructions;
+            case TutorialInstructions.initialConfigButton:
+                return Constants.initialConfigButtonInstructions;
+            case TutorialInstructions.initialIAButton:
+                return Constants.initialIAButtonInstructions;
+            case TutorialInstructions.initialBDButton:
+                return Constants.initialBDButtonInstructions;
+            case TutorialInstructions.initialCluesButton:
+                return Constants.initialCluesButtonInstructions;
+            case TutorialInstructions.initialMessageButton:
+                return Constants.initialMessageButtonInstructions;
+            case TutorialInstructions.initialEnding:
+                return Constants.initialTutorialEndingInstructions;
+            case TutorialInstructions.messageWindowStart:
+                return Constants.messageTutorialStartInstructions;
+            case TutorialInstructions.messageWindowContact:
+                return Constants.messageTutorialContactInstructions;
+            case TutorialInstructions.messageWindowChat:
+                return Constants.messageTutorialChatInstructions;
+            case TutorialInstructions.messageWindowEnd:
+                return Constants.messageTutorialEndInstructions;
+            case TutorialInstructions.clueWindowStart:
+                return Constants.clueWindowTutorialStartInstructions;
+            case TutorialInstructions.clueWindowClue:
+                return Constants.clueWindowClueInstructions;
+            case TutorialInstructions.clueWindowFinalSolution:
+                return Constants.clueWindowFinalSolutionInstructions;
+            case TutorialInstructions.clueWindowEnding:
+                return Constants.clueWindowTutorialEndingInstructions;
+            case TutorialInstructions.tableWindowStart:
+                return Constants.tableWindowTutorialStartInstructions;
+            case TutorialInstructions.tableWindowSideBar:
+                return Constants.tableWindowTutorialSideBarInstructions;
+            case TutorialInstructions.tableWindowQueryBox:
+                return Constants.tableWindowTutorialQueryBoxInstructions;
+            case TutorialInstructions.tableWindowSearchButton:
+                return Constants.tableWindowTutorialSearchButtonInstructions;
+            case TutorialInstructions.tableWindowEnding:
+                return Constants.tableWindowTutorialEndingInstructions;
+            default:
+                return new string[] { };
+        }
+    }
+
     public void SetupTutorial()
     {
         for(int i = 0; i<tutorialSteps.Length; i++)
         {
-            switch(tutorialSteps[i].instructionType)
-            {
-                case TutorialInstructions.initialStart:
-                    tutorialSteps[i].instructions = Constants.initialTutorialStartInstructions;
-                    break;
-                case TutorialInstructions.initialConfigButton:
-                    tutorialSteps[i].instructions = Constants.initialConfigButtonInstructions;
-                    break;
-                case TutorialInstructions.initialIAButton:
-                    tutorialSteps[i].instructions = Constants.initialIAButtonInstructions;
-                    break;
-                case TutorialInstructions.initialBDButton:
-                    tutorialSteps[i].instructions = Constants.initialBDButtonInstructions;
-                    break;
-                case TutorialInstructions.initialCluesButton:
-                    tutorialSteps[i].instructions = Constants.initialCluesButtonInstructions;
-                    break;
-                case TutorialInstructions.initialMessageButton:
-                    tutorialSteps[i].instructions = Constants.initialMessageButtonInstructions;
-                    break;
-                case TutorialInstructions.initialEnding:
-                    tutorialSteps[i].instructions = Constants.initialTutorialEndingInstructions;
-                    break;
-                case TutorialInstructions.messageWindowStart:
-                    tutorialSteps[i].instructions = Constants.messageTutorialStartInstructions;
-                    break;
-                case TutorialInstructions.messageWindowContact:
-                    tutorialSteps[i].instructions = Constants.messageTutorialContactInstructions;
-                    break;
-                case TutorialInstructions.messageWindowChat:
-                    tutorialSteps[i].instructions = Constants.messageTutorialChatInstructions;
-                    break;
-                case TutorialInstructions.messageWindowEnd:
-                    tutorialSteps[i].instructions = Constants.messageTutorialEndInstructions;
-                    break;
-                case TutorialInstructions.clueWindowStart:
-                    tutorialSteps[i].instructions = Constants.clueWindowTutorialStartInstructions;
-                    break;
-                case TutorialInstructions.clueWindowClue:
-                    tutorialSteps[i].instructions = Constants.clueWindowClueInstructions;
-                    break;
-                case TutorialInstructions.clueWindowFinalSolution:
-                    tutorialSteps[i].instructions = Constants.clueWindowFinalSolutionInstructions;
-                    break;
-                case TutorialInstructions.clueWindowEnding:
-                    tutorialSteps[i].instructions = Constants.clueWindowTutorialEndingInstructions;
-                    break;
-                case TutorialInstructions.tableWindowStart:
-                    tutorialSteps[i].instructions = Constants.tableWindowTutorialStartInstructions;
-                    break;
-                case TutorialInstructions.tableWindowSideBar:
-                    tutorialSteps[i].instructions = Constants.tableWindowTutorialSideBarInstructions;
-                    break;
-                case TutorialInstructions.tableWindowQueryBox:
-                    tutorialSteps[i].instructions = Constants.tableWindowTutorialQueryBoxInstructions;
-                    break;
-                case TutorialInstructions.tableWindowSearchButton:
-                    tutorialSteps[i].instructions = Constants.tableWindowTutorialSearchButtonInstructions;
-                    break;
-                case TutorialInstructions.tableWindowEnding:
-                    tutorialSteps[i].instructions = Constants.tableWindowTutorialEndingInstructions;
-                    break;
-                default:
-                    print("0");
-                    tutorialSteps[i].instructions = new string[] { };
-                    break;
-            }
+            tutorialSteps[i].instructions = GetInstructionByType(tutorialSteps[i].instructionType);
         }
     }
 
