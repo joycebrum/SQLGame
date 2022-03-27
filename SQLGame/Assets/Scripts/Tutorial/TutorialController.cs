@@ -113,7 +113,6 @@ public class TutorialController : MonoBehaviour
 
     public void StartTutorial(Action completion)
     {
-        print("oiee");
         print(tutorialSteps[0].instructions[0]);
         this.completion = completion;
         instructionPanel.SetActive(true);
@@ -162,10 +161,10 @@ public class TutorialController : MonoBehaviour
             tutorialStepIdx += 1;
         }
         if (tutorialStep.gameObject != null)
-            changeSiblingsIndex(tutorialStep);
+            ChangeSiblingsIndex(tutorialStep);
     }
 
-    private void changeSiblingsIndex(TutorialStep tutorialStep)
+    private void ChangeSiblingsIndex(TutorialStep tutorialStep)
     {
         foreach (GameObject sibling in siblings)
         {
