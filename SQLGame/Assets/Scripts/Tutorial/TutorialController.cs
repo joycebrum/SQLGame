@@ -17,6 +17,10 @@ public class TutorialController : MonoBehaviour
         initialCluesButton,
         initialMessageButton,
         initialEnding,
+        messageWindowStart,
+        messageWindowContact,
+        messageWindowChat,
+        messageWindowEnd,
         clueWindowStart,
         clueWindowClue,
         clueWindowFinalSolution,
@@ -75,6 +79,18 @@ public class TutorialController : MonoBehaviour
                     break;
                 case TutorialInstructions.initialEnding:
                     tutorialSteps[i].instructions = Constants.initialTutorialEndingInstructions;
+                    break;
+                case TutorialInstructions.messageWindowStart:
+                    tutorialSteps[i].instructions = Constants.messageTutorialStartInstructions;
+                    break;
+                case TutorialInstructions.messageWindowContact:
+                    tutorialSteps[i].instructions = Constants.messageTutorialContactInstructions;
+                    break;
+                case TutorialInstructions.messageWindowChat:
+                    tutorialSteps[i].instructions = Constants.messageTutorialChatInstructions;
+                    break;
+                case TutorialInstructions.messageWindowEnd:
+                    tutorialSteps[i].instructions = Constants.messageTutorialEndInstructions;
                     break;
                 case TutorialInstructions.clueWindowStart:
                     tutorialSteps[i].instructions = Constants.clueWindowTutorialStartInstructions;

@@ -28,8 +28,18 @@
 
     public static readonly string[] initialMessageButtonInstructions = new string[] { "E aqui é onde voce pode ver suas mensagens (qualquer semelhança entre o icone e um aplicativo que voce ja conhece é mera coincidencia rs)" };
 
-    public static readonly string[] initialTutorialEndingInstructions = new string[] { "Agora, para começarmos, abra a tela de pistas" };
+    public static readonly string[] initialTutorialEndingInstructions = new string[] { "Agora, para começarmos, abra a tela de mensagens, você recebeu uma mensagem nova do seu amigo" };
 
+    /* MESSAGE WINDOW */ 
+    public static readonly string[] messageTutorialStartInstructions = new string[] { "Bem vindo ao aplicativo de mensagens. Você já deve conhecer mas não custa revisar."};
+    public static readonly string[] messageTutorialContactInstructions = new string[] { "Essa é a tela de contatos, onde você pode ver suas mensagens com seus colegas.",
+                                                                                        "No momento você só tem essa mensagem do Vitor, abra e veja o que ele quer com você."};
+    public static readonly string[] messageTutorialChatInstructions = new string[] { "Aqui você pode ver as mensagens trocadas com o pessoa selecionada e enviar novas mensagens para ela." };
+    public static readonly string[] messageTutorialEndInstructions = new string[] { "Experimente conversar com seu amigo.",
+                                                                                    "Então ele te pediu ajuda no trabalho de banco de dados. Posso te ajudar com isso sim.",
+                                                                                    "Primeiro vá para a tela de pistas, continuaremos a partir de lá."}; //Exibir esse texto no final da conversa com o Vitor
+
+    /* CLUE WINDOW */
     public static readonly string[] clueWindowTutorialStartInstructions = new string[] { "Ola de novo.",
                                                                                     "Essa é a tela de pistas, aqui nós iremos anotar todas as pistas que temos no momento, além de voce poder checar dicas para as proximas pistas"};
 
@@ -39,7 +49,7 @@
     public static readonly string[] clueWindowFinalSolutionInstructions = new string[] { "Está é nossa solução final, ainda não sabemos nada sobre ela",
                                                                                          "Quando conseguirmos informações suficientes, a solução será mostrada"};
 
-    public static readonly string[] clueWindowTutorialEndingInstructions = new string[] { "Vamos ver essas dicas: 'Qual o slario do suspeito' e 'Quanto o suspeito recebeu em março'",
+    public static readonly string[] clueWindowTutorialEndingInstructions = new string[] { "Vamos ver essas dicas: 'Qual o salário do suspeito?' e 'Quanto o suspeito recebeu em março?'",
                                                                                           "Bom, vamos ver o banco pra tentar descobrir essas informações"};
 
     public static readonly string[] dbWindowTutorialStartInstructions = new string[] { "Agora que estamos na tela de pistas irei te explicar algumas coisas que acredito que voce já saiba, pois voce ja deve ter tentado começar seu trabalho ne :)" };
