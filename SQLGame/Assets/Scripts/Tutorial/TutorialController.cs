@@ -20,7 +20,11 @@ public class TutorialController : MonoBehaviour
         clueWindowStart,
         clueWindowClue,
         clueWindowFinalSolution,
-        clueWindowEnding
+        clueWindowEnding,
+        dbWindowStart,
+        dbWindowSearch,
+        dbWindowTree,
+        dbWindowEnding
     }
 
     [Serializable]
@@ -84,7 +88,24 @@ public class TutorialController : MonoBehaviour
                 case TutorialInstructions.clueWindowEnding:
                     tutorialSteps[i].instructions = Constants.clueWindowTutorialEndingInstructions;
                     break;
+                case TutorialInstructions.dbWindowStart:
+                    print("1");
+                    tutorialSteps[i].instructions = Constants.dbWindowTutorialStartInstructions;
+                    break;
+                case TutorialInstructions.dbWindowSearch:
+                    print("2");
+                    tutorialSteps[i].instructions = Constants.dbWindowSearchInstructions;
+                    break;
+                case TutorialInstructions.dbWindowTree:
+                    print("3");
+                    tutorialSteps[i].instructions = Constants.dbWindowTreeInstructions;
+                    break;
+                case TutorialInstructions.dbWindowEnding:
+                    print("4");
+                    tutorialSteps[i].instructions = Constants.dbWindowTutorialEndingInstructions;
+                    break;
                 default:
+                    print("0");
                     tutorialSteps[i].instructions = new string[] { };
                     break;
             }
@@ -169,6 +190,16 @@ public class TutorialController : MonoBehaviour
                 sibling.GetComponent<ButtonAnimationController>().moveOnHierachy();
             }
         }
+    }
+
+    public bool checkTutorial(string completionIdentifier)
+    {
+        if (PlayerPrefs.GetInt(completionIdentifier) == 0)
+        {
+            setupTutorial();
+            return true;
+        }
+        return false;
     }
 
 }

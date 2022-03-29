@@ -15,9 +15,8 @@ public class CluesWindowController: MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("CluesTutorialComplete") == 0)
+        if(tutorial.checkTutorial("CluesTutorialComplete" ))
         {
-            tutorial.setupTutorial();
             tutorial.StartTutorial(finishTutorial);
         }
     }

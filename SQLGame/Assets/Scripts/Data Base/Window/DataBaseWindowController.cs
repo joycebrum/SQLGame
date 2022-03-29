@@ -16,6 +16,7 @@ public class DataBaseWindowController: MonoBehaviour
     [SerializeField] private GameObject scrollView;
     [SerializeField] private InputField queryInput;
     [SerializeField] private Text errorText;
+    [SerializeField] private TutorialController tutorial;
 
     [SerializeField] GameObject tableDataPrefable;
     [SerializeField] Transform sideBar;
@@ -29,6 +30,10 @@ public class DataBaseWindowController: MonoBehaviour
 
     private void Start()
     {
+        if (tutorial.checkTutorial("DBTutorialComplete"))
+        {
+            tutorial.StartTutorial(finishTutorial);
+        }
         this.scrollView.SetActive(false);
         InitializeTableData();
     }
@@ -220,5 +225,10 @@ public class DataBaseWindowController: MonoBehaviour
     public static string FirstItemsConverter(Tuple<string,string> tuple)
     {
         return tuple.Item1;
+    }
+
+    private void finishTutorial()
+    {
+        PlayerPrefs.SetInt("DBTutorialComplete", 1);
     }
 }

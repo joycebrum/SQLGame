@@ -2063,6 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
+  focusScaleChange: {x: 0.2, y: 0.2, z: 0.2}
   duration: 0.2
   shouldScaleOnPointEnter: 1
 --- !u!1 &4295504647013756641
@@ -2295,16 +2296,17 @@ MonoBehaviour:
   instructionText: {fileID: 3545843563486179432}
   tutorialSteps:
   - gameObject: {fileID: 0}
-    instructions:
-    - AAAA
+    instructionType: 12
+    instructions: []
   - gameObject: {fileID: 4255457404259120514}
-    instructions:
-    - "Pelos dados que tenho aqui, acho que voce me baixou para te ajudar com seu
-      trabalho de BD n\xE9?"
+    instructionType: 13
+    instructions: []
   - gameObject: {fileID: 7547217772049735636}
-    instructions:
-    - "Pelos dados que tenho aqui, acho que voce me baixou para te ajudar com seu
-      trabalho de BD n\xE9?"
+    instructionType: 14
+    instructions: []
+  - gameObject: {fileID: 0}
+    instructionType: 15
+    instructions: []
   siblings:
   - {fileID: 7123656038217038394}
   - {fileID: 4255457404259120514}
@@ -3741,6 +3743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
+  focusScaleChange: {x: 0.2, y: 0.2, z: 0.2}
   duration: 0.2
   shouldScaleOnPointEnter: 1
 --- !u!1 &7744384028176231873
@@ -4834,6 +4837,7 @@ MonoBehaviour:
   scrollView: {fileID: 8784764963271761373}
   queryInput: {fileID: 4968829597524867013}
   errorText: {fileID: 3114848338787934796}
+  tutorial: {fileID: 3015896457452719393}
   tableDataPrefable: {fileID: 1349859239236797458, guid: 8c6cebef5ff20f948a2a758438193643, type: 3}
   sideBar: {fileID: 8771948638894186364}
   stageController: {fileID: 0}
