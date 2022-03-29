@@ -194,7 +194,7 @@ public class TutorialController : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(completionIdentifier) == 0)
         {
-            setupTutorial();
+            SetupTutorial();
             return true;
         }
         return false;

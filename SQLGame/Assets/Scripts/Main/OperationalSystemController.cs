@@ -99,7 +99,6 @@ public class OperationalSystemController : MonoBehaviour
     {
         if(tutorial.checkTutorial("firstStepTutorialComplete"))
         {
-            tutorial.SetupTutorial();
             tutorial.StartTutorial(finishTutorial);
         }
     }
