@@ -9,6 +9,7 @@ public class OperationalSystemController : MonoBehaviour
     [SerializeField] GameObject phoneObject;
     [SerializeField] GameObject tableObject;
     [SerializeField] GameObject cluesWindow;
+    [SerializeField] TutorialController tutorial;
 
     [SerializeField] StageController stageController;
 
@@ -17,6 +18,13 @@ public class OperationalSystemController : MonoBehaviour
     {
         PlayerPrefs.SetString("playerName", "Cris");
         PlayerPrefs.SetString("playerFullName", "Cristiano Pereira");
+        
+        if(PlayerPrefs.GetInt("ShouldShowFriend") != 1)
+        {
+            ContinueFriendChat();
+        }
+        
+        checkTutorial();
     }
 
     public void OnMenuClick()
@@ -80,5 +88,23 @@ public class OperationalSystemController : MonoBehaviour
     public void ContinueReporterChat()
     {
         phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.reporter);
+    }
+
+    public void ContinueFriendChat()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.amigo);
+    }
+
+    private void checkTutorial()
+    {
+        if(tutorial.checkTutorial("firstStepTutorialComplete"))
+        {
+            tutorial.StartTutorial(finishTutorial);
+        }
+    }
+
+    private void finishTutorial()
+    {
+        PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
     }
 }

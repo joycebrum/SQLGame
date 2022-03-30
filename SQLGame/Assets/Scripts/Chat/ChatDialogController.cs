@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum ChatEnum { 
-    ia = 0, patrocinio = 1, reporter = 2 
+    ia = 0, patrocinio = 1, reporter = 2, amigo = 3
 }
 
 public class ChatDialogController : MonoBehaviour
@@ -19,8 +19,17 @@ public class ChatDialogController : MonoBehaviour
 
     [SerializeField] private GameObject chatScreen = null;
     [SerializeField] private GameObject contactScreen = null;
+    [SerializeField] TutorialController tutorial;
 
     string message = "";
+
+    void Start()
+    {
+        if (tutorial.checkTutorial("MessageTutorialComplete"))
+        {
+            tutorial.StartTutorial(finishTutorial);
+        }
+    }
 
     void OnDisable()
     {
@@ -99,24 +108,26 @@ public class ChatDialogController : MonoBehaviour
         UpdateScrollRect();
     }
 
-    private string GetDialogueName(ChatEnum type)
+    public static string GetDialogueName(ChatEnum type)
     {
         switch (type)
         {
             case ChatEnum.ia: return Constants.AIChat;
             case ChatEnum.patrocinio: return Constants.bossChat;
             case ChatEnum.reporter: return Constants.reporterChat;
+            case ChatEnum.amigo: return Constants.friendChat;
             default: return null;
         }
     }
 
-    private string GetNPCName(ChatEnum type)
+    public static string GetNPCName(ChatEnum type)
     {
         switch (type)
         {
             case ChatEnum.ia: return Constants.AIName;
             case ChatEnum.patrocinio: return Constants.bossName;
             case ChatEnum.reporter: return Constants.reporterName;
+            case ChatEnum.amigo: return Constants.friendName;
             default: return null;
         }
     }
@@ -149,6 +160,14 @@ public class ChatDialogController : MonoBehaviour
         if (dialogName != null)
         {
             PlayerPrefs.SetInt(GetDialogueName(type), 2); // 0 or null - not blocked; 1 - blocked; 2 - released
+            foreach(ContactController contactController in this.contactScreen.GetComponentsInChildren<ContactController>())
+            {
+                if(contactController.GetDialogName() == dialogName)
+                {
+                    contactController.ShowContact();
+                    break;
+                }
+            }
             // TODO: Add visual notification of new message
         }
     }
@@ -157,5 +176,10 @@ public class ChatDialogController : MonoBehaviour
     {
         this.contactScreen.SetActive(true);
         this.chatScreen.SetActive(false);
+    }
+
+    private void finishTutorial()
+    {
+        PlayerPrefs.SetInt("MessageTutorialComplete", 1);
     }
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonAnimationController : MonoBehaviour
+public class AnimationController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Vector3 scaleChange = new Vector3(0.08f, 0.08f, 0.08f);
+    [SerializeField] private Vector3 focusScaleChange = new Vector3(0.2f, 0.2f, 0.2f);
     [SerializeField] private float duration = 0.2f;
     [SerializeField] private bool shouldScaleOnPointEnter = true;
-    private Vector3 focusScaleChange = new Vector3(0.2f, 0.2f, 0.2f);
 
     private List<LTDescr> myTweens = new List<LTDescr>();
     private Color originalColor = Color.white;

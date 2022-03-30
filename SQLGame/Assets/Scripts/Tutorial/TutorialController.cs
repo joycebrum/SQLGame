@@ -7,9 +7,35 @@ using UnityEngine.UI;
 public class TutorialController : MonoBehaviour
 {
     [Serializable]
+    public enum TutorialInstructions
+    {
+        none,
+        initialStart,
+        initialConfigButton,
+        initialIAButton,
+        initialBDButton,
+        initialCluesButton,
+        initialMessageButton,
+        initialEnding,
+        messageWindowStart,
+        messageWindowContact,
+        messageWindowChat,
+        messageWindowEnd,
+        clueWindowStart,
+        clueWindowClue,
+        clueWindowFinalSolution,
+        clueWindowEnding,
+        tableWindowStart,
+        tableWindowSideBar,
+        tableWindowQueryBox,
+        tableWindowEnding
+    }
+
+    [Serializable]
     private class TutorialStep
     {
         public GameObject gameObject = null;
+        public TutorialInstructions instructionType = TutorialInstructions.none;
         public string[] instructions = null;
     }
     [SerializeField] private GameObject instructionPanel = null;
@@ -20,20 +46,72 @@ public class TutorialController : MonoBehaviour
     private int tutorialStepIdx = 0;
     private int instructionIdx = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //TODO: Remover a chamada o Start e chamá-lo no momento apropriadao.
-        //StartTutorial();
-    }
+    private Action completion;
 
     public void OnClick()
     {
         if(tutorialStepIdx >= 0 && instructionPanel.activeSelf) NextTutorialStep();
     }
 
-    public void StartTutorial()
+    private string[] GetInstructionByType(TutorialInstructions instructionType)
     {
+        switch (instructionType)
+        {
+            case TutorialInstructions.initialStart:
+                return Constants.initialTutorialStartInstructions;
+            case TutorialInstructions.initialConfigButton:
+                return Constants.initialConfigButtonInstructions;
+            case TutorialInstructions.initialIAButton:
+                return Constants.initialIAButtonInstructions;
+            case TutorialInstructions.initialBDButton:
+                return Constants.initialBDButtonInstructions;
+            case TutorialInstructions.initialCluesButton:
+                return Constants.initialCluesButtonInstructions;
+            case TutorialInstructions.initialMessageButton:
+                return Constants.initialMessageButtonInstructions;
+            case TutorialInstructions.initialEnding:
+                return Constants.initialTutorialEndingInstructions;
+            case TutorialInstructions.messageWindowStart:
+                return Constants.messageTutorialStartInstructions;
+            case TutorialInstructions.messageWindowContact:
+                return Constants.messageTutorialContactInstructions;
+            case TutorialInstructions.messageWindowChat:
+                return Constants.messageTutorialChatInstructions;
+            case TutorialInstructions.messageWindowEnd:
+                return Constants.messageTutorialEndInstructions;
+            case TutorialInstructions.clueWindowStart:
+                return Constants.clueWindowTutorialStartInstructions;
+            case TutorialInstructions.clueWindowClue:
+                return Constants.clueWindowClueInstructions;
+            case TutorialInstructions.clueWindowFinalSolution:
+                return Constants.clueWindowFinalSolutionInstructions;
+            case TutorialInstructions.clueWindowEnding:
+                return Constants.clueWindowTutorialEndingInstructions;
+            case TutorialInstructions.tableWindowStart:
+                return Constants.tableWindowTutorialStartInstructions;
+            case TutorialInstructions.tableWindowSideBar:
+                return Constants.tableWindowTutorialSideBarInstructions;
+            case TutorialInstructions.tableWindowQueryBox:
+                return Constants.tableWindowTutorialQueryBoxInstructions;
+            case TutorialInstructions.tableWindowEnding:
+                return Constants.tableWindowTutorialEndingInstructions;
+            default:
+                return new string[] { };
+        }
+    }
+
+    public void SetupTutorial()
+    {
+        for(int i = 0; i<tutorialSteps.Length; i++)
+        {
+            tutorialSteps[i].instructions = GetInstructionByType(tutorialSteps[i].instructionType);
+        }
+    }
+
+    public void StartTutorial(Action completion)
+    {
+        print(tutorialSteps[0].instructions[0]);
+        this.completion = completion;
         instructionPanel.SetActive(true);
         NextTutorialStep();
     }
@@ -42,8 +120,10 @@ public class TutorialController : MonoBehaviour
     {
         instructionText.text = "";
         instructionPanel.SetActive(false);
-        if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
+        if (tutorialStepIdx > 0 && tutorialSteps[tutorialStepIdx - 1].gameObject != null) 
+            tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<AnimationController>().UnfocusWithAnimation();
         tutorialStepIdx = -1;
+        completion.Invoke();
     }
 
     private void NextTutorialStep()
@@ -61,10 +141,12 @@ public class TutorialController : MonoBehaviour
 
     private void NextInstruction(TutorialStep tutorialStep)
     {
-        if(instructionIdx == 0)
+        if(instructionIdx == 0 )
         {
-            if (tutorialStepIdx > 0) tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
-            tutorialStep.gameObject.GetComponent<ButtonAnimationController>().FocusWithAnimation();
+            if (tutorialStepIdx > 0 && tutorialSteps[tutorialStepIdx - 1].gameObject != null) 
+                tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<AnimationController>().UnfocusWithAnimation();
+            if (tutorialStep.gameObject != null)
+                tutorialStep.gameObject.GetComponent<AnimationController>().FocusWithAnimation();
         }
 
         instructionText.text = tutorialStep.instructions[instructionIdx];
@@ -75,11 +157,11 @@ public class TutorialController : MonoBehaviour
             instructionIdx = 0;
             tutorialStepIdx += 1;
         }
-
-        changeSiblingsIndex(tutorialStep);
+        if (tutorialStep.gameObject != null)
+            ChangeSiblingsIndex(tutorialStep);
     }
 
-    private void changeSiblingsIndex(TutorialStep tutorialStep)
+    private void ChangeSiblingsIndex(TutorialStep tutorialStep)
     {
         foreach (GameObject sibling in siblings)
         {
@@ -87,7 +169,7 @@ public class TutorialController : MonoBehaviour
             {
                 if (tutorialStep.gameObject.transform.parent.gameObject.name == sibling.name)
                 {
-                    sibling.transform.SetSiblingIndex(3);
+                    sibling.transform.SetSiblingIndex(siblings.Length - 1);
                 }
                 else
                 {
@@ -96,13 +178,23 @@ public class TutorialController : MonoBehaviour
             }
             else if (sibling.name == instructionPanel.name)
             {
-                sibling.transform.SetSiblingIndex(2);
+                sibling.transform.SetSiblingIndex(siblings.Length - 2);
             }
             else
             {
-                sibling.GetComponent<ButtonAnimationController>().moveOnHierachy();
+                sibling.GetComponent<AnimationController>().moveOnHierachy();
             }
         }
+    }
+
+    public bool checkTutorial(string completionIdentifier)
+    {
+        if (PlayerPrefs.GetInt(completionIdentifier) == 0)
+        {
+            SetupTutorial();
+            return true;
+        }
+        return false;
     }
 
 }

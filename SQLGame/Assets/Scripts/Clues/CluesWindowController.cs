@@ -9,8 +9,22 @@ public class CluesWindowController: MonoBehaviour
     [SerializeField] private List<GameObject> clues;
     [SerializeField] private List<GameObject> clueSolutions;
     [SerializeField] private GameObject finalSolution;
+    [SerializeField] private TutorialController tutorial;
 
     private List<bool> solvedClues;
+
+    private void Start()
+    {
+        if(tutorial.checkTutorial("CluesTutorialComplete" ))
+        {
+            tutorial.StartTutorial(finishTutorial);
+        }
+    }
+
+    private void finishTutorial()
+    {
+        PlayerPrefs.SetInt("CluesTutorialComplete", 1);
+    }
 
     public void SetupClues()
     {
@@ -41,7 +55,7 @@ public class CluesWindowController: MonoBehaviour
             }
             else if (solvedClues[i * 2] && solvedClues[i * 2 + 1])
             {
-                clueSolutions[i].GetComponent<ClueController>().SetAsFound("Chegou a conlus„o");
+                clueSolutions[i].GetComponent<ClueController>().SetAsFound("Chegou a conlus√£o");
             }
             else
             {
@@ -51,7 +65,7 @@ public class CluesWindowController: MonoBehaviour
         }
         if (isSolved)
         {
-            finalSolution.GetComponent<ClueController>().SetAsFound("ParabÈns voce venceu");
+            finalSolution.GetComponent<ClueController>().SetAsFound("Parab√©ns voce venceu");
         }
         else
         {
