@@ -55,7 +55,7 @@ public class CluesWindowController: MonoBehaviour
             }
             else if (solvedClues[i * 2] && solvedClues[i * 2 + 1])
             {
-                clueSolutions[i].GetComponent<ClueController>().SetAsFound("Chegou a conlus�o");
+                clueSolutions[i].GetComponent<ClueController>().SetAsFound("Chegou a conlusão");
             }
             else
             {
@@ -65,7 +65,7 @@ public class CluesWindowController: MonoBehaviour
         }
         if (isSolved)
         {
-            finalSolution.GetComponent<ClueController>().SetAsFound("Parab�ns voce venceu");
+            finalSolution.GetComponent<ClueController>().SetAsFound("Parabéns voce venceu");
         }
         else
         {
