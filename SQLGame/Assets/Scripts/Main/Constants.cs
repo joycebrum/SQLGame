@@ -27,12 +27,13 @@
     public static readonly string[] initialTutorialEndingInstructions = new string[] { "Agora, para começarmos, abra a tela de mensagens, você recebeu uma mensagem nova do seu amigo" };
 
     /* MESSAGE WINDOW */ 
+    //MUDAR PARA TIRAR OS TRIGERS
     public static readonly string[] messageTutorialStartInstructions = new string[] { "Bem vindo ao aplicativo de mensagens. Você já deve conhecer mas não custa revisar."};
     public static readonly string[] messageTutorialContactInstructions = new string[] { "Essa é a tela de contatos, onde você pode ver suas mensagens com seus colegas.",
                                                                                         "No momento você só tem essa mensagem do Vitor, abra e veja o que ele quer com você."};
     public static readonly string[] messageTutorialChatInstructions = new string[] { "Aqui você pode ver as mensagens trocadas com o pessoa selecionada e enviar novas mensagens para ela." };
     public static readonly string[] messageTutorialEndInstructions = new string[] { "Experimente conversar com seu amigo.",
-                                                                                    "Então ele te pediu ajuda no trabalho de banco de dados. Posso te ajudar com isso sim.",  //Exibir esse texto no final da conversa com o Vitor
+                                                                                    "Então ele te pediu ajuda no trabalho de banco de dados. Posso te ajudar com isso sim.",
                                                                                     "Primeiro vá para a tela de pistas, continuaremos a partir de lá."};
 
     /* CLUE WINDOW */
@@ -49,8 +50,8 @@
     public static readonly string[] tableWindowTutorialStartInstructions = new string[] { "Este aplicativo permite que você consulte dados do banco de dados em questão." };
     public static readonly string[] tableWindowTutorialSideBarInstructions = new string[] { "Esta barra lateral mostra todas as tabelas que tem no banco de dados e quais seus campos.",
                                                                                             "É uma ótima forma de você saber como montar as buscas para solucionar o problema."};
-    public static readonly string[] tableWindowTutorialQueryBoxInstructions = new string[] { "Este campo de texto permite que você realize buscas dentro do banco de dados, através do SQL." };
-    public static readonly string[] tableWindowTutorialSearchButtonInstructions = new string[] { "Este botão submete a busca digitada para o banco, fazendo com que os dados sejam listados na área abaixo." };
+    public static readonly string[] tableWindowTutorialQueryBoxInstructions = new string[] { "Este campo de texto permite que você realize buscas dentro do banco de dados, através do SQL.",
+                                                                                             "E este botão submete a busca digitada para o banco, fazendo com que os dados sejam listados na área abaixo." };
     public static readonly string[] tableWindowTutorialEndingInstructions = new string[] { "Experimente olhar os dados da tabela Funcionarios e da tabela Gastos.",
                                                                                         "A consulta pode ser feita usando SELECT * FROM Funcionarios;",
                                                                                         "Tente encontrar um 'suspeito', alguem que tenha gastado mais do que tenha recebido, por exemplo.",

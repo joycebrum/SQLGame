@@ -28,7 +28,6 @@ public class TutorialController : MonoBehaviour
         tableWindowStart,
         tableWindowSideBar,
         tableWindowQueryBox,
-        tableWindowSearchButton,
         tableWindowEnding
     }
 
@@ -94,8 +93,6 @@ public class TutorialController : MonoBehaviour
                 return Constants.tableWindowTutorialSideBarInstructions;
             case TutorialInstructions.tableWindowQueryBox:
                 return Constants.tableWindowTutorialQueryBoxInstructions;
-            case TutorialInstructions.tableWindowSearchButton:
-                return Constants.tableWindowTutorialSearchButtonInstructions;
             case TutorialInstructions.tableWindowEnding:
                 return Constants.tableWindowTutorialEndingInstructions;
             default:
@@ -124,7 +121,7 @@ public class TutorialController : MonoBehaviour
         instructionText.text = "";
         instructionPanel.SetActive(false);
         if (tutorialStepIdx > 0 && tutorialSteps[tutorialStepIdx - 1].gameObject != null) 
-            tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
+            tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<AnimationController>().UnfocusWithAnimation();
         tutorialStepIdx = -1;
         completion.Invoke();
     }
@@ -147,9 +144,9 @@ public class TutorialController : MonoBehaviour
         if(instructionIdx == 0 )
         {
             if (tutorialStepIdx > 0 && tutorialSteps[tutorialStepIdx - 1].gameObject != null) 
-                tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<ButtonAnimationController>().UnfocusWithAnimation();
+                tutorialSteps[tutorialStepIdx-1].gameObject.GetComponent<AnimationController>().UnfocusWithAnimation();
             if (tutorialStep.gameObject != null)
-                tutorialStep.gameObject.GetComponent<ButtonAnimationController>().FocusWithAnimation();
+                tutorialStep.gameObject.GetComponent<AnimationController>().FocusWithAnimation();
         }
 
         instructionText.text = tutorialStep.instructions[instructionIdx];
@@ -185,7 +182,7 @@ public class TutorialController : MonoBehaviour
             }
             else
             {
-                sibling.GetComponent<ButtonAnimationController>().moveOnHierachy();
+                sibling.GetComponent<AnimationController>().moveOnHierachy();
             }
         }
     }

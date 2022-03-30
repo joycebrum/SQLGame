@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
-  focusScaleChange: {x: 0.2, y: 0.2, z: 0.2}
+  focusScaleChange: {x: 0, y: 0, z: 0}
   duration: 0.2
   shouldScaleOnPointEnter: 1
 --- !u!1 &4295504647013756641
@@ -2296,16 +2296,16 @@ MonoBehaviour:
   instructionText: {fileID: 3545843563486179432}
   tutorialSteps:
   - gameObject: {fileID: 0}
-    instructionType: 12
-    instructions: []
-  - gameObject: {fileID: 4255457404259120514}
-    instructionType: 13
+    instructionType: 16
     instructions: []
   - gameObject: {fileID: 7547217772049735636}
-    instructionType: 14
+    instructionType: 17
+    instructions: []
+  - gameObject: {fileID: 4255457404259120514}
+    instructionType: 18
     instructions: []
   - gameObject: {fileID: 0}
-    instructionType: 15
+    instructionType: 19
     instructions: []
   siblings:
   - {fileID: 7123656038217038394}
@@ -3743,7 +3743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleChange: {x: 0.08, y: 0.08, z: 0.08}
-  focusScaleChange: {x: 0.2, y: 0.2, z: 0.2}
+  focusScaleChange: {x: 0, y: 0, z: 0}
   duration: 0.2
   shouldScaleOnPointEnter: 1
 --- !u!1 &7744384028176231873

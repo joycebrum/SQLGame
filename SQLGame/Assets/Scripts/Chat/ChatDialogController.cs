@@ -19,8 +19,17 @@ public class ChatDialogController : MonoBehaviour
 
     [SerializeField] private GameObject chatScreen = null;
     [SerializeField] private GameObject contactScreen = null;
+    [SerializeField] TutorialController tutorial;
 
     string message = "";
+
+    void Start()
+    {
+        if (tutorial.checkTutorial("MessageTutorialComplete"))
+        {
+            tutorial.StartTutorial(finishTutorial);
+        }
+    }
 
     void OnDisable()
     {
@@ -167,5 +176,10 @@ public class ChatDialogController : MonoBehaviour
     {
         this.contactScreen.SetActive(true);
         this.chatScreen.SetActive(false);
+    }
+
+    private void finishTutorial()
+    {
+        PlayerPrefs.SetInt("MessageTutorialComplete", 1);
     }
 }
