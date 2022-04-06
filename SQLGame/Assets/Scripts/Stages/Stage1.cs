@@ -11,6 +11,9 @@ public class Stage1 : Stage
         this.sqlPopulatePath = "Assets/Resources/Stage 1/populateDB.txt";
         this.dbPath = "db/Stage1SQLite.db";
 
+        this.introName.text = "Fase 1 - Um nome legal";
+        this.introPanel.gameObject.SetActive(true);
+
         base.InitializeStage();
     }
 

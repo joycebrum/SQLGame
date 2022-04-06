@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using TMPro;
 
 public class Stage: MonoBehaviour
 {
@@ -13,17 +14,23 @@ public class Stage: MonoBehaviour
     [SerializeReference] protected List<ClueController> solutionControllers;
     [SerializeReference] protected ClueController finalSolutionController;
     [SerializeReference] protected StageDBController dbController;
+    [SerializeReference] protected TextMeshProUGUI introName;
+    [SerializeField] protected GameObject introPanel;
 
     protected string sqlCreatePath = "";
     protected string sqlPopulatePath = "";
     protected string dbPath = "";
 
     protected string stageIdentifier = "Default";
+    private int fadeoutTime = 3;
+    private int fadeoutActualTime = 0;
 
     public void OnStart()
     {
         UpdateStageData();
+        
     }
+
     public void UpdateStageData()
     {
         InitializeStage();
@@ -118,4 +125,10 @@ public class Stage: MonoBehaviour
 
     protected string CountIdentifier() { return this.stageIdentifier + "_count"; }
     protected string ClueIdentifier(int i) { return this.stageIdentifier + "_clue_" + i.ToString(); }
+
+    protected IEnumerator DidShowIntro()
+    {
+        yield return new WaitForSeconds(3);
+        this.introPanel.gameObject.SetActive(false);
+    }
 }
