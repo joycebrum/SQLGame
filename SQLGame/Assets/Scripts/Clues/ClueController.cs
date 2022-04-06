@@ -9,6 +9,8 @@ public class ClueController : MonoBehaviour
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private List<Sprite> conclusionSprites;
 
+    public bool isSolved = false;
+
     private bool inUse = false;
     
     // Start is called before the first frame update
@@ -31,6 +33,7 @@ public class ClueController : MonoBehaviour
 
     public void SetAsFound(string clueContent)
     {
+        isSolved = true;
         this.gameObject.SetActive(true);
         this.clueText.text = clueContent;
 
@@ -42,6 +45,7 @@ public class ClueController : MonoBehaviour
 
     public void SetAsNotFound(string notFoundText)
     {
+        isSolved = false;
         this.gameObject.SetActive(true);
         this.clueText.text = notFoundText;
 
@@ -53,6 +57,7 @@ public class ClueController : MonoBehaviour
 
     public void SetAsSolutionNotFound()
     {
+        isSolved = false;
         this.gameObject.SetActive(true);
         this.clueText.text = "";
 

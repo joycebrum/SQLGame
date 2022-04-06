@@ -22,6 +22,10 @@ public class Stage: MonoBehaviour
 
     public void OnStart()
     {
+        UpdateStageData();
+    }
+    public void UpdateStageData()
+    {
         InitializeStage();
         UpdateStatuses(RetrieveSolvedClues());
         this.dbController.InitDabaBase(dbPath, sqlCreatePath, sqlPopulatePath);
