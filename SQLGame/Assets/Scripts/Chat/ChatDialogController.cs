@@ -52,6 +52,11 @@ public class ChatDialogController : MonoBehaviour
         ShowContacts();
     }
 
+    public void OnCloseButton()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     public void SetMessage(string message)
     {
         this.message = message.Replace("#{player}", PlayerPrefs.GetString("playerName"))
