@@ -13,6 +13,7 @@ public class Stage1 : Stage
 
         this.introName.text = "Fase 1 - Um nome legal";
         this.introPanel.gameObject.SetActive(true);
+        StartCoroutine(base.DidShowIntro());
 
         base.InitializeStage();
     }
