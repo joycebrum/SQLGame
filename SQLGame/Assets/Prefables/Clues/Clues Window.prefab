@@ -1028,15 +1028,12 @@ MonoBehaviour:
   instructionText: {fileID: 4292111876990924512}
   tutorialSteps:
   - gameObject: {fileID: 0}
-    instructionType: 12
-    instructions: []
-  - gameObject: {fileID: 4780536425681741292}
     instructionType: 13
     instructions: []
-  - gameObject: {fileID: 4742578124367941658}
+  - gameObject: {fileID: 4780536425681741292}
     instructionType: 14
     instructions: []
-  - gameObject: {fileID: 0}
+  - gameObject: {fileID: 4742578124367941658}
     instructionType: 15
     instructions: []
   siblings:

@@ -2930,9 +2930,6 @@ MonoBehaviour:
   instructionText: {fileID: 1399662120648947364}
   tutorialSteps:
   - gameObject: {fileID: 0}
-    instructionType: 8
-    instructions: []
-  - gameObject: {fileID: 0}
     instructionType: 9
     instructions: []
   - gameObject: {fileID: 0}
