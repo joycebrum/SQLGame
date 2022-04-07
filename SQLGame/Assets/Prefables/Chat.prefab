@@ -2932,7 +2932,7 @@ MonoBehaviour:
   - gameObject: {fileID: 0}
     instructionType: 8
     instructions: []
-  - gameObject: {fileID: 7635571392193803549}
+  - gameObject: {fileID: 0}
     instructionType: 9
     instructions: []
   - gameObject: {fileID: 0}
@@ -2940,6 +2940,12 @@ MonoBehaviour:
     instructions: []
   - gameObject: {fileID: 0}
     instructionType: 11
+    instructions: []
+  - gameObject: {fileID: 0}
+    instructionType: 1
+    instructions: []
+  - gameObject: {fileID: 0}
+    instructionType: 12
     instructions: []
   siblings:
   - {fileID: 5910825519454211729}

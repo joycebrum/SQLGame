@@ -187,4 +187,17 @@ public class ChatDialogController : MonoBehaviour
     {
         PlayerPrefs.SetInt("MessageTutorialComplete", 1);
     }
+
+    private void finishTutorialAfterFirstChat()
+    {
+        PlayerPrefs.SetInt("MessageTutorialComplete2", 1);
+    }
+
+    public void ContinueChatTutorial()
+    {
+        if (tutorial.checkTutorial("MessageTutorialComplete2"))
+        {
+            tutorial.StartTutorial(finishTutorialAfterFirstChat);
+        }
+    }
 }

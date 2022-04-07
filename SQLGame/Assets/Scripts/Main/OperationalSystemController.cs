@@ -95,6 +95,11 @@ public class OperationalSystemController : MonoBehaviour
         phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.amigo);
     }
 
+    public void ContinueChatTutorial()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ContinueChatTutorial();
+    }
+
     private void checkTutorial()
     {
         if(tutorial.checkTutorial("firstStepTutorialComplete"))
