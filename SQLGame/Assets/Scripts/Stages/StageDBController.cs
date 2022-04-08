@@ -8,15 +8,18 @@ public class StageDBController : MonoBehaviour
     public DataBase database;
     public void InitDabaBase(string dbPath, string sqlCreatePath, string sqlPopulatePath)
     {
+        print("inicio");
         bool fileExists = System.IO.File.Exists(dbPath);
-        this.database.Connect("URI=file:" + dbPath);
+        print("file exists: " + fileExists);
+        this.database.Connect(dbPath);
+        print("terminou o connect");
         if (!fileExists)
         {
-            print("inicio");
+            print("antes do create");
             CreateDataBase(sqlCreatePath);
-            print("meio");
+            print("depois do create");
             PopulateDataBase(sqlPopulatePath);
-            print("fim");
+            print("depois do populate");
         }
     }
 
@@ -33,9 +36,7 @@ public class StageDBController : MonoBehaviour
 
     private string ReadFromFile(string path)
     {
-        StreamReader reader = new StreamReader(path);
-        string sqlCreateText = reader.ReadToEnd();
-        reader.Close();
-        return sqlCreateText;
+        string sqlText = Resources.Load<TextAsset>(path).text;
+        return sqlText;
     }
 }

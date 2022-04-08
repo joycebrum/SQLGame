@@ -23,11 +23,12 @@ public class DataBase : MonoBehaviour
     public void Connect(string urlDataBase)
     {
         this.urlDataBase = urlDataBase;
-        connection = new SqliteConnection(urlDataBase);
+        print(this.urlDataBase);
+        connection = new SqliteConnection(this.urlDataBase);
         connection.Open();
     }
 
-    public void NonQueryCommand(string sql)
+    public void NonQueryCommand(string sql) 
     {
         IDbCommand command = connection.CreateCommand();
         command.CommandText = sql;
@@ -36,7 +37,6 @@ public class DataBase : MonoBehaviour
 
     public IDataReader QueryCommand(string query)
     {
-        print(query);
         IDbCommand command = connection.CreateCommand();
         command.CommandText = query;
         return command.ExecuteReader();
