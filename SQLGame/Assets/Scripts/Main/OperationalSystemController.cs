@@ -18,12 +18,12 @@ public class OperationalSystemController : MonoBehaviour
     {
         PlayerPrefs.SetString("playerName", "Cris");
         PlayerPrefs.SetString("playerFullName", "Cristiano Pereira");
-        
-        if(PlayerPrefs.GetInt("ShouldShowFriend") != 1)
+
+        if (PlayerPrefs.GetInt("ShouldShowFriend") != 1)
         {
             ContinueFriendChat();
         }
-        
+
         checkTutorial();
     }
 
@@ -65,12 +65,6 @@ public class OperationalSystemController : MonoBehaviour
     public void ToggleCluesWindow()
     {
         cluesWindow.SetActive(!cluesWindow.activeInHierarchy);
-    }
-
-    public void UpdateClues()
-    {
-        print("cheguei na main");
-        cluesWindow.GetComponent<CluesWindowController>().SetupClues();
     }
 
     /* Trigger Chats */

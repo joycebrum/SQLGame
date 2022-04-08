@@ -40,6 +40,12 @@ public class StageController : MonoBehaviour
     {
         currentStageIndex++;
         currentStage = stages[currentStageIndex];
+        updateStageData();
         print(currentStage);
+    }
+
+    public void updateStageData()
+    {
+        currentStage.UpdateStageData();
     }
 }

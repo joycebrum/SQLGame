@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class CluesWindowController: MonoBehaviour
 {
     [SerializeField] private StageController stageController;
-    [SerializeField] private List<GameObject> clues;
-    [SerializeField] private List<GameObject> clueSolutions;
     [SerializeField] private GameObject finalSolution;
     [SerializeField] private TutorialController tutorial;
+    [SerializeField] private List<GameObject> allClues;
 
+    private List<GameObject> clues;
+    private List<GameObject> clueSolutions;
     private List<bool> solvedClues;
 
     private void Start()
@@ -26,64 +27,21 @@ public class CluesWindowController: MonoBehaviour
         PlayerPrefs.SetInt("CluesTutorialComplete", 1);
     }
 
-    public void SetupClues()
+    public void DidTapFinalSolution()
     {
-
-        for (int i = 0; i < clues.Count; i++)
+        if(finalSolution.GetComponent<ClueController>().isSolved)
         {
-            if (solvedClues.Count <= i)
-            {
-                clues[i].GetComponent<ClueController>().SetAsHidden();
-            }
-            else if (solvedClues[i])
-            {
-                clues[i].GetComponent<ClueController>().SetAsFound("Achou");
-            }
-            else
-            {
-                clues[i].GetComponent<ClueController>().SetAsNotFound("");
-            }
+            ResetClues();
+            this.gameObject.SetActive(false);
+            stageController.NextStage();
         }
-
-        bool isSolved = true;
-        for (int i = 0; i < clueSolutions.Count; i++)
-        {
-            if (solvedClues.Count <= i * 2)
-            {
-                clueSolutions[i].GetComponent<ClueController>().SetAsHidden();
-                continue;
-            }
-            else if (solvedClues[i * 2] && solvedClues[i * 2 + 1])
-            {
-                clueSolutions[i].GetComponent<ClueController>().SetAsFound("Chegou a conlusão");
-            }
-            else
-            {
-                isSolved = false;
-                clueSolutions[i].GetComponent<ClueController>().SetAsSolutionNotFound();
-            }
-        }
-        if (isSolved)
-        {
-            finalSolution.GetComponent<ClueController>().SetAsFound("Parabéns voce venceu");
-        }
-        else
-        {
-            finalSolution.GetComponent<ClueController>().SetAsSolutionNotFound();
-        }
-        UpdateSizes();
     }
 
-    void UpdateSizes()
+    public void ResetClues()
     {
-        for (int i = 0; i < clues.Count; i++)
+        for (int i = 0; i < allClues.Count; i++)
         {
-            clues[i].GetComponent<LayoutElement>().preferredWidth = Screen.width / 5;
+            allClues[i].GetComponent<ClueController>().SetAsHidden();
         }
-        for (int i = 0; i < clueSolutions.Count; i++)
-        {
-            clueSolutions[i].GetComponent<LayoutElement>().preferredWidth = Screen.width / 5;
-        }
-        finalSolution.GetComponent<LayoutElement>().preferredWidth = Screen.width / 5;
     }
 }
