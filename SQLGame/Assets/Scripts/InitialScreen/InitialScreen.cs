@@ -26,6 +26,5 @@ public class InitialScreen : MonoBehaviour
         foreach(var file in files){
             File.Delete(file);
         }
-        print("deletou");
     }
 }
