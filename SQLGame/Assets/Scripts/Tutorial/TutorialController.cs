@@ -10,6 +10,7 @@ public class TutorialController : MonoBehaviour
     public enum TutorialInstructions
     {
         none,
+        pauseTutorial,
         initialStart,
         initialConfigButton,
         initialIAButton,
@@ -57,6 +58,8 @@ public class TutorialController : MonoBehaviour
     {
         switch (instructionType)
         {
+            case TutorialInstructions.pauseTutorial:
+                return null;
             case TutorialInstructions.initialStart:
                 return Constants.initialTutorialStartInstructions;
             case TutorialInstructions.initialConfigButton:
@@ -110,7 +113,6 @@ public class TutorialController : MonoBehaviour
 
     public void StartTutorial(Action completion)
     {
-        print(tutorialSteps[0].instructions[0]);
         this.completion = completion;
         instructionPanel.SetActive(true);
         NextTutorialStep();
@@ -136,7 +138,24 @@ public class TutorialController : MonoBehaviour
 
         TutorialStep tutorialStep = tutorialSteps[tutorialStepIdx];
 
-        NextInstruction(tutorialStep);
+        if(tutorialStep.instructionType == TutorialInstructions.pauseTutorial)
+        {
+            PauseTutorial(tutorialStep);
+        }
+        else
+        {
+            NextInstruction(tutorialStep);
+        }
+    }
+
+    private void PauseTutorial(TutorialStep tutorialStep)
+    {
+        instructionText.text = "";
+        instructionPanel.SetActive(false);
+        if (tutorialStepIdx > 0 && tutorialSteps[tutorialStepIdx - 1].gameObject != null)
+            tutorialSteps[tutorialStepIdx - 1].gameObject.GetComponent<AnimationController>().UnfocusWithAnimation();
+        tutorialStepIdx += 1;
+        completion.Invoke();
     }
 
     private void NextInstruction(TutorialStep tutorialStep)
@@ -182,7 +201,11 @@ public class TutorialController : MonoBehaviour
             }
             else
             {
-                sibling.GetComponent<AnimationController>().moveOnHierachy();
+                AnimationController animationController = sibling.GetComponent<AnimationController>();
+                if(animationController)
+                {
+                    animationController.moveOnHierachy();
+                }
             }
         }
     }

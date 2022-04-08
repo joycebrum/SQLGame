@@ -18,7 +18,7 @@ public class StageController : MonoBehaviour
         {
             currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");
         }
-        currentStage = stages[0];
+        currentStage = stages[currentStageIndex];
 
         this.currentStage.OnStart();
     }

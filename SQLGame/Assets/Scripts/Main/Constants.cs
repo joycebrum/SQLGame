@@ -31,9 +31,9 @@
     public static readonly string[] messageTutorialStartInstructions = new string[] { "Bem vindo ao aplicativo de mensagens. Você já deve conhecer mas não custa revisar."};
     public static readonly string[] messageTutorialContactInstructions = new string[] { "Essa é a tela de contatos, onde você pode ver suas mensagens com seus colegas.",
                                                                                         "No momento você só tem essa mensagem do Vitor, abra e veja o que ele quer com você."};
-    public static readonly string[] messageTutorialChatInstructions = new string[] { "Aqui você pode ver as mensagens trocadas com o pessoa selecionada e enviar novas mensagens para ela." };
-    public static readonly string[] messageTutorialEndInstructions = new string[] { "Experimente conversar com seu amigo.",
-                                                                                    "Então ele te pediu ajuda no trabalho de banco de dados. Posso te ajudar com isso sim.",
+    public static readonly string[] messageTutorialChatInstructions = new string[] { "Aqui você pode ver as mensagens trocadas com o pessoa selecionada e enviar novas mensagens para ela.",
+                                                                                     "Experimente conversar com seu amigo."};
+    public static readonly string[] messageTutorialEndInstructions = new string[] { "Então ele te pediu ajuda no trabalho de banco de dados. Posso te ajudar com isso sim.",
                                                                                     "Primeiro vá para a tela de pistas, continuaremos a partir de lá."};
 
     /* CLUE WINDOW */

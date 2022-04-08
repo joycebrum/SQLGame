@@ -532,25 +532,25 @@ MonoBehaviour:
   instructionText: {fileID: 2144328823}
   tutorialSteps:
   - gameObject: {fileID: 0}
-    instructionType: 1
-    instructions: []
-  - gameObject: {fileID: 858799123}
     instructionType: 2
     instructions: []
-  - gameObject: {fileID: 1827953877}
+  - gameObject: {fileID: 858799123}
     instructionType: 3
     instructions: []
-  - gameObject: {fileID: 1577868956}
+  - gameObject: {fileID: 1827953877}
     instructionType: 4
     instructions: []
-  - gameObject: {fileID: 1789714195}
+  - gameObject: {fileID: 1577868956}
     instructionType: 5
     instructions: []
-  - gameObject: {fileID: 252473289}
+  - gameObject: {fileID: 1789714195}
     instructionType: 6
     instructions: []
-  - gameObject: {fileID: 0}
+  - gameObject: {fileID: 252473289}
     instructionType: 7
+    instructions: []
+  - gameObject: {fileID: 0}
+    instructionType: 8
     instructions: []
   siblings:
   - {fileID: 1827953877}

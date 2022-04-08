@@ -52,6 +52,11 @@ public class ChatDialogController : MonoBehaviour
         ShowContacts();
     }
 
+    public void OnCloseButton()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     public void SetMessage(string message)
     {
         this.message = message.Replace("#{player}", PlayerPrefs.GetString("playerName"))
@@ -181,5 +186,18 @@ public class ChatDialogController : MonoBehaviour
     private void finishTutorial()
     {
         PlayerPrefs.SetInt("MessageTutorialComplete", 1);
+    }
+
+    private void finishTutorialAfterFirstChat()
+    {
+        PlayerPrefs.SetInt("MessageTutorialComplete2", 1);
+    }
+
+    public void ContinueChatTutorial()
+    {
+        if (tutorial.checkTutorial("MessageTutorialComplete2"))
+        {
+            tutorial.StartTutorial(finishTutorialAfterFirstChat);
+        }
     }
 }
