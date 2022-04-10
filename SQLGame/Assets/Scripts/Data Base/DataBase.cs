@@ -23,7 +23,7 @@ public class DataBase : MonoBehaviour
     public void Connect(string urlDataBase)
     {
         this.urlDataBase = urlDataBase;
-        print(this.urlDataBase);
+
         connection = new SqliteConnection(this.urlDataBase);
         connection.Open();
     }
