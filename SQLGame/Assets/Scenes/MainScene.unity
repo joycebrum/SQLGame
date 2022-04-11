@@ -4456,6 +4456,7 @@ MonoBehaviour:
   cluesWindow: {fileID: 498106181}
   tutorial: {fileID: 365225862}
   stageController: {fileID: 843035890}
+  IAButton: {fileID: 1827953877}
 --- !u!1 &2061649733
 GameObject:
   m_ObjectHideFlags: 0

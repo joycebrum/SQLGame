@@ -7,9 +7,9 @@ public class Stage1 : Stage
     {
         print("Initialize Stage One");
         this.stageIdentifier = "stage_one";
-        this.sqlCreatePath = "Assets/Resources/Stage 1/createDB.txt";
-        this.sqlPopulatePath = "Assets/Resources/Stage 1/populateDB.txt";
-        this.dbPath = "db/Stage1SQLite.db";
+        this.sqlCreatePath = "Stage 1/createDB";
+        this.sqlPopulatePath = "Stage 1/populateDB";
+        this.dbPath = "URI=file:" + Application.dataPath + "/Stage1SQLite.db";
 
         this.introName.text = "Fase 1 - O sumiço dos computadores";
         this.introPanel.gameObject.SetActive(true);
@@ -109,5 +109,9 @@ public class Stage1 : Stage
                 })
             )// 6
         };
+    }
+    public override bool shouShowIAChatButton()
+    {
+        return true;
     }
 }

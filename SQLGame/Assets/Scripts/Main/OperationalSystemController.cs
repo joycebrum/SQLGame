@@ -13,6 +13,8 @@ public class OperationalSystemController : MonoBehaviour
 
     [SerializeField] StageController stageController;
 
+    [SerializeField] GameObject IAButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,11 +101,20 @@ public class OperationalSystemController : MonoBehaviour
         if(tutorial.checkTutorial("firstStepTutorialComplete"))
         {
             tutorial.StartTutorial(finishTutorial);
+        } else
+        {
+            checkIconApperance();
         }
     }
 
     private void finishTutorial()
     {
         PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
+        checkIconApperance();
+    }
+
+    public void checkIconApperance()
+    {
+        IAButton.SetActive(stageController.shouldShowIAChatIcon());
     }
 }

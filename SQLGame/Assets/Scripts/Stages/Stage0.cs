@@ -52,4 +52,9 @@ public class Stage0 : Stage
             ),// 1
         };
     }
+
+    public override bool shouShowIAChatButton()
+    {
+        return false;
+    }
 }

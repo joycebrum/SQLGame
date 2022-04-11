@@ -41,11 +41,16 @@ public class StageController : MonoBehaviour
         currentStageIndex++;
         currentStage = stages[currentStageIndex];
         updateStageData();
-        print(currentStage);
+        main.checkIconApperance();
     }
 
     public void updateStageData()
     {
         currentStage.UpdateStageData();
+    }
+
+    public bool shouldShowIAChatIcon()
+    {
+        return stages[currentStageIndex].shouShowIAChatButton();
     }
 }
