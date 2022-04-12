@@ -28,7 +28,6 @@ public class Stage: MonoBehaviour
     public void OnStart()
     {
         UpdateStageData();
-        
     }
 
     public void UpdateStageData()

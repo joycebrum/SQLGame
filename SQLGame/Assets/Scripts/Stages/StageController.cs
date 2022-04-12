@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StagesType
+{
+    tutorial = 0,
+    stageOne = 1,
+    stageTwo = 2
+}
 public class StageController : MonoBehaviour
 {
     [SerializeField] private OperationalSystemController main;
@@ -19,6 +25,7 @@ public class StageController : MonoBehaviour
             currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");
         }
         currentStage = stages[currentStageIndex];
+        main.checkStageConfigs((StagesType)currentStageIndex);
 
         this.currentStage.OnStart();
     }
@@ -41,7 +48,7 @@ public class StageController : MonoBehaviour
         currentStageIndex++;
         currentStage = stages[currentStageIndex];
         updateStageData();
-        main.checkIconApperance();
+        main.checkStageConfigs((StagesType)currentStageIndex);
     }
 
     public void updateStageData()

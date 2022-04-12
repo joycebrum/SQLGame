@@ -100,21 +100,36 @@ public class OperationalSystemController : MonoBehaviour
     {
         if(tutorial.checkTutorial("firstStepTutorialComplete"))
         {
+            changeIAhatApperancce(true);
             tutorial.StartTutorial(finishTutorial);
-        } else
-        {
-            checkIconApperance();
         }
     }
 
     private void finishTutorial()
     {
         PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
-        checkIconApperance();
+        changeIAhatApperancce(false);
     }
 
-    public void checkIconApperance()
+    public void checkStageConfigs(StagesType stageType)
     {
-        IAButton.SetActive(stageController.shouldShowIAChatIcon());
+        switch (stageType)
+        {
+            case StagesType.tutorial:
+                changeIAhatApperancce(false);
+                break;
+            case StagesType.stageOne:
+                changeIAhatApperancce(true);
+                ContinueAIChat();
+                break;
+            case StagesType.stageTwo:
+                changeIAhatApperancce(true);
+                break;
+        }
+    }
+
+    public void changeIAhatApperancce(bool shouldAppear)
+    {
+        IAButton.SetActive(shouldAppear);
     }
 }
