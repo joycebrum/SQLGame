@@ -10,7 +10,7 @@ public class ContactController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShowNotification();
+        UpdateNotification();
         if(PlayerPrefs.GetInt("ShouldShow" + GetDialogName()) == 1) {
             this.gameObject.SetActive(true);
         }
@@ -31,7 +31,7 @@ public class ContactController : MonoBehaviour
         return dialogStatus == 2 || dialogStatus == 0;
     }
 
-    public void ShowNotification()
+    public void UpdateNotification()
     {
         if(HasNotification())
         {
@@ -47,7 +47,7 @@ public class ContactController : MonoBehaviour
     {
         PlayerPrefs.SetInt("ShouldShow" + GetDialogName(), 1);
         this.gameObject.SetActive(true);
-        ShowNotification();
+        UpdateNotification();
     }
 
 }
