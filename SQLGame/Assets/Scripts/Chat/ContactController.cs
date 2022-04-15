@@ -20,6 +20,11 @@ public class ContactController : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        UpdateNotification();
+    }
+
     public string GetDialogName()
     {
         return ChatDialogController.GetDialogueName(type);

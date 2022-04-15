@@ -48,7 +48,7 @@ public class StageController : MonoBehaviour
         currentStageIndex++;
         currentStage = stages[currentStageIndex];
         updateStageData();
-        main.checkStageConfigs((StagesType)currentStageIndex);
+        main.SetupStage(currentStageIndex: currentStageIndex);
     }
 
     public void updateStageData()

@@ -118,7 +118,6 @@ public class VIDEUIManager : MonoBehaviour
 
     void ActionNodeHandler(int actionNodeID)
     {
-        print("Action Node Handler");
         OverrideStartNode(actionNodeID);
         if(PlayerPrefs.GetInt(dialogueNameToLoad) == 0) PlayerPrefs.SetInt(dialogueNameToLoad, 1);
         WipePlayerChoices();

@@ -14,6 +14,7 @@ public class OperationalSystemController : MonoBehaviour
     [SerializeField] StageController stageController;
 
     [SerializeField] GameObject IAButton;
+    [SerializeField] GameObject messageButtonNotification;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +26,12 @@ public class OperationalSystemController : MonoBehaviour
         {
             ContinueFriendChat();
         }
-
         checkTutorial();
+    }
+
+    void Update()
+    {
+        phoneObject.GetComponent<ChatDialogController>().HasNewChats();
     }
 
     public void OnMenuClick()
@@ -131,5 +136,22 @@ public class OperationalSystemController : MonoBehaviour
     public void changeIAhatApperancce(bool shouldAppear)
     {
         IAButton.SetActive(shouldAppear);
+    }
+
+    public void setMessageNotificationVisibility(bool isVisible)
+    {
+        messageButtonNotification.SetActive(isVisible);
+    }
+
+    public void cheatButton()
+    {
+        cluesWindow.GetComponent<CluesWindowController>().ResetClues();
+        stageController.NextStage();
+    }
+
+    public void SetupStage(int currentStageIndex)
+    {
+        tableObject.GetComponent<DataBaseWindowController>().InitializeTableData();
+        checkStageConfigs((StagesType)currentStageIndex);
     }
 }

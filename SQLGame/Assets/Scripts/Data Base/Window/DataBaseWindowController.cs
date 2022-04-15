@@ -34,20 +34,20 @@ public class DataBaseWindowController: MonoBehaviour
         {
             tutorial.StartTutorial(finishTutorial);
         }
-        this.scrollView.SetActive(false);
         InitializeTableData();
     }
 
-    void InitializeTableData()
+    public void InitializeTableData()
     {
+        this.scrollView.SetActive(false);
         IDataReader reader = database.QueryCommand("SELECT name FROM sqlite_master WHERE type='table';");
-
+        sideBar.DetachChildren();
         while (reader.Read())
         {
             string tableName = (string)reader["name"];
 
             if (tableName == "sqlite_sequence") continue;
-            
+
             GameObject clone = Instantiate(tableDataPrefable);
             clone.transform.SetParent(sideBar);
 
