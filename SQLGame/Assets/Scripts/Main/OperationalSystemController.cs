@@ -105,7 +105,7 @@ public class OperationalSystemController : MonoBehaviour
     {
         if(tutorial.checkTutorial("firstStepTutorialComplete"))
         {
-            changeIAhatApperancce(true);
+            changeIAChatApperance(true);
             tutorial.StartTutorial(finishTutorial);
         }
     }
@@ -113,7 +113,7 @@ public class OperationalSystemController : MonoBehaviour
     private void finishTutorial()
     {
         PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
-        changeIAhatApperancce(false);
+        changeIAChatApperance(false);
     }
 
     public void checkStageConfigs(StagesType stageType)
@@ -121,19 +121,19 @@ public class OperationalSystemController : MonoBehaviour
         switch (stageType)
         {
             case StagesType.tutorial:
-                changeIAhatApperancce(false);
+                changeIAChatApperance(false);
                 break;
             case StagesType.stageOne:
-                changeIAhatApperancce(true);
+                changeIAChatApperance(true);
                 ContinueAIChat();
                 break;
             case StagesType.stageTwo:
-                changeIAhatApperancce(true);
+                changeIAChatApperance(true);
                 break;
         }
     }
 
-    public void changeIAhatApperancce(bool shouldAppear)
+    public void changeIAChatApperance(bool shouldAppear)
     {
         IAButton.SetActive(shouldAppear);
     }
