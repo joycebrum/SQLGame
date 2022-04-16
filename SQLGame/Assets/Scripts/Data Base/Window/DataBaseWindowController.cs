@@ -154,7 +154,7 @@ public class DataBaseWindowController: MonoBehaviour
 
     public void Search()
     {
-        string sqlQuery = queryInput.text;
+        string sqlQuery = queryInput.text.Trim();
 
         if(!String.IsNullOrEmpty(sqlQuery) && this.IsSqlValid(sqlQuery))
         {

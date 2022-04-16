@@ -83,8 +83,8 @@ public class Stage1 : Stage
             new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório com pouco tempo logado no dia do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
-                    new ClueIdentifier("nome", "Caio"),
-                    new ClueIdentifier("sobrenome", "Bezerra"),
+                    new ClueIdentifier("nomeAluno", "Caio"),
+                    new ClueIdentifier("sobrenomeAluno", "Bezerra"),
                     new ClueIdentifier("entrada", @"23/04/2022"),
                     new ClueIdentifier("login", @"23/04/2022"),
                 })
@@ -93,8 +93,8 @@ public class Stage1 : Stage
             new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório com pouco tempo logado no dia anterior ao roubo",
                 new Clue(new List<ClueIdentifier>
                 {
-                    new ClueIdentifier("nome", "Caio"),
-                    new ClueIdentifier("sobrenome", "Bezerra"),
+                    new ClueIdentifier("nomeAluno", "Caio"),
+                    new ClueIdentifier("sobrenomeAluno", "Bezerra"),
                     new ClueIdentifier("entrada", @"22/04/2022"),
                     new ClueIdentifier("login", @"22/04/2022"),
                 })
@@ -102,8 +102,8 @@ public class Stage1 : Stage
             new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório com pouco tempo logado dois dias antes do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
-                    new ClueIdentifier("nome", "Caio"),
-                    new ClueIdentifier("sobrenome", "Bezerra"),
+                    new ClueIdentifier("nomeAluno", "Caio"),
+                    new ClueIdentifier("sobrenomeAluno", "Bezerra"),
                     new ClueIdentifier("entrada", @"21/04/2022"),
                     new ClueIdentifier("login", @"21/04/2022"),
                 })
