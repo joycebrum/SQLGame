@@ -13,6 +13,9 @@ public class OperationalSystemController : MonoBehaviour
 
     [SerializeField] StageController stageController;
 
+    [SerializeField] GameObject IAButton;
+    [SerializeField] GameObject messageButtonNotification;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +26,12 @@ public class OperationalSystemController : MonoBehaviour
         {
             ContinueFriendChat();
         }
-
         checkTutorial();
+    }
+
+    void Update()
+    {
+        phoneObject.GetComponent<ChatDialogController>().HasNewChats();
     }
 
     public void OnMenuClick()
@@ -69,6 +76,18 @@ public class OperationalSystemController : MonoBehaviour
 
     /* Trigger Chats */
 
+    public void ReleaseChat(ChatEnum chatToBeReleased)
+    {
+        switch (chatToBeReleased)
+        {
+            case ChatEnum.ia: ContinueAIChat(); break;
+            case ChatEnum.patrocinio: ContinueBossChat(); break;
+            case ChatEnum.reporter: ContinueReporterChat(); break;
+            case ChatEnum.amigo: ContinueFriendChat(); break;
+            default: break;
+        }
+    }
+
     public void ContinueAIChat()
     {
         phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.ia);
@@ -98,6 +117,7 @@ public class OperationalSystemController : MonoBehaviour
     {
         if(tutorial.checkTutorial("firstStepTutorialComplete"))
         {
+            changeIAChatApperance(true);
             tutorial.StartTutorial(finishTutorial);
         }
     }
@@ -105,5 +125,44 @@ public class OperationalSystemController : MonoBehaviour
     private void finishTutorial()
     {
         PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
+        changeIAChatApperance(false);
+    }
+
+    public void checkStageConfigs(StagesType stageType)
+    {
+        switch (stageType)
+        {
+            case StagesType.tutorial:
+                changeIAChatApperance(false);
+                break;
+            case StagesType.stageOne:
+                changeIAChatApperance(true);
+                break;
+            case StagesType.stageTwo:
+                changeIAChatApperance(true);
+                break;
+        }
+    }
+
+    public void changeIAChatApperance(bool shouldAppear)
+    {
+        IAButton.SetActive(shouldAppear);
+    }
+
+    public void setMessageNotificationVisibility(bool isVisible)
+    {
+        messageButtonNotification.SetActive(isVisible);
+    }
+
+    public void cheatButton()
+    {
+        cluesWindow.GetComponent<CluesWindowController>().ResetClues();
+        stageController.NextStage();
+    }
+
+    public void SetupStage(int currentStageIndex)
+    {
+        tableObject.GetComponent<DataBaseWindowController>().InitializeTableData();
+        checkStageConfigs((StagesType)currentStageIndex);
     }
 }

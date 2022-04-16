@@ -34,20 +34,40 @@ public class DataBaseWindowController: MonoBehaviour
         {
             tutorial.StartTutorial(finishTutorial);
         }
-        this.scrollView.SetActive(false);
         InitializeTableData();
     }
-
-    void InitializeTableData()
+    public void DropdownValueChanged(Dropdown change)
     {
-        IDataReader reader = database.QueryCommand("SELECT name FROM sqlite_master WHERE type='table';");
+        switch(change.value)
+        {
+            case 0: break;
+            case 1:
+                queryInput.text = "SELECT * FROM NomeDaTabela;";
+                break;
+            case 2:
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor;";
+                break;
+            case 3:
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE colunaData > 'AAAA-MM-DD' and colunaData < 'AAAA-MM-DD';";
+                break;
+            default:
+                break;
+        }
 
+        change.value = 0;
+    }
+
+    public void InitializeTableData()
+    {
+        this.scrollView.SetActive(false);
+        IDataReader reader = database.QueryCommand("SELECT name FROM sqlite_master WHERE type='table';");
+        sideBar.DetachChildren();
         while (reader.Read())
         {
             string tableName = (string)reader["name"];
 
             if (tableName == "sqlite_sequence") continue;
-            
+
             GameObject clone = Instantiate(tableDataPrefable);
             clone.transform.SetParent(sideBar);
 
@@ -154,7 +174,7 @@ public class DataBaseWindowController: MonoBehaviour
 
     public void Search()
     {
-        string sqlQuery = queryInput.text;
+        string sqlQuery = queryInput.text.Trim();
 
         if(!String.IsNullOrEmpty(sqlQuery) && this.IsSqlValid(sqlQuery))
         {

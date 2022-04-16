@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StagesType
+{
+    tutorial = 0,
+    stageOne = 1,
+    stageTwo = 2
+}
 public class StageController : MonoBehaviour
 {
     [SerializeField] private OperationalSystemController main;
@@ -19,6 +25,7 @@ public class StageController : MonoBehaviour
             currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");
         }
         currentStage = stages[currentStageIndex];
+        main.checkStageConfigs((StagesType)currentStageIndex);
 
         this.currentStage.OnStart();
     }
@@ -38,14 +45,25 @@ public class StageController : MonoBehaviour
 
     public void NextStage()
     {
+        ChatEnum[] chatsToBeReleased = currentStage.ChatToBeReleasedOnEnd();
+        foreach(ChatEnum chatTobeRelesead in chatsToBeReleased)
+        {
+            main.ReleaseChat(chatTobeRelesead);
+        }
+
         currentStageIndex++;
         currentStage = stages[currentStageIndex];
         updateStageData();
-        print(currentStage);
+        main.SetupStage(currentStageIndex: currentStageIndex);
     }
 
     public void updateStageData()
     {
         currentStage.UpdateStageData();
+    }
+
+    public bool shouldShowIAChatIcon()
+    {
+        return stages[currentStageIndex].shouShowIAChatButton();
     }
 }

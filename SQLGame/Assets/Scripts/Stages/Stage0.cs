@@ -8,9 +8,9 @@ public class Stage0 : Stage
     {
         print("Initialize Stage Zero");
         this.stageIdentifier = "stage_zero";
-        this.sqlCreatePath = "Assets/Resources/Stage 0/createDB.txt";
-        this.sqlPopulatePath = "Assets/Resources/Stage 0/populateDB.txt";
-        this.dbPath = "db/Stage0SQLite.db";
+        this.sqlCreatePath = "Stage 0/createDB";
+        this.sqlPopulatePath = "Stage 0/populateDB";
+        this.dbPath = "URI=file:" + Application.dataPath + "/Stage0SQLite.db";
 
         this.introName.text = "Tutorial";
         this.introPanel.gameObject.SetActive(true);
@@ -51,5 +51,14 @@ public class Stage0 : Stage
                 )
             ),// 1
         };
+    }
+
+    public override bool shouShowIAChatButton()
+    {
+        return false;
+    }
+
+    public override ChatEnum[] ChatToBeReleasedOnEnd() { 
+        return new ChatEnum[1] { ChatEnum.ia }; 
     }
 }

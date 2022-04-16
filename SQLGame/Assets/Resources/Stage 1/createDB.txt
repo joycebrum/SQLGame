@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS Alunos(
 	tipo VARCHAR(20),
     	PRIMARY KEY(matricula)
 );
+DELETE FROM Alunos;
+
 CREATE TABLE IF NOT EXISTS AcessoLaboratorios(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	matriculaAluno VARCHAR(10) NOT NULL, 
@@ -18,6 +20,8 @@ CREATE TABLE IF NOT EXISTS AcessoLaboratorios(
 	saida DATETIME,
 	FOREIGN KEY(matriculaAluno) REFERENCES Alunos(matricula)
 );
+DELETE FROM AcessoLaboratorios;
+
 CREATE TABLE IF NOT EXISTS Segurancas(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	nome VARCHAR(20) NOT NULL, 
@@ -25,6 +29,8 @@ CREATE TABLE IF NOT EXISTS Segurancas(
     sobrenome VARCHAR(20), 
     dataDeNascimento DATE
 );
+DELETE FROM Segurancas;
+
 CREATE TABLE IF NOT EXISTS ControleSegurancas(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	idSeguranca INTEGER NOT NULL,
@@ -33,10 +39,14 @@ CREATE TABLE IF NOT EXISTS ControleSegurancas(
 	relatorio VARCHAR(200),
 	FOREIGN KEY(idSeguranca) REFERENCES Segurancas(id)
 );
+DELETE FROM ControleSegurancas;
+
 CREATE TABLE IF NOT EXISTS Materias(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	titulo VARCHAR(30) NOT NULL
 );
+DELETE FROM Materias;
+
 CREATE TABLE IF NOT EXISTS MateriasPorAluno(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	idMateria INTEGER NOT NULL,
@@ -46,3 +56,4 @@ CREATE TABLE IF NOT EXISTS MateriasPorAluno(
 	FOREIGN KEY(matriculaAluno) REFERENCES Alunos(matricula)
 	FOREIGN KEY(idMateria) REFERENCES Materias(id)
 );
+DELETE FROM MateriasPorAluno;

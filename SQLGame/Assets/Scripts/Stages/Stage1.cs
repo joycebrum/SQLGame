@@ -7,11 +7,11 @@ public class Stage1 : Stage
     {
         print("Initialize Stage One");
         this.stageIdentifier = "stage_one";
-        this.sqlCreatePath = "Assets/Resources/Stage 1/createDB.txt";
-        this.sqlPopulatePath = "Assets/Resources/Stage 1/populateDB.txt";
-        this.dbPath = "db/Stage1SQLite.db";
+        this.sqlCreatePath = "Stage 1/createDB";
+        this.sqlPopulatePath = "Stage 1/populateDB";
+        this.dbPath = "URI=file:" + Application.dataPath + "/Stage1SQLite.db";
 
-        this.introName.text = "Fase 1 - Um nome legal";
+        this.introName.text = "Fase 1 - O desaparecimento dos computadores";
         this.introPanel.gameObject.SetActive(true);
         StartCoroutine(base.DidShowIntro());
 
@@ -61,7 +61,7 @@ public class Stage1 : Stage
             new ClueNote("Talvez os seguranças tenham visto algo interessante sobre ele", "Houve um relato de jovem chegando muito machucado a faculdade, que diz ter sido agredido por agiotas",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier("relatorio", "Um jovem que tem vindo quase todos os dias estava todo ferido sentado perto das máquinas."),
+                        new ClueIdentifier("relatorio", "Um jovem estava todo ferido sentado perto das máquinas."),
                     }
                 )
             ),// 1
@@ -83,8 +83,8 @@ public class Stage1 : Stage
             new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório com pouco tempo logado no dia do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
-                    new ClueIdentifier("nome", "Caio"),
-                    new ClueIdentifier("sobrenome", "Bezerra"),
+                    new ClueIdentifier("nomeAluno", "Caio"),
+                    new ClueIdentifier("sobrenomeAluno", "Bezerra"),
                     new ClueIdentifier("entrada", @"23/04/2022"),
                     new ClueIdentifier("login", @"23/04/2022"),
                 })
@@ -93,8 +93,8 @@ public class Stage1 : Stage
             new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório com pouco tempo logado no dia anterior ao roubo",
                 new Clue(new List<ClueIdentifier>
                 {
-                    new ClueIdentifier("nome", "Caio"),
-                    new ClueIdentifier("sobrenome", "Bezerra"),
+                    new ClueIdentifier("nomeAluno", "Caio"),
+                    new ClueIdentifier("sobrenomeAluno", "Bezerra"),
                     new ClueIdentifier("entrada", @"22/04/2022"),
                     new ClueIdentifier("login", @"22/04/2022"),
                 })
@@ -102,12 +102,20 @@ public class Stage1 : Stage
             new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório com pouco tempo logado dois dias antes do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
-                    new ClueIdentifier("nome", "Caio"),
-                    new ClueIdentifier("sobrenome", "Bezerra"),
+                    new ClueIdentifier("nomeAluno", "Caio"),
+                    new ClueIdentifier("sobrenomeAluno", "Bezerra"),
                     new ClueIdentifier("entrada", @"21/04/2022"),
                     new ClueIdentifier("login", @"21/04/2022"),
                 })
             )// 6
         };
+    }
+    public override bool shouShowIAChatButton()
+    {
+        return true;
+    }
+    public override ChatEnum[] ChatToBeReleasedOnEnd()
+    {
+        return new ChatEnum[1] { ChatEnum.ia };
     }
 }

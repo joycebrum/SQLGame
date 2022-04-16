@@ -21,6 +21,10 @@ public class ChatDialogController : MonoBehaviour
     [SerializeField] private GameObject contactScreen = null;
     [SerializeField] TutorialController tutorial;
 
+    [SerializeField] OperationalSystemController main = null;
+
+    [SerializeField] List<ContactController> contacts = null;
+
     string message = "";
 
     void Start()
@@ -165,7 +169,7 @@ public class ChatDialogController : MonoBehaviour
         if (dialogName != null)
         {
             PlayerPrefs.SetInt(GetDialogueName(type), 2); // 0 or null - not blocked; 1 - blocked; 2 - released
-            foreach(ContactController contactController in this.contactScreen.GetComponentsInChildren<ContactController>())
+            foreach(ContactController contactController in contacts)
             {
                 if(contactController.GetDialogName() == dialogName)
                 {
@@ -173,7 +177,7 @@ public class ChatDialogController : MonoBehaviour
                     break;
                 }
             }
-            // TODO: Add visual notification of new message
+            main.setMessageNotificationVisibility(isVisible: true);
         }
     }
 
@@ -199,5 +203,22 @@ public class ChatDialogController : MonoBehaviour
         {
             tutorial.StartTutorial(finishTutorialAfterFirstChat);
         }
+    }
+
+    public void HasNewChats()
+    {
+        main.setMessageNotificationVisibility(isVisible: ContactsHasNewMessages());
+    } 
+
+    private bool ContactsHasNewMessages()
+    {
+        foreach (ContactController contactController in this.contactScreen.GetComponentsInChildren<ContactController>())
+        {
+            if (contactController.HasNotification())
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

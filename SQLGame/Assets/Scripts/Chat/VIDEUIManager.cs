@@ -118,7 +118,6 @@ public class VIDEUIManager : MonoBehaviour
 
     void ActionNodeHandler(int actionNodeID)
     {
-        print("Action Node Handler");
         OverrideStartNode(actionNodeID);
         if(PlayerPrefs.GetInt(dialogueNameToLoad) == 0) PlayerPrefs.SetInt(dialogueNameToLoad, 1);
         WipePlayerChoices();
@@ -150,7 +149,8 @@ public class VIDEUIManager : MonoBehaviour
 
     IEnumerator ShowNPCText()
     {
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.1f);
         string msg = VD.nodeData.comments[VD.nodeData.commentIndex];
         VA.messageHistory.Add(new Dictionary<string, string>() { { "type", NPC_MSG }, { "msg", msg } });
         CreateNewNPCMessage(msg);

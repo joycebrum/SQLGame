@@ -28,7 +28,6 @@ public class Stage: MonoBehaviour
     public void OnStart()
     {
         UpdateStageData();
-        
     }
 
     public void UpdateStageData()
@@ -55,10 +54,14 @@ public class Stage: MonoBehaviour
         return anyFound;
     }
 
+    public virtual bool shouShowIAChatButton() { return true; }
+
     protected virtual List<ClueNote> InitializeClueNotes() { return null; }
     protected virtual List<ClueSolution> InitializeClueSolutions() { return new List<ClueSolution>(); }
 
     protected virtual ClueSolution InitializeFinalSolution() { return null; }
+
+    public virtual ChatEnum[] ChatToBeReleasedOnEnd() { return new ChatEnum[0]; }
 
     protected virtual void InitializeStage() {
         this.clueNotes = InitializeClueNotes();

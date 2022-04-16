@@ -21,10 +21,14 @@ public class InitialScreen : MonoBehaviour
     private void DeleteMessages()
     {
         string path = Application.dataPath + "/VIDE/saves/VA";
-        var files = Directory.GetFiles(path);
+        if (Directory.Exists(path)){
+            var files = Directory.GetFiles(path);
 
-        foreach(var file in files){
-            File.Delete(file);
+            foreach (var file in files)
+            {
+                File.Delete(file);
+            }
         }
+        
     }
 }
