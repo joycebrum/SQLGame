@@ -36,6 +36,26 @@ public class DataBaseWindowController: MonoBehaviour
         }
         InitializeTableData();
     }
+    public void DropdownValueChanged(Dropdown change)
+    {
+        switch(change.value)
+        {
+            case 0: break;
+            case 1:
+                queryInput.text = "SELECT * FROM NomeDaTabela;";
+                break;
+            case 2:
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor;";
+                break;
+            case 3:
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE colunaData > 'AAAA-MM-DD' and colunaData < 'AAAA-MM-DD';";
+                break;
+            default:
+                break;
+        }
+
+        change.value = 0;
+    }
 
     public void InitializeTableData()
     {
