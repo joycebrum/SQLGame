@@ -149,7 +149,7 @@ public class VIDEUIManager : MonoBehaviour
 
     IEnumerator ShowNPCText()
     {
-        //yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3f);
         yield return new WaitForSeconds(0.1f);
         string msg = VD.nodeData.comments[VD.nodeData.commentIndex];
         VA.messageHistory.Add(new Dictionary<string, string>() { { "type", NPC_MSG }, { "msg", msg } });
