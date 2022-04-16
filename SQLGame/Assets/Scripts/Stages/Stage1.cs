@@ -61,7 +61,7 @@ public class Stage1 : Stage
             new ClueNote("Talvez os seguranças tenham visto algo interessante sobre ele", "Houve um relato de jovem chegando muito machucado a faculdade, que diz ter sido agredido por agiotas",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier("relatorio", "Um jovem que tem vindo quase todos os dias estava todo ferido sentado perto das máquinas."),
+                        new ClueIdentifier("relatorio", "Um jovem estava todo ferido sentado perto das máquinas."),
                     }
                 )
             ),// 1
