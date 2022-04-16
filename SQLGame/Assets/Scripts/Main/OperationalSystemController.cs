@@ -76,6 +76,18 @@ public class OperationalSystemController : MonoBehaviour
 
     /* Trigger Chats */
 
+    public void ReleaseChat(ChatEnum chatToBeReleased)
+    {
+        switch (chatToBeReleased)
+        {
+            case ChatEnum.ia: ContinueAIChat(); break;
+            case ChatEnum.patrocinio: ContinueBossChat(); break;
+            case ChatEnum.reporter: ContinueReporterChat(); break;
+            case ChatEnum.amigo: ContinueFriendChat(); break;
+            default: break;
+        }
+    }
+
     public void ContinueAIChat()
     {
         phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.ia);
@@ -125,7 +137,6 @@ public class OperationalSystemController : MonoBehaviour
                 break;
             case StagesType.stageOne:
                 changeIAChatApperance(true);
-                ContinueAIChat();
                 break;
             case StagesType.stageTwo:
                 changeIAChatApperance(true);

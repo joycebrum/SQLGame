@@ -61,6 +61,8 @@ public class Stage: MonoBehaviour
 
     protected virtual ClueSolution InitializeFinalSolution() { return null; }
 
+    public virtual ChatEnum[] ChatToBeReleasedOnEnd() { return new ChatEnum[0]; }
+
     protected virtual void InitializeStage() {
         this.clueNotes = InitializeClueNotes();
 
