@@ -2866,14 +2866,20 @@ MonoBehaviour:
   instructionPanel: {fileID: 5344012058376366948}
   instructionText: {fileID: 3545843563486179432}
   tutorialSteps:
-  - gameObject: {fileID: 5143682389970969412}
+  - gameObject: {fileID: 0}
     instructionType: 17
     instructions: []
-  - gameObject: {fileID: 3126873447770390734}
+  - gameObject: {fileID: 5143682389970969412}
     instructionType: 18
     instructions: []
-  - gameObject: {fileID: 8321757643808962726}
+  - gameObject: {fileID: 3126873447770390734}
     instructionType: 19
+    instructions: []
+  - gameObject: {fileID: 8321757643808962726}
+    instructionType: 20
+    instructions: []
+  - gameObject: {fileID: 0}
+    instructionType: 21
     instructions: []
   siblings:
   - {fileID: 7123656038217038394}
@@ -5385,7 +5391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 478.01544, y: -0.000091552734}
+  m_AnchoredPosition: {x: 554.3905, y: -0.000091552734}
   m_SizeDelta: {x: 544, y: 250.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8784764962389589907
@@ -6452,7 +6458,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8784764963645478286}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.9911091
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

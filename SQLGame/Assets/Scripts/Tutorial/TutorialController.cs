@@ -29,6 +29,7 @@ public class TutorialController : MonoBehaviour
         tableWindowStart,
         tableWindowSideBar,
         tableWindowQueryBox,
+        tableWindowButton,
         tableWindowEnding
     }
 
@@ -96,6 +97,8 @@ public class TutorialController : MonoBehaviour
                 return Constants.tableWindowTutorialSideBarInstructions;
             case TutorialInstructions.tableWindowQueryBox:
                 return Constants.tableWindowTutorialQueryBoxInstructions;
+            case TutorialInstructions.tableWindowButton:
+                return Constants.tableWindowTutorialButtonInstructions;
             case TutorialInstructions.tableWindowEnding:
                 return Constants.tableWindowTutorialEndingInstructions;
             default:
