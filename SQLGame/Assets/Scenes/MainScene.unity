@@ -4677,7 +4677,11 @@ MonoBehaviour:
   cluesWindow: {fileID: 498106181}
   tutorial: {fileID: 365225862}
   stageController: {fileID: 843035890}
-  IAButton: {fileID: 1827953877}
+  IAButton: {fileID: 1827953879}
+  menuButton: {fileID: 858799125}
+  chatButton: {fileID: 252473291}
+  bdButton: {fileID: 1577868958}
+  cluesButton: {fileID: 1789714197}
   messageButtonNotification: {fileID: 2061649733}
 --- !u!1 &2061649733
 GameObject:
