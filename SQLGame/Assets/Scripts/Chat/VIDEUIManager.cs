@@ -21,6 +21,7 @@ public class VIDEUIManager : MonoBehaviour
 
     private const string PLAYER_MSG = "player";
     private const string NPC_MSG = "npc";
+    private bool isFirstMessage = true;
 
 
     void Start()
@@ -48,6 +49,7 @@ public class VIDEUIManager : MonoBehaviour
     //Called by UI button
     public void Begin()
     {
+        isFirstMessage = true;
         if (!VD.isActive)
         {
             VD.OnNodeChange += NodeChangeAction; //Required events
@@ -112,7 +114,7 @@ public class VIDEUIManager : MonoBehaviour
         else
         {
             WipePlayerChoices();
-            StartCoroutine(ShowNPCText());
+            StartCoroutine(WaitBeforeNPCText());
         }
     }
 
@@ -147,9 +149,21 @@ public class VIDEUIManager : MonoBehaviour
         }
     }
 
-    IEnumerator ShowNPCText()
+    IEnumerator WaitBeforeNPCText()
     {
-        yield return new WaitForSeconds(3f);
+        if (isFirstMessage)
+        {
+            yield return new WaitForSeconds(0f);
+        } else
+        {
+            yield return new WaitForSeconds(3f);
+        }
+        ShowNPCText();
+    }
+
+    private void ShowNPCText()
+    {
+        isFirstMessage = false;
         string msg = VD.nodeData.comments[VD.nodeData.commentIndex];
         VA.messageHistory.Add(new Dictionary<string, string>() { { "type", NPC_MSG }, { "msg", msg } });
         CreateNewNPCMessage(msg);
