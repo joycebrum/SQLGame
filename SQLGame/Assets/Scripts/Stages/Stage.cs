@@ -16,6 +16,7 @@ public class Stage: MonoBehaviour
     [SerializeReference] protected StageDBController dbController;
     [SerializeReference] protected TextMeshProUGUI introName;
     [SerializeField] protected GameObject introPanel;
+    [SerializeField] protected GameObject introSubtitle;
 
     protected string sqlCreatePath = "";
     protected string sqlPopulatePath = "";
@@ -133,5 +134,12 @@ public class Stage: MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         this.introPanel.gameObject.SetActive(false);
+    }
+
+    public void FinishGame()
+    {
+        this.introPanel.gameObject.SetActive(true);
+        this.introName.text = "Por enquanto é só";
+        this.introSubtitle.SetActive(true);
     }
 }

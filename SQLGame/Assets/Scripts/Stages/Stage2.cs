@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageTwo: Stage
+public class Stage2 : Stage
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void InitializeStage()
     {
+
+        base.FinishGame();
     }
 }
