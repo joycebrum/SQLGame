@@ -41,7 +41,7 @@ public class Stage0 : Stage
                 )
             ), // 0
 
-            new ClueNote("Qaunto dinheiro o suspeito gastou em Março?", "Pedro gastou 37210",
+            new ClueNote("Quanto dinheiro o suspeito gastou em Março?", "Pedro gastou 37210",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Pedro"),
