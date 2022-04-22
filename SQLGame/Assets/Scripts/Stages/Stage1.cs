@@ -79,7 +79,7 @@ public class Stage1 : Stage
                 })
             ), // 3
 
-            new ClueNote("Alguem fez algo suspeito no dia do roubo (23 de Abril)", "Caio ficou um longo período no laboratório com pouco tempo logado no dia do roubo",
+            new ClueNote("Alguem fez algo suspeito no dia do roubo (23 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado no dia do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
@@ -89,7 +89,7 @@ public class Stage1 : Stage
                 })
             ),// 4
 
-            new ClueNote("Alguem fez algo suspeito no dia anterior ao roubo (22 de Abril)", "Caio ficou um longo período no laboratório com pouco tempo logado no dia anterior ao roubo",
+            new ClueNote("Alguem fez algo suspeito no dia anterior ao roubo (22 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado no dia anterior ao roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
@@ -98,8 +98,7 @@ public class Stage1 : Stage
                     new ClueIdentifier("login", @"22/04/2022"),
                 })
             ),// 5
-            new ClueNote("Alguem fez algo suspeito dois dias antes do roubo (21" +
-            " de Abril)", "Caio ficou um longo período no laboratório com pouco tempo logado dois dias antes do roubo",
+            new ClueNote("Alguem fez algo suspeito dois dias antes do roubo (21 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado dois dias antes do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
