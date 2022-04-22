@@ -42,7 +42,7 @@
     public static readonly string[] clueWindowClueInstructions = new string[] { "Esta é uma pista ainda não descoberta",
                                                                                 "ela tem uma dica de como encontrar a pista real."};
     public static readonly string[] clueWindowFinalSolutionInstructions = new string[] { "Está é nossa solução final, ainda não sabemos nada sobre ela",
-                                                                                         "Quando conseguirmos informações suficientes, a solução será mostrada e você deverá clickar nela para submeter seu resultado."};
+                                                                                         "Quando conseguirmos informações suficientes, a solução será mostrada e você deverá clicar nela para submeter seu resultado."};
     public static readonly string[] clueWindowTutorialEndingInstructions = new string[] { "Vamos ver essas dicas: 'Qual o salário do suspeito?' e 'Quanto o suspeito recebeu em março?'",
                                                                                           "Bom, vamos ver o banco pra tentar descobrir essas informações"};
 
