@@ -28,6 +28,10 @@ public class DataBaseWindowController: MonoBehaviour
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();
 
+    private List<string> sqlHistory = new List<string>();
+    private int historyPosition = -1;
+
+
     private void Start()
     {
         if (tutorial.checkTutorial("DBTutorialComplete"))
@@ -193,6 +197,9 @@ public class DataBaseWindowController: MonoBehaviour
 
                 errorText.gameObject.SetActive(false);
                 this.scrollView.SetActive(true);
+
+                this.sqlHistory.Add(sqlQuery);
+                this.historyPosition = -1;
             }
             catch (SqliteSyntaxException e)
             {
@@ -251,6 +258,41 @@ public class DataBaseWindowController: MonoBehaviour
     public static string FirstItemsConverter(Tuple<string,string> tuple)
     {
         return tuple.Item1;
+    }
+
+    public void PreviousQuery()
+    {
+        if (this.sqlHistory.Count() == 0) return;
+        this.historyPosition = GetPosition(-1);
+        print(this.historyPosition);
+        this.queryInput.text = this.sqlHistory[this.historyPosition];
+    }
+
+    public void NextQuery()
+    {
+        if (this.sqlHistory.Count() == 0) return;
+        this.historyPosition = GetPosition(1);
+        print(this.historyPosition);
+        this.queryInput.text = this.sqlHistory[this.historyPosition];
+    }
+
+    private int GetPosition(int direction) 
+    {
+        if(direction == 0)  return this.historyPosition;
+
+        if(this.historyPosition == -1)
+        {
+            if (this.queryInput.text == this.sqlHistory[this.sqlHistory.Count() - 1]) return this.sqlHistory.Count() - 2;
+            return this.sqlHistory.Count() - 1;
+        }
+
+        direction = direction / Mathf.Abs(direction); //should receive 1 or -1
+        int position = this.historyPosition + direction;
+
+        if (position < 0) return 0;
+        if (position >= this.sqlHistory.Count()) return this.sqlHistory.Count() - 1;
+
+        return position;
     }
 
     private void finishTutorial()
