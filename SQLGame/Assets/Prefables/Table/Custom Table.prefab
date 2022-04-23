@@ -2415,9 +2415,13 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Todos os dados
       m_Image: {fileID: 0}
+    - m_Text: Algumas Colunas
+      m_Image: {fileID: 0}
     - m_Text: Busca por coluna
       m_Image: {fileID: 0}
     - m_Text: Busca entre datas
+      m_Image: {fileID: 0}
+    - m_Text: Mais de uma tabela
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5391,7 +5395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 554.3905, y: -0.000091552734}
+  m_AnchoredPosition: {x: 554.26544, y: -0.000091552734}
   m_SizeDelta: {x: 544, y: 250.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8784764962389589907
@@ -6457,7 +6461,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8784764963645478285}
   m_HandleRect: {fileID: 8784764963645478286}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

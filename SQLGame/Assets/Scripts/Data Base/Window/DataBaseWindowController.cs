@@ -45,10 +45,16 @@ public class DataBaseWindowController: MonoBehaviour
                 queryInput.text = "SELECT * FROM NomeDaTabela;";
                 break;
             case 2:
-                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor;";
+                queryInput.text = "SELECT coluna1, coluna2 FROM tabela;";
                 break;
             case 3:
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor;";
+                break;
+            case 4:
                 queryInput.text = "SELECT * FROM NomeDaTabela WHERE colunaData > 'AAAA-MM-DD' and colunaData < 'AAAA-MM-DD';";
+                break;
+            case 5:
+                queryInput.text = "SELECT * FROM PrimeiraTabela x JOIN SegundaTabela y ON x.coluna = y.coluna;";
                 break;
             default:
                 break;
