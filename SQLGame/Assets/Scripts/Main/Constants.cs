@@ -51,7 +51,11 @@
     public static readonly string[] tableWindowTutorialSideBarInstructions = new string[] { "Esta barra lateral mostra todas as tabelas que tem no banco de dados e quais seus campos.",
                                                                                             "É uma ótima forma de você saber como montar as buscas para solucionar o problema."};
     public static readonly string[] tableWindowTutorialQueryBoxInstructions = new string[] { "Este campo de texto permite que você realize buscas dentro do banco de dados, através do SQL." };
-    public static readonly string[] tableWindowTutorialButtonInstructions = new string[] { "E este botão submete a busca digitada para o banco, fazendo com que os dados sejam listados na área abaixo." };
+    public static readonly string[] tableWindowTutorialButtonInstructions = new string[] { "Este botão submete a busca digitada para o banco, fazendo com que os dados sejam listados na área abaixo." };
+    public static readonly string[] tableWindowTutoriaTemplateDropDown = new string[] { "Aqui temos alguns templates de busca para te ajudar a pesquisar pelo banco" };
+    public static readonly string[] tableWindowTutorialHistoryButton = new string[] { "E por ultimo, algo muito comum em terminais que este programa tem.",
+                                                                                         "Caso voce tenha feito uma consulta, e queira reutilizar ela, basta usar esta seta para cima, que será mostrado a sua ultima consulta",
+                                                                                         "Semelhante a isso, a seta para baixo, volta para as buscas mais recentes." };
     public static readonly string[] tableWindowTutorialEndingInstructions = new string[] { "Experimente olhar os dados da tabela Funcionarios e da tabela Gastos.",
                                                                                         "A consulta pode ser feita usando SELECT * FROM Funcionarios;",
                                                                                         "Tente encontrar um 'suspeito', alguem que tenha gastado mais do que tenha recebido, por exemplo.",
