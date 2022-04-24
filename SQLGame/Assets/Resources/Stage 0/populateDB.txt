@@ -17,21 +17,21 @@ VALUES
     ('15', 'Vivian', 'Brum', '87914'),
     ('16', 'Ivone', 'do Nascimento', '34685');
 
-INSERT INTO Gastos(id, nome, sobrenome, mes, gasto)
+INSERT INTO Gastos(matricula, nome, sobrenome, mes, gasto)
 VALUES
-    ('1', 'Fernando', 'Pereira', '3', '95306'),
-    ('2', 'Fátima', 'Luna', '3', '50900'),
-    ('3', 'Iasmim', 'Luna', '3', '78410'),
-    ('4', 'Fernando', 'Ferreira', '3', '72571'),
+    ('1', 'Fernando', 'Pereira', '3', '35624'),
+    ('2', 'Fátima', 'Luna', '3', '46745'),
+    ('3', 'Iasmim', 'Luna', '3', '23495'),
+    ('4', 'Fernando', 'Ferreira', '3', '59988'),
     ('5', 'Igor', 'da Silva', '3', '75202'),
     ('6', 'Mario', 'Silva', '3', '81469'),
-    ('7', 'Ivan', 'Ribeiro', '3', '31906'),
-    ('8', 'Helen', 'Campos', '3', '91905'),
+    ('7', 'Ivan', 'Ribeiro', '3', '16000'),
+    ('8', 'Helen', 'Campos', '3', '32565'),
     ('9', 'Fátima', 'Oliveira', '3', '62810'),
     ('10', 'Maurício', 'Luna', '3', '37016'),
-    ('11', 'Flávia', 'Arnaud', '3', '69397'),
+    ('11', 'Flávia', 'Arnaud', '3', '22222'),
     ('12', 'Igor', 'Ferreira', '3', '49054'),
     ('13', 'Pedro', 'Correa', '3', '37210'),
-    ('14', 'Mariana', 'de Carvalho', '3', '89327'),
+    ('14', 'Mariana', 'de Carvalho', '3', '80068'),
     ('15', 'Vivian', 'Brum', '3', '87914'),
     ('16', 'Ivone', 'do Nascimento', '3', '34685');
