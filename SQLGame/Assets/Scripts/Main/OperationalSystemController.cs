@@ -218,6 +218,12 @@ public class OperationalSystemController : MonoBehaviour
         phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.amigo);
     }
 
+
+    public void ContinueSoaresChat()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.soares);
+    }
+
     public void ContinueChatTutorial()
     {
         phoneObject.GetComponent<ChatDialogController>().ContinueChatTutorial();

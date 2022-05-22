@@ -12,6 +12,9 @@
     public const string friendName = "Vitor";
     public const string friendChat = "Friend";
 
+    public const string soaresName = "Soares";
+    public const string soaresChat = "Soares";
+
     /* INITIAL TUTORIAL */
     public static readonly string[] initialTutorialStartInstructions = new string[] { "Ola, meu nome é Lexa, uma IA de auxilio com banco de dados",
                                                                                       "Pelos dados que tenho aqui, acho que voce me baixou para te ajudar com seu trabalho de BD né?",
