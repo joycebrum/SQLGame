@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum ChatEnum { 
-    ia = 0, patrocinio = 1, reporter = 2, amigo = 3
+    ia = 0, patrocinio = 1, reporter = 2, amigo = 3, soares = 4
 }
 
 public class ChatDialogController : MonoBehaviour
@@ -125,6 +125,7 @@ public class ChatDialogController : MonoBehaviour
             case ChatEnum.patrocinio: return Constants.bossChat;
             case ChatEnum.reporter: return Constants.reporterChat;
             case ChatEnum.amigo: return Constants.friendChat;
+            case ChatEnum.soares: return Constants.soaresChat;
             default: return null;
         }
     }
@@ -137,6 +138,7 @@ public class ChatDialogController : MonoBehaviour
             case ChatEnum.patrocinio: return Constants.bossName;
             case ChatEnum.reporter: return Constants.reporterName;
             case ChatEnum.amigo: return Constants.friendName;
+            case ChatEnum.soares: return Constants.soaresName;
             default: return null;
         }
     }
