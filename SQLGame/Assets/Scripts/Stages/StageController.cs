@@ -57,18 +57,18 @@ public class StageController : MonoBehaviour
         } else
         {
             currentStage = stages[currentStageIndex];
-            updateStageData();
+            UpdateStageData();
             main.SetupStage(currentStageIndex: currentStageIndex);
         }
         
     }
 
-    public void updateStageData()
+    public void UpdateStageData()
     {
         currentStage.UpdateStageData();
     }
 
-    public bool shouldShowIAChatIcon()
+    public bool ShouldShowIAChatIcon()
     {
         return stages[currentStageIndex].shouldShowIAChatButton();
     }

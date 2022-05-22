@@ -33,7 +33,7 @@ public class OperationalSystemController : MonoBehaviour
         {
             ContinueFriendChat();
         }
-        checkTutorial();
+        CheckTutorial();
     }
 
     void Update()
@@ -41,7 +41,7 @@ public class OperationalSystemController : MonoBehaviour
         phoneObject.GetComponent<ChatDialogController>().HasNewChats();
         if (isInTutorial)
         {
-            releaseButton();
+            ReleaseButton();
         }
     }
 
@@ -125,7 +125,18 @@ public class OperationalSystemController : MonoBehaviour
         IAButton.gameObject.SetActive(shouldAppear);
     }
 
-    private void disableButtons()
+    public void StageDisableButtons()
+    {
+        bdButton.enabled = false;
+        cluesButton.enabled = false;
+    }
+    public void StageEnableButtons()
+    {
+        bdButton.enabled = true;
+        cluesButton.enabled = true;
+    }
+
+    private void DisableButtons()
     {
         menuButton.enabled = false;
         IAButton.enabled = false;
@@ -134,7 +145,7 @@ public class OperationalSystemController : MonoBehaviour
         cluesButton.enabled = false;
     }
 
-    private void enableAndBlockButtons()
+    private void EnableAndBlockButtons()
     {
         menuButton.enabled = true;
         chatButton.enabled = true;
@@ -146,7 +157,7 @@ public class OperationalSystemController : MonoBehaviour
         cluesButton.interactable = false;
     }
 
-    private void releaseButton()
+    private void ReleaseButton()
     {
         if (!tutorial.checkTutorial("firstStepTutorialComplete"))
         {
@@ -166,23 +177,23 @@ public class OperationalSystemController : MonoBehaviour
 
     //Tutorial
 
-    private void checkTutorial()
+    private void CheckTutorial()
     {
         if(tutorial.checkTutorial("firstStepTutorialComplete"))
         {
             isInTutorial = true;
-            disableButtons();
+            DisableButtons();
             changeIAChatApperance(true);
-            tutorial.StartTutorial(finishTutorial);
+            tutorial.StartTutorial(FinishTutorial);
         }
     }
 
-    private void finishTutorial()
+    private void FinishTutorial()
     {
         PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
         changeIAChatApperance(false);
-        enableAndBlockButtons();
-        releaseButton();
+        EnableAndBlockButtons();
+        ReleaseButton();
     }
 
     // Chat Methods
