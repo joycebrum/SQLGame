@@ -46,15 +46,21 @@ public class StageController : MonoBehaviour
     public void NextStage()
     {
         ChatEnum[] chatsToBeReleased = currentStage.ChatToBeReleasedOnEnd();
-        foreach(ChatEnum chatTobeRelesead in chatsToBeReleased)
+        foreach (ChatEnum chatTobeRelesead in chatsToBeReleased)
         {
             main.ReleaseChat(chatTobeRelesead);
         }
-
         currentStageIndex++;
-        currentStage = stages[currentStageIndex];
-        updateStageData();
-        main.SetupStage(currentStageIndex: currentStageIndex);
+        if (stages.Count == currentStageIndex)
+        {
+            currentStage.FinishGame();
+        } else
+        {
+            currentStage = stages[currentStageIndex];
+            updateStageData();
+            main.SetupStage(currentStageIndex: currentStageIndex);
+        }
+        
     }
 
     public void updateStageData()
