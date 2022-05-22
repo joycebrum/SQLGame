@@ -51,7 +51,7 @@ public class Stage0 : Stage
         };
     }
 
-    public override bool shouShowIAChatButton()
+    public override bool shouldShowIAChatButton()
     {
         return false;
     }

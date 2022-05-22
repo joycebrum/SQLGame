@@ -107,10 +107,7 @@ public class Stage1 : Stage
             )// 6
         };
     }
-    public override bool shouShowIAChatButton()
-    {
-        return true;
-    }
+
     public override ChatEnum[] ChatToBeReleasedOnEnd()
     {
         return new ChatEnum[1] { ChatEnum.ia };

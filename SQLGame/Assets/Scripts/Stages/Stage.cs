@@ -55,7 +55,7 @@ public class Stage: MonoBehaviour
         return anyFound;
     }
 
-    public virtual bool shouShowIAChatButton() { return true; }
+    public virtual bool shouldShowIAChatButton() { return true; }
 
     protected virtual List<ClueNote> InitializeClueNotes() { return null; }
     protected virtual List<ClueSolution> InitializeClueSolutions() { return new List<ClueSolution>(); }

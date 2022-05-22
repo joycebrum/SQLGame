@@ -70,6 +70,6 @@ public class StageController : MonoBehaviour
 
     public bool shouldShowIAChatIcon()
     {
-        return stages[currentStageIndex].shouShowIAChatButton();
+        return stages[currentStageIndex].shouldShowIAChatButton();
     }
 }
