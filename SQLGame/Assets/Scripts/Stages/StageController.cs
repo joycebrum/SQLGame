@@ -45,6 +45,8 @@ public class StageController : MonoBehaviour
 
     public void NextStage()
     {
+        main.StageDisableButtons();
+
         ChatEnum[] chatsToBeReleased = currentStage.ChatToBeReleasedOnEnd();
         foreach (ChatEnum chatTobeRelesead in chatsToBeReleased)
         {

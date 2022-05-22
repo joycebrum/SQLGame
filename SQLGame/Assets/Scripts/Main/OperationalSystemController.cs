@@ -39,10 +39,6 @@ public class OperationalSystemController : MonoBehaviour
     void Update()
     {
         phoneObject.GetComponent<ChatDialogController>().HasNewChats();
-        if (isInTutorial)
-        {
-            ReleaseButton();
-        }
     }
 
     // Initial config
@@ -76,7 +72,6 @@ public class OperationalSystemController : MonoBehaviour
     // Buttons
     public void OnMenuClick()
     {
-        Debug.Log("Home");
         SceneManager.LoadScene("InitialScene", LoadSceneMode.Single);
     }
 
@@ -127,13 +122,19 @@ public class OperationalSystemController : MonoBehaviour
 
     public void StageDisableButtons()
     {
-        bdButton.enabled = false;
-        cluesButton.enabled = false;
+        bdButton.interactable = false;
+        cluesButton.interactable = false;
     }
     public void StageEnableButtons()
     {
-        bdButton.enabled = true;
-        cluesButton.enabled = true;
+        bdButton.interactable = true;
+        cluesButton.interactable = true;
+    }
+
+    public void TutorialCompleted()
+    {
+        this.isInTutorial = false;
+        ReleaseButton();
     }
 
     private void DisableButtons()
@@ -157,7 +158,7 @@ public class OperationalSystemController : MonoBehaviour
         cluesButton.interactable = false;
     }
 
-    private void ReleaseButton()
+    public void ReleaseButton()
     {
         if (!tutorial.checkTutorial("firstStepTutorialComplete"))
         {

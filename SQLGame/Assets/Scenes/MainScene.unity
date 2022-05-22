@@ -3250,6 +3250,10 @@ PrefabInstance:
       value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 6201819712882901696, guid: 75abad258733f1749886ee9033496ddb, type: 3}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 1961325262}
+    - target: {fileID: 6201819712882901696, guid: 75abad258733f1749886ee9033496ddb, type: 3}
       propertyPath: database
       value: 
       objectReference: {fileID: 1840209382}
@@ -4672,6 +4676,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -12.532837
       objectReference: {fileID: 0}
+    - target: {fileID: 7106043142269736567, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 1961325262}
     - target: {fileID: 7106043142269736567, guid: 1839ab6704a06ad4cb5308087ea30e72, type: 3}
       propertyPath: stageController
       value: 

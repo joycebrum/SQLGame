@@ -31,7 +31,7 @@ public class ChatDialogController : MonoBehaviour
     {
         if (tutorial.checkTutorial("MessageTutorialComplete"))
         {
-            tutorial.StartTutorial(finishTutorial);
+            tutorial.StartTutorial(FinishTutorial);
         }
     }
 
@@ -189,21 +189,22 @@ public class ChatDialogController : MonoBehaviour
         this.chatScreen.SetActive(false);
     }
 
-    private void finishTutorial()
+    private void FinishTutorial()
     {
         PlayerPrefs.SetInt("MessageTutorialComplete", 1);
     }
 
-    private void finishTutorialAfterFirstChat()
+    private void FinishTutorialAfterFirstChat()
     {
         PlayerPrefs.SetInt("MessageTutorialComplete2", 1);
+        main.ReleaseButton();
     }
 
     public void ContinueChatTutorial()
     {
         if (tutorial.checkTutorial("MessageTutorialComplete2"))
         {
-            tutorial.StartTutorial(finishTutorialAfterFirstChat);
+            tutorial.StartTutorial(FinishTutorialAfterFirstChat);
         }
     }
 

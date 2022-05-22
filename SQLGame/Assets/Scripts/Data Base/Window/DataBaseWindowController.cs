@@ -24,6 +24,7 @@ public class DataBaseWindowController: MonoBehaviour
     [SerializeField] private StageController stageController;
 
     [SerializeField] private GameObject popUp;
+    [SerializeField] private OperationalSystemController main;
 
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();
@@ -36,7 +37,7 @@ public class DataBaseWindowController: MonoBehaviour
     {
         if (tutorial.checkTutorial("DBTutorialComplete"))
         {
-            tutorial.StartTutorial(finishTutorial);
+            tutorial.StartTutorial(FinishTutorial);
         }
         InitializeTableData();
     }
@@ -299,8 +300,9 @@ public class DataBaseWindowController: MonoBehaviour
         return position;
     }
 
-    private void finishTutorial()
+    private void FinishTutorial()
     {
         PlayerPrefs.SetInt("DBTutorialComplete", 1);
+        main.TutorialCompleted();
     }
 }
