@@ -218,6 +218,10 @@ public class DataBaseWindowController: MonoBehaviour
         {
             return msg.Replace("no such table:", "Nenhuma tabela <color=red>") + "</color> encontrada";
         }
+        if(Regex.Match(msg, @"near\s*"".+"":\s*syntax error").Success)
+        {
+            return "Erro de sintaxe próximo a <color=red>" + Regex.Match(msg, @""".+""").Value + "</color>";
+        }
         return msg;
     }
 
