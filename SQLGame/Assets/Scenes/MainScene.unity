@@ -246,11 +246,11 @@ MonoBehaviour:
   - {fileID: 1271311123}
   - {fileID: 149985369}
   - {fileID: 969738587}
-  - {fileID: 1610259624}
-  - {fileID: 590522242}
-  - {fileID: 1831331944}
   - {fileID: 215388020}
   - {fileID: 1928300276}
+  - {fileID: 1831331944}
+  - {fileID: 1610259624}
+  - {fileID: 590522242}
   solutionControllers:
   - {fileID: 2121077809}
   - {fileID: 1885836191}
@@ -1051,6 +1051,7 @@ MonoBehaviour:
   stages:
   - {fileID: 1931486415}
   - {fileID: 1791781832}
+  - {fileID: 127940421}
 --- !u!1 &858799123
 GameObject:
   m_ObjectHideFlags: 0
