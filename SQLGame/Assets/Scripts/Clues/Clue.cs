@@ -25,10 +25,16 @@ public class Clue
     {
         if (result == null || result.Count == 0 || header.Count == 0) return false;
 
-        int column_index = header.FindIndex(column_name => column_name == identifier.column);
+        if (identifier.column == null)
+        {
+            return result.FindIndex(value => Regex.Match(value, identifier.content).Success) != -1;
+        }
+        else
+        {
+            int column_index = header.FindIndex(column_name => column_name == identifier.column);
+            if (column_index < 0 || column_index >= result.Count) return false;
 
-        if (column_index < 0 || column_index >= result.Count) return false;
-
-        return Regex.Match(result[column_index], identifier.content).Success;
+            return Regex.Match(result[column_index], identifier.content).Success;
+        }
     }
 }
