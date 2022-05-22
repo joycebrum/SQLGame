@@ -65,6 +65,9 @@ public class Stage: MonoBehaviour
     public virtual ChatEnum[] ChatToBeReleasedOnEnd() { return new ChatEnum[0]; }
 
     protected virtual void InitializeStage() {
+        this.introPanel.gameObject.SetActive(true);
+        StartCoroutine(DidShowIntro());
+
         this.clueNotes = InitializeClueNotes();
 
         int i = 0;

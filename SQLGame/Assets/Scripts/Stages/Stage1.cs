@@ -11,8 +11,6 @@ public class Stage1 : Stage
         this.dbPath = "URI=file:" + Application.dataPath + "/Stage1SQLite.db";
 
         this.introName.text = "Fase 1 - O desaparecimento dos computadores";
-        this.introPanel.gameObject.SetActive(true);
-        StartCoroutine(base.DidShowIntro());
 
         base.InitializeStage();
     }

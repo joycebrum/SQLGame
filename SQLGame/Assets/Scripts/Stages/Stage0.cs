@@ -13,8 +13,6 @@ public class Stage0 : Stage
         this.dbPath = "URI=file:" + Application.dataPath + "/Stage0SQLite.db";
 
         this.introName.text = "Tutorial";
-        this.introPanel.gameObject.SetActive(true);
-        StartCoroutine(base.DidShowIntro());
    
         base.InitializeStage();
     }
