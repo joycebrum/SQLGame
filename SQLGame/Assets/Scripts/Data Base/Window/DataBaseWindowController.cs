@@ -109,6 +109,13 @@ public class DataBaseWindowController: MonoBehaviour
 
     void UpdateTable()
     {
+
+        if(tableData.Count > 499) {
+            throw new SqliteSyntaxException(message: "O numero de <color=red>LINHAS</color> execedeu o limite que pode ser exibido na tabela. Tente limitar o numero de linhas exibidas com aa clausulas <color=green>LIMIT</color> ou <color=green>WHERE</color>");
+        } else if(headerData.Count > 10)
+        {
+            throw new SqliteSyntaxException(message: "O numero de <color=red>COLUNAS</color> execedeu o limite que pode ser exibido na tabela. Tente selecionar colunas especificas no <color=green>SELECT</color>");
+        }
         //setup table
         table.Columns = headerData.Count;
         table.Rows = tableData.Count + 1;
