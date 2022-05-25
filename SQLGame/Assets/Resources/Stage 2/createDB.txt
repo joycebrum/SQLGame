@@ -36,3 +36,13 @@ CREATE TABLE IF NOT EXISTS Gastos(
     	PRIMARY KEY(id)
 );
 DELETE FROM Gastos;
+
+Create table Dados_da_empresa( 
+   	Nome VARCHAR(20), 
+	Ano Integer,
+    	Quantidade_de_funcionarios INTEGER, 
+    	Receita_anual INTEGER, 
+	Transacoes_por_funcionario INTEGER,
+    	PRIMARY KEY(Ano)
+);
+DELETE FROM Dados_da_empresa;
