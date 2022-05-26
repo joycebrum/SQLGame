@@ -22,9 +22,13 @@ public class StageController : MonoBehaviour
         currentStageIndex = 0;
         if (PlayerPrefs.HasKey("currentStageIndex"))
         {
-            currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");
+            currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");currentStage = stages[currentStageIndex];
+            currentStage = stages[currentStageIndex];
+        } else
+        {
+            currentStage = stages[currentStageIndex];
+            StartStage();
         }
-        currentStage = stages[currentStageIndex];
         main.checkStageConfigs((StagesType)currentStageIndex);
 
         this.currentStage.OnStart();
@@ -46,12 +50,6 @@ public class StageController : MonoBehaviour
     public void NextStage()
     {
         main.StageDisableButtons();
-
-        ChatEnum[] chatsToBeReleased = currentStage.ChatToBeReleasedOnEnd();
-        foreach (ChatEnum chatTobeRelesead in chatsToBeReleased)
-        {
-            main.ReleaseChat(chatTobeRelesead);
-        }
         currentStageIndex++;
         if (stages.Count == currentStageIndex)
         {
@@ -62,7 +60,16 @@ public class StageController : MonoBehaviour
             UpdateStageData();
             main.SetupStage(currentStageIndex: currentStageIndex);
         }
-        
+        StartStage();
+    }
+
+    public void StartStage()
+    {
+        ChatEnum[] chatsToBeReleased = currentStage.ChatToBeReleasedOnStart();
+        foreach (ChatEnum chatTobeRelesead in chatsToBeReleased)
+        {
+            main.ReleaseChat(chatTobeRelesead);
+        }
     }
 
     public void UpdateStageData()

@@ -56,7 +56,8 @@ public class Stage0 : Stage
         return false;
     }
 
-    public override ChatEnum[] ChatToBeReleasedOnEnd() { 
-        return new ChatEnum[1] { ChatEnum.ia }; 
+    public override ChatEnum[] ChatToBeReleasedOnStart()
+    {
+        return new ChatEnum[1] { ChatEnum.amigo };
     }
 }

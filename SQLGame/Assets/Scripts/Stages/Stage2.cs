@@ -128,7 +128,7 @@ public class Stage2 : Stage
         };
     }
 
-    public override ChatEnum[] ChatToBeReleasedOnEnd()
+    public override ChatEnum[] ChatToBeReleasedOnStart()
     {
         return new ChatEnum[1] { ChatEnum.soares };
     }

@@ -29,10 +29,6 @@ public class OperationalSystemController : MonoBehaviour
         PlayerPrefs.SetString("playerName", "Cris");
         PlayerPrefs.SetString("playerFullName", "Cristiano Pereira");
 
-        if (PlayerPrefs.GetInt("ShouldShowFriend") != 1)
-        {
-            ContinueFriendChat();
-        }
         CheckTutorial();
     }
 
