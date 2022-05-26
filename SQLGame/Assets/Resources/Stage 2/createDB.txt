@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS Gastos(
 );
 DELETE FROM Gastos;
 
-Create table Dados_da_empresa( 
+CREATE TABLE IF NOT EXISTS Dados_da_empresa( 
    	Nome VARCHAR(20), 
 	Ano Integer,
     	Quantidade_de_funcionarios INTEGER, 

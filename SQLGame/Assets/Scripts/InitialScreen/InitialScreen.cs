@@ -18,6 +18,14 @@ public class InitialScreen : MonoBehaviour
         SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
     }
 
+    public void startNewGameWithoutTutotial()
+    {
+        PlayerPrefs.DeleteAll();
+        DeleteMessages();
+        SetTutorialComplete();
+        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+    }
+
     private void DeleteMessages()
     {
         string path = Application.dataPath + "/VIDE/saves/VA";
@@ -30,5 +38,19 @@ public class InitialScreen : MonoBehaviour
             }
         }
         
+    }
+
+    private void SetTutorialComplete()
+    {
+        PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
+        PlayerPrefs.SetInt("MessageTutorialComplete", 1);
+        PlayerPrefs.SetInt("MessageTutorialComplete2", 1);
+        PlayerPrefs.SetInt("CluesTutorialComplete", 1);
+        PlayerPrefs.SetInt("DBTutorialComplete", 1);
+        PlayerPrefs.SetInt("ShouldShowFriend", 0);
+        PlayerPrefs.SetInt("Friend", 1);
+        PlayerPrefs.SetInt("ShouldShowIAChat", 1);
+        PlayerPrefs.SetInt("IAChat", 2);
+        PlayerPrefs.SetInt("currentStageIndex", 1);
     }
 }
