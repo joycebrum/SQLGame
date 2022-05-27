@@ -19,13 +19,15 @@ public class StageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentStageIndex = 0;
         if (PlayerPrefs.HasKey("currentStageIndex"))
         {
+            print("ja tem stage");
             currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");currentStage = stages[currentStageIndex];
             currentStage = stages[currentStageIndex];
+            print(currentStageIndex);
         } else
         {
+            currentStageIndex = 0;
             currentStage = stages[currentStageIndex];
             StartStage();
         }
