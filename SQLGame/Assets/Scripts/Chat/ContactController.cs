@@ -22,7 +22,15 @@ public class ContactController : MonoBehaviour
 
     void OnEnable()
     {
-        UpdateNotification();
+        if (PlayerPrefs.GetInt("ShouldShow" + GetDialogName()) == 1)
+        {
+            UpdateNotification();
+            this.gameObject.SetActive(true);
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public string GetDialogName()
@@ -50,7 +58,6 @@ public class ContactController : MonoBehaviour
 
     public void ShowContact()
     {
-        PlayerPrefs.SetInt("ShouldShow" + GetDialogName(), 1);
         this.gameObject.SetActive(true);
         UpdateNotification();
     }

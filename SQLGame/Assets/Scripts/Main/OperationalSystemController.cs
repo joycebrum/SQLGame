@@ -202,6 +202,7 @@ public class OperationalSystemController : MonoBehaviour
             case ChatEnum.patrocinio: ContinueBossChat(); break;
             case ChatEnum.reporter: ContinueReporterChat(); break;
             case ChatEnum.amigo: ContinueFriendChat(); break;
+            case ChatEnum.soares: ContinueSoaresChat(); break;
             default: break;
         }
     }

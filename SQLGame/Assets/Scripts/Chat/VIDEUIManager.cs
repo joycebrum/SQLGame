@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using VIDE_Data;
+using System;
 
 /*
  * This is another example script that handles the data obtained from nodeData
@@ -22,6 +23,7 @@ public class VIDEUIManager : MonoBehaviour
     private const string PLAYER_MSG = "player";
     private const string NPC_MSG = "npc";
     private bool isFirstMessage = true;
+    private IEnumerator coroutine;
 
 
     void Start()
@@ -87,6 +89,11 @@ public class VIDEUIManager : MonoBehaviour
         End(null);
     }
 
+    public void OnBackButton()
+    {
+        End(null);
+    }
+
     public void OverrideStartNode(int idNode)
     {
         VA.overrideStartNode = idNode;
@@ -114,7 +121,8 @@ public class VIDEUIManager : MonoBehaviour
         else
         {
             WipePlayerChoices();
-            StartCoroutine(WaitBeforeNPCText());
+            coroutine = WaitBeforeNPCText();
+            StartCoroutine(coroutine);
         }
     }
 
@@ -202,6 +210,12 @@ public class VIDEUIManager : MonoBehaviour
 
     void End(VD.NodeData data)
     {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+            ((IDisposable)coroutine).Dispose();
+            coroutine = null;
+        }
         SaveDialog();
         WipePlayerChoices();
         VD.OnNodeChange -= NodeChangeAction;

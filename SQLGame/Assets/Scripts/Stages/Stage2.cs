@@ -149,6 +149,6 @@ public class Stage2 : Stage
 
     public override ChatEnum[] ChatToBeReleasedOnStart()
     {
-        return new ChatEnum[1] { ChatEnum.soares };
+        return new ChatEnum[1] { ChatEnum.ia };
     }
 }
