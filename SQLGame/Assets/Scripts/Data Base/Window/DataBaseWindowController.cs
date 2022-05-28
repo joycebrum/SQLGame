@@ -230,6 +230,10 @@ public class DataBaseWindowController: MonoBehaviour
         {
             return "Erro de sintaxe próximo a <color=red>" + Regex.Match(msg, @""".+""").Value + "</color>";
         }
+        if (Regex.Match(msg, @"incomplete\s+input").Success)
+        {
+            return "Comando SQL incompleto.";
+        }
         return msg;
     }
 
