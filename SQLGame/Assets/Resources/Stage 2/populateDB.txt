@@ -13,7 +13,7 @@ VALUES
     ('15604', 'Alberto', 'Nascimento', '(28) 43515-6508', '1992-12-7', 'gerente_de_area', 'gerencia', 'Helen Armando', FALSE, FALSE,FALSE),
     ('3482', 'Gustavo', 'Nascimento', '(13) 31332-7532', '1996-10-16', 'gerente_de_projeto', 'gerencia', 'João Elizandra', FALSE, FALSE,FALSE),
     ('18928', 'Caroline', 'Alves', '(92) 78364-8574', '1989-02-8', 'consultor', 'RH', 'Joana Estevam', FALSE, FALSE,TRUE),
-    ('17038', 'Pietro', 'Brum', '(61) 62842-3364', '1991-11-4', 'consultor', 'RH', 'Kerolin Fátima', FALSE, FALSE,TRUE),
+    ('17038', 'Pietro', 'Brum', '(61) 62842-3364', '1991-11-4', 'consultor', 'RH', 'Kerolin Fátima', FALSE, TRUE,TRUE),
     ('15906', 'Pedro', 'Carvalho', '(55) 31199-3422', '1985-03-8', 'gerente_de_area', 'gerencia', 'João Alice', FALSE, FALSE,FALSE),
     ('13548', 'Ricardo', 'Teixeira', '(22) 78445-8129', '1966-07-23', 'gerente_de_projeto', 'gerencia', 'Elena Elena', FALSE, FALSE,FALSE),
     ('9990', 'Bruna', 'Barros', '(67) 57037-7928', '1970-11-25', 'assistente', 'RH', 'Natan Caio', FALSE, FALSE,TRUE),

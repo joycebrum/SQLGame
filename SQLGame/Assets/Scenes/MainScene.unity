@@ -243,6 +243,7 @@ MonoBehaviour:
   clueControllers:
   - {fileID: 78302311}
   - {fileID: 818321810}
+  - {fileID: 1831331945}
   - {fileID: 1271311123}
   - {fileID: 149985369}
   - {fileID: 969738587}
