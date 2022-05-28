@@ -74,6 +74,7 @@ public class Stage2 : Stage
             new ClueNote("Verfique o limite de transações por mês", "O limite é de 10 transações extraordinárias por mês",
                 new Clue(new List<ClueIdentifier>
                     {
+                        new ClueIdentifier(@"Ano", "2022"),
                         new ClueIdentifier(@"Transacoes[_\s]*por[_\s]*funcionario", "10")
                     }
                 )
@@ -129,18 +130,18 @@ public class Stage2 : Stage
                 )
             ),// 8
             
-            new ClueNote("Verifique a receita da empresa no mês de maio", "A receita da empresa no mês de Maio foi de R reais",
+            new ClueNote("Verifique a receita da empresa no mês de maio", "A receita da empresa no mês de Maio foi de R$ 210.345.948,00 reais",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier("coluna", "valor")
+                        new ClueIdentifier(null, "210345948")
                     }
                 )
             ),// 9
             
-            new ClueNote("Verifique os gastos da empresa no mês de maio", "O gastos da empresa no mês de Maio foram de G reais",
+            new ClueNote("Verifique os gastos da empresa no mês de maio", "O gastos da empresa no mês de Maio foram de R$ 214.245.948,00 reais",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier("coluna", "valor")
+                        new ClueIdentifier(null, "214245948")
                     }
                 )
             ),// 10
