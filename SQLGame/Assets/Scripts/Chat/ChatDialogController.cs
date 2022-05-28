@@ -23,7 +23,8 @@ public class ChatDialogController : MonoBehaviour
 
     [SerializeField] OperationalSystemController main = null;
 
-    [SerializeField] List<ContactController> contacts = null;
+    [SerializeField] GameObject contactList;
+    private ContactController[] contacts = null;
 
     private VIDEUIManager videUiManager;
 
@@ -32,11 +33,17 @@ public class ChatDialogController : MonoBehaviour
     void Start()
     {
         this.videUiManager = this.gameObject.GetComponent<VIDEUIManager>();
+        InitializeContacts();
 
         if (tutorial.checkTutorial("MessageTutorialComplete"))
         {
             tutorial.StartTutorial(FinishTutorial);
         }
+    }
+
+    private void InitializeContacts()
+    {
+        this.contacts = this.contactList.GetComponentsInChildren<ContactController>(true);
     }
 
     void OnDisable()
@@ -46,6 +53,11 @@ public class ChatDialogController : MonoBehaviour
 
     private void OnEnable()
     {
+        if (this.contacts == null)
+        {
+            InitializeContacts();
+        }   
+
         foreach (ContactController contactController in contacts)
         {
             contactController.gameObject.SetActive(true);
