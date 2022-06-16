@@ -13,8 +13,6 @@ public class Stage0 : Stage
         this.dbPath = "URI=file:" + Application.dataPath + "/Stage0SQLite.db";
 
         this.introName.text = "Tutorial";
-        this.introPanel.gameObject.SetActive(true);
-        StartCoroutine(base.DidShowIntro());
    
         base.InitializeStage();
     }
@@ -41,7 +39,7 @@ public class Stage0 : Stage
                 )
             ), // 0
 
-            new ClueNote("Qaunto dinheiro o suspeito gastou em Março?", "Pedro gastou 37210",
+            new ClueNote("Quanto dinheiro o suspeito gastou em Março?", "Pedro gastou 37210",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Pedro"),
@@ -53,12 +51,13 @@ public class Stage0 : Stage
         };
     }
 
-    public override bool shouShowIAChatButton()
+    public override bool shouldShowIAChatButton()
     {
         return false;
     }
 
-    public override ChatEnum[] ChatToBeReleasedOnEnd() { 
-        return new ChatEnum[1] { ChatEnum.ia }; 
+    public override ChatEnum[] ChatToBeReleasedOnStart()
+    {
+        return new ChatEnum[1] { ChatEnum.amigo };
     }
 }

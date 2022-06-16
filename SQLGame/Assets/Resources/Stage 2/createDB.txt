@@ -1,0 +1,48 @@
+CREATE TABLE IF NOT EXISTS Funcionarios( 
+	matricula VARCHAR(10) NOT NULL,
+    	nome VARCHAR(20) NOT NULL, 
+	sobrenome VARCHAR(20),
+    	telefone VARCHAR(20), 
+    	dataDeNascimento DATE,
+	cargo VARCHAR(20),
+	area VARCHAR(20),
+	gerente VARCHAR(20),
+	pode_mover_dinheiro INTEGER,
+	pode_acessar_recursos_restritos INTEGER,
+	pode_desligar_funcionarios INTEGER,
+   	PRIMARY KEY(matricula)
+);
+DELETE FROM Funcionarios;
+
+CREATE TABLE IF NOT EXISTS Receita( 
+	id VARCHAR(10) NOT NULL,
+    data DATE, 
+	mes_referencia VARCHAR(20),
+    responsavel VARCHAR(20), 
+	valor INTEGER,
+    PRIMARY KEY(id)
+);
+DELETE FROM Receita;
+
+CREATE TABLE IF NOT EXISTS Gastos( 
+	id VARCHAR(10) NOT NULL,
+    	data DATE, 
+	mes_referencia VARCHAR(20),
+    	nome_responsavel VARCHAR(20), 
+    	sobrenome_responsavel VARCHAR(20),
+	matricula_responsavel VARCHAR(10),
+	valor INTEGER,
+	destino VARCHAR(20),
+    	PRIMARY KEY(id)
+);
+DELETE FROM Gastos;
+
+CREATE TABLE IF NOT EXISTS Dados_da_empresa( 
+   	Nome VARCHAR(20), 
+	Ano Integer,
+    	Quantidade_de_funcionarios INTEGER, 
+    	Receita_anual INTEGER, 
+	Transacoes_por_funcionario INTEGER,
+    	PRIMARY KEY(Ano)
+);
+DELETE FROM Dados_da_empresa;

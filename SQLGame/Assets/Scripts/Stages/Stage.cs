@@ -16,6 +16,7 @@ public class Stage: MonoBehaviour
     [SerializeReference] protected StageDBController dbController;
     [SerializeReference] protected TextMeshProUGUI introName;
     [SerializeField] protected GameObject introPanel;
+    [SerializeField] protected GameObject introSubtitle;
 
     protected string sqlCreatePath = "";
     protected string sqlPopulatePath = "";
@@ -54,16 +55,19 @@ public class Stage: MonoBehaviour
         return anyFound;
     }
 
-    public virtual bool shouShowIAChatButton() { return true; }
+    public virtual bool shouldShowIAChatButton() { return true; }
 
     protected virtual List<ClueNote> InitializeClueNotes() { return null; }
     protected virtual List<ClueSolution> InitializeClueSolutions() { return new List<ClueSolution>(); }
 
     protected virtual ClueSolution InitializeFinalSolution() { return null; }
 
-    public virtual ChatEnum[] ChatToBeReleasedOnEnd() { return new ChatEnum[0]; }
+    public virtual ChatEnum[] ChatToBeReleasedOnStart() { return new ChatEnum[0]; }
 
     protected virtual void InitializeStage() {
+        this.introPanel.gameObject.SetActive(true);
+        StartCoroutine(DidShowIntro());
+
         this.clueNotes = InitializeClueNotes();
 
         int i = 0;
@@ -133,5 +137,12 @@ public class Stage: MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         this.introPanel.gameObject.SetActive(false);
+    }
+
+    public void FinishGame()
+    {
+        this.introPanel.gameObject.SetActive(true);
+        this.introName.text = "Por enquanto é só";
+        this.introSubtitle.SetActive(true);
     }
 }

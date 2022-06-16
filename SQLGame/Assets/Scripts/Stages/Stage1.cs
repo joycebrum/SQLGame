@@ -5,15 +5,12 @@ public class Stage1 : Stage
 {
     protected override void InitializeStage()
     {
-        print("Initialize Stage One");
         this.stageIdentifier = "stage_one";
         this.sqlCreatePath = "Stage 1/createDB";
         this.sqlPopulatePath = "Stage 1/populateDB";
         this.dbPath = "URI=file:" + Application.dataPath + "/Stage1SQLite.db";
 
         this.introName.text = "Fase 1 - O desaparecimento dos computadores";
-        this.introPanel.gameObject.SetActive(true);
-        StartCoroutine(base.DidShowIntro());
 
         base.InitializeStage();
     }
@@ -48,7 +45,7 @@ public class Stage1 : Stage
     {
         return new List<ClueNote>
         {
-            new ClueNote("Talvez consiga ver alguma informação do suspeito na tabela Alunos", "Caio Bezerra (152354) está inscrito com cota de baixa renda",
+            new ClueNote("Procure alguma informação do suspeito na tabela Alunos", "Caio Bezerra (152354) está inscrito com cota de baixa renda",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Caio"),
@@ -58,7 +55,7 @@ public class Stage1 : Stage
                 )
             ), // 0
 
-            new ClueNote("Talvez os seguranças tenham visto algo interessante sobre ele", "Houve um relato de jovem chegando muito machucado a faculdade, que diz ter sido agredido por agiotas",
+            new ClueNote("Os seguranças relataram algo que ajuda a entender o motivo do suspeito", "Houve um relato de jovem chegando muito machucado a faculdade, que diz ter sido agredido por agiotas",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("relatorio", "Um jovem estava todo ferido sentado perto das máquinas."),
@@ -66,21 +63,21 @@ public class Stage1 : Stage
                 )
             ),// 1
 
-            new ClueNote("Talvez os seguranças tenham visto algo interessante", "Segundo um relato dos seguranças, houve uma briga entre alguns alunos na noite do roubo",
+            new ClueNote("Alguma coisa aconteceu na noite do roubo (23 de Abril)", "Segundo um relato dos seguranças, houve uma briga entre alguns alunos na noite do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("relatorio", "Dois meninos brigaram feio"),
                 })
             ), // 2
 
-            new ClueNote("Talvez os seguranças tenham visto algo suspeito", "Alguns seguranças relataram um aluno com comportamento suspeito",
+            new ClueNote("Os seguranças podem saber de alguem com comportamento suspeito no laboratório.", "Alguns seguranças relataram um aluno com comportamento suspeito",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("relatorio", @"(andando|perambulado) pelo laboratório"),
                 })
             ), // 3
 
-            new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório com pouco tempo logado no dia do roubo",
+            new ClueNote("Alguem fez algo suspeito no dia do roubo (23 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado no dia do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
@@ -90,7 +87,7 @@ public class Stage1 : Stage
                 })
             ),// 4
 
-            new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório com pouco tempo logado no dia anterior ao roubo",
+            new ClueNote("Alguem fez algo suspeito no dia anterior ao roubo (22 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado no dia anterior ao roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
@@ -99,7 +96,7 @@ public class Stage1 : Stage
                     new ClueIdentifier("login", @"22/04/2022"),
                 })
             ),// 5
-            new ClueNote("Talvez tenha algo nos registros de entrada e login nos computadores", "Caio ficou um longo período no laboratório com pouco tempo logado dois dias antes do roubo",
+            new ClueNote("Alguem fez algo suspeito dois dias antes do roubo (21 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado dois dias antes do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
@@ -110,11 +107,8 @@ public class Stage1 : Stage
             )// 6
         };
     }
-    public override bool shouShowIAChatButton()
-    {
-        return true;
-    }
-    public override ChatEnum[] ChatToBeReleasedOnEnd()
+
+    public override ChatEnum[] ChatToBeReleasedOnStart()
     {
         return new ChatEnum[1] { ChatEnum.ia };
     }

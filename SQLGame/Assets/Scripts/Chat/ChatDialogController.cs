@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum ChatEnum { 
-    ia = 0, patrocinio = 1, reporter = 2, amigo = 3
+    ia = 0, patrocinio = 1, reporter = 2, amigo = 3, soares = 4
 }
 
 public class ChatDialogController : MonoBehaviour
@@ -23,21 +23,45 @@ public class ChatDialogController : MonoBehaviour
 
     [SerializeField] OperationalSystemController main = null;
 
-    [SerializeField] List<ContactController> contacts = null;
+    [SerializeField] GameObject contactList;
+    private ContactController[] contacts = null;
+
+    private VIDEUIManager videUiManager;
 
     string message = "";
 
     void Start()
     {
+        this.videUiManager = this.gameObject.GetComponent<VIDEUIManager>();
+        InitializeContacts();
+
         if (tutorial.checkTutorial("MessageTutorialComplete"))
         {
-            tutorial.StartTutorial(finishTutorial);
+            tutorial.StartTutorial(FinishTutorial);
         }
+    }
+
+    private void InitializeContacts()
+    {
+        this.contacts = this.contactList.GetComponentsInChildren<ContactController>(true);
     }
 
     void OnDisable()
     {
         DestroyAllMessages();
+    }
+
+    private void OnEnable()
+    {
+        if (this.contacts == null)
+        {
+            InitializeContacts();
+        }   
+
+        foreach (ContactController contactController in contacts)
+        {
+            contactController.gameObject.SetActive(true);
+        }
     }
 
     private void UpdateScrollRect()
@@ -52,6 +76,7 @@ public class ChatDialogController : MonoBehaviour
 
     public void OnBackButton()
     {
+        this.videUiManager.OnBackButton();
         DestroyAllMessages();
         ShowContacts();
     }
@@ -125,6 +150,7 @@ public class ChatDialogController : MonoBehaviour
             case ChatEnum.patrocinio: return Constants.bossChat;
             case ChatEnum.reporter: return Constants.reporterChat;
             case ChatEnum.amigo: return Constants.friendChat;
+            case ChatEnum.soares: return Constants.soaresChat;
             default: return null;
         }
     }
@@ -137,6 +163,7 @@ public class ChatDialogController : MonoBehaviour
             case ChatEnum.patrocinio: return Constants.bossName;
             case ChatEnum.reporter: return Constants.reporterName;
             case ChatEnum.amigo: return Constants.friendName;
+            case ChatEnum.soares: return Constants.soaresName;
             default: return null;
         }
     }
@@ -147,7 +174,7 @@ public class ChatDialogController : MonoBehaviour
         string dialogName = GetDialogueName(type);
         if (dialogName != null)
         {
-            this.gameObject.GetComponent<VIDEUIManager>().dialogueNameToLoad = dialogName;
+            this.videUiManager.dialogueNameToLoad = dialogName;
             ShowChat(index, GetNPCName(type));
         }
             
@@ -158,9 +185,8 @@ public class ChatDialogController : MonoBehaviour
         this.contactScreen.SetActive(false);
         this.chatScreen.SetActive(true);
         this.textName.text = name;
-        VIDEUIManager videUiManager = this.gameObject.GetComponent<VIDEUIManager>();
-        this.profile.sprite = videUiManager.getNPCSprite();
-        videUiManager.LoadChat();
+        this.profile.sprite = this.videUiManager.getNPCSprite();
+        this.videUiManager.LoadChat();
     }
 
     public void ReleaseChat(ChatEnum type)
@@ -168,15 +194,21 @@ public class ChatDialogController : MonoBehaviour
         string dialogName = GetDialogueName(type);
         if (dialogName != null)
         {
-            PlayerPrefs.SetInt(GetDialogueName(type), 2); // 0 or null - not blocked; 1 - blocked; 2 - released
-            foreach(ContactController contactController in contacts)
+            PlayerPrefs.SetInt(dialogName, 2); // 0 or null - not blocked; 1 - blocked; 2 - released
+            PlayerPrefs.SetInt("ShouldShow" + dialogName, 1);
+
+            if (this.isActiveAndEnabled)
             {
-                if(contactController.GetDialogName() == dialogName)
+                foreach (ContactController contactController in contacts)
                 {
-                    contactController.ShowContact();
-                    break;
+                    if (contactController.GetDialogName() == dialogName)
+                    {
+                        contactController.ShowContact();
+                        break;
+                    }
                 }
             }
+
             main.setMessageNotificationVisibility(isVisible: true);
         }
     }
@@ -187,21 +219,22 @@ public class ChatDialogController : MonoBehaviour
         this.chatScreen.SetActive(false);
     }
 
-    private void finishTutorial()
+    private void FinishTutorial()
     {
         PlayerPrefs.SetInt("MessageTutorialComplete", 1);
     }
 
-    private void finishTutorialAfterFirstChat()
+    private void FinishTutorialAfterFirstChat()
     {
         PlayerPrefs.SetInt("MessageTutorialComplete2", 1);
+        main.ReleaseButton();
     }
 
     public void ContinueChatTutorial()
     {
         if (tutorial.checkTutorial("MessageTutorialComplete2"))
         {
-            tutorial.StartTutorial(finishTutorialAfterFirstChat);
+            tutorial.StartTutorial(FinishTutorialAfterFirstChat);
         }
     }
 

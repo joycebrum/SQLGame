@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class OperationalSystemController : MonoBehaviour
 {
@@ -13,8 +14,14 @@ public class OperationalSystemController : MonoBehaviour
 
     [SerializeField] StageController stageController;
 
-    [SerializeField] GameObject IAButton;
+    [SerializeField] Button IAButton;
+    [SerializeField] Button menuButton;
+    [SerializeField] Button chatButton;
+    [SerializeField] Button bdButton;
+    [SerializeField] Button cluesButton;
     [SerializeField] GameObject messageButtonNotification;
+
+    private bool isInTutorial = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +29,7 @@ public class OperationalSystemController : MonoBehaviour
         PlayerPrefs.SetString("playerName", "Cris");
         PlayerPrefs.SetString("playerFullName", "Cristiano Pereira");
 
-        if (PlayerPrefs.GetInt("ShouldShowFriend") != 1)
-        {
-            ContinueFriendChat();
-        }
-        checkTutorial();
+        CheckTutorial();
     }
 
     void Update()
@@ -34,9 +37,37 @@ public class OperationalSystemController : MonoBehaviour
         phoneObject.GetComponent<ChatDialogController>().HasNewChats();
     }
 
+    // Initial config
+    public void checkStageConfigs(StagesType stageType)
+    {
+        switch (stageType)
+        {
+            case StagesType.tutorial:
+                changeIAChatApperance(false);
+                break;
+            case StagesType.stageOne:
+                changeIAChatApperance(true);
+                break;
+            case StagesType.stageTwo:
+                changeIAChatApperance(true);
+                break;
+        }
+    }
+
+    public void setMessageNotificationVisibility(bool isVisible)
+    {
+        messageButtonNotification.SetActive(isVisible);
+    }
+
+    public void SetupStage(int currentStageIndex)
+    {
+        tableObject.GetComponent<DataBaseWindowController>().InitializeTableData();
+        checkStageConfigs((StagesType)currentStageIndex);
+    }
+
+    // Buttons
     public void OnMenuClick()
     {
-        Debug.Log("Home");
         SceneManager.LoadScene("InitialScene", LoadSceneMode.Single);
     }
 
@@ -74,8 +105,95 @@ public class OperationalSystemController : MonoBehaviour
         cluesWindow.SetActive(!cluesWindow.activeInHierarchy);
     }
 
-    /* Trigger Chats */
+    public void cheatButton()
+    {
+        cluesWindow.GetComponent<CluesWindowController>().ResetClues();
+        stageController.NextStage();
+    }
 
+    public void changeIAChatApperance(bool shouldAppear)
+    {
+        IAButton.gameObject.SetActive(shouldAppear);
+    }
+
+    public void StageDisableButtons()
+    {
+        bdButton.interactable = false;
+        cluesButton.interactable = false;
+    }
+    public void StageEnableButtons()
+    {
+        bdButton.interactable = true;
+        cluesButton.interactable = true;
+    }
+
+    public void TutorialCompleted()
+    {
+        this.isInTutorial = false;
+        ReleaseButton();
+    }
+
+    private void DisableButtons()
+    {
+        menuButton.enabled = false;
+        IAButton.enabled = false;
+        chatButton.enabled = false;
+        bdButton.enabled = false;
+        cluesButton.enabled = false;
+    }
+
+    private void EnableAndBlockButtons()
+    {
+        menuButton.enabled = true;
+        chatButton.enabled = true;
+        bdButton.enabled = true;
+        cluesButton.enabled = true;
+        menuButton.interactable = false;
+        chatButton.interactable = false;
+        bdButton.interactable = false;
+        cluesButton.interactable = false;
+    }
+
+    public void ReleaseButton()
+    {
+        if (!tutorial.checkTutorial("firstStepTutorialComplete"))
+        {
+            menuButton.interactable = true;
+            chatButton.interactable = true;
+        }
+        if (!tutorial.checkTutorial("MessageTutorialComplete2"))
+        {
+            cluesButton.interactable = true;
+        }
+        if (!tutorial.checkTutorial("CluesTutorialComplete"))
+        {
+            bdButton.interactable = true;
+            isInTutorial = true;
+        }
+    }
+
+    //Tutorial
+
+    private void CheckTutorial()
+    {
+        if(tutorial.checkTutorial("firstStepTutorialComplete"))
+        {
+            isInTutorial = true;
+            DisableButtons();
+            changeIAChatApperance(true);
+            tutorial.StartTutorial(FinishTutorial);
+        }
+    }
+
+    private void FinishTutorial()
+    {
+        PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
+        changeIAChatApperance(false);
+        EnableAndBlockButtons();
+        ReleaseButton();
+    }
+
+    // Chat Methods
     public void ReleaseChat(ChatEnum chatToBeReleased)
     {
         switch (chatToBeReleased)
@@ -84,6 +202,7 @@ public class OperationalSystemController : MonoBehaviour
             case ChatEnum.patrocinio: ContinueBossChat(); break;
             case ChatEnum.reporter: ContinueReporterChat(); break;
             case ChatEnum.amigo: ContinueFriendChat(); break;
+            case ChatEnum.soares: ContinueSoaresChat(); break;
             default: break;
         }
     }
@@ -108,61 +227,14 @@ public class OperationalSystemController : MonoBehaviour
         phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.amigo);
     }
 
+
+    public void ContinueSoaresChat()
+    {
+        phoneObject.GetComponent<ChatDialogController>().ReleaseChat(ChatEnum.soares);
+    }
+
     public void ContinueChatTutorial()
     {
         phoneObject.GetComponent<ChatDialogController>().ContinueChatTutorial();
-    }
-
-    private void checkTutorial()
-    {
-        if(tutorial.checkTutorial("firstStepTutorialComplete"))
-        {
-            changeIAChatApperance(true);
-            tutorial.StartTutorial(finishTutorial);
-        }
-    }
-
-    private void finishTutorial()
-    {
-        PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
-        changeIAChatApperance(false);
-    }
-
-    public void checkStageConfigs(StagesType stageType)
-    {
-        switch (stageType)
-        {
-            case StagesType.tutorial:
-                changeIAChatApperance(false);
-                break;
-            case StagesType.stageOne:
-                changeIAChatApperance(true);
-                break;
-            case StagesType.stageTwo:
-                changeIAChatApperance(true);
-                break;
-        }
-    }
-
-    public void changeIAChatApperance(bool shouldAppear)
-    {
-        IAButton.SetActive(shouldAppear);
-    }
-
-    public void setMessageNotificationVisibility(bool isVisible)
-    {
-        messageButtonNotification.SetActive(isVisible);
-    }
-
-    public void cheatButton()
-    {
-        cluesWindow.GetComponent<CluesWindowController>().ResetClues();
-        stageController.NextStage();
-    }
-
-    public void SetupStage(int currentStageIndex)
-    {
-        tableObject.GetComponent<DataBaseWindowController>().InitializeTableData();
-        checkStageConfigs((StagesType)currentStageIndex);
     }
 }

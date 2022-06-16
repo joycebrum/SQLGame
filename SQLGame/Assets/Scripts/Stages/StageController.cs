@@ -19,12 +19,18 @@ public class StageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentStageIndex = 0;
         if (PlayerPrefs.HasKey("currentStageIndex"))
         {
-            currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");
+            print("ja tem stage");
+            currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");currentStage = stages[currentStageIndex];
+            currentStage = stages[currentStageIndex];
+            print(currentStageIndex);
+        } else
+        {
+            currentStageIndex = 0;
+            currentStage = stages[currentStageIndex];
+            StartStage();
         }
-        currentStage = stages[currentStageIndex];
         main.checkStageConfigs((StagesType)currentStageIndex);
 
         this.currentStage.OnStart();
@@ -45,25 +51,36 @@ public class StageController : MonoBehaviour
 
     public void NextStage()
     {
-        ChatEnum[] chatsToBeReleased = currentStage.ChatToBeReleasedOnEnd();
-        foreach(ChatEnum chatTobeRelesead in chatsToBeReleased)
+        main.StageDisableButtons();
+        currentStageIndex++;
+        if (stages.Count == currentStageIndex)
+        {
+            currentStage.FinishGame();
+        } else
+        {
+            currentStage = stages[currentStageIndex];
+            UpdateStageData();
+            main.SetupStage(currentStageIndex: currentStageIndex);
+        }
+        StartStage();
+    }
+
+    public void StartStage()
+    {
+        ChatEnum[] chatsToBeReleased = currentStage.ChatToBeReleasedOnStart();
+        foreach (ChatEnum chatTobeRelesead in chatsToBeReleased)
         {
             main.ReleaseChat(chatTobeRelesead);
         }
-
-        currentStageIndex++;
-        currentStage = stages[currentStageIndex];
-        updateStageData();
-        main.SetupStage(currentStageIndex: currentStageIndex);
     }
 
-    public void updateStageData()
+    public void UpdateStageData()
     {
         currentStage.UpdateStageData();
     }
 
-    public bool shouldShowIAChatIcon()
+    public bool ShouldShowIAChatIcon()
     {
-        return stages[currentStageIndex].shouShowIAChatButton();
+        return stages[currentStageIndex].shouldShowIAChatButton();
     }
 }

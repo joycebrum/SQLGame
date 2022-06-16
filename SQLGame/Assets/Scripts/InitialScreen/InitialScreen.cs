@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class InitialScreen : MonoBehaviour
 {
+
+    [SerializeField] GameObject menuButtons;
+    [SerializeField] GameObject sandboxButtons;
     public void continueGame()
     {
         SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
@@ -13,9 +16,34 @@ public class InitialScreen : MonoBehaviour
 
     public void startNewGame()
     {
+        StartGame();
+        PlayerPrefs.SetInt("IsSandBoxMode", 0);
+    }
+
+    public void startNewGameWithoutTutotial()
+    {
+        SetTutorialComplete();
+        PlayerPrefs.SetInt("IsSandBoxMode", 0);
+        StartGame();
+    }
+
+    private void StartGame()
+    {
         PlayerPrefs.DeleteAll();
         DeleteMessages();
         SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+    }
+
+    public void OpenSandboxMenu()
+    {
+        menuButtons.SetActive(false);
+        sandboxButtons.SetActive(true);
+    }
+
+    public void CloseSandboxMenu()
+    {
+        menuButtons.SetActive(true);
+        sandboxButtons.SetActive(false);
     }
 
     private void DeleteMessages()
@@ -30,5 +58,45 @@ public class InitialScreen : MonoBehaviour
             }
         }
         
+    }
+
+    private void SetTutorialComplete()
+    {
+        PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
+        PlayerPrefs.SetInt("MessageTutorialComplete", 1);
+        PlayerPrefs.SetInt("MessageTutorialComplete2", 1);
+        PlayerPrefs.SetInt("CluesTutorialComplete", 1);
+        PlayerPrefs.SetInt("DBTutorialComplete", 1);
+        PlayerPrefs.SetInt("ShouldShowFriend", 0);
+        PlayerPrefs.SetInt("Friend", 1);
+        PlayerPrefs.SetInt("ShouldShowIAChat", 1);
+        PlayerPrefs.SetInt("IAChat", 2);
+        PlayerPrefs.SetInt("currentStageIndex", 1);
+    }
+
+    public void TutorialSandbox()
+    {
+
+    }
+
+    private void startSandbox(StagesType stageType)
+    {
+        PlayerPrefs.SetInt("IsSandBoxMode", 1);
+        SetTutorialComplete();
+        switch (stageType)
+        {
+            case StagesType.tutorial:
+                PlayerPrefs.SetInt("currentStageIndex", 0);
+                StartGame();
+                break;
+            case StagesType.stageOne:
+                PlayerPrefs.SetInt("currentStageIndex", 1);
+                StartGame();
+                break;
+            case StagesType.stageTwo:
+                PlayerPrefs.SetInt("currentStageIndex", 2);
+                StartGame();
+                break;
+        }
     }
 }

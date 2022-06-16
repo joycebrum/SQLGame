@@ -24,15 +24,20 @@ public class DataBaseWindowController: MonoBehaviour
     [SerializeField] private StageController stageController;
 
     [SerializeField] private GameObject popUp;
+    [SerializeField] private OperationalSystemController main;
 
     List<Tuple<string, string>> headerData = new List<Tuple<string, string>>();
     List<List<string>> tableData = new List<List<string>>();
+
+    private List<string> sqlHistory = new List<string>();
+    private int historyPosition = -1;
+
 
     private void Start()
     {
         if (tutorial.checkTutorial("DBTutorialComplete"))
         {
-            tutorial.StartTutorial(finishTutorial);
+            tutorial.StartTutorial(FinishTutorial);
         }
         InitializeTableData();
     }
@@ -45,10 +50,16 @@ public class DataBaseWindowController: MonoBehaviour
                 queryInput.text = "SELECT * FROM NomeDaTabela;";
                 break;
             case 2:
-                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor;";
+                queryInput.text = "SELECT coluna1, coluna2 FROM tabela;";
                 break;
             case 3:
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor;";
+                break;
+            case 4:
                 queryInput.text = "SELECT * FROM NomeDaTabela WHERE colunaData > 'AAAA-MM-DD' and colunaData < 'AAAA-MM-DD';";
+                break;
+            case 5:
+                queryInput.text = "SELECT * FROM PrimeiraTabela x JOIN SegundaTabela y ON x.coluna = y.coluna;";
                 break;
             default:
                 break;
@@ -98,6 +109,13 @@ public class DataBaseWindowController: MonoBehaviour
 
     void UpdateTable()
     {
+
+        if(tableData.Count > 499) {
+            throw new SqliteSyntaxException(message: "O numero de <color=red>LINHAS</color> execedeu o limite que pode ser exibido na tabela. Tente limitar o numero de linhas exibidas com aa clausulas <color=green>LIMIT</color> ou <color=green>WHERE</color>");
+        } else if(headerData.Count > 10)
+        {
+            throw new SqliteSyntaxException(message: "O numero de <color=red>COLUNAS</color> execedeu o limite que pode ser exibido na tabela. Tente selecionar colunas especificas no <color=green>SELECT</color>");
+        }
         //setup table
         table.Columns = headerData.Count;
         table.Rows = tableData.Count + 1;
@@ -160,15 +178,13 @@ public class DataBaseWindowController: MonoBehaviour
 
     private string Cast(string name, string type, IDataReader reader)
     {
-        switch(type)
+        switch (type)
         {
             case "date":
             case "datetime":
                 return ((DateTime)reader[name]).ToString();
-            case "integer":
-                return reader[name].ToString();
             default:
-                return (string)reader[name];
+                return reader[name].ToString();
         }
     }
 
@@ -187,6 +203,9 @@ public class DataBaseWindowController: MonoBehaviour
 
                 errorText.gameObject.SetActive(false);
                 this.scrollView.SetActive(true);
+
+                this.sqlHistory.Add(sqlQuery);
+                this.historyPosition = -1;
             }
             catch (SqliteSyntaxException e)
             {
@@ -204,6 +223,14 @@ public class DataBaseWindowController: MonoBehaviour
         if(msg.StartsWith("no such table:"))
         {
             return msg.Replace("no such table:", "Nenhuma tabela <color=red>") + "</color> encontrada";
+        }
+        if(Regex.Match(msg, @"near\s*"".+"":\s*syntax error").Success)
+        {
+            return "Erro de sintaxe próximo a <color=red>" + Regex.Match(msg, @""".+""").Value + "</color>";
+        }
+        if (Regex.Match(msg, @"incomplete\s+input").Success)
+        {
+            return "Comando SQL incompleto.";
         }
         return msg;
     }
@@ -247,8 +274,44 @@ public class DataBaseWindowController: MonoBehaviour
         return tuple.Item1;
     }
 
-    private void finishTutorial()
+    public void PreviousQuery()
+    {
+        if (this.sqlHistory.Count() == 0) return;
+        this.historyPosition = GetPosition(-1);
+        print(this.historyPosition);
+        this.queryInput.text = this.sqlHistory[this.historyPosition];
+    }
+
+    public void NextQuery()
+    {
+        if (this.sqlHistory.Count() == 0) return;
+        this.historyPosition = GetPosition(1);
+        print(this.historyPosition);
+        this.queryInput.text = this.sqlHistory[this.historyPosition];
+    }
+
+    private int GetPosition(int direction) 
+    {
+        if(direction == 0)  return this.historyPosition;
+
+        if(this.historyPosition == -1)
+        {
+            if (this.queryInput.text == this.sqlHistory[this.sqlHistory.Count() - 1]) return this.sqlHistory.Count() - 2;
+            return this.sqlHistory.Count() - 1;
+        }
+
+        direction = direction / Mathf.Abs(direction); //should receive 1 or -1
+        int position = this.historyPosition + direction;
+
+        if (position < 0) return 0;
+        if (position >= this.sqlHistory.Count()) return this.sqlHistory.Count() - 1;
+
+        return position;
+    }
+
+    private void FinishTutorial()
     {
         PlayerPrefs.SetInt("DBTutorialComplete", 1);
+        main.TutorialCompleted();
     }
 }

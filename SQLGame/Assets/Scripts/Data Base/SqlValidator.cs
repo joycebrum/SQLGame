@@ -18,7 +18,7 @@ public class SqlValidator
     {
         List<string> errors = new List<string>();
 
-        CheckRule(sql, @"[^;]$", errors, "O comando deve terminar com um <color=green>;</color>");
+        //CheckRule(sql, @"[^;]$", errors, "O comando deve terminar com um <color=green>;</color>");
         CheckRule(sql, @"(?i)^(?<select>select)\s+(?<columns>\*\s+(?:\w+,?)+)\s+from", errors, "Se for utilizado o <color=green>*</color> para retorno no select, nenhuma outra coluna deve ser listada");
 
         return errors;
