@@ -1,4 +1,4 @@
-INSERT INTO Funcionarios(id, endereco, bairro, cidade, estado) 
+INSERT INTO Localizacoes(id, endereco, bairro, cidade, estado) 
 VALUES
     (1, 'Rua Barão Reis', 'Botafogo', 'Rio de Janeiro', 'RJ'), 
     (2, 'Avenida Fabiana Nascimento', 'Botafogo', 'Rio de Janeiro', 'RJ'), 
