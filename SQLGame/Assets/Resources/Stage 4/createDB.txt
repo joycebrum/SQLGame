@@ -1,0 +1,35 @@
+CREATE TABLE IF NOT EXISTS Ligacoes( 
+  id INTEGER PRIMARY KEY,
+  nome VARCHAR(20), 
+  sobrenome VARCHAR(20),
+  dataHora DATETIME NOT NULL
+);
+DELETE FROM Ligacoes;
+
+CREATE TABLE IF NOT EXISTS HistoricoLigacoes(
+  idLigacao INTEGER NOT NULL,  
+  ordem INTEGER NOT NULL,
+  enunciador TEXT CHECK( enunciador IN ('Atendente','Delator') ) NOT NULL DEFAULT 'Atendente',
+  relato TEXT NOT NULL,
+  PRIMARY KEY(idLigacao,ordem),
+  FOREIGN KEY(idLigacao) REFERENCES Ligacoes(id)
+);
+DELETE FROM HistoricoLigacoes;
+
+CREATE TABLE IF NOT EXISTS Localizacoes(
+  id INTEGER,  
+  endereco VARCHAR(40) NOT NULL,
+  bairro VARCHAR(20) NOT NULL,
+  cidade VARCHAR(20) NOT NULL,
+  estado VARCHAR(2) NOT NULL,
+  PRIMARY KEY(id)
+);
+DELETE FROM Localizacoes;
+
+CREATE TABLE IF NOT EXISTS LocalizacaoTelefone(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  telefone VARCHAR(14) NOT NULL,
+  idLocalizacao INTEGER NOT NULL,
+  FOREIGN KEY(idLocalizacao) REFERENCES Localizacoes(id)
+);
+DELETE FROM LocalizacaoTelefone;
