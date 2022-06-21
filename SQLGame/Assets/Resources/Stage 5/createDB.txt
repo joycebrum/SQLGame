@@ -1,0 +1,55 @@
+CREATE TABLE IF NOT EXISTS Cargos(
+  id INTEGER NOT NULL,  
+  descricao VARCHAR(20),
+  importancia INTEGER NOT NULL
+);
+DELETE FROM Cargos;
+
+CREATE TABLE IF NOT EXISTS Policiais(
+  id INTEGER NOT NULL,  
+  nome VARCHAR(20),
+  sobrenome VARCHAR(20),
+  idCargo INTEGER NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY(idCargo) REFERENCES Cargos(id)
+);
+DELETE FROM Policiais;
+
+CREATE TABLE IF NOT EXISTS Ligacoes( 
+  id INTEGER PRIMARY KEY,
+  nome VARCHAR(20), 
+  sobrenome VARCHAR(20),
+  dataHora DATETIME NOT NULL
+);
+DELETE FROM Ligacoes;
+
+CREATE TABLE IF NOT EXISTS HistoricoLigacoes(
+  idLigacao INTEGER NOT NULL,  
+  ordem INTEGER NOT NULL,
+  enunciador TEXT CHECK( enunciador IN ('Atendente','Delator') ) NOT NULL DEFAULT 'Atendente',
+  relato TEXT NOT NULL,
+  PRIMARY KEY(idLigacao,ordem),
+  FOREIGN KEY(idLigacao) REFERENCES Ligacoes(id)
+);
+DELETE FROM HistoricoLigacoes;
+
+CREATE TABLE IF NOT EXISTS Contatos(
+  id INTEGER NOT NULL,  
+  nome VARCHAR(20),
+  apelido VARCHAR(20),
+  descricao VARCHAR(20),
+  PRIMARY KEY(id)
+);
+DELETE FROM Contatos;
+
+CREATE TABLE IF NOT EXISTS Mensagens(
+  id INTEGER NOT NULL,  
+  idContatoOrigem INTEGER NOT NULL,
+  idContatoDestino INTEGER NOT NULL,
+  data Date,
+  mensagem VARCHAR(100),
+  PRIMARY KEY(id),
+  FOREIGN KEY(idContatoOrigem) REFERENCES Contatos(id),
+  FOREIGN KEY(idContatoDestino) REFERENCES Contatos(id)
+);
+DELETE FROM Mensagens;
