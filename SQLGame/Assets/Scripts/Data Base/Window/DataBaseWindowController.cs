@@ -31,15 +31,19 @@ public class DataBaseWindowController: MonoBehaviour
 
     private List<string> sqlHistory = new List<string>();
     private int historyPosition = -1;
+    private LoadingController loadingController;
 
 
     private void Start()
     {
+        loadingController = gameObject.GetComponent<LoadingController>();
+
         if (tutorial.checkTutorial("DBTutorialComplete"))
         {
             tutorial.StartTutorial(FinishTutorial);
         }
         InitializeTableData();
+
     }
     public void DropdownValueChanged(Dropdown change)
     {
@@ -190,31 +194,43 @@ public class DataBaseWindowController: MonoBehaviour
 
     public void Search()
     {
+        this.scrollView.SetActive(false);
         string sqlQuery = queryInput.text.Trim();
 
         if(!String.IsNullOrEmpty(sqlQuery) && this.IsSqlValid(sqlQuery))
         {
-            try
-            {
-                this.ClearTableData();
-
-                this.GetDBValues(sqlQuery);
-                this.UpdateTable();
-
-                errorText.gameObject.SetActive(false);
-                this.scrollView.SetActive(true);
-
-                this.sqlHistory.Add(sqlQuery);
-                this.historyPosition = -1;
-            }
-            catch (SqliteSyntaxException e)
-            {
-                SetErrorMessage(translateErrorMessage(e.Message));
-            }
+            loadingController.StartLoading();
+            StartCoroutine(RunQuery(sqlQuery));
         }
+
     }
 
-    private string translateErrorMessage(string msg)
+    IEnumerator RunQuery(string sqlQuery)
+    {
+        yield return new WaitForSeconds(.1f);
+
+        try
+        {
+            this.ClearTableData();
+
+            this.GetDBValues(sqlQuery);
+            this.UpdateTable();
+
+            errorText.gameObject.SetActive(false);
+            this.scrollView.SetActive(true);
+
+            this.sqlHistory.Add(sqlQuery);
+            this.historyPosition = -1;
+        }
+        catch (SqliteSyntaxException e)
+        {
+            SetErrorMessage(TranslateErrorMessage(e.Message));
+        }
+
+        loadingController.EndLoading();
+    }
+
+    private string TranslateErrorMessage(string msg)
     {
         if(msg.StartsWith("no such column:"))
         {
