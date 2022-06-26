@@ -1,4 +1,4 @@
-6INSERT INTO Funcionarios(matricula, nome, sobrenome, telefone, dataDeNascimento, cargo, area, gerente, pode_mover_dinheiro, pode_acessar_recursos_restritos, pode_desligar_funcionarios) 
+INSERT INTO Funcionarios(matricula, nome, sobrenome, telefone, dataDeNascimento, cargo, area, gerente, pode_mover_dinheiro, pode_acessar_recursos_restritos, pode_desligar_funcionarios) 
 VALUES
     ('991', 'Carolina', 'Fernandes', '(44) 32338-4052', '1988-06-7', 'especialista', 'Atendentimento_ao_cliente', 'Ivan Bianca', FALSE, FALSE,FALSE),
     ('12187', 'Joyce', 'Freitas', '(82) 53761-8988', '1997-02-25', 'consultor', 'desenvolvimento', 'Rodrigo Cícero', FALSE, FALSE,FALSE),
