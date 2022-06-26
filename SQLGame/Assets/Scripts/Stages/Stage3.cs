@@ -69,7 +69,7 @@ public class Stage3 : Stage
                 )
             ),// 1
 
-            new ClueNote("Quem foi a segunda pessoa que mais mandou mensagem para Caio?", "Lucas Silveira foi a segunda pessoa que mais mandou mensagens para Caio Porto",
+            new ClueNote("Quem foi a segunda pessoa que mais mandou mensagem para Caio? (Suspeito A)", "Lucas Silveira foi a segunda pessoa que mais mandou mensagens para Caio Porto",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "11"),
@@ -78,7 +78,7 @@ public class Stage3 : Stage
                 )
             ),// 2
 
-            new ClueNote("Quem foi a terceira pessoa que mais mandou mensagem para Caio?", "Marcos Costa foi a terceira pessoa que mais mandou mensagens para Caio Porto",
+            new ClueNote("Quem foi a terceira pessoa que mais mandou mensagem para Caio? (Suspeito B)", "Marcos Costa foi a terceira pessoa que mais mandou mensagens para Caio Porto",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "9"),
@@ -87,7 +87,7 @@ public class Stage3 : Stage
                 )
             ),// 3
 
-            new ClueNote("Quem foi a pessoa que mais mandou mensagem para Caio?", "Felicia Castro foi a pessoa que mais mandou mensagens para Caio Porto",
+            new ClueNote("Quem foi a pessoa que mais mandou mensagem para Caio? (suspeito C)", "Felicia Castro foi a pessoa que mais mandou mensagens para Caio Porto",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "16"),
@@ -96,7 +96,7 @@ public class Stage3 : Stage
                 )
             ),// 4
 
-            new ClueNote("Qual seria o motivo de cada um dos suspeitos?", "O motivo da demissão de Lucas Silveira era dito como baixo rendimento",
+            new ClueNote("Qual seria o motivo da demissão do suspeito A?", "O motivo da demissão de Lucas Silveira era dito como baixo rendimento",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Lucas"),
@@ -106,7 +106,7 @@ public class Stage3 : Stage
                 )
             ),// 5
 
-            new ClueNote("Qual seria o motivo de cada um dos suspeitos?", "Marcos Costa mandou a mensagem \"Eu não acredito que você fez isso... minha mulher cara...\"",
+            new ClueNote("Qual motivo teria o suspeito B para matar Caio?", "Marcos Costa mandou a mensagem \"Eu não acredito que você fez isso... minha mulher cara...\"",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome_origem", "Marcos Costa"),
@@ -116,7 +116,7 @@ public class Stage3 : Stage
                 )
             ),// 6
 
-            new ClueNote("Qual seria o motivo de cada um dos suspeitos?", "O motivo da demissão de Felicia era dito como não declarado",
+            new ClueNote("Qual seria o motivo da demissão do suspeito C?", "O motivo da demissão de Felicia era dito como não declarado",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Felicia"),
@@ -127,7 +127,7 @@ public class Stage3 : Stage
                 )
             ),// 7
 
-            new ClueNote("Qual seria o motivo de cada um dos suspeitos?", "Felicia havia feito uma reclamação de assedio contra Caio Porto",
+            new ClueNote("Qual seria o real motivo da demissão do suspeito C?", "Felicia havia feito uma reclamação de assedio contra Caio Porto",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Felicia"),
@@ -137,7 +137,7 @@ public class Stage3 : Stage
                 )
             ),// 8
 
-            new ClueNote("Alguma mensagem do suspeito justificaria o assassinato?", "Felicia se ressentia de Caio Porto por sua demissão",
+            new ClueNote("algum suspeito acusou Caio de sua demissão?", "Felicia se ressentia de Caio Porto por sua demissão",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome_origem", "Felicia Castro"),

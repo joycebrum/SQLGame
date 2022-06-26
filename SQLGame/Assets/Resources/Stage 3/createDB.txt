@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS Desligamentos( 
 	matricula VARCHAR(10) NOT NULL,
-    nome VARCHAR(20) NOT NULL, 
+    	nome VARCHAR(20) NOT NULL, 
 	sobrenome VARCHAR(20),
-    data_entrada DATE, 
-    data_saida DATE,
+    	data_admissao DATE, 
+    	data_demissao DATE,
 	motivo_desligamento VARCHAR(20),
    	PRIMARY KEY(matricula)
 );
@@ -11,22 +11,22 @@ DELETE FROM Desligamentos;
 
 CREATE TABLE IF NOT EXISTS Incidentes( 
 	id VARCHAR(10) NOT NULL,
-    nome VARCHAR(20), 
+    	nome VARCHAR(20), 
 	sobrenome VARCHAR(20),
-    nível VARCHAR(20), 
-    reclamação VARCHAR(20),
+    	nível VARCHAR(20), 
+    	reclamação VARCHAR(20),
    	PRIMARY KEY(id)
 );
 DELETE FROM Incidentes;
 
 CREATE TABLE IF NOT EXISTS Mensagens( 
 	id VARCHAR(10) NOT NULL,
-    telefone_de_origem VARCHAR(20), 
+   	telefone_de_origem VARCHAR(20), 
 	telefone_de_destino VARCHAR(20),
-    nome_origem VARCHAR(20), 
+    	nome_origem VARCHAR(20), 
 	nome_destino VARCHAR(20),
-    data DATE, 
-    mensagem VARCHAR(20),
+    	data DATE, 
+    	mensagem VARCHAR(20),
    	PRIMARY KEY(id)
 );
 DELETE FROM Mensagens;

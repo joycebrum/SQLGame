@@ -182,6 +182,7 @@ public class DataBaseWindowController: MonoBehaviour
 
     private string Cast(string name, string type, IDataReader reader)
     {
+        if (reader[name] == null) return "";
         switch (type)
         {
             case "date":
