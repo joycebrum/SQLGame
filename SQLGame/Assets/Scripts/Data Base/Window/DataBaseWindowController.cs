@@ -185,8 +185,9 @@ public class DataBaseWindowController: MonoBehaviour
         switch (type)
         {
             case "date":
+                return ((DateTime)reader[name]).ToString("yyyy-MM-dd");
             case "datetime":
-                return ((DateTime)reader[name]).ToString();
+                return ((DateTime)reader[name]).ToString("yyyy-MM-dd HH:mm:ss");
             default:
                 return reader[name].ToString();
         }
