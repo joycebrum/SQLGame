@@ -1,0 +1,47 @@
+Fase 0
+===========
+Resposta:
+- select * from Funcionarios where matricula = 13;
+- select * from Gastos where id = 13;
+
+Fase 1
+===========
+
+Dica: 
+- select * from AcessoLaboratorios where matriculaAluno = 152354;
+
+resposta:
+
+- select * from Alunos where matricula = 152354;
+- select * from controleSegurancas where id = 138;
+- select * from controleSegurancas where id = 136;
+- select * from controleSegurancas where id = 107;
+- select * from acessoLaboratorios where id = 205;
+- select * from acessoLaboratorios where id = 220;
+- select * from acessoLaboratorios where id = 234;
+
+Fase 2
+============
+select * from Funcionarios;
+
+dica:
+- select matricula, nome, sobrenome, pode_acessar_recursos_restritos from Funcionarios where pode_acessar_recursos_restritos = 1;
+- select matricula, nome, sobrenome from Funcionarios where nome = 'Pedro'; (21899)
+- select matricula, nome, sobrenome from Funcionarios where nome = 'Lucas'; (26548)
+- select matricula, nome, sobrenome from Funcionarios where nome = 'Paulo'; (22354)
+- select nome, sobrenome from Funcionarios where pode_acessar_recursos_restritos = 1;
+
+Resposta:
+- select sum(valor) as soma from receita where mes_referencia = 5;
+- select sum(valor) as soma from Gastos where mes_referencia = 5;
+- select nome, sobrenome, pode_acessar_recursos_restritos from Funcionarios where nome = 'Paulo' and sobrenome = 'Pinho';
+- select nome, sobrenome, pode_acessar_recursos_restritos from Funcionarios where nome = 'Pedro' and sobrenome = 'Lima';
+- select * from Dados_da_empresa where ano = 2022;
+- select nome_responsavel, sobrenome_responsavel, count(id) from Gastos where mes_referencia = 5 and nome_responsavel = 'Paulo' and sobrenome_responsavel = 'Pinho';
+- select nome_responsavel, sobrenome_responsavel, count(id) from Gastos where mes_referencia = 5 and nome_responsavel = 'Pedro' and sobrenome_responsavel = 'Lima';
+- select nome_responsavel, sobrenome_responsavel, sum(valor) from Gastos where matricula_responsavel = 21899;
+- select nome_responsavel, sobrenome_responsavel, sum(valor) from Gastos where matricula_responsavel = 26548;
+- select nome_responsavel, sobrenome_responsavel, sum(valor) from Gastos where matricula_responsavel = 22354;
+
+Fase 3
+=============
