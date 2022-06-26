@@ -45,3 +45,22 @@ Resposta:
 
 Fase 3
 =============
+select * from Mensagens;
+select * from Desligamentos;
+select * from Incidentes;
+
+Dicas:
+- select * from Mensagens where telefone_de_origem = '(21)123456789' or telefone_de_destino = '(21)123456789'
+
+
+Respostas:
+- select * from Incidentes where id = 6
+- select * from Mensagens where id = 272
+- select * from Mensagens where id = 292
+- select * from (select nome_origem, count(mensagem) from Mensagens group by telefone_de_origem) where nome_origem = 'Felicia Castro'
+- select * from (select nome_origem, count(mensagem) from Mensagens group by telefone_de_origem) where nome_origem = 'Marcos Costa'
+- select * from (select nome_origem, count(mensagem) from Mensagens group by telefone_de_origem) where nome_origem = 'Lucas Silveira'
+- select * from Desligamentos where matricula = 30012
+- select * from Desligamentos where nome = 'Felicia'
+- select * from Mensagens where id = 262
+- select * from Mensagens where id = 211
