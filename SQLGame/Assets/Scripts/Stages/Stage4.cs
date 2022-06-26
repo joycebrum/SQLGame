@@ -89,7 +89,7 @@ public class Stage4 : Stage
             new ClueNote("Tendo o número, encontre sua localização", "O telefone (21) 96666-9112 está na Travessa Juliana Andrade, em Lins de Vasconcelos, Rio de Janeiro",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier("telefone", "(21) 96666-9112"),
+                        new ClueIdentifier("telefone", @"\(21\) 96666-9112"),
                         new ClueIdentifier("endereco", "Travessa Juliana Andrade"),
                         new ClueIdentifier("bairro", "Lins de Vasconcelos"),
                         new ClueIdentifier("cidade", "Rio de Janeiro"),

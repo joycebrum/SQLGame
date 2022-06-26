@@ -64,3 +64,17 @@ Respostas:
 - select * from Desligamentos where nome = 'Felicia'
 - select * from Mensagens where id = 262
 - select * from Mensagens where id = 211
+
+Fase 4:
+==============
+966669112
+select * from LocalizacaoTelefone where telefone  = '(21) 966669112'
+Dicas:
+- SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131
+- select * from LocalizacaoTelefone where telefone  = '(21) 96666-9112'
+
+Respostas:
+- SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131 and ordem=4;
+- SELECT * FROM Localizacoes l JOIN localizacaoTelefone lt ON l.id = lt.idLocalizacao where telefone  = '(21) 96666-9112'
+
+
