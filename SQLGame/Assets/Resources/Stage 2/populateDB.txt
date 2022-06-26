@@ -1,4 +1,4 @@
-INSERT INTO Funcionarios(matricula, nome, sobrenome, telefone, dataDeNascimento, cargo, area, gerente, pode_mover_dinheiro, pode_acessar_recursos_restritos, pode_desligar_funcionarios) 
+6INSERT INTO Funcionarios(matricula, nome, sobrenome, telefone, dataDeNascimento, cargo, area, gerente, pode_mover_dinheiro, pode_acessar_recursos_restritos, pode_desligar_funcionarios) 
 VALUES
     ('991', 'Carolina', 'Fernandes', '(44) 32338-4052', '1988-06-7', 'especialista', 'Atendentimento_ao_cliente', 'Ivan Bianca', FALSE, FALSE,FALSE),
     ('12187', 'Joyce', 'Freitas', '(82) 53761-8988', '1997-02-25', 'consultor', 'desenvolvimento', 'Rodrigo Cícero', FALSE, FALSE,FALSE),
@@ -251,7 +251,7 @@ VALUES
     ('2325', 'Gustavo', 'Rocha', '(75) 67777-5370', '1990-04-21', 'consultor', 'RH', 'Suelen Cícero', FALSE, FALSE,TRUE),
     ('14763', 'Patrício', 'Luna', '(98) 58432-1009', '1981-05-12', 'coordenador', 'logística', 'Ester Adriana', FALSE, FALSE,FALSE),
     ('7925', 'Hugo', 'Moreira', '(93) 2363-8555', '1989-05-20', 'estágiario', 'juridico', 'Kerolin Everton', FALSE, FALSE,FALSE),
-    ('14467', 'Pedro', 'Lima', '(16) 32598-7487', '1996-10-1', 'dev_ops', 'Atendentimento_ao_cliente', 'Barney Felipe', FALSE, FALSE,FALSE),
+    ('14467', 'João', 'Lima', '(16) 32598-7487', '1996-10-1', 'dev_ops', 'Atendentimento_ao_cliente', 'Barney Felipe', FALSE, FALSE,FALSE),
     ('6618', 'Natália', 'Vieira', '(16) 93181-6080', '1968-02-10', 'especialista', 'Atendentimento_ao_cliente', 'Bob Eduardo', FALSE, FALSE,FALSE),
     ('14212', 'Patrícia', 'Batista', '(53) 10963-3905', '1976-07-11', 'consultor', 'desenvolvimento', 'Gustavo Cícero', FALSE, FALSE,FALSE),
     ('11214', 'Carolina', 'Gonçalves', '(15) 22132-5425', '1964-03-1', 'motorista', 'logística', 'Ivone Camila', FALSE, FALSE,FALSE),

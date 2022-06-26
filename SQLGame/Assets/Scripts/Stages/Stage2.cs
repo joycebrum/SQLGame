@@ -34,10 +34,10 @@ public class Stage2 : Stage
             new ClueSolution("Valor de R$ 1.300.000,00 reais de diferença nos gastos da empresa"), // 3
         };
 
-        tempList[0].AddSolutionParts(new List<SolutionPart> { this.clueNotes[0], this.clueNotes[1], this.clueNotes[2] });
-        tempList[1].AddSolutionParts(new List<SolutionPart> { this.clueNotes[3], this.clueNotes[4], this.clueNotes[5] });
-        tempList[2].AddSolutionParts(new List<SolutionPart> { this.clueNotes[6], this.clueNotes[7], this.clueNotes[8] });
-        tempList[3].AddSolutionParts(new List<SolutionPart> { this.clueNotes[9], this.clueNotes[10] });
+        tempList[0].AddSolutionParts(new List<SolutionPart> { this.clueNotes[0], this.clueNotes[1]});
+        tempList[1].AddSolutionParts(new List<SolutionPart> { this.clueNotes[2], this.clueNotes[3], this.clueNotes[4] });
+        tempList[2].AddSolutionParts(new List<SolutionPart> { this.clueNotes[5], this.clueNotes[6], this.clueNotes[7] });
+        tempList[3].AddSolutionParts(new List<SolutionPart> { this.clueNotes[8], this.clueNotes[9]});
 
         return tempList;
     }
@@ -46,29 +46,25 @@ public class Stage2 : Stage
     {
         return new List<ClueNote>
         {
-            new ClueNote("Verifique quantos usuários tinham permissão para utilizar recursos restritos", "Apenas 11 usuários tinham permissão de realizar transferências extraordinárias para contas de pessoas",
+            new ClueNote("Veja quais funcionários relevantes podiam utilizar recursos restritos", "Paulo Pinho tinha permissão de realizar transferências extraordinárias com recursos restritos",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier("nome", "Paulo"),
+                        new ClueIdentifier("sobrenome", "Pinho"),
+                        new ClueIdentifier("pode_acessar_recursos_restritos", "1")
                     }
                 )
-            ), // 0
+            ),// 0
 
-            new ClueNote("Veja quais usuários utilizaram recursos restritos", "Paulo Pinho já havia utilizado recursos restritos",
+            new ClueNote("Veja quais funcionários relevantes podiam utilizar recursos restritos", "Pedro Lima tinha permissão de realizar transferências extraordinárias com recursos restritos",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier("coluna", "valor")
+                        new ClueIdentifier("nome", "Pedro"),
+                        new ClueIdentifier("sobrenome", "Lima"),
+                        new ClueIdentifier("pode_acessar_recursos_restritos", "1")
                     }
                 )
             ),// 1
-
-            new ClueNote("Veja quais usuários utilizaram recursos restritos", "Pedro Lima já havia utilizado recursos restritos",
-                new Clue(new List<ClueIdentifier>
-                    {
-                        new ClueIdentifier("coluna", "valor")
-                    }
-                )
-            ),// 2
 
             
             new ClueNote("Verfique o limite de transações por mês", "O limite é de 10 transações extraordinárias por mês",
@@ -78,9 +74,9 @@ public class Stage2 : Stage
                         new ClueIdentifier(@"Transacoes[_\s]*por[_\s]*funcionario", "10")
                     }
                 )
-            ),// 3
+            ),// 2
             
-            new ClueNote("Quantas transações no mês (maio) os usuários suspeitos fizeram", "Paulo Pinho fez 12 transações no mês de Maio",
+            new ClueNote("Quantas transações no mês (maio) os usuários suspeitos fizeram (nome e quantidade)", "Paulo Pinho fez 12 transações no mês de Maio",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "12"),
@@ -88,9 +84,9 @@ public class Stage2 : Stage
                         new ClueIdentifier("sobrenome", "Pinho")
                     }
                 )
-            ),// 4
+            ),// 3
             
-            new ClueNote("Quantas transações no mês (maio) os usuários suspeitos fizeram", "Pedro Lima fez 7 transações no mês de Maio",
+            new ClueNote("Quantas transações no mês (maio) os usuários suspeitos fizeram (nome e quantidade)", "Pedro Lima fez 7 transações no mês de Maio",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "7"),
@@ -98,9 +94,9 @@ public class Stage2 : Stage
                         new ClueIdentifier("sobrenome", "Lima")
                     }
                 )
-            ),// 5
+            ),// 4
             
-            new ClueNote("Quanto dinheiro da empresa os funcionários gastaram?", "Paulo gastou R$ 1.300.000,00 reais da empresa no mês de Maio",
+            new ClueNote("Quanto dinheiro da empresa os funcionários gastaram? (nome e valor)", "Paulo gastou R$ 1.300.000,00 reais da empresa no mês de Maio",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "1300000"),
@@ -108,9 +104,9 @@ public class Stage2 : Stage
                         new ClueIdentifier("sobrenome", "Pinho")
                     }
                 )
-            ),// 6
+            ),// 5
             
-            new ClueNote("Quanto dinheiro da empresa os funcionários gastaram?", "Pedro Lima gastou R$ 1.300.000,00 reais da empresa no mês de Maio",
+            new ClueNote("Quanto dinheiro da empresa os funcionários gastaram? (nome e valor)", "Pedro Lima gastou R$ 1.300.000,00 reais da empresa no mês de Maio",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "1300000"),
@@ -118,9 +114,9 @@ public class Stage2 : Stage
                         new ClueIdentifier("sobrenome", "Lima")
                     }
                 )
-            ),// 7
+            ),// 6
             
-            new ClueNote("Quanto dinheiro da empresa os funcionários gastaram?", "Lucas Souza gastou R$ 1.300.000,00 reais da empresa no mês de Maio",
+            new ClueNote("Quanto dinheiro da empresa os funcionários gastaram? (nome e valor)", "Lucas Souza gastou R$ 1.300.000,00 reais da empresa no mês de Maio",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "1300000"),
@@ -128,7 +124,7 @@ public class Stage2 : Stage
                         new ClueIdentifier("sobrenome", "Souza")
                     }
                 )
-            ),// 8
+            ),// 7
             
             new ClueNote("Verifique a receita da empresa no mês de maio", "A receita da empresa no mês de Maio foi de R$ 210.345.948,00 reais",
                 new Clue(new List<ClueIdentifier>
@@ -136,7 +132,7 @@ public class Stage2 : Stage
                         new ClueIdentifier(null, "210345948")
                     }
                 )
-            ),// 9
+            ),// 8
             
             new ClueNote("Verifique os gastos da empresa no mês de maio", "O gastos da empresa no mês de Maio foram de R$ 214.245.948,00 reais",
                 new Clue(new List<ClueIdentifier>
@@ -144,7 +140,7 @@ public class Stage2 : Stage
                         new ClueIdentifier(null, "214245948")
                     }
                 )
-            ),// 10
+            ),// 9
         };
     }
 
