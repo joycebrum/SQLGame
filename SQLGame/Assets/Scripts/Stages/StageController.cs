@@ -52,22 +52,24 @@ public class StageController : MonoBehaviour
     public void NextStage()
     {
         main.StageDisableButtons();
+        ReleaseChats(currentStage.ChatToBeReleasedOnEnd());
         currentStageIndex++;
-        if (stages.Count == currentStageIndex)
-        {
-            currentStage.FinishGame();
-        } else
-        {
+
+        if (stages.Count < currentStageIndex) { 
             currentStage = stages[currentStageIndex];
             UpdateStageData();
             main.SetupStage(currentStageIndex: currentStageIndex);
+            StartStage();
         }
-        StartStage();
     }
 
     public void StartStage()
     {
-        ChatEnum[] chatsToBeReleased = currentStage.ChatToBeReleasedOnStart();
+        ReleaseChats(currentStage.ChatToBeReleasedOnStart());
+    }
+
+    private void ReleaseChats(ChatEnum[] chatsToBeReleased)
+    {
         foreach (ChatEnum chatTobeRelesead in chatsToBeReleased)
         {
             main.ReleaseChat(chatTobeRelesead);

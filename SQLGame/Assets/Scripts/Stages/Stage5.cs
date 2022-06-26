@@ -54,4 +54,9 @@ public class Stage5 : Stage
     {
         return new ChatEnum[1] { ChatEnum.patrocinio };
     }
+
+    public override ChatEnum[] ChatToBeReleasedOnEnd()
+    {
+        return new ChatEnum[1] { ChatEnum.patrocinio };
+    }
 }
