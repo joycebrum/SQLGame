@@ -67,7 +67,7 @@ Respostas:
 
 Fase 4:
 ==============
-966669112
+
 select * from LocalizacaoTelefone where telefone  = '(21) 966669112'
 Dicas:
 - SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131
@@ -75,6 +75,20 @@ Dicas:
 
 Respostas:
 - SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131 and ordem=4;
+- SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131 and ordem=2;
+- SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131 and ordem=8;
 - SELECT * FROM Localizacoes l JOIN localizacaoTelefone lt ON l.id = lt.idLocalizacao where telefone  = '(21) 96666-9112'
+- select Month, count(idLigacao)
+   from (select strftime('%m', dataHora) as month, idLigacao, enunciador, relato from (SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where relato like '%miliciano%'))
+   group by Month
+   having Month = '04'
+
+- SELECT count(*) * 100.0 / (select count(*) from Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao)
+   FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao 
+   where relato like '%xx%'
+
+- SELECT count(distinct id) * 100.0 / (select count(distinct id) from Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where relato like '%miliciano%') as count
+   FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao
+   where relato like '%xx%' and relato like '%miliciano%'
 
 

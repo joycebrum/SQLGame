@@ -28,7 +28,7 @@ public class Stage4 : Stage
     {
         List<ClueSolution> tempList = new List<ClueSolution>
         {
-            new ClueSolution("Além de ter um aumento de denúncias de ação de milicianos, X% dessas denúncias estão censuradas fazendo ser impossível chegar no culpado"),// 0
+            new ClueSolution("Além de ter um aumento de denúncias de ação de milicianos, 50% dessas denúncias estão censuradas fazendo ser impossível chegar no culpado"),// 0
             new ClueSolution("Helena Peres tinha problemas com milicianos que tinham certo poder dentro da polícia"),// 1
             new ClueSolution("O telefone de Helena está na Travessa Juliana Andrade, em Lins de Vasconcelos, Rio de Janeiro."),// 2
         };
@@ -52,10 +52,10 @@ public class Stage4 : Stage
                     }
                 )
             ), // 0
-            new ClueNote("Qual porcentagem de denúncias semelhantes a de Helena está censurada?", "44% das denúncias dos milicianos estão censuradas",
+            new ClueNote("Qual porcentagem de denúncias semelhantes a de Helena está censurada?", "50% das denúncias dos milicianos estão censuradas",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "44,82"),
+                        new ClueIdentifier(null, "50"),
                     }
                 )
             ), // 1
@@ -68,12 +68,12 @@ public class Stage4 : Stage
                     }
                 )
             ), // 2
-            new ClueNote("Helena relatou alguma situação suspeita para a polícia", "A atendente pareceu nervosa ao ouvir o nome censurado e aconselhou Helena a não se envolver",
+            new ClueNote("Houve alguma reação suspeita por parte da atendente no relat de Helena?", "A atendente pareceu nervosa ao ouvir o nome censurado e aconselhou Helena a não se envolver",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Helena"),
                         new ClueIdentifier("sobrenome", "Peres"),
-                        new ClueIdentifier("relato", @"XXX?! Você não deveria se meter com ele")
+                        new ClueIdentifier("relato", @"XXX\?! Você não deveria se meter com ele")
                     }
                 )
             ), // 3
