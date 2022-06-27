@@ -55,7 +55,7 @@ public class StageController : MonoBehaviour
         ReleaseChats(currentStage.ChatToBeReleasedOnEnd());
         currentStageIndex++;
 
-        if (stages.Count < currentStageIndex) { 
+        if (currentStageIndex < stages.Count) { 
             currentStage = stages[currentStageIndex];
             UpdateStageData();
             main.SetupStage(currentStageIndex: currentStageIndex);

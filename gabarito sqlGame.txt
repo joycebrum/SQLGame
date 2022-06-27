@@ -2,7 +2,7 @@ Fase 0
 ===========
 Resposta:
 - select * from Funcionarios where matricula = 13;
-- select * from Gastos where id = 13;
+- select * from Gastos where matricula = 13;
 
 Fase 1
 ===========
@@ -13,12 +13,13 @@ Dica:
 resposta:
 
 - select * from Alunos where matricula = 152354;
-- select * from controleSegurancas where id = 138;
-- select * from controleSegurancas where id = 136;
-- select * from controleSegurancas where id = 107;
-- select * from acessoLaboratorios where id = 205;
-- select * from acessoLaboratorios where id = 220;
-- select * from acessoLaboratorios where id = 234;
+- select * from ControleSegurancas where entrada = '2022-04-18 13:07:15';
+- select * from ControleSegurancas where entrada = '2022-04-22 13:07:15'; 
+- select * from ControleSegurancas where entrada = '2022-04-23 13:14:20';
+- select * from AcessoLaboratorios where nomeAluno = 'Caio' and sobrenomeAluno = 'Bezerra'  and entrada = '2022-04-21 13:20:07';
+- select * from AcessoLaboratorios where nomeAluno = 'Caio' and sobrenomeAluno = 'Bezerra'  and entrada = '2022-04-22 13:50:44';
+- select * from AcessoLaboratorios where nomeAluno = 'Caio' and sobrenomeAluno = 'Bezerra'  and entrada = '2022-04-23 12:59:01';
+
 
 Fase 2
 ============
@@ -82,10 +83,6 @@ Respostas:
    from (select strftime('%m', dataHora) as month, idLigacao, enunciador, relato from (SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where relato like '%miliciano%'))
    group by Month
    having Month = '04'
-
-- SELECT count(*) * 100.0 / (select count(*) from Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao)
-   FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao 
-   where relato like '%xx%'
 
 - SELECT count(distinct id) * 100.0 / (select count(distinct id) from Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where relato like '%miliciano%') as count
    FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao

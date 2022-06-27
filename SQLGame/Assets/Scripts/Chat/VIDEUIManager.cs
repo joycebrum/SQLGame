@@ -164,7 +164,7 @@ public class VIDEUIManager : MonoBehaviour
             yield return new WaitForSeconds(0f);
         } else
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(0f);
         }
         ShowNPCText();
     }
