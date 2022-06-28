@@ -2947,8 +2947,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae78c17e8c49b0d4e8a69b9d27741134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clueControllers: []
-  solutionControllers: []
+  clueControllers:
+  - {fileID: 590522242}
+  - {fileID: 1610259624}
+  - {fileID: 739208971}
+  - {fileID: 818321810}
+  - {fileID: 78302311}
+  - {fileID: 1831331945}
+  - {fileID: 1831331944}
+  - {fileID: 215388020}
+  - {fileID: 1928300276}
+  - {fileID: 969738587}
+  solutionControllers:
+  - {fileID: 1057761790}
+  - {fileID: 1831331942}
+  - {fileID: 434022357}
+  - {fileID: 2121077809}
+  - {fileID: 1885836191}
   finalSolutionController: {fileID: 1831331941}
   dbController: {fileID: 1511265477}
   introName: {fileID: 1196333122}
