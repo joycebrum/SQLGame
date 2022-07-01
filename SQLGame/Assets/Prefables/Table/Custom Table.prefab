@@ -2985,6 +2985,12 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Mais de uma tabela
       m_Image: {fileID: 0}
+    - m_Text: Busca trecho de palavra
+      m_Image: {fileID: 0}
+    - m_Text: Contar valores distintos
+      m_Image: {fileID: 0}
+    - m_Text: Filtrar por valor agregado (Having)
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6206,7 +6212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 428.5155, y: -0.000061035156}
+  m_AnchoredPosition: {x: 428.6405, y: -0.000061035156}
   m_SizeDelta: {x: 544, y: 250.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8784764962389589907
@@ -7289,7 +7295,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8784764963645478286}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.990082
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

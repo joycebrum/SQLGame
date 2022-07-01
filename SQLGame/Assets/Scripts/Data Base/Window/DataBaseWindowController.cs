@@ -51,19 +51,28 @@ public class DataBaseWindowController: MonoBehaviour
         {
             case 0: break;
             case 1:
-                queryInput.text = "SELECT * FROM NomeDaTabela;";
+                queryInput.text = "SELECT * FROM NomeDaTabela";
                 break;
             case 2:
-                queryInput.text = "SELECT coluna1, coluna2 FROM tabela;";
+                queryInput.text = "SELECT coluna1, coluna2 FROM tabela";
                 break;
             case 3:
-                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor;";
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor";
                 break;
             case 4:
-                queryInput.text = "SELECT * FROM NomeDaTabela WHERE colunaData > 'AAAA-MM-DD' and colunaData < 'AAAA-MM-DD';";
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE colunaData > 'AAAA-MM-DD' and colunaData < 'AAAA-MM-DD'";
                 break;
             case 5:
-                queryInput.text = "SELECT * FROM PrimeiraTabela x JOIN SegundaTabela y ON x.coluna = y.coluna;";
+                queryInput.text = "SELECT * FROM PrimeiraTabela x JOIN SegundaTabela y ON x.coluna = y.coluna";
+                break;
+            case 6:
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna like '%valor%'";
+                break;
+            case 7:
+                queryInput.text = "SELECT COUNT(DISTINCT coluna) FROM NomeDaTabela";
+                break;
+            case 8:
+                queryInput.text = "SELECT COUNT(DISTINCT coluna) FROM NomeDaTabela HAVING COUNT(DISTINCT coluna) > 5";
                 break;
             default:
                 break;
