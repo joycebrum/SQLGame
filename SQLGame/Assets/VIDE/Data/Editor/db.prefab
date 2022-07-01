@@ -43,196 +43,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 268dc70b105993846a123be43345df63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileIndex: 1
+  fileIndex: 2
   skinIndex: 2
   loadTag: 
-  startID: 25
-  curFocusID: 25
-  currentID: 65145
+  startID: 0
+  curFocusID: 0
+  currentID: 9490
   autosave: 1
   previewPanning: 0
-  currentDiag: 1
+  currentDiag: 2
   locEdit: 0
   pNodeID: 18
   aNodeID: 2
   S_playerDiags:
   - commentCount: 1
     s_comment:
-    - text: "Ah, #{player} que bom poder falar com voc\xEA"
+    - text: "Poxa, \xE9 uma pena"
       extraData: ExtraData
       inputSetIndex: 0
-      outputNodeIndex: 1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 33
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 0
-    rect:
-      serializedVersion: 2
-      x: -200
-      y: 770
-      width: 348
-      height: 141.6
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 2
-    s_comment:
-    - text: "N\xE3o t\xF4 a fim de trote"
-      extraData: 
-      inputSetIndex: 1
-      outputNodeIndex: 3
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: "Quem \xE9 voc\xEA?"
-      extraData: 
-      inputSetIndex: 1
-      outputNodeIndex: 2
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 300
-        y: 90
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 1
-    rect:
-      serializedVersion: 2
-      x: 340
-      y: 730
-      width: 348
-      height: 305
-    pTag: Player
-    expand: 1
-    sprite: {fileID: 0}
-    vars:
-    - "N\xE3o t\xF4 a fim de receber trote hoje, obrigado"
-    - "Como Assim? Quem \xE9 voc\xEA?"
-    varKeys:
-    - 0
-    - 1
-    isPlayer: 1
-  - commentCount: 2
-    s_comment:
-    - text: "Ah, verdade, humanos come\xE7am se apresentando. Sou #{npc}, muito prazer."
-      extraData: ExtraData
-      inputSetIndex: 2
-      outputNodeIndex: 4
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 47
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: E eu preciso da sua ajuda.
-      extraData: ExtraData
-      inputSetIndex: 2
       outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 2
-    rect:
-      serializedVersion: 2
-      x: 810
-      y: 860
-      width: 348
-      height: 181
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 2
-    s_comment:
-    - text: "Trote? N\xE3o creio que essa conversa se caracterize como um. De qualquer
-        forma, sou #{npc}, prazer."
-      extraData: ExtraData
-      inputSetIndex: 3
-      outputNodeIndex: 4
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 61
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: E eu preciso da sua ajuda.
-      extraData: ExtraData
-      inputSetIndex: 3
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 3
-    rect:
-      serializedVersion: 2
-      x: 810
-      y: 630
-      width: 348
-      height: 195.4
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 2
-    s_comment:
-    - text: Que tipo de ajuda?
-      extraData: ExtraData
-      inputSetIndex: 4
-      outputNodeIndex: 6
-      outActionIndex: -1
+      outActionIndex: 0
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -243,361 +73,14 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: Por que eu ajudaria?
-      extraData: ExtraData
-      inputSetIndex: 4
-      outputNodeIndex: 5
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 300
-        y: 90
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 4
+    ID: 14
     rect:
       serializedVersion: 2
-      x: 1290
-      y: 680
-      width: 348
-      height: 305
-    pTag: Player
-    expand: 1
-    sprite: {fileID: 0}
-    vars:
-    - Ajuda? Que tipo de ajuda?
-    - E por que eu ajudaria?
-    varKeys:
-    - 0
-    - 1
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: "Porque eu sei que voc\xEA n\xE3o recusaria."
-      extraData: ExtraData
-      inputSetIndex: 5
-      outputNodeIndex: 6
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 33
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 5
-    rect:
-      serializedVersion: 2
-      x: 1770
-      y: 990
-      width: 348
-      height: 141.6
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 4
-    s_comment:
-    - text: "Isso ainda est\xE1 sendo mantido em segredo, mas houve um crime no campus."
-      extraData: ExtraData
-      inputSetIndex: 6
-      outputNodeIndex: 7
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 47
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: "Todos os computadores do laborat\xF3rio foram roubados."
-      extraData: ExtraData
-      inputSetIndex: 6
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: "Apenas desapareceram, mesmo com toda a seguran\xE7a."
-      extraData: ExtraData
-      inputSetIndex: 6
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: "Eu consegui acesso ao banco de dados da Universidade, mas eu n\xE3o
-        tenho ainda a capacidade cognitiva de tirar conclus\xF5es com ela."
-      extraData: ExtraData
-      inputSetIndex: 6
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 6
-    rect:
-      serializedVersion: 2
-      x: 2150
-      y: 610
-      width: 348
-      height: 300
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: "Do que est\xE1 falando?"
-      extraData: ExtraData
-      inputSetIndex: 7
-      outputNodeIndex: 8
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 7
-    rect:
-      serializedVersion: 2
-      x: 2650
-      y: 670
-      width: 348
-      height: 255
-    pTag: Player
-    expand: 1
-    sprite: {fileID: 0}
-    vars:
-    - "Ei garota, espera! Como diabos voc\xEA conseguiu meu numero e cogni-oque?"
-    varKeys:
-    - 0
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: "Agrade\xE7o pelo garota, mas n\xE3o sou isso que voc\xEA me chamou.
-        Sou uma inteligencia artificial. Por isso tirar conclus\xF5es sobre esses
-        dados \xE9 uma tarefa fora do meu escopo."
-      extraData: ExtraData
-      inputSetIndex: 8
-      outputNodeIndex: 9
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 90
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 8
-    rect:
-      serializedVersion: 2
-      x: 3190
-      y: 720
-      width: 348
-      height: 199.2
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: "Uma IA?! At\xE9 parece"
-      extraData: ExtraData
-      inputSetIndex: 9
-      outputNodeIndex: 10
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 9
-    rect:
-      serializedVersion: 2
-      x: 3710
-      y: 730
-      width: 348
-      height: 255
-    pTag: 
-    expand: 1
-    sprite: {fileID: 0}
-    vars:
-    - "A IA que baixei para me ajudar no projeto?! At\xE9 parece!"
-    varKeys:
-    - 0
-    isPlayer: 1
-  - commentCount: 2
-    s_comment:
-    - text: "Imagino que pare\xE7a mesmo, apesar de achar que voc\xEA deve ter feito
-        uso daquela figura de linguagem que os jovens gostam."
-      extraData: ExtraData
-      inputSetIndex: 10
-      outputNodeIndex: 11
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 61
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: "Deboche, o nome. Enfim, voc\xEA n\xE3o perde nada em ajudar e pode acabar
-        obtendo reconhecimento depois."
-      extraData: ExtraData
-      inputSetIndex: 10
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 10
-    rect:
-      serializedVersion: 2
-      x: 4230
-      y: 720
-      width: 348
-      height: 232.8
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 2
-    s_comment:
-    - text: "OK, voc\xEA me convenceu."
-      extraData: ExtraData
-      inputSetIndex: 11
-      outputNodeIndex: 13
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: "OK, ent\xE3o pare de me encher"
-      extraData: ExtraData
-      inputSetIndex: 11
-      outputNodeIndex: 12
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 300
-        y: 90
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 11
-    rect:
-      serializedVersion: 2
-      x: 4710
-      y: 760
-      width: 348
-      height: 305
-    pTag: Player
-    expand: 1
-    sprite: {fileID: 0}
-    vars:
-    - "OK, voc\xEA me convenceu."
-    - "Me parece que voc\xEA vai continuar enxendo o meu saco se eu recusar mesmo."
-    varKeys:
-    - 0
-    - 1
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: Precisamente
-      extraData: ExtraData
-      inputSetIndex: 12
-      outputNodeIndex: 13
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 12
-    rect:
-      serializedVersion: 2
-      x: 5160
-      y: 1030
+      x: 5710
+      y: 140
       width: 348
       height: 133
-    pTag: IA
+    pTag: 
     expand: 0
     sprite: {fileID: 0}
     vars: []
@@ -605,10 +88,10 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: Como acesso isso?
+    - text: "N\xE3o"
       extraData: ExtraData
-      inputSetIndex: 13
-      outputNodeIndex: 14
+      inputSetIndex: 1
+      outputNodeIndex: 0
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -623,25 +106,211 @@ MonoBehaviour:
     ID: 13
     rect:
       serializedVersion: 2
-      x: 5550
-      y: 660
+      x: 5240
+      y: 110
       width: 348
       height: 255
-    pTag: Player
+    pTag: 
     expand: 1
     sprite: {fileID: 0}
     vars:
-    - Como eu acesso esse tal banco de dados?
+    - "Sinto muito, mas realmente n\xE3o me sinto preparado."
     varKeys:
     - 0
     isPlayer: 1
-  - commentCount: 4
+  - commentCount: 5
     s_comment:
-    - text: "V\xE1 para a mesma \xE1rea de banco de dados onde voc\xEA fez seu trabalho
-        da faculdade"
+    - text: "Eu acredito que voc\xEA \xE9 mais que competente"
       extraData: ExtraData
-      inputSetIndex: 14
-      outputNodeIndex: 15
+      inputSetIndex: 2
+      outputNodeIndex: 1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Acho que vale pelo menos voc\xEA tentar"
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Amanh\xE3 Soares entrar\xE1 em contato pra trazer seu primeiro caso"
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Se achar que est\xE1 sendo muita press\xE3o, pode desistir sem problemas"
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Que tal?
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 12
+    rect:
+      serializedVersion: 2
+      x: 4760
+      y: 50
+      width: 348
+      height: 296.2
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "N\xE3o acho que conseguiria lidar com isso"
+      extraData: ExtraData
+      inputSetIndex: 3
+      outputNodeIndex: 2
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 11
+    rect:
+      serializedVersion: 2
+      x: 4360
+      y: 90
+      width: 348
+      height: 263.6
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - "N\xE3o acho que conseguiria lidar com isso"
+    varKeys:
+    - 0
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: Consegui resolver esse caso
+      extraData: ExtraData
+      inputSetIndex: 4
+      outputNodeIndex: 3
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 10
+    rect:
+      serializedVersion: 2
+      x: 3920
+      y: 90
+      width: 348
+      height: 255
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - "Consegui resolver esse caso do roubo mas n\xE3o havia press\xE3o"
+    varKeys:
+    - 0
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: "Hum... n\xE3o sei "
+      extraData: ExtraData
+      inputSetIndex: 5
+      outputNodeIndex: 4
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 9
+    rect:
+      serializedVersion: 2
+      x: 3480
+      y: 80
+      width: 348
+      height: 255
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - "Hum... n\xE3o sei se eu teria compet\xEAncia para isso"
+    varKeys:
+    - 0
+    isPlayer: 1
+  - commentCount: 3
+    s_comment:
+    - text: "Est\xE1vamos com uma vaga para estagi\xE1rio de analista t\xE9cnico
+        criminal"
+      extraData: ExtraData
+      inputSetIndex: 6
+      outputNodeIndex: 5
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -653,10 +322,9 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "Eu j\xE1 configurei o seu ponto de acesso para acessar ao banco de dados
-        da faculdade"
+    - text: Principalmente um especializado em SQL
       extraData: ExtraData
-      inputSetIndex: 14
+      inputSetIndex: 6
       outputNodeIndex: -1
       outActionIndex: -1
       showmore: 0
@@ -669,10 +337,9 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "Al\xE9m disso tomei a liberdade de j\xE1 cadastrar algumas dicas no
-        seu bloco de notas."
+    - text: "Tenho certeza de que voc\xEA \xE9 perfeito para o cargo!"
       extraData: ExtraData
-      inputSetIndex: 14
+      inputSetIndex: 6
       outputNodeIndex: -1
       outActionIndex: -1
       showmore: 0
@@ -685,29 +352,14 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "Tenho certeza de que voc\xEA vai conseguir resolver esse mist\xE9rio!"
-      extraData: ExtraData
-      inputSetIndex: 14
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 14
+    ID: 8
     rect:
       serializedVersion: 2
-      x: 6130
-      y: 670
+      x: 2990
+      y: 70
       width: 348
-      height: 285.6
-    pTag: IA
+      height: 223.20001
+    pTag: 
     expand: 0
     sprite: {fileID: 0}
     vars: []
@@ -715,42 +367,40 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "Ok, vou ver ent\xE3o"
+    - text: "Relaxe, para voc\xEA s\xF3 tenho elogios a fazer"
       extraData: ExtraData
-      inputSetIndex: 15
-      outputNodeIndex: -1
-      outActionIndex: 0
+      inputSetIndex: 7
+      outputNodeIndex: 6
+      outActionIndex: -1
       showmore: 0
       outRect:
         serializedVersion: 2
         x: 301
         y: 65
         width: 30
-        height: 24
+        height: 33
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 15
+    ID: 7
     rect:
       serializedVersion: 2
-      x: 6600
-      y: 670
+      x: 2580
+      y: 250
       width: 348
-      height: 255
-    pTag: Player
-    expand: 1
+      height: 141.6
+    pTag: 
+    expand: 0
     sprite: {fileID: 0}
-    vars:
-    - "Ok, ent\xE3o pare de me mandar mensagens e me deixe ver isso ent\xE3o"
-    varKeys:
-    - 0
-    isPlayer: 1
+    vars: []
+    varKeys: []
+    isPlayer: 0
   - commentCount: 2
     s_comment:
-    - text: "Voc\xEA conseguiu, parab\xE9ns!"
+    - text: O que quer falar?
       extraData: ExtraData
-      inputSetIndex: 16
-      outputNodeIndex: 17
+      inputSetIndex: 8
+      outputNodeIndex: 6
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -762,10 +412,258 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "J\xE1 tomei a liberdade de encaminhar os dados que voc\xEA coletou para
-        o departamento de pol\xEDcia em seu nome"
+    - text: "Da pol\xEDcia?!"
       extraData: ExtraData
-      inputSetIndex: 16
+      inputSetIndex: 8
+      outputNodeIndex: 7
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 300
+        y: 90
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 6
+    rect:
+      serializedVersion: 2
+      x: 2120
+      y: 50
+      width: 348
+      height: 305
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - O que o senhor gostaria de tratar comigo?
+    - "Da pol\xEDcia?! Olha eu juro que a ideia n\xE3o era me meter no trabalho de
+      voc\xEAs..."
+    varKeys:
+    - 0
+    - 1
+    isPlayer: 1
+  - commentCount: 3
+    s_comment:
+    - text: "Sou Carlos Patroc\xEDnio"
+      extraData: ExtraData
+      inputSetIndex: 9
+      outputNodeIndex: 8
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Sou coronel da pol\xEDcia civil do estado do Rio de Janeiro."
+      extraData: ExtraData
+      inputSetIndex: 9
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Mas voc\xEA pode me chamar de senhor Patroc\xEDnio"
+      extraData: ExtraData
+      inputSetIndex: 9
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 5
+    rect:
+      serializedVersion: 2
+      x: 1680
+      y: 140
+      width: 348
+      height: 200.2
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Voc\xEA ainda n\xE3o me conhece, mas"
+      extraData: ExtraData
+      inputSetIndex: 10
+      outputNodeIndex: 9
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 4
+    rect:
+      serializedVersion: 2
+      x: 1200
+      y: -30
+      width: 348
+      height: 141.6
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Conhe\xE7o voc\xEA?"
+      extraData: ExtraData
+      inputSetIndex: 11
+      outputNodeIndex: 10
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 3
+    rect:
+      serializedVersion: 2
+      x: 770
+      y: -10
+      width: 348
+      height: 133
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 2
+    s_comment:
+    - text: "\xC9 o meu nome, mas..."
+      extraData: ExtraData
+      inputSetIndex: 12
+      outputNodeIndex: 11
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Sou eu
+      extraData: ExtraData
+      inputSetIndex: 12
+      outputNodeIndex: 9
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 300
+        y: 90
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 2
+    rect:
+      serializedVersion: 2
+      x: 300
+      y: 90
+      width: 348
+      height: 305
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - "Oi? \xC9 o meu nome, mas...."
+    - Sou eu. Tudo bom?
+    varKeys:
+    - 0
+    - 1
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: '#{playerFull}?'
+      extraData: ExtraData
+      inputSetIndex: 13
+      outputNodeIndex: 12
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 1
+    rect:
+      serializedVersion: 2
+      x: -130
+      y: 100
+      width: 348
+      height: 133
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 2
+    s_comment:
+    - text: Boa, meu jovem
+      extraData: ExtraData
+      inputSetIndex: 14
+      outputNodeIndex: 15
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Sabia que ia conseguir resolver
+      extraData: ExtraData
+      inputSetIndex: 14
       outputNodeIndex: -1
       outActionIndex: -1
       showmore: 0
@@ -781,19 +679,83 @@ MonoBehaviour:
     ID: 17
     rect:
       serializedVersion: 2
-      x: -170
-      y: 1230
+      x: -390
+      y: 500
       width: 348
-      height: 195.4
-    pTag: IA
+      height: 158
+    pTag: 
     expand: 0
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
-  - commentCount: 2
+  - commentCount: 1
     s_comment:
-    - text: "Voc\xEA toma muitas liberdades..."
+    - text: Obrigado
+      extraData: ExtraData
+      inputSetIndex: 15
+      outputNodeIndex: 16
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 18
+    rect:
+      serializedVersion: 2
+      x: 30
+      y: 500
+      width: 348
+      height: 255
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - "Obrigado, mas estou com uma sensa\xE7\xE3o ruim sobre esse caso"
+    varKeys:
+    - 0
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: E se for inocente?
+      extraData: ExtraData
+      inputSetIndex: 16
+      outputNodeIndex: 17
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 19
+    rect:
+      serializedVersion: 2
+      x: 510
+      y: 500
+      width: 348
+      height: 255
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - E se as provas que eu encontrei estiverem apontando para a pessoa errada?
+    varKeys:
+    - 0
+    isPlayer: 1
+  - commentCount: 3
+    s_comment:
+    - text: "Sei que por ser um caso de assassinato j\xE1 ficamos mais inseguros"
       extraData: ExtraData
       inputSetIndex: 17
       outputNodeIndex: 18
@@ -804,62 +766,13 @@ MonoBehaviour:
         x: 301
         y: 65
         width: 30
-        height: 24
+        height: 47
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: Obrigado, eu acho
+    - text: "Mas seu trabalho como perito \xE9 reunir evid\xEAncias"
       extraData: ExtraData
       inputSetIndex: 17
-      outputNodeIndex: 19
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 300
-        y: 90
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 18
-    rect:
-      serializedVersion: 2
-      x: 340
-      y: 1200
-      width: 348
-      height: 305
-    pTag: Player
-    expand: 1
-    sprite: {fileID: 0}
-    vars:
-    - "Voc\xEA toma muitas liberdades..."
-    - Obrigado, eu acho
-    varKeys:
-    - 0
-    - 1
-    isPlayer: 1
-  - commentCount: 2
-    s_comment:
-    - text: "Sim, meu algoritmo \xE9 bem avan\xE7ado"
-      extraData: ExtraData
-      inputSetIndex: 18
-      outputNodeIndex: 19
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 33
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: De qualquer forma, eu te poupei do trabalho.
-      extraData: ExtraData
-      inputSetIndex: 18
       outputNodeIndex: -1
       outActionIndex: -1
       showmore: 0
@@ -872,44 +785,30 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 19
-    rect:
-      serializedVersion: 2
-      x: 820
-      y: 1140
-      width: 348
-      height: 175.2
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: De nada
+    - text: "Se a pessoa \xE9 de fato culpada ou n\xE3o, isso voc\xEA deixa com o
+        juiz"
       extraData: ExtraData
-      inputSetIndex: 19
-      outputNodeIndex: 20
+      inputSetIndex: 17
+      outputNodeIndex: -1
       outActionIndex: -1
       showmore: 0
       outRect:
         serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
+        x: 0
+        y: 0
+        width: 0
+        height: 0
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 20
     rect:
       serializedVersion: 2
-      x: 1290
-      y: 1360
+      x: 890
+      y: 510
       width: 348
-      height: 133
-    pTag: IA
+      height: 223.20001
+    pTag: 
     expand: 0
     sprite: {fileID: 0}
     vars: []
@@ -917,10 +816,10 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: E agora?
+    - text: Entendi...
       extraData: ExtraData
-      inputSetIndex: 20
-      outputNodeIndex: 21
+      inputSetIndex: 18
+      outputNodeIndex: 42
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -935,52 +834,24 @@ MonoBehaviour:
     ID: 21
     rect:
       serializedVersion: 2
-      x: 1780
-      y: 1200
+      x: 1340
+      y: 490
       width: 348
-      height: 133
-    pTag: Player
-    expand: 0
+      height: 255
+    pTag: 
+    expand: 1
     sprite: {fileID: 0}
-    vars: []
-    varKeys: []
+    vars:
+    - Entendi...
+    varKeys:
+    - 0
     isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: "Uma reporter deve entrar em contato com voc\xEA, eu lhe dei seu n\xFAmero"
-      extraData: ExtraData
-      inputSetIndex: 21
-      outputNodeIndex: -1
-      outActionIndex: 1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 47
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 22
-    rect:
-      serializedVersion: 2
-      x: 2270
-      y: 1190
-      width: 348
-      height: 156
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
   - commentCount: 2
     s_comment:
-    - text: "Por que voc\xEA recusou?"
+    - text: "Soares est\xE1 bem?"
       extraData: ExtraData
-      inputSetIndex: 22
-      outputNodeIndex: 23
+      inputSetIndex: 19
+      outputNodeIndex: 20
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -992,9 +863,89 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "\xC9 uma oportunidade \xFAnica"
+    - text: Como assim Soares sumiu?
       extraData: ExtraData
-      inputSetIndex: 22
+      inputSetIndex: 19
+      outputNodeIndex: 22
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 300
+        y: 90
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 22
+    rect:
+      serializedVersion: 2
+      x: 2170
+      y: 570
+      width: 348
+      height: 305
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - "Mas sabe dizer se o Soares est\xE1 bem? Ele tinha dito que tinha alguns problemas
+      pessoais para resolver..."
+    - "Como assim ele sumiu? Est\xE1 desaparecido?"
+    varKeys:
+    - 0
+    - 1
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: Acredito que esteja bem sim
+      extraData: ExtraData
+      inputSetIndex: 20
+      outputNodeIndex: 21
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 23
+    rect:
+      serializedVersion: 2
+      x: 2700
+      y: 520
+      width: 348
+      height: 133
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 5
+    s_comment:
+    - text: Sua esposa disse que ele tem ido dormir em casa
+      extraData: ExtraData
+      inputSetIndex: 21
+      outputNodeIndex: 23
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "E que n\xE3o tem falado muito com ela"
+      extraData: ExtraData
+      inputSetIndex: 21
       outputNodeIndex: -1
       outActionIndex: -1
       showmore: 0
@@ -1007,22 +958,97 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 26
+    - text: "Ent\xE3o acredito que s\xF3 queira se afastar do trabalho por um tempo"
+      extraData: ExtraData
+      inputSetIndex: 21
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "De qualquer forma voc\xEA tem uma nova tarefa"
+      extraData: ExtraData
+      inputSetIndex: 21
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: De uma pessoa desaparecida de verdade
+      extraData: ExtraData
+      inputSetIndex: 21
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 24
     rect:
       serializedVersion: 2
-      x: -180
-      y: 1590
+      x: 3080
+      y: 570
       width: 348
-      height: 158
-    pTag: IA
+      height: 276
+    pTag: 
     expand: 0
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
-  - commentCount: 2
+  - commentCount: 1
     s_comment:
-    - text: "Est\xE1 me espionando?"
+    - text: "N\xE3o, calma, ele n\xE3o desapareceu"
+      extraData: ExtraData
+      inputSetIndex: 22
+      outputNodeIndex: 21
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 25
+    rect:
+      serializedVersion: 2
+      x: 2630
+      y: 780
+      width: 348
+      height: 133
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Um desaparecimento?
       extraData: ExtraData
       inputSetIndex: 23
       outputNodeIndex: 24
@@ -1037,76 +1063,29 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "N\xE3o estou preparado"
-      extraData: ExtraData
-      inputSetIndex: 23
-      outputNodeIndex: 25
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 300
-        y: 90
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 27
+    ID: 26
     rect:
       serializedVersion: 2
-      x: 280
-      y: 1530
+      x: 3530
+      y: 590
       width: 348
-      height: 305
-    pTag: Player
+      height: 255
+    pTag: 
     expand: 1
     sprite: {fileID: 0}
     vars:
-    - "Voc\xEA vai ficar espionando minhas mensagens mesmo?"
-    - "Tudo bem, ter\xE3o outras quando eu estiver mais preparado"
+    - Um desaparecimento? Como vou conseguir encontrar uma pessoa no mundo olhando
+      apenas um banco de dados?
     varKeys:
     - 0
-    - 1
     isPlayer: 1
-  - commentCount: 1
+  - commentCount: 3
     s_comment:
-    - text: "Claro, n\xE3o h\xE1 mais nada de interessante para se fazer como uma
-        intelig\xEAncia artificial presa a esse computador\n"
+    - text: "Estou te passando os dados aqui da delegacia, inclusive alguns dados
+        de localiza\xE7\xE3o"
       extraData: ExtraData
       inputSetIndex: 24
-      outputNodeIndex: 26
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 76
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 28
-    rect:
-      serializedVersion: 2
-      x: 720
-      y: 1480
-      width: 348
-      height: 184.8
-    pTag: IA
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: "Se voc\xEA esperar o momento certo de fazer alguma coisa acabar\xE1
-        n\xE3o fazendo nada na vida."
-      extraData: ExtraData
-      inputSetIndex: 25
-      outputNodeIndex: 26
+      outputNodeIndex: 25
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -1118,14 +1097,44 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 29
+    - text: "Mas n\xE3o fazemos ideia de como encontrar ela"
+      extraData: ExtraData
+      inputSetIndex: 24
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Tenho certeza de que voc\xEA vai pensar numa forma ;D"
+      extraData: ExtraData
+      inputSetIndex: 24
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 27
     rect:
       serializedVersion: 2
-      x: 720
-      y: 1740
+      x: 4000
+      y: 630
       width: 348
-      height: 156
-    pTag: IA
+      height: 223.20001
+    pTag: 
     expand: 0
     sprite: {fileID: 0}
     vars: []
@@ -1133,7 +1142,39 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "Voc\xEA deveria repensar essa ideia."
+    - text: O que a gente ja sabe?
+      extraData: ExtraData
+      inputSetIndex: 25
+      outputNodeIndex: 26
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 28
+    rect:
+      serializedVersion: 2
+      x: 4470
+      y: 610
+      width: 348
+      height: 255
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - "Beleza, vou ver o que consigo fazer. O que a gente j\xE1 sabe?"
+    varKeys:
+    - 0
+    isPlayer: 1
+  - commentCount: 3
+    s_comment:
+    - text: "A deputada Helena Peres est\xE1 desaparecida"
       extraData: ExtraData
       inputSetIndex: 26
       outputNodeIndex: 27
@@ -1148,26 +1189,57 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 30
+    - text: "Ela \xE9 uma figura influente ent\xE3o tente encontrar o paradeiro dela
+        o mais r\xE1pido poss\xEDvel"
+      extraData: ExtraData
+      inputSetIndex: 26
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Boa sorte
+      extraData: ExtraData
+      inputSetIndex: 26
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 29
     rect:
       serializedVersion: 2
-      x: 1160
-      y: 1650
+      x: 4910
+      y: 650
       width: 348
-      height: 141.6
-    pTag: IA
+      height: 214.6
+    pTag: 
     expand: 0
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
-  - commentCount: 2
+  - commentCount: 1
     s_comment:
-    - text: "Voc\xEA \xE9 s\xF3 uma IA"
+    - text: OK, obrigado
       extraData: ExtraData
       inputSetIndex: 27
-      outputNodeIndex: 28
-      outActionIndex: -1
+      outputNodeIndex: -1
+      outActionIndex: 3
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -1178,41 +1250,24 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "Voc\xEA n\xE3o entende..."
-      extraData: ExtraData
-      inputSetIndex: 27
-      outputNodeIndex: 35
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 300
-        y: 90
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 31
+    ID: 30
     rect:
       serializedVersion: 2
-      x: 1590
-      y: 1560
+      x: 5370
+      y: 660
       width: 348
-      height: 305
-    pTag: Player
+      height: 255
+    pTag: 
     expand: 1
     sprite: {fileID: 0}
     vars:
-    - "O que voc\xEA entende sobre isso? Voc\xEA \xE9 s\xF3 uma IA."
-    - "Voc\xEA n\xE3o entende..."
+    - OK, obrigado
     varKeys:
     - 0
-    - 1
     isPlayer: 1
-  - commentCount: 2
+  - commentCount: 4
     s_comment:
-    - text: "Talvez eu n\xE3o entenda mesmo"
+    - text: Boa, meu jovem
       extraData: ExtraData
       inputSetIndex: 28
       outputNodeIndex: 29
@@ -1227,8 +1282,37 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "Mas as estat\xEDsticas mostram que existe uma chande de 99.95% de que
-        voc\xEA est\xE1 errado"
+    - text: "Enviamos uma viatura para l\xE1"
+      extraData: ExtraData
+      inputSetIndex: 28
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Mas infelizmente a deputada j\xE1 estava morta quando chegamos...\t\t"
+      extraData: ExtraData
+      inputSetIndex: 28
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Al\xE9m disso aconteceu algo que voc\xEA pode n\xE3o gostar"
       extraData: ExtraData
       inputSetIndex: 28
       outputNodeIndex: -1
@@ -1246,10 +1330,10 @@ MonoBehaviour:
     ID: 32
     rect:
       serializedVersion: 2
-      x: 2030
-      y: 1500
+      x: -390
+      y: 940
       width: 348
-      height: 181
+      height: 239.6
     pTag: 
     expand: 0
     sprite: {fileID: 0}
@@ -1258,7 +1342,7 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "N\xE3o tem nada disso"
+    - text: O que?
       extraData: ExtraData
       inputSetIndex: 29
       outputNodeIndex: 30
@@ -1276,24 +1360,24 @@ MonoBehaviour:
     ID: 33
     rect:
       serializedVersion: 2
-      x: 2490
-      y: 1420
+      x: 60
+      y: 970
       width: 348
       height: 255
     pTag: 
     expand: 1
     sprite: {fileID: 0}
     vars:
-    - "N\xE3o existe isso de probabilidade de estar errado"
+    - "O que? O que aconteceu que eu poderia n\xE3o gostar?"
     varKeys:
     - 0
     isPlayer: 1
-  - commentCount: 1
+  - commentCount: 3
     s_comment:
-    - text: "O que voc\xEA entende sobre isso? \xC9 apenas humano."
+    - text: O Soares estava na cena do crime
       extraData: ExtraData
       inputSetIndex: 30
-      outputNodeIndex: 33
+      outputNodeIndex: 31
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -1305,13 +1389,43 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
+    - text: "As m\xE3os cheias de sangue da v\xEDtima"
+      extraData: ExtraData
+      inputSetIndex: 30
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "O rosto em f\xFAria absoluta"
+      extraData: ExtraData
+      inputSetIndex: 30
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
     ID: 34
     rect:
       serializedVersion: 2
-      x: 2950
-      y: 1530
+      x: 530
+      y: 1000
       width: 348
-      height: 141.6
+      height: 200.2
     pTag: 
     expand: 0
     sprite: {fileID: 0}
@@ -1320,10 +1434,10 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "Voc\xEA n\xE3o entende..."
+    - text: "Est\xE1 dizendo..."
       extraData: ExtraData
       inputSetIndex: 31
-      outputNodeIndex: 33
+      outputNodeIndex: 32
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -1338,10 +1452,73 @@ MonoBehaviour:
     ID: 35
     rect:
       serializedVersion: 2
-      x: 2960
-      y: 1810
+      x: 1000
+      y: 980
       width: 348
-      height: 133
+      height: 255
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - "Est\xE1 dizendo que o Soares matou essa mulher?"
+    varKeys:
+    - 0
+    isPlayer: 1
+  - commentCount: 3
+    s_comment:
+    - text: "Novamente, #{player}, nosso trabalho \xE9 relatar e encontrar fatos"
+      extraData: ExtraData
+      inputSetIndex: 32
+      outputNodeIndex: 33
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 47
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "N\xE3o tirar conclus\xF5es"
+      extraData: ExtraData
+      inputSetIndex: 32
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Mas sim, ao que tudo indica, Soares \xE9 o \xFAnico e principal suspeito
+        da morte da deputada"
+      extraData: ExtraData
+      inputSetIndex: 32
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 36
+    rect:
+      serializedVersion: 2
+      x: 1440
+      y: 970
+      width: 348
+      height: 229
     pTag: 
     expand: 0
     sprite: {fileID: 0}
@@ -1350,39 +1527,7 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "N\xE3o tem nada disso"
-      extraData: ExtraData
-      inputSetIndex: 32
-      outputNodeIndex: 31
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 36
-    rect:
-      serializedVersion: 2
-      x: 2490
-      y: 1820
-      width: 348
-      height: 255
-    pTag: 
-    expand: 1
-    sprite: {fileID: 0}
-    vars:
-    - "N\xE3o existe isso de probabilidade de estar errado"
-    varKeys:
-    - 0
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: "Muito engra\xE7ado..."
+    - text: "Isso \xE9 imposs\xEDvel!"
       extraData: ExtraData
       inputSetIndex: 33
       outputNodeIndex: 34
@@ -1400,25 +1545,25 @@ MonoBehaviour:
     ID: 37
     rect:
       serializedVersion: 2
-      x: 3370
-      y: 1650
+      x: 1920
+      y: 1010
       width: 348
       height: 255
     pTag: 
     expand: 1
     sprite: {fileID: 0}
     vars:
-    - "Ha ha... muito engra\xE7ado..."
+    - "Isso \xE9 imposs\xEDvel!"
     varKeys:
     - 0
     isPlayer: 1
   - commentCount: 1
     s_comment:
-    - text: "Agora j\xE1 foi"
+    - text: "Ele n\xE3o faria"
       extraData: ExtraData
       inputSetIndex: 34
-      outputNodeIndex: -1
-      outActionIndex: 4
+      outputNodeIndex: 35
+      outActionIndex: -1
       showmore: 0
       outRect:
         serializedVersion: 2
@@ -1432,24 +1577,99 @@ MonoBehaviour:
     ID: 38
     rect:
       serializedVersion: 2
-      x: 3800
-      y: 1640
+      x: 2430
+      y: 1000
       width: 348
       height: 255
     pTag: 
     expand: 1
     sprite: {fileID: 0}
     vars:
-    - De qualquer forma agora ja foi
+    - "Ele n\xE3o faria uma coisa dessas!"
     varKeys:
     - 0
     isPlayer: 1
-  - commentCount: 2
+  - commentCount: 4
     s_comment:
-    - text: "Talvez eu n\xE3o entenda mesmo"
+    - text: "Muita gente j\xE1 foi presa por muito menos #{player}"
       extraData: ExtraData
       inputSetIndex: 35
-      outputNodeIndex: 32
+      outputNodeIndex: -1
+      outActionIndex: 4
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Tudo o que podemos fazer \xE9 torcer para que a justi\xE7a seja feita."
+      extraData: ExtraData
+      inputSetIndex: 35
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Isso \xE9 tudo, n\xE3o tenho nenhum caso para voc\xEA no momento"
+      extraData: ExtraData
+      inputSetIndex: 35
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Passar bem
+      extraData: ExtraData
+      inputSetIndex: 35
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 39
+    rect:
+      serializedVersion: 2
+      x: 2960
+      y: 1040
+      width: 348
+      height: 248.20001
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Garoto... Sei o que est\xE1 fazendo"
+      extraData: ExtraData
+      inputSetIndex: 36
+      outputNodeIndex: 37
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -1461,74 +1681,13 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "Mas as estat\xEDsticas mostram que existe uma chande de 99.95% de que
-        voc\xEA est\xE1 errado"
-      extraData: ExtraData
-      inputSetIndex: 35
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 41
-    rect:
-      serializedVersion: 2
-      x: 2040
-      y: 1880
-      width: 348
-      height: 181
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 2
-    s_comment:
-    - text: Viu? Ficou fazendo jogo duro e quase perdeu uma oportunidade boa.
-      extraData: ExtraData
-      inputSetIndex: 36
-      outputNodeIndex: 37
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 47
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: "\xC9 jogo duro que fala ne?"
-      extraData: ExtraData
-      inputSetIndex: 36
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
     ID: 42
     rect:
       serializedVersion: 2
-      x: -140
-      y: 2000
+      x: -440
+      y: 1420
       width: 348
-      height: 181
+      height: 133
     pTag: 
     expand: 0
     sprite: {fileID: 0}
@@ -1537,7 +1696,7 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "\xC9 sim"
+    - text: O que?
       extraData: ExtraData
       inputSetIndex: 37
       outputNodeIndex: 38
@@ -1555,23 +1714,147 @@ MonoBehaviour:
     ID: 43
     rect:
       serializedVersion: 2
-      x: 350
-      y: 1990
+      x: 50
+      y: 1420
       width: 348
       height: 255
     pTag: 
     expand: 1
     sprite: {fileID: 0}
     vars:
-    - "\xC9 sim... e voc\xEA tinha raz\xE3o"
+    - O que?
     varKeys:
     - 0
     isPlayer: 1
-  - commentCount: 1
+  - commentCount: 4
     s_comment:
-    - text: Eu sempre tenho
+    - text: "Est\xE1 se metendo onde n\xE3o deveria"
       extraData: ExtraData
       inputSetIndex: 38
+      outputNodeIndex: 39
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Dou uma colher de ch\xE1 porque sei que ainda \xE9 jovem"
+      extraData: ExtraData
+      inputSetIndex: 38
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Mas o caminho que est\xE1 trilhando \xE9 perigoso"
+      extraData: ExtraData
+      inputSetIndex: 38
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Voc\xEA n\xE3o sabe com o que est\xE1 se metendo"
+      extraData: ExtraData
+      inputSetIndex: 38
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 44
+    rect:
+      serializedVersion: 2
+      x: 510
+      y: 1450
+      width: 348
+      height: 242.4
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 2
+    s_comment:
+    - text: "Est\xE1 me amea\xE7ando?"
+      extraData: ExtraData
+      inputSetIndex: 39
+      outputNodeIndex: 40
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Quero a verdade
+      extraData: ExtraData
+      inputSetIndex: 39
+      outputNodeIndex: 41
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 300
+        y: 90
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 45
+    rect:
+      serializedVersion: 2
+      x: 980
+      y: 1440
+      width: 348
+      height: 305
+    pTag: 
+    expand: 1
+    sprite: {fileID: 0}
+    vars:
+    - "O senhor... est\xE1 me amea\xE7ando?"
+    - Eu quero apenas a verdade, nada mais. Qual o problema nisso?
+    varKeys:
+    - 0
+    - 1
+    isPlayer: 1
+  - commentCount: 4
+    s_comment:
+    - text: "N\xE3o. Estou te demitindo"
+      extraData: ExtraData
+      inputSetIndex: 40
       outputNodeIndex: -1
       outActionIndex: 6
       showmore: 0
@@ -1584,13 +1867,223 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 44
+    - text: Estou removendo todos os seus acessos ao banco
+      extraData: ExtraData
+      inputSetIndex: 40
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Volte para sua faculdade de merda
+      extraData: ExtraData
+      inputSetIndex: 40
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "E n\xE3o se meta mais onde n\xE3o for chamado"
+      extraData: ExtraData
+      inputSetIndex: 40
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 46
     rect:
       serializedVersion: 2
-      x: 790
-      y: 2000
+      x: 1470
+      y: 1370
       width: 348
-      height: 133
+      height: 233.79999
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 7
+    s_comment:
+    - text: "A verdade, voc\xEA diz?"
+      extraData: ExtraData
+      inputSetIndex: 41
+      outputNodeIndex: -1
+      outActionIndex: 6
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "N\xE3o venha com essa"
+      extraData: ExtraData
+      inputSetIndex: 41
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Voc\xEA s\xF3 quer se sentir um heroi, um justiceiro, ou o que for"
+      extraData: ExtraData
+      inputSetIndex: 41
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Gente assim, n\xE3o vive muito para contar a hist\xF3ria"
+      extraData: ExtraData
+      inputSetIndex: 41
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Estou removendo todos os seus acessos ao banco
+      extraData: ExtraData
+      inputSetIndex: 41
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "De agora em diante, voc\xEA n\xE3o trabalha mais aqui"
+      extraData: ExtraData
+      inputSetIndex: 41
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Passar bem
+      extraData: ExtraData
+      inputSetIndex: 41
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 47
+    rect:
+      serializedVersion: 2
+      x: 1470
+      y: 1690
+      width: 348
+      height: 317.40002
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 2
+    s_comment:
+    - text: "Desculpe estar entrando em contato assim mas Soares est\xE1 incomunic\xE1vel"
+      extraData: ExtraData
+      inputSetIndex: 42
+      outputNodeIndex: 19
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 47
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: "Ningu\xE9m da delegacia sabe onde ele est\xE1"
+      extraData: ExtraData
+      inputSetIndex: 42
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 50
+    rect:
+      serializedVersion: 2
+      x: 1730
+      y: 540
+      width: 348
+      height: 189.6
     pTag: 
     expand: 0
     sprite: {fileID: 0}
@@ -1598,10 +2091,113 @@ MonoBehaviour:
     varKeys: []
     isPlayer: 0
   S_actionNodes:
+  - pauseHere: 0
+    gameObjectName: Desktop
+    methodName: ContinueAIChat
+    nameIndex: 9
+    methodIndex: 11
+    paramIndex: 0
+    opts:
+    - '[No method]'
+    - setMessageNotificationVisibility
+    - SetupStage
+    - OnMenuClick
+    - OnBackClick
+    - OnMessageClick
+    - OnIAClick
+    - OnDBButtonClick
+    - ToggleCluesWindow
+    - cheatButton
+    - changeIAChatApperance
+    - ContinueAIChat
+    - ContinueBossChat
+    - ContinueReporterChat
+    - ContinueFriendChat
+    - ContinueSoaresChat
+    - ContinueChatTutorial
+    nameOpts:
+    - '[No object]'
+    - MessageButton
+    - StageController
+    - HomeButton
+    - Banco de Dados
+    - cheat button
+    - Pistas
+    - IAButton
+    - Database connector
+    - Desktop
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    rect:
+      serializedVersion: 2
+      x: 6180
+      y: 110
+      width: 200
+      height: 174
+    ID: 16
+    outPlayerIndex: -1
+    outActionIndex: 2
+    more: 0
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 1
+    gameObjectName: '[No object]'
+    methodName: '[No method]'
+    nameIndex: 0
+    methodIndex: 0
+    paramIndex: -1
+    opts:
+    - '[No method]'
+    nameOpts:
+    - '[No object]'
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    rect:
+      serializedVersion: 2
+      x: -380
+      y: 110
+      width: 200
+      height: 169
+    ID: 0
+    outPlayerIndex: 13
+    outActionIndex: -1
+    more: 1
+    ovrStartNode: 1
+    renameDialogue: 
+  - pauseHere: 1
+    gameObjectName: '[No object]'
+    methodName: '[No method]'
+    nameIndex: 0
+    methodIndex: 0
+    paramIndex: -1
+    opts:
+    - '[No method]'
+    nameOpts:
+    - '[No object]'
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    rect:
+      serializedVersion: 2
+      x: 6450
+      y: 110
+      width: 200
+      height: 169
+    ID: 15
+    outPlayerIndex: -1
+    outActionIndex: -1
+    more: 1
+    ovrStartNode: 17
+    renameDialogue: 
   - pauseHere: 1
     gameObjectName: Desktop
     methodName: StageEnableButtons
-    nameIndex: 9
+    nameIndex: 10
     methodIndex: 12
     paramIndex: 0
     opts:
@@ -1618,6 +2214,8 @@ MonoBehaviour:
     - changeIAChatApperance
     - StageDisableButtons
     - StageEnableButtons
+    - TutorialCompleted
+    - ReleaseButton
     - ContinueAIChat
     - ContinueBossChat
     - ContinueReporterChat
@@ -1626,6 +2224,7 @@ MonoBehaviour:
     - ContinueChatTutorial
     nameOpts:
     - '[No object]'
+    - Table data
     - MessageButton
     - StageController
     - HomeButton
@@ -1635,139 +2234,50 @@ MonoBehaviour:
     - IAButton
     - Database connector
     - Desktop
+    - text
+    - text
+    - text
+    - text
+    - text
+    - text
+    - Down
+    - InputField
+    - text
+    - Area Detalhes
+    - Dropdown
+    - Barra de Pesquisa
+    - text
+    - text
+    - text
+    - text
+    - Up
+    - text
+    - text
+    - Search Button
+    - Custom Table
+    - text
+    - History Buttons
+    - text
     param_bool: 0
     param_string: 
     param_int: 0
     param_float: 0
     rect:
       serializedVersion: 2
-      x: 7090
-      y: 690
+      x: 5860
+      y: 680
       width: 200
       height: 169
-    ID: 16
+    ID: 31
     outPlayerIndex: -1
     outActionIndex: -1
     more: 1
-    ovrStartNode: 17
+    ovrStartNode: 32
     renameDialogue: 
   - pauseHere: 0
     gameObjectName: Desktop
-    methodName: ContinueReporterChat
-    nameIndex: 12
-    methodIndex: 11
-    paramIndex: 0
-    opts:
-    - '[No method]'
-    - OnHomeClick
-    - OnBackClick
-    - OnMessageClick
-    - OnIAClick
-    - OnMenuClick
-    - OnDBButtonClick
-    - ToggleCluesWindow
-    - UpdateClues
-    - ContinueAIChat
-    - ContinueBossChat
-    - ContinueReporterChat
-    nameOpts:
-    - '[No object]'
-    - IAGroup
-    - MessageButton
-    - "Configura\xE7\xF5es"
-    - MenuButton
-    - StageController
-    - HomeButton
-    - "Not\xEDcias"
-    - Menu Drop Down
-    - Banco de Dados
-    - Pistas
-    - Database connector
-    - Desktop
-    param_bool: 0
-    param_string: 
-    param_int: 0
-    param_float: 0
-    rect:
-      serializedVersion: 2
-      x: 2690
-      y: 1180
-      width: 200
-      height: 174
-    ID: 23
-    outPlayerIndex: -1
-    outActionIndex: 2
-    more: 0
-    ovrStartNode: -1
-    renameDialogue: 
-  - pauseHere: 1
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    nameIndex: 0
-    methodIndex: 0
-    paramIndex: -1
-    opts:
-    - '[No method]'
-    nameOpts:
-    - '[No object]'
-    - IAGroup
-    - MessageButton
-    - "Configura\xE7\xF5es"
-    - MenuButton
-    - StageController
-    - HomeButton
-    - "Not\xEDcias"
-    - Menu Drop Down
-    - Banco de Dados
-    - Pistas
-    - Database connector
-    - Desktop
-    param_bool: 0
-    param_string: 
-    param_int: 0
-    param_float: 0
-    rect:
-      serializedVersion: 2
-      x: 2970
-      y: 1170
-      width: 200
-      height: 169
-    ID: 24
-    outPlayerIndex: -1
-    outActionIndex: -1
-    more: 1
-    ovrStartNode: 26
-    renameDialogue: 
-  - pauseHere: 1
-    gameObjectName: '[No object]'
-    methodName: '[No method]'
-    nameIndex: 0
-    methodIndex: 0
-    paramIndex: -1
-    opts:
-    - '[No method]'
-    nameOpts:
-    - '[No object]'
-    param_bool: 0
-    param_string: 
-    param_int: 0
-    param_float: 0
-    rect:
-      serializedVersion: 2
-      x: -590
-      y: 770
-      width: 200
-      height: 169
-    ID: 25
-    outPlayerIndex: 0
-    outActionIndex: -1
-    more: 1
-    ovrStartNode: 0
-    renameDialogue: 
-  - pauseHere: 0
-    gameObjectName: Desktop
-    methodName: ContinueSoaresChat
-    nameIndex: 9
+    methodName: ContinueAIChat
+    nameIndex: 10
     methodIndex: 15
     paramIndex: 0
     opts:
@@ -1782,6 +2292,10 @@ MonoBehaviour:
     - ToggleCluesWindow
     - cheatButton
     - changeIAChatApperance
+    - StageDisableButtons
+    - StageEnableButtons
+    - TutorialCompleted
+    - ReleaseButton
     - ContinueAIChat
     - ContinueBossChat
     - ContinueReporterChat
@@ -1790,6 +2304,7 @@ MonoBehaviour:
     - ContinueChatTutorial
     nameOpts:
     - '[No object]'
+    - Table data
     - MessageButton
     - StageController
     - HomeButton
@@ -1799,17 +2314,41 @@ MonoBehaviour:
     - IAButton
     - Database connector
     - Desktop
+    - text
+    - text
+    - text
+    - text
+    - text
+    - text
+    - Down
+    - InputField
+    - text
+    - Area Detalhes
+    - Dropdown
+    - Barra de Pesquisa
+    - text
+    - text
+    - text
+    - text
+    - Up
+    - text
+    - text
+    - Search Button
+    - Custom Table
+    - text
+    - History Buttons
+    - text
     param_bool: 0
     param_string: 
     param_int: 0
     param_float: 0
     rect:
       serializedVersion: 2
-      x: 4230
-      y: 1650
+      x: 3450
+      y: 1040
       width: 200
       height: 174
-    ID: 39
+    ID: 40
     outPlayerIndex: -1
     outActionIndex: 5
     more: 0
@@ -1831,11 +2370,11 @@ MonoBehaviour:
     param_float: 0
     rect:
       serializedVersion: 2
-      x: 4510
-      y: 1650
+      x: 3760
+      y: 1030
       width: 200
       height: 169
-    ID: 40
+    ID: 41
     outPlayerIndex: -1
     outActionIndex: -1
     more: 1
@@ -1911,11 +2450,11 @@ MonoBehaviour:
     param_float: 0
     rect:
       serializedVersion: 2
-      x: 1200
-      y: 1980
+      x: 1980
+      y: 1530
       width: 200
       height: 174
-    ID: 45
+    ID: 48
     outPlayerIndex: -1
     outActionIndex: 7
     more: 0
@@ -1937,11 +2476,11 @@ MonoBehaviour:
     param_float: 0
     rect:
       serializedVersion: 2
-      x: 1480
-      y: 1990
+      x: 2260
+      y: 1530
       width: 200
       height: 169
-    ID: 46
+    ID: 49
     outPlayerIndex: -1
     outActionIndex: -1
     more: 1
