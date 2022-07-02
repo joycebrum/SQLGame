@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stage5 : Stage
 {
-    private bool released = false;
+    public bool released = false;
     protected override void InitializeStage()
     {
         this.stageIdentifier = "stage_five";
@@ -13,6 +13,7 @@ public class Stage5 : Stage
         this.dbPath = "URI=file:" + Application.dataPath + "/Stage5SQLite.db";
 
         this.introName.text = "Fase 5 - Justiça";
+        this.released = PlayerPrefs.GetInt(stageIdentifier + "_released") == 1 || false;
 
         base.InitializeStage();
     }
@@ -152,7 +153,8 @@ public class Stage5 : Stage
         if (this.released) return false;
         
         this.released = this.clueNotes[5].IsFound() || this.clueNotes[9].IsFound() || this.clueSolutions[2].IsFound();
-        
+        if (this.released) PlayerPrefs.SetInt(stageIdentifier + "_released", 1);
+
         return this.released;
     }
 }
