@@ -72,6 +72,7 @@ public class OperationalSystemController : MonoBehaviour
     // Buttons
     public void OnMenuClick()
     {
+        stageController.SaveGame();
         SceneManager.LoadScene("InitialScene", LoadSceneMode.Single);
     }
 

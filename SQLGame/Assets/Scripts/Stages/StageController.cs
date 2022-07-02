@@ -40,10 +40,9 @@ public class StageController : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        Debug.Log("Application ending after " + Time.time + " seconds");
-        
-        PlayerPrefs.SetInt("currentStageIndex", this.currentStageIndex);
-        this.currentStage.SaveSolvedClues();
+        Debug.Log("Application ending after " + Time.time + " seconds");    
+
+        SaveGame();
     }
 
     public bool ReleaseChatBeforeEnd()
@@ -60,9 +59,16 @@ public class StageController : MonoBehaviour
         return currentStage.CheckForClues(header, result);
     }
 
+    public void SaveGame()
+    {
+        PlayerPrefs.SetInt("currentStageIndex", this.currentStageIndex);
+        this.currentStage.SaveSolvedClues();
+    }
+
     public void NextStage()
     {
         main.StageDisableButtons();
+        SaveGame();
         ReleaseChats(currentStage.ChatToBeReleasedOnEnd());
         currentStageIndex++;
 

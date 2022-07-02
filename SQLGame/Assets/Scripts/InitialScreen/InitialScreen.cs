@@ -11,7 +11,7 @@ public class InitialScreen : MonoBehaviour
     [SerializeField] GameObject sandboxButtons;
     public void continueGame()
     {
-        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainScene", LoadSceneMode.Additive);
     }
 
     public void startNewGame()
@@ -31,7 +31,7 @@ public class InitialScreen : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         DeleteMessages();
-        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainScene", LoadSceneMode.Additive);
     }
 
     public void OpenSandboxMenu()
