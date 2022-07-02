@@ -51,70 +51,80 @@ public class Stage5 : Stage
             new ClueNote("Qual a conexão de Helena com a pesssoa a quem ela pediu ajuda?", "Soares era marido de uma amiga íntima de Helena",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier(null, "Soares"),
+                        new ClueIdentifier(null, "marido da Vivi")
                     }
                 )
             ), // 0
             new ClueNote("Helena pediu ajuda a alguém", "Soares disse que faria o possível para ajudar Helena e pediu para que ela tomasse cuidado",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier(null, "Soares"),
+                        new ClueIdentifier(null,  "vou te ajudar")
                     }
                 )
             ), // 1
             new ClueNote("Helena havia compartilhado alguma informação importante com alguém no dia de sua morte?", "No dia do sequestro Helena pediu ajuda para Soares e conseguiu passar sua localização",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier(null, "Soares"),
+                        new ClueIdentifier(null,  "llocalização")
                     }
                 )
             ), // 2
             new ClueNote("Quem são os Milicianos(Miliciano 1)", "Joaquim Barbosa é um miliciano",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier("relato", "Joaquim Barbosa")
                     }
                 )
             ), // 3
             new ClueNote("Quem são os Milicianos(Miliciano 2)", "Paulo Moreira é um miliciano",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier("relato", "Paulo Moreira")
                     }
                 )
             ), // 4
-            new ClueNote("Quem são os Milicianos(Miliciano 3)", "Carlos patrocínio é um miliciano",
+            new ClueNote("Quem são os Milicianos(Miliciano 3)", "Carlos Patrocínio é um miliciano",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier("relato", "Carlos Patrocínio")
                     }
                 )
             ), // 5
             new ClueNote("Quais os cargos da policia dos Milicianos (Miliciano 3)", "Carlos Patrocínio é o Coronel da Polícia do Rio de Janeiro",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier(null, "Carlos"),
+                        new ClueIdentifier(null, "Patrocínio"),
+                        new ClueIdentifier(null, "Coronel")
                     }
                 )
             ), // 6
             new ClueNote("Quais os cargos da policia dos Milicianos (Miliciano 2)", "Paulo Moreira é Primeiro Tenente da Polícia do Rio de Janeiro",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier(null, "Paulo"),
+                        new ClueIdentifier(null, "Moreira"),
+                        new ClueIdentifier(null, "Primeiro Tenente")
                     }
                 )
             ), // 7
             new ClueNote("Quais os cargos da policia dos Milicianos (Miliciano 1)", "Joaquim Barbosa é Primeiro Sargento da Polícia do Rio de Janeiro",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier(null, "Joaquim"),
+                        new ClueIdentifier(null, "Barbosa"),
+                        new ClueIdentifier(null, "Primeiro Sargento")
                     }
                 )
             ), // 8
             new ClueNote("Alguem ameaçou Helena?", "Carlos Patrocínio ameaçou Helena Peres por telefone",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "11")
+                        new ClueIdentifier(null, "Carlos Patrocínio"),
+                        new ClueIdentifier(null, "medidas extemas|me despedia dos seus familiares")
                     }
                 )
             ), // 9
