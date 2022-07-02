@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stage5 : Stage
 {
+    private bool released = false;
     protected override void InitializeStage()
     {
         this.stageIdentifier = "stage_five";
@@ -148,6 +149,10 @@ public class Stage5 : Stage
 
     public override bool ShouldReleaseChatBeforeEnd()
     {
-        return this.clueNotes[5].IsFound() || this.clueNotes[9].IsFound() || this.clueSolutions[2].IsFound();
+        if (this.released) return false;
+        
+        this.released = this.clueNotes[5].IsFound() || this.clueNotes[9].IsFound() || this.clueSolutions[2].IsFound();
+        
+        return this.released;
     }
 }
