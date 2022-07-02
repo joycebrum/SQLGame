@@ -341,4 +341,13 @@ public class DataBaseWindowController: MonoBehaviour
         PlayerPrefs.SetInt("DBTutorialComplete", 1);
         main.TutorialCompleted();
     }
+
+    public void OnPopUpClose()
+    {
+        if (this.stageController.ReleaseChatBeforeEnd())
+        {
+            main.StageDisableButtons();
+            main.ReturnToMainScene();
+        }
+    }
 }

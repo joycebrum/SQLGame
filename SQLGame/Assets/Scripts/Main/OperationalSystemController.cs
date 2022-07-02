@@ -45,13 +45,17 @@ public class OperationalSystemController : MonoBehaviour
             case StagesType.tutorial:
                 changeIAChatApperance(false);
                 break;
-            case StagesType.stageOne:
-                changeIAChatApperance(true);
-                break;
-            case StagesType.stageTwo:
+            default:                
                 changeIAChatApperance(true);
                 break;
         }
+    }
+
+    public void ReturnToMainScene()
+    {
+        this.phoneObject.SetActive(false);
+        this.cluesWindow.SetActive(false);
+        this.tableObject.SetActive(false);
     }
 
     public void setMessageNotificationVisibility(bool isVisible)
@@ -69,11 +73,6 @@ public class OperationalSystemController : MonoBehaviour
     public void OnMenuClick()
     {
         SceneManager.LoadScene("InitialScene", LoadSceneMode.Single);
-    }
-
-    public void OnBackClick()
-    {
-        Debug.Log("Back");
     }
 
     public void OnMessageClick()

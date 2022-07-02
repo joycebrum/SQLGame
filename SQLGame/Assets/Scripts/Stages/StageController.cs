@@ -6,7 +6,10 @@ public enum StagesType
 {
     tutorial = 0,
     stageOne = 1,
-    stageTwo = 2
+    stageTwo = 2,
+    stageThree = 3,
+    stageFour = 4,
+    stageFive = 5
 }
 public class StageController : MonoBehaviour
 {
@@ -21,7 +24,6 @@ public class StageController : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("currentStageIndex"))
         {
-            print("ja tem stage");
             currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");currentStage = stages[currentStageIndex];
             currentStage = stages[currentStageIndex];
             print(currentStageIndex);
@@ -42,6 +44,15 @@ public class StageController : MonoBehaviour
         
         PlayerPrefs.SetInt("currentStageIndex", this.currentStageIndex);
         this.currentStage.SaveSolvedClues();
+    }
+
+    public bool ReleaseChatBeforeEnd()
+    {
+        if (!currentStage.ShouldReleaseChatBeforeEnd()) return false;
+
+        ReleaseChats(currentStage.ChatToBeReleasedBeforeEnd());
+
+        return true;
     }
 
     public bool CheckForClues(List<string> header, List< string > result)

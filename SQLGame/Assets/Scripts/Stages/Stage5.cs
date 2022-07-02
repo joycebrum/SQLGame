@@ -130,4 +130,14 @@ public class Stage5 : Stage
     {
         return new ChatEnum[1] { ChatEnum.patrocinio };
     }
+
+    public override ChatEnum[] ChatToBeReleasedBeforeEnd()
+    {
+        return new ChatEnum[1] { ChatEnum.patrocinio };
+    }
+
+    public override bool ShouldReleaseChatBeforeEnd()
+    {
+        return this.clueNotes[5].IsFound() || this.clueNotes[9].IsFound() || this.clueSolutions[2].IsFound();
+    }
 }

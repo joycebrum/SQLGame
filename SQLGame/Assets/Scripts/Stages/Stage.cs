@@ -68,6 +68,7 @@ public class Stage: MonoBehaviour
 
     public virtual ChatEnum[] ChatToBeReleasedOnStart() { return new ChatEnum[0]; }
     public virtual ChatEnum[] ChatToBeReleasedOnEnd() { return new ChatEnum[0]; }
+    public virtual ChatEnum[] ChatToBeReleasedBeforeEnd() { return new ChatEnum[0]; }
 
     protected virtual void InitializeStage() {
         if (!System.String.IsNullOrEmpty(this.introName.text))
@@ -153,4 +154,6 @@ public class Stage: MonoBehaviour
         this.introName.text = "Por enquanto é só";
         this.introSubtitle.SetActive(true);
     }
+
+    public virtual bool ShouldReleaseChatBeforeEnd() { return false; }
 }

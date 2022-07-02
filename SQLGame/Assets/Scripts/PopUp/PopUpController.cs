@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class PopUpController : MonoBehaviour
 {
     [SerializeField] private GameObject GOtext;
+    [SerializeField] private DataBaseWindowController windowController;
     public void onCloseButton()
     {
         this.gameObject.SetActive(false);
+        this.windowController.OnPopUpClose();
     }
 
     public void showPopUp(string text)
