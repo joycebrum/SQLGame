@@ -72,6 +72,10 @@ public class StageController : MonoBehaviour
             main.SetupStage(currentStageIndex: currentStageIndex);
             StartStage();
         }
+        else
+        {
+            currentStage.FinishGame();
+        }
     }
 
     public void StartStage()
