@@ -292,7 +292,7 @@ public class DataBaseWindowController: MonoBehaviour
         List<string> headerNames = headerData.ConvertAll<string>(FirstItemsConverter);
         if (stageController.CheckForClues(headerNames, tableData[0]))
         {
-            popUp.GetComponent<PopUpController>().showPopUp("Parabéns, voce encontrou uma pista!");
+            popUp.GetComponent<PopUpController>().ShowPopUp("Parabéns, voce encontrou uma pista!");
         }
     }
 
