@@ -151,7 +151,7 @@ public class Stage: MonoBehaviour
     public void FinishGame()
     {
         this.introPanel.gameObject.SetActive(true);
-        this.introName.text = "Por enquanto é só";
+        this.introName.text = "FIM";
         this.introSubtitle.SetActive(true);
     }
 

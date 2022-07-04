@@ -91,14 +91,17 @@ Respostas:
 Fase 5:
 ==============
 
+Dicas:
+- SELECT co.nome as "Origem", cd.nome as "Destino", mensagem FROM Mensagens m JOIN Contatos co ON m.idContatoOrigem = co.id JOIN Contatos cd ON m.idContatoDestino = cd.id
+
 Respostas:
+- SELECT * from contatos where nome = 'Soares'
 - SELECT * FROM HistoricoLigacoes WHERE relato LIKE '%Paulo Moreira%' LIMIT 1
 - SELECT * FROM HistoricoLigacoes WHERE relato LIKE '%Joaquim Barbosa%' LIMIT 1
 - SELECT * FROM HistoricoLigacoes WHERE relato LIKE '%Carlos Patrocínio%' LIMIT 1
 - SELECT * FROM Policiais p JOIN Cargos c ON p.idCargo = c.id WHERE nome = 'Carlos' AND sobrenome = 'Patrocínio'
 - SELECT * FROM Policiais p JOIN Cargos c ON p.idCargo = c.id WHERE nome = 'Paulo' AND sobrenome = 'Moreira'
 - SELECT * FROM Policiais p JOIN Cargos c ON p.idCargo = c.id WHERE nome = 'Joaquim' AND sobrenome = 'Barbosa'
-- SELECT co.nome as "Origem", cd.nome as "Destino", mensagem FROM Mensagens m JOIN Contatos co ON m.idContatoOrigem = co.id JOIN Contatos cd ON m.idContatoDestino = cd.id
 - SELECT co.nome as "Origem", cd.nome as "Destino", mensagem 
   FROM Mensagens m 
   JOIN Contatos co ON m.idContatoOrigem = co.id 
@@ -110,3 +113,8 @@ Respostas:
   JOIN Contatos co ON m.idContatoOrigem = co.id 
   JOIN Contatos cd ON m.idContatoDestino = cd.id
   WHERE  mensagem LIKE '%medidas extemas%' AND co.nome = 'Carlos Patrocínio'
+- SELECT co.nome as "Origem", cd.nome as "Destino", mensagem 
+FROM Mensagens m 
+JOIN Contatos co ON m.idContatoOrigem = co.id 
+JOIN Contatos cd ON m.idContatoDestino = cd.id
+where Mensagem like '%localização%'
