@@ -16,20 +16,21 @@ public class InitialScreen : MonoBehaviour
 
     public void startNewGame()
     {
-        StartGame();
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("IsSandBoxMode", 0);
+        StartGame();
     }
 
     public void startNewGameWithoutTutotial()
     {
-        SetTutorialComplete();
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("IsSandBoxMode", 0);
+        SetTutorialComplete();
         StartGame();
     }
 
     private void StartGame()
     {
-        PlayerPrefs.DeleteAll();
         DeleteMessages();
         SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
     }
