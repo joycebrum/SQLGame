@@ -209,7 +209,7 @@ public class ChatDialogController : MonoBehaviour
                 }
             }
 
-            main.setMessageNotificationVisibility(isVisible: true);
+            main.SetMessageNotificationVisibility(isVisible: true);
         }
     }
 
@@ -240,7 +240,7 @@ public class ChatDialogController : MonoBehaviour
 
     public void HasNewChats()
     {
-        main.setMessageNotificationVisibility(isVisible: ContactsHasNewMessages());
+        main.SetMessageNotificationVisibility(isVisible: ContactsHasNewMessages());
     } 
 
     private bool ContactsHasNewMessages()

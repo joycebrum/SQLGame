@@ -31,15 +31,19 @@ public class DataBaseWindowController: MonoBehaviour
 
     private List<string> sqlHistory = new List<string>();
     private int historyPosition = -1;
+    private LoadingController loadingController;
 
 
     private void Start()
     {
+        loadingController = gameObject.GetComponent<LoadingController>();
+
         if (tutorial.checkTutorial("DBTutorialComplete"))
         {
             tutorial.StartTutorial(FinishTutorial);
         }
         InitializeTableData();
+
     }
     public void DropdownValueChanged(Dropdown change)
     {
@@ -47,19 +51,28 @@ public class DataBaseWindowController: MonoBehaviour
         {
             case 0: break;
             case 1:
-                queryInput.text = "SELECT * FROM NomeDaTabela;";
+                queryInput.text = "SELECT * FROM NomeDaTabela";
                 break;
             case 2:
-                queryInput.text = "SELECT coluna1, coluna2 FROM tabela;";
+                queryInput.text = "SELECT coluna1, coluna2 FROM tabela";
                 break;
             case 3:
-                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor;";
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna = valor";
                 break;
             case 4:
-                queryInput.text = "SELECT * FROM NomeDaTabela WHERE colunaData > 'AAAA-MM-DD' and colunaData < 'AAAA-MM-DD';";
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE colunaData > 'AAAA-MM-DD' and colunaData < 'AAAA-MM-DD'";
                 break;
             case 5:
-                queryInput.text = "SELECT * FROM PrimeiraTabela x JOIN SegundaTabela y ON x.coluna = y.coluna;";
+                queryInput.text = "SELECT * FROM PrimeiraTabela x JOIN SegundaTabela y ON x.coluna = y.coluna";
+                break;
+            case 6:
+                queryInput.text = "SELECT * FROM NomeDaTabela WHERE nomeColuna like '%valor%'";
+                break;
+            case 7:
+                queryInput.text = "SELECT COUNT(DISTINCT coluna) FROM NomeDaTabela";
+                break;
+            case 8:
+                queryInput.text = "SELECT COUNT(DISTINCT coluna) FROM NomeDaTabela HAVING COUNT(DISTINCT coluna) > 5";
                 break;
             default:
                 break;
@@ -178,11 +191,13 @@ public class DataBaseWindowController: MonoBehaviour
 
     private string Cast(string name, string type, IDataReader reader)
     {
+        if (reader[name] == null) return "";
         switch (type)
         {
             case "date":
+                return ((DateTime)reader[name]).ToString("yyyy-MM-dd");
             case "datetime":
-                return ((DateTime)reader[name]).ToString();
+                return ((DateTime)reader[name]).ToString("yyyy-MM-dd HH:mm:ss");
             default:
                 return reader[name].ToString();
         }
@@ -190,31 +205,43 @@ public class DataBaseWindowController: MonoBehaviour
 
     public void Search()
     {
+        this.scrollView.SetActive(false);
         string sqlQuery = queryInput.text.Trim();
 
         if(!String.IsNullOrEmpty(sqlQuery) && this.IsSqlValid(sqlQuery))
         {
-            try
-            {
-                this.ClearTableData();
-
-                this.GetDBValues(sqlQuery);
-                this.UpdateTable();
-
-                errorText.gameObject.SetActive(false);
-                this.scrollView.SetActive(true);
-
-                this.sqlHistory.Add(sqlQuery);
-                this.historyPosition = -1;
-            }
-            catch (SqliteSyntaxException e)
-            {
-                SetErrorMessage(translateErrorMessage(e.Message));
-            }
+            loadingController.StartLoading();
+            StartCoroutine(RunQuery(sqlQuery));
         }
+
     }
 
-    private string translateErrorMessage(string msg)
+    IEnumerator RunQuery(string sqlQuery)
+    {
+        yield return new WaitForSeconds(.1f);
+
+        try
+        {
+            this.ClearTableData();
+
+            this.GetDBValues(sqlQuery);
+            this.UpdateTable();
+
+            errorText.gameObject.SetActive(false);
+            this.scrollView.SetActive(true);
+
+            this.sqlHistory.Add(sqlQuery);
+            this.historyPosition = -1;
+        }
+        catch (SqliteSyntaxException e)
+        {
+            SetErrorMessage(TranslateErrorMessage(e.Message));
+        }
+
+        loadingController.EndLoading();
+    }
+
+    private string TranslateErrorMessage(string msg)
     {
         if(msg.StartsWith("no such column:"))
         {
@@ -265,7 +292,7 @@ public class DataBaseWindowController: MonoBehaviour
         List<string> headerNames = headerData.ConvertAll<string>(FirstItemsConverter);
         if (stageController.CheckForClues(headerNames, tableData[0]))
         {
-            popUp.GetComponent<PopUpController>().showPopUp("Parabéns, voce encontrou uma pista!");
+            popUp.GetComponent<PopUpController>().ShowPopUp("Parabéns, voce encontrou uma pista!");
         }
     }
 
@@ -313,5 +340,14 @@ public class DataBaseWindowController: MonoBehaviour
     {
         PlayerPrefs.SetInt("DBTutorialComplete", 1);
         main.TutorialCompleted();
+    }
+
+    public void OnPopUpClose()
+    {
+        if (this.stageController.ReleaseChatBeforeEnd())
+        {
+            main.StageDisableButtons();
+            main.ReturnToMainScene();
+        }
     }
 }

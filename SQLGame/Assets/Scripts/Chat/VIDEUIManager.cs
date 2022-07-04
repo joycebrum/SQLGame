@@ -25,6 +25,8 @@ public class VIDEUIManager : MonoBehaviour
     private bool isFirstMessage = true;
     private IEnumerator coroutine;
 
+    [SerializeField] private Text typingIndicator;
+
 
     void Start()
     {
@@ -51,6 +53,7 @@ public class VIDEUIManager : MonoBehaviour
     //Called by UI button
     public void Begin()
     {
+        typingIndicator.text = "";
         isFirstMessage = true;
         if (!VD.isActive)
         {
@@ -116,10 +119,12 @@ public class VIDEUIManager : MonoBehaviour
     {
         if (data.isPlayer)
         {
+            typingIndicator.text = "";
             SetPlayerChoices();
         }
         else
         {
+            typingIndicator.text = "Digitando...";
             WipePlayerChoices();
             coroutine = WaitBeforeNPCText();
             StartCoroutine(coroutine);
@@ -128,6 +133,7 @@ public class VIDEUIManager : MonoBehaviour
 
     void ActionNodeHandler(int actionNodeID)
     {
+        typingIndicator.text = "";
         OverrideStartNode(actionNodeID);
         if(PlayerPrefs.GetInt(dialogueNameToLoad) == 0) PlayerPrefs.SetInt(dialogueNameToLoad, 1);
         WipePlayerChoices();

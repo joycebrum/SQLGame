@@ -82,8 +82,8 @@ public class Stage1 : Stage
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
                     new ClueIdentifier("sobrenomeAluno", "Bezerra"),
-                    new ClueIdentifier("entrada", @"23/04/2022"),
-                    new ClueIdentifier("login", @"23/04/2022"),
+                    new ClueIdentifier("entrada", @"2022-04-23"),
+                    new ClueIdentifier("login", @"2022-04-23"),
                 })
             ),// 4
 
@@ -92,8 +92,8 @@ public class Stage1 : Stage
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
                     new ClueIdentifier("sobrenomeAluno", "Bezerra"),
-                    new ClueIdentifier("entrada", @"22/04/2022"),
-                    new ClueIdentifier("login", @"22/04/2022"),
+                    new ClueIdentifier("entrada", @"2022-04-22"),
+                    new ClueIdentifier("login", @"2022-04-22"),
                 })
             ),// 5
             new ClueNote("Alguem fez algo suspeito dois dias antes do roubo (21 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado dois dias antes do roubo",
@@ -101,8 +101,8 @@ public class Stage1 : Stage
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
                     new ClueIdentifier("sobrenomeAluno", "Bezerra"),
-                    new ClueIdentifier("entrada", @"21/04/2022"),
-                    new ClueIdentifier("login", @"21/04/2022"),
+                    new ClueIdentifier("entrada", @"2022-04-21"),
+                    new ClueIdentifier("login", @"2022-04-21"),
                 })
             )// 6
         };

@@ -6,7 +6,10 @@ public enum StagesType
 {
     tutorial = 0,
     stageOne = 1,
-    stageTwo = 2
+    stageTwo = 2,
+    stageThree = 3,
+    stageFour = 4,
+    stageFive = 5
 }
 public class StageController : MonoBehaviour
 {
@@ -21,7 +24,6 @@ public class StageController : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("currentStageIndex"))
         {
-            print("ja tem stage");
             currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");currentStage = stages[currentStageIndex];
             currentStage = stages[currentStageIndex];
             print(currentStageIndex);
@@ -31,17 +33,25 @@ public class StageController : MonoBehaviour
             currentStage = stages[currentStageIndex];
             StartStage();
         }
-        main.checkStageConfigs((StagesType)currentStageIndex);
+        main.CheckStageConfigs((StagesType)currentStageIndex);
 
         this.currentStage.OnStart();
     }
 
     private void OnApplicationQuit()
     {
-        Debug.Log("Application ending after " + Time.time + " seconds");
-        
-        PlayerPrefs.SetInt("currentStageIndex", this.currentStageIndex);
-        this.currentStage.SaveSolvedClues();
+        Debug.Log("Application ending after " + Time.time + " seconds");    
+
+        SaveGame();
+    }
+
+    public bool ReleaseChatBeforeEnd()
+    {
+        if (!currentStage.ShouldReleaseChatBeforeEnd()) return false;
+
+        ReleaseChats(currentStage.ChatToBeReleasedBeforeEnd());
+
+        return true;
     }
 
     public bool CheckForClues(List<string> header, List< string > result)
@@ -49,25 +59,39 @@ public class StageController : MonoBehaviour
         return currentStage.CheckForClues(header, result);
     }
 
+    public void SaveGame()
+    {
+        PlayerPrefs.SetInt("currentStageIndex", this.currentStageIndex);
+        this.currentStage.SaveSolvedClues();
+    }
+
     public void NextStage()
     {
         main.StageDisableButtons();
+        SaveGame();
+        ReleaseChats(currentStage.ChatToBeReleasedOnEnd());
         currentStageIndex++;
-        if (stages.Count == currentStageIndex)
-        {
-            currentStage.FinishGame();
-        } else
-        {
+
+        if (currentStageIndex < stages.Count) { 
             currentStage = stages[currentStageIndex];
             UpdateStageData();
             main.SetupStage(currentStageIndex: currentStageIndex);
+            StartStage();
         }
-        StartStage();
+    }
+
+    public void EndGame()
+    {
+        currentStage.FinishGame();
     }
 
     public void StartStage()
     {
-        ChatEnum[] chatsToBeReleased = currentStage.ChatToBeReleasedOnStart();
+        ReleaseChats(currentStage.ChatToBeReleasedOnStart());
+    }
+
+    private void ReleaseChats(ChatEnum[] chatsToBeReleased)
+    {
         foreach (ChatEnum chatTobeRelesead in chatsToBeReleased)
         {
             main.ReleaseChat(chatTobeRelesead);

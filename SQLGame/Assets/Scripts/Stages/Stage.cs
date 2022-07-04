@@ -35,7 +35,11 @@ public class Stage: MonoBehaviour
     {
         InitializeStage();
         UpdateStatuses(RetrieveSolvedClues());
-        this.dbController.InitDabaBase(dbPath, sqlCreatePath, sqlPopulatePath);
+
+        if (!System.String.IsNullOrEmpty(dbPath))
+        {
+            this.dbController.InitDabaBase(dbPath, sqlCreatePath, sqlPopulatePath);
+        }
     }
 
     public bool CheckForClues(List<string> header, List<string> result)
@@ -63,10 +67,15 @@ public class Stage: MonoBehaviour
     protected virtual ClueSolution InitializeFinalSolution() { return null; }
 
     public virtual ChatEnum[] ChatToBeReleasedOnStart() { return new ChatEnum[0]; }
+    public virtual ChatEnum[] ChatToBeReleasedOnEnd() { return new ChatEnum[0]; }
+    public virtual ChatEnum[] ChatToBeReleasedBeforeEnd() { return new ChatEnum[0]; }
 
     protected virtual void InitializeStage() {
-        this.introPanel.gameObject.SetActive(true);
-        StartCoroutine(DidShowIntro());
+        if (!System.String.IsNullOrEmpty(this.introName.text))
+        {
+            this.introPanel.gameObject.SetActive(true);
+            StartCoroutine(DidShowIntro());
+        }
 
         this.clueNotes = InitializeClueNotes();
 
@@ -142,7 +151,9 @@ public class Stage: MonoBehaviour
     public void FinishGame()
     {
         this.introPanel.gameObject.SetActive(true);
-        this.introName.text = "Por enquanto é só";
+        this.introName.text = "FIM";
         this.introSubtitle.SetActive(true);
     }
+
+    public virtual bool ShouldReleaseChatBeforeEnd() { return false; }
 }

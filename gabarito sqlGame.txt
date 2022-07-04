@@ -1,0 +1,120 @@
+Fase 0
+===========
+Resposta:
+- select * from Funcionarios where matricula = 13;
+- select * from Gastos where matricula = 13;
+
+Fase 1
+===========
+
+Dica: 
+- select * from AcessoLaboratorios where matriculaAluno = 152354;
+
+resposta:
+
+- select * from Alunos where matricula = 152354;
+- select * from ControleSegurancas where entrada = '2022-04-18 13:07:15';
+- select * from ControleSegurancas where entrada = '2022-04-22 13:07:15'; 
+- select * from ControleSegurancas where entrada = '2022-04-23 13:14:20';
+- select * from AcessoLaboratorios where nomeAluno = 'Caio' and sobrenomeAluno = 'Bezerra'  and entrada = '2022-04-21 13:20:07';
+- select * from AcessoLaboratorios where nomeAluno = 'Caio' and sobrenomeAluno = 'Bezerra'  and entrada = '2022-04-22 13:50:44';
+- select * from AcessoLaboratorios where nomeAluno = 'Caio' and sobrenomeAluno = 'Bezerra'  and entrada = '2022-04-23 12:59:01';
+
+
+Fase 2
+============
+select * from Funcionarios;
+
+dica:
+- select matricula, nome, sobrenome, pode_acessar_recursos_restritos from Funcionarios where pode_acessar_recursos_restritos = 1;
+- select matricula, nome, sobrenome from Funcionarios where nome = 'Pedro'; (21899)
+- select matricula, nome, sobrenome from Funcionarios where nome = 'Lucas'; (26548)
+- select matricula, nome, sobrenome from Funcionarios where nome = 'Paulo'; (22354)
+- select nome, sobrenome from Funcionarios where pode_acessar_recursos_restritos = 1;
+
+Resposta:
+- select sum(valor) as soma from receita where mes_referencia = 5;
+- select sum(valor) as soma from Gastos where mes_referencia = 5;
+- select nome, sobrenome, pode_acessar_recursos_restritos from Funcionarios where nome = 'Paulo' and sobrenome = 'Pinho';
+- select nome, sobrenome, pode_acessar_recursos_restritos from Funcionarios where nome = 'Pedro' and sobrenome = 'Lima';
+- select * from Dados_da_empresa where ano = 2022;
+- select nome_responsavel, sobrenome_responsavel, count(id) from Gastos where mes_referencia = 5 and nome_responsavel = 'Paulo' and sobrenome_responsavel = 'Pinho';
+- select nome_responsavel, sobrenome_responsavel, count(id) from Gastos where mes_referencia = 5 and nome_responsavel = 'Pedro' and sobrenome_responsavel = 'Lima';
+- select nome_responsavel, sobrenome_responsavel, sum(valor) from Gastos where matricula_responsavel = 21899;
+- select nome_responsavel, sobrenome_responsavel, sum(valor) from Gastos where matricula_responsavel = 26548;
+- select nome_responsavel, sobrenome_responsavel, sum(valor) from Gastos where matricula_responsavel = 22354;
+
+Fase 3
+=============
+select * from Mensagens;
+select * from Desligamentos;
+select * from Incidentes;
+
+Dicas:
+- select * from Mensagens where telefone_de_origem = '(21)123456789' or telefone_de_destino = '(21)123456789'
+
+
+Respostas:
+- select * from Incidentes where id = 6
+- select * from Mensagens where id = 272
+- select * from Mensagens where id = 292
+- select * from (select nome_origem, count(mensagem) from Mensagens group by telefone_de_origem) where nome_origem = 'Felicia Castro'
+- select * from (select nome_origem, count(mensagem) from Mensagens group by telefone_de_origem) where nome_origem = 'Marcos Costa'
+- select * from (select nome_origem, count(mensagem) from Mensagens group by telefone_de_origem) where nome_origem = 'Lucas Silveira'
+- select * from Desligamentos where matricula = 30012
+- select * from Desligamentos where nome = 'Felicia'
+- select * from Mensagens where id = 262
+- select * from Mensagens where id = 211
+
+Fase 4:
+==============
+
+select * from LocalizacaoTelefone where telefone  = '(21) 966669112'
+Dicas:
+- SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131
+- select * from LocalizacaoTelefone where telefone  = '(21) 96666-9112'
+
+Respostas:
+- SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131 and ordem=4;
+- SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131 and ordem=2;
+- SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where l.id = 131 and ordem=8;
+- SELECT * FROM Localizacoes l JOIN localizacaoTelefone lt ON l.id = lt.idLocalizacao where telefone  = '(21) 96666-9112'
+- select Month, count(idLigacao)
+   from (select strftime('%m', dataHora) as month, idLigacao, enunciador, relato from (SELECT * FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where relato like '%miliciano%'))
+   group by Month
+   having Month = '04'
+
+- SELECT count(distinct id) * 100.0 / (select count(distinct id) from Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao where relato like '%miliciano%') as count
+   FROM Ligacoes l JOIN HistoricoLigacoes hl ON l.id = hl.idLigacao
+   where relato like '%xx%' and relato like '%miliciano%'
+
+Fase 5:
+==============
+
+Dicas:
+- SELECT co.nome as "Origem", cd.nome as "Destino", mensagem FROM Mensagens m JOIN Contatos co ON m.idContatoOrigem = co.id JOIN Contatos cd ON m.idContatoDestino = cd.id
+
+Respostas:
+- SELECT * from contatos where nome = 'Soares'
+- SELECT * FROM HistoricoLigacoes WHERE relato LIKE '%Paulo Moreira%' LIMIT 1
+- SELECT * FROM HistoricoLigacoes WHERE relato LIKE '%Joaquim Barbosa%' LIMIT 1
+- SELECT * FROM HistoricoLigacoes WHERE relato LIKE '%Carlos Patrocínio%' LIMIT 1
+- SELECT * FROM Policiais p JOIN Cargos c ON p.idCargo = c.id WHERE nome = 'Carlos' AND sobrenome = 'Patrocínio'
+- SELECT * FROM Policiais p JOIN Cargos c ON p.idCargo = c.id WHERE nome = 'Paulo' AND sobrenome = 'Moreira'
+- SELECT * FROM Policiais p JOIN Cargos c ON p.idCargo = c.id WHERE nome = 'Joaquim' AND sobrenome = 'Barbosa'
+- SELECT co.nome as "Origem", cd.nome as "Destino", mensagem 
+  FROM Mensagens m 
+  JOIN Contatos co ON m.idContatoOrigem = co.id 
+  JOIN Contatos cd ON m.idContatoDestino = cd.id
+  WHERE mensagem LIKE '%ajudar%' AND co.nome = 'Soares'
+  LIMIT 1
+- SELECT co.nome as "Origem", cd.nome as "Destino", mensagem 
+  FROM Mensagens m 
+  JOIN Contatos co ON m.idContatoOrigem = co.id 
+  JOIN Contatos cd ON m.idContatoDestino = cd.id
+  WHERE  mensagem LIKE '%medidas extemas%' AND co.nome = 'Carlos Patrocínio'
+- SELECT co.nome as "Origem", cd.nome as "Destino", mensagem 
+FROM Mensagens m 
+JOIN Contatos co ON m.idContatoOrigem = co.id 
+JOIN Contatos cd ON m.idContatoDestino = cd.id
+where Mensagem like '%localização%'

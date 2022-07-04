@@ -38,23 +38,27 @@ public class OperationalSystemController : MonoBehaviour
     }
 
     // Initial config
-    public void checkStageConfigs(StagesType stageType)
+    public void CheckStageConfigs(StagesType stageType)
     {
         switch (stageType)
         {
             case StagesType.tutorial:
-                changeIAChatApperance(false);
+                ChangeIAChatApperance(false);
                 break;
-            case StagesType.stageOne:
-                changeIAChatApperance(true);
-                break;
-            case StagesType.stageTwo:
-                changeIAChatApperance(true);
+            default:                
+                ChangeIAChatApperance(true);
                 break;
         }
     }
 
-    public void setMessageNotificationVisibility(bool isVisible)
+    public void ReturnToMainScene()
+    {
+        this.phoneObject.SetActive(false);
+        this.cluesWindow.SetActive(false);
+        this.tableObject.SetActive(false);
+    }
+
+    public void SetMessageNotificationVisibility(bool isVisible)
     {
         messageButtonNotification.SetActive(isVisible);
     }
@@ -62,18 +66,14 @@ public class OperationalSystemController : MonoBehaviour
     public void SetupStage(int currentStageIndex)
     {
         tableObject.GetComponent<DataBaseWindowController>().InitializeTableData();
-        checkStageConfigs((StagesType)currentStageIndex);
+        CheckStageConfigs((StagesType)currentStageIndex);
     }
 
     // Buttons
     public void OnMenuClick()
     {
+        stageController.SaveGame();
         SceneManager.LoadScene("InitialScene", LoadSceneMode.Single);
-    }
-
-    public void OnBackClick()
-    {
-        Debug.Log("Back");
     }
 
     public void OnMessageClick()
@@ -105,13 +105,13 @@ public class OperationalSystemController : MonoBehaviour
         cluesWindow.SetActive(!cluesWindow.activeInHierarchy);
     }
 
-    public void cheatButton()
+    public void CheatButton()
     {
         cluesWindow.GetComponent<CluesWindowController>().ResetClues();
         stageController.NextStage();
     }
 
-    public void changeIAChatApperance(bool shouldAppear)
+    public void ChangeIAChatApperance(bool shouldAppear)
     {
         IAButton.gameObject.SetActive(shouldAppear);
     }
@@ -180,7 +180,7 @@ public class OperationalSystemController : MonoBehaviour
         {
             isInTutorial = true;
             DisableButtons();
-            changeIAChatApperance(true);
+            ChangeIAChatApperance(true);
             tutorial.StartTutorial(FinishTutorial);
         }
     }
@@ -188,7 +188,7 @@ public class OperationalSystemController : MonoBehaviour
     private void FinishTutorial()
     {
         PlayerPrefs.SetInt("firstStepTutorialComplete", 1);
-        changeIAChatApperance(false);
+        ChangeIAChatApperance(false);
         EnableAndBlockButtons();
         ReleaseButton();
     }
