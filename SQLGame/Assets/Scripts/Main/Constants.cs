@@ -21,7 +21,7 @@
                                                                                       "Ok. Primeiro vou te explicar o basico de como funciona esse computador ta bom?"};
 
     public static readonly string[] initialConfigButtonInstructions = new string[] { "Este botão serve para abrir a home (cá entre nós, ele só volta para o menu inicial)" };
-    public static readonly string[] initialIAButtonInstructions = new string[] { "Este botão abre sua conversa diretamente comigo no aplicativo de mensagens, mas não iremos precisar nesse primeiro momento :)." };
+    public static readonly string[] initialMusicButtonInstructions = new string[] { "Este botão Serve para ativar ou desativar a musica do jogo." };
     public static readonly string[] initialBDButtonInstructions = new string[] { "Este é o botão mais importante de todos.",
                                                                                  "Ele ta da acesso ao banco de dados."};
     public static readonly string[] initialCluesButtonInstructions = new string[] { "Aqui é onde nós iremos juntar todas as informações que descobrirmos",

@@ -635,8 +635,8 @@ MonoBehaviour:
   - gameObject: {fileID: 858799123}
     instructionType: 3
     instructions: []
-  - gameObject: {fileID: 1827953877}
-    instructionType: 4
+  - gameObject: {fileID: 650592985}
+    instructionType: 8
     instructions: []
   - gameObject: {fileID: 1577868956}
     instructionType: 5
@@ -4505,7 +4505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1827953878
 RectTransform:
   m_ObjectHideFlags: 0

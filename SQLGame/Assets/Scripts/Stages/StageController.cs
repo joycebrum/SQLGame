@@ -33,7 +33,6 @@ public class StageController : MonoBehaviour
             currentStage = stages[currentStageIndex];
             StartStage();
         }
-        main.CheckStageConfigs((StagesType)currentStageIndex);
 
         this.currentStage.OnStart();
     }

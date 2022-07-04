@@ -13,7 +13,7 @@ public class TutorialController : MonoBehaviour
         pauseTutorial,
         initialStart,
         initialConfigButton,
-        initialIAButton,
+        initialMusicButton,
         initialBDButton,
         initialCluesButton,
         initialMessageButton,
@@ -67,8 +67,8 @@ public class TutorialController : MonoBehaviour
                 return Constants.initialTutorialStartInstructions;
             case TutorialInstructions.initialConfigButton:
                 return Constants.initialConfigButtonInstructions;
-            case TutorialInstructions.initialIAButton:
-                return Constants.initialIAButtonInstructions;
+            case TutorialInstructions.initialMusicButton:
+                return Constants.initialMusicButtonInstructions;
             case TutorialInstructions.initialBDButton:
                 return Constants.initialBDButtonInstructions;
             case TutorialInstructions.initialCluesButton:
