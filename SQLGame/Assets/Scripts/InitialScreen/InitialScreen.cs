@@ -73,6 +73,7 @@ public class InitialScreen : MonoBehaviour
         PlayerPrefs.SetInt("ShouldShowIAChat", 1);
         PlayerPrefs.SetInt("IAChat", 2);
         PlayerPrefs.SetInt("currentStageIndex", 1);
+        PlayerPrefs.SetInt("hasNewMessages", 1);
     }
 
     public void TutorialSandbox()

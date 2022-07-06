@@ -97,11 +97,15 @@ public class OperationalSystemController : MonoBehaviour
 
     public void StageDisableButtons()
     {
+        print("disable");
+        PlayerPrefs.SetInt("hasNewMessages", 1);
         bdButton.interactable = false;
         cluesButton.interactable = false;
     }
     public void StageEnableButtons()
     {
+        print("enable");
+        PlayerPrefs.SetInt("hasNewMessages", 0);
         bdButton.interactable = true;
         cluesButton.interactable = true;
     }

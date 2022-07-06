@@ -24,6 +24,11 @@ public class StageController : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("currentStageIndex"))
         {
+            print("has new messages = " + PlayerPrefs.GetInt("hasNewMessages"));
+            if (PlayerPrefs.GetInt("hasNewMessages") == 1)
+            {
+                main.StageDisableButtons();
+            }
             currentStageIndex = PlayerPrefs.GetInt("currentStageIndex");currentStage = stages[currentStageIndex];
             currentStage = stages[currentStageIndex];
             print(currentStageIndex);
