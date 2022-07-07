@@ -167,6 +167,20 @@ public class DataBaseWindowController: MonoBehaviour
         if(table.Rows == 2) {
             CheckResult();
         }
+
+        float width = Camera.main.orthographicSize * 2.0f * Screen.width / Screen.height;
+        bool isHeader = true;
+        Transform header = table.rows[0].GetComponent<Transform>();
+        foreach (GameObject row in table.rows)
+        {
+            if(isHeader)
+            {
+                isHeader = false;
+                continue;
+            }
+            
+            row.GetComponent<Transform>().localScale = header.localScale;
+        }
     }
 
     void UpdateTableData(IDataReader reader)
