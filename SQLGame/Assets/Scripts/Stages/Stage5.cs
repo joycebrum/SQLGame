@@ -10,7 +10,7 @@ public class Stage5 : Stage
         this.stageIdentifier = "stage_five";
         this.sqlCreatePath = "Stage 5/createDB";
         this.sqlPopulatePath = "Stage 5/populateDB";
-        this.dbPath = "URI=file:" + Application.persistentDataPath + "/Stage5SQLite.db";
+        this.dbPath = "URI=file:" + (Application.platform == RuntimePlatform.OSXPlayer ? Application.persistentDataPath : Application.dataPath) + "/Stage5SQLite.db";
 
         this.introName.text = "Fase 5 - Justiça";
         this.released = PlayerPrefs.GetInt(stageIdentifier + "_released") == 1 || false;

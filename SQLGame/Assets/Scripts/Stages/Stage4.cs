@@ -9,7 +9,7 @@ public class Stage4 : Stage
         this.stageIdentifier = "stage_four";
         this.sqlCreatePath = "Stage 4/createDB";
         this.sqlPopulatePath = "Stage 4/populateDB";
-        this.dbPath = "URI=file:" + Application.persistentDataPath + "/Stage4SQLite.db";
+        this.dbPath = "URI=file:" + (Application.platform == RuntimePlatform.OSXPlayer ? Application.persistentDataPath : Application.dataPath) + "/Stage4SQLite.db";
 
         this.introName.text = "Fase 4 - Desaparecida";
 

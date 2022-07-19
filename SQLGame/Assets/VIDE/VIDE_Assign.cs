@@ -117,7 +117,7 @@ public class VIDE_Assign : MonoBehaviour, ISerializationCallbackReceiver
     public void LoadState(string filename)
     {
 
-        string fileDataPath = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ? Application.persistentDataPath : Application.dataPath);
+        string fileDataPath = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.OSXPlayer ? Application.persistentDataPath : Application.dataPath);
         if (!File.Exists(fileDataPath + "/VIDE/saves/VA/" + filename + ".json"))
         {
             Debug.LogWarning("Could not find save state!");
@@ -139,7 +139,7 @@ public class VIDE_Assign : MonoBehaviour, ISerializationCallbackReceiver
 
     class SerializeHelper
     {
-        static string fileDataPath = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ? Application.persistentDataPath : Application.dataPath);
+        static string fileDataPath = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.OSXPlayer ? Application.persistentDataPath : Application.dataPath);
 
         public static object ReadState(string filename)
         {

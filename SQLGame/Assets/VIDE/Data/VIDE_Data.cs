@@ -46,7 +46,7 @@ namespace VIDE_Data
 
         }
 
-        static string fileDataPath = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ? Application.persistentDataPath : Application.dataPath);
+        static string fileDataPath = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.OSXPlayer ? Application.persistentDataPath : Application.dataPath);
 
         public static object ReadState(string filename)
         {
@@ -288,7 +288,7 @@ namespace VIDE_Data
         /// <param name="loadAssigned">Optionally, load the state of every VA found in the scene if filename follows the 'gameObjectName_state' naming convention.</param>
         public static void LoadState(string filename, bool loadAssigned)
         {
-            string fileDataPath = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ? Application.persistentDataPath : Application.dataPath);
+            string fileDataPath = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.OSXPlayer ? Application.persistentDataPath : Application.dataPath);
             if (!File.Exists(fileDataPath + "/VIDE/saves/" + filename + ".json"))
             {
                 Debug.LogWarning("Save file '" + filename + "' not found!");
