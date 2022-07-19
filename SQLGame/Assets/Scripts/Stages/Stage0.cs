@@ -10,7 +10,7 @@ public class Stage0 : Stage
         this.stageIdentifier = "stage_zero";
         this.sqlCreatePath = "Stage 0/createDB";
         this.sqlPopulatePath = "Stage 0/populateDB";
-        this.dbPath = "URI=file:" + Application.dataPath + "/Stage0SQLite.db";
+        this.dbPath = "URI=file:" + Application.persistentDataPath + "/Stage0SQLite.db";
 
         this.introName.text = "Tutorial";
    

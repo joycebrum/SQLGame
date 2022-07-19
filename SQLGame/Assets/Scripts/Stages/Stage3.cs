@@ -9,7 +9,7 @@ public class Stage3 : Stage
         this.stageIdentifier = "stage_three";
         this.sqlCreatePath = "Stage 3/createDB";
         this.sqlPopulatePath = "Stage 3/populateDB";
-        this.dbPath = "URI=file:" + Application.dataPath + "/Stage3SQLite.db";
+        this.dbPath = "URI=file:" + Application.persistentDataPath + "/Stage3SQLite.db";
 
         this.introName.text = "Fase 3 - O Assassinato";
 
