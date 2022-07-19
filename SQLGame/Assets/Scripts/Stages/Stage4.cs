@@ -18,7 +18,7 @@ public class Stage4 : Stage
 
     protected override ClueSolution InitializeFinalSolution()
     {
-        ClueSolution clueSolution = new ClueSolution("Helena Peres está em um balcão abandonado na Travessa Juliana Andrade, em Lins de Vasconcelos, Rio de Janeiro, por ação da milícia, que tem mais poder e influência do que se acredita...");
+        ClueSolution clueSolution = new ClueSolution("Helena Peres estï¿½ em um balcï¿½o abandonado na Travessa Juliana Andrade, em Lins de Vasconcelos, Rio de Janeiro, por aï¿½ï¿½o da milï¿½cia, que tem mais poder e influï¿½ncia do que se acredita...");
         clueSolution.AddSolutionParts(new List<SolutionPart> { clueSolutions[0], clueSolutions[1], clueSolutions[2] });
 
         return clueSolution;
@@ -28,9 +28,9 @@ public class Stage4 : Stage
     {
         List<ClueSolution> tempList = new List<ClueSolution>
         {
-            new ClueSolution("Além de ter um aumento de denúncias de ação de milicianos, 50% dessas denúncias estão censuradas fazendo ser impossível chegar no culpado"),// 0
-            new ClueSolution("Helena Peres tinha problemas com milicianos que tinham certo poder dentro da polícia"),// 1
-            new ClueSolution("O telefone de Helena está na Travessa Juliana Andrade, em Lins de Vasconcelos, Rio de Janeiro."),// 2
+            new ClueSolution("Alï¿½m de ter um aumento de denï¿½ncias de aï¿½ï¿½o de milicianos, 50% dessas denï¿½ncias estï¿½o censuradas fazendo ser impossï¿½vel chegar no culpado"),// 0
+            new ClueSolution("Helena Peres tinha problemas com milicianos que tinham certo poder dentro da polï¿½cia"),// 1
+            new ClueSolution("O telefone de Helena estï¿½ na Travessa Juliana Andrade, em Lins de Vasconcelos, Rio de Janeiro."),// 2
         };
 
         tempList[0].AddSolutionParts(new List<SolutionPart> { this.clueNotes[0], this.clueNotes[1] });
@@ -44,7 +44,7 @@ public class Stage4 : Stage
     {
         return new List<ClueNote>
         {
-            new ClueNote("Qual o mês com o maior numero de denúncias semelhantes a de Helena?", "O número de denúncias sobre milicianos em abril foi a maior de todos os tempos",
+            new ClueNote("Qual o mï¿½s com o maior numero de denï¿½ncias semelhantes a de Helena?", "O nï¿½mero de denï¿½ncias sobre milicianos em abril foi a maior de todos os tempos",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "18"),
@@ -52,14 +52,14 @@ public class Stage4 : Stage
                     }
                 )
             ), // 0
-            new ClueNote("Qual porcentagem de denúncias semelhantes a de Helena está censurada?", "50% das denúncias dos milicianos estão censuradas",
+            new ClueNote("Qual porcentagem de denï¿½ncias semelhantes a de Helena estï¿½ censurada?", "50% das denï¿½ncias dos milicianos estï¿½o censuradas",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "50"),
                     }
                 )
             ), // 1
-            new ClueNote("Helena relatou alguma situação suspeita para a polícia", "Helena Peres fez uma denúncia de abuso policial do que parecia ser um membro da milícia",
+            new ClueNote("Helena relatou alguma situaï¿½ï¿½o suspeita para a polï¿½cia", "Helena Peres fez uma denï¿½ncia de abuso policial do que parecia ser um membro da milï¿½cia",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Helena"),
@@ -68,16 +68,16 @@ public class Stage4 : Stage
                     }
                 )
             ), // 2
-            new ClueNote("Houve alguma reação suspeita por parte da atendente no relat de Helena?", "A atendente pareceu nervosa ao ouvir o nome censurado e aconselhou Helena a não se envolver",
+            new ClueNote("Houve alguma reaï¿½ï¿½o suspeita por parte da atendente no relat de Helena?", "A atendente pareceu nervosa ao ouvir o nome censurado e aconselhou Helena a nï¿½o se envolver",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Helena"),
                         new ClueIdentifier("sobrenome", "Peres"),
-                        new ClueIdentifier("relato", @"XXX\?! Você não deveria se meter com ele")
+                        new ClueIdentifier("relato", @"XXX\?! Vocï¿½ nï¿½o deveria se meter com ele")
                     }
                 )
             ), // 3
-            new ClueNote("Consegue descobrir o número de telefone pessoal da Helena Peres?", "Helena acaba informando seu número de telefone (21) 96666-9112 em uma denúncia",
+            new ClueNote("Consegue descobrir o nï¿½mero de telefone pessoal da Helena Peres?", "Helena acaba informando seu nï¿½mero de telefone (21) 96666-9112 em uma denï¿½ncia",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Helena"),
@@ -86,7 +86,7 @@ public class Stage4 : Stage
                     }
                 )
             ), // 4
-            new ClueNote("Tendo o número, encontre sua localização", "O telefone (21) 96666-9112 está na Travessa Juliana Andrade, em Lins de Vasconcelos, Rio de Janeiro",
+            new ClueNote("Tendo o nï¿½mero, encontre sua localizaï¿½ï¿½o", "O telefone (21) 96666-9112 estï¿½ na Travessa Juliana Andrade, em Lins de Vasconcelos, Rio de Janeiro",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("telefone", @"\(21\) 96666-9112"),

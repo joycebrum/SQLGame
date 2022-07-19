@@ -28,9 +28,9 @@ public class Stage1 : Stage
         List<ClueSolution> tempList = new List<ClueSolution>
         {
             new ClueSolution("Caio tinha problemas financeiros"),// 0
-            new ClueSolution("Por causa da briga, não havia seguranças no laboratório"),// 1
+            new ClueSolution("Por causa da briga, nÃ£o havia seguranÃ§as no laboratÃ³rio"),// 1
             new ClueSolution("Caio tinha comportamento suspeito"),// 2
-            new ClueSolution("Caio parecia estar esperando algo nos dias próximos ao roubo"), // 3
+            new ClueSolution("Caio parecia estar esperando algo nos dias prÃ³ximos ao roubo"), // 3
         };
 
         tempList[0].AddSolutionParts(new List<SolutionPart> {this.clueNotes[0], this.clueNotes[1]});
@@ -45,7 +45,7 @@ public class Stage1 : Stage
     {
         return new List<ClueNote>
         {
-            new ClueNote("Procure alguma informação do suspeito na tabela Alunos", "Caio Bezerra (152354) está inscrito com cota de baixa renda",
+            new ClueNote("Procure alguma informaÃ§Ã£o do suspeito na tabela Alunos", "Caio Bezerra (152354) estÃ¡ inscrito com cota de baixa renda",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Caio"),
@@ -55,29 +55,29 @@ public class Stage1 : Stage
                 )
             ), // 0
 
-            new ClueNote("Os seguranças relataram algo que ajuda a entender o motivo do suspeito", "Houve um relato de jovem chegando muito machucado a faculdade, que diz ter sido agredido por agiotas",
+            new ClueNote("Os seguranï¿½as relataram algo que ajuda a entender o motivo do suspeito", "Houve um relato de jovem chegando muito machucado a faculdade, que diz ter sido agredido por agiotas",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier("relatorio", "Um jovem estava todo ferido sentado perto das máquinas."),
+                        new ClueIdentifier("relatorio", "Um jovem estava todo ferido sentado perto das mï¿½quinas."),
                     }
                 )
             ),// 1
 
-            new ClueNote("Alguma coisa aconteceu na noite do roubo (23 de Abril)", "Segundo um relato dos seguranças, houve uma briga entre alguns alunos na noite do roubo",
+            new ClueNote("Alguma coisa aconteceu na noite do roubo (23 de Abril)", "Segundo um relato dos seguranï¿½as, houve uma briga entre alguns alunos na noite do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("relatorio", "Dois meninos brigaram feio"),
                 })
             ), // 2
 
-            new ClueNote("Os seguranças podem saber de alguem com comportamento suspeito no laboratório.", "Alguns seguranças relataram um aluno com comportamento suspeito",
+            new ClueNote("Os seguranï¿½as podem saber de alguem com comportamento suspeito no laboratï¿½rio.", "Alguns seguranï¿½as relataram um aluno com comportamento suspeito",
                 new Clue(new List<ClueIdentifier>
                 {
-                    new ClueIdentifier("relatorio", @"(andando|perambulado) pelo laboratório"),
+                    new ClueIdentifier("relatorio", @"(andando|perambulado) pelo laboratï¿½rio"),
                 })
             ), // 3
 
-            new ClueNote("Alguem fez algo suspeito no dia do roubo (23 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado no dia do roubo",
+            new ClueNote("Alguem fez algo suspeito no dia do roubo (23 de Abril)", "Caio Bezerra ficou um longo perï¿½odo no laboratï¿½rio com pouco tempo logado no dia do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
@@ -87,7 +87,7 @@ public class Stage1 : Stage
                 })
             ),// 4
 
-            new ClueNote("Alguem fez algo suspeito no dia anterior ao roubo (22 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado no dia anterior ao roubo",
+            new ClueNote("Alguem fez algo suspeito no dia anterior ao roubo (22 de Abril)", "Caio Bezerra ficou um longo perï¿½odo no laboratï¿½rio com pouco tempo logado no dia anterior ao roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),
@@ -96,7 +96,7 @@ public class Stage1 : Stage
                     new ClueIdentifier("login", @"2022-04-22"),
                 })
             ),// 5
-            new ClueNote("Alguem fez algo suspeito dois dias antes do roubo (21 de Abril)", "Caio Bezerra ficou um longo período no laboratório com pouco tempo logado dois dias antes do roubo",
+            new ClueNote("Alguem fez algo suspeito dois dias antes do roubo (21 de Abril)", "Caio Bezerra ficou um longo perï¿½odo no laboratï¿½rio com pouco tempo logado dois dias antes do roubo",
                 new Clue(new List<ClueIdentifier>
                 {
                     new ClueIdentifier("nomeAluno", "Caio"),

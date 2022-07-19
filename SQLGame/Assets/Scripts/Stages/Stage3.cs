@@ -18,7 +18,7 @@ public class Stage3 : Stage
 
     protected override ClueSolution InitializeFinalSolution()
     {
-        ClueSolution clueSolution = new ClueSolution("Felicia Castro assassinou Caio Porto para se vingar do assÈdio e da demiss„o");
+        ClueSolution clueSolution = new ClueSolution("Felicia Castro assassinou Caio Porto para se vingar do ass√©dio e da demiss√£o");
         clueSolution.AddSolutionParts(new List<SolutionPart> { clueSolutions[0], clueSolutions[1], clueNotes[0], clueNotes[1], clueSolutions[2] });
 
         return clueSolution;
@@ -28,11 +28,11 @@ public class Stage3 : Stage
     {
         List<ClueSolution> tempList = new List<ClueSolution>
         {
-            new ClueSolution("Felicia Castro havia sido demitida por acusar Caio Porto de assÈdio"),// 0
+            new ClueSolution("Felicia Castro havia sido demitida por acusar Caio Porto de ass√©dio"),// 0
             new ClueSolution("Felicia desejava que Caio estivesse morto em conversa com amiga"),// 1
-            new ClueSolution("Os suspeitos s„o: Lucas Silveira, Marcos Costa e Felicia Castro"),// 2
+            new ClueSolution("Os suspeitos s√£o: Lucas Silveira, Marcos Costa e Felicia Castro"),// 2
                 
-            new ClueSolution("Lucas Silveira fora demitido a pedido de Caio Porto, que n„o o achava competente"), // 3
+            new ClueSolution("Lucas Silveira fora demitido a pedido de Caio Porto, que n√£o o achava competente"), // 3
             new ClueSolution("Marcos Costa pareceu acreditar que Caio Porto estava envolvido com sua esposa"), // 4
         };
 
@@ -59,7 +59,7 @@ public class Stage3 : Stage
                 )
             ), // 0
 
-            new ClueNote("Algumas mensagens no dia da morte de Caio podem ser suspeitas", "Felicia Castro atraiu Caio atÈ o banheiro feminino, onde seu corpo foi encontrado",
+            new ClueNote("Algumas mensagens no dia da morte de Caio podem ser suspeitas", "Felicia Castro atraiu Caio at√© o banheiro feminino, onde seu corpo foi encontrado",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome_origem", "Felicia Castro"),
@@ -96,7 +96,7 @@ public class Stage3 : Stage
                 )
             ),// 4
 
-            new ClueNote("Qual seria o motivo da demiss„o do suspeito A?", "O motivo da demiss„o de Lucas Silveira era dito como baixo rendimento",
+            new ClueNote("Qual seria o motivo da demiss√£o do suspeito A?", "O motivo da demiss√£o de Lucas Silveira era dito como baixo rendimento",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Lucas"),
@@ -106,43 +106,43 @@ public class Stage3 : Stage
                 )
             ),// 5
 
-            new ClueNote("Qual motivo teria o suspeito B para matar Caio?", "Marcos Costa mandou a mensagem \"Eu n„o acredito que vocÍ fez isso... minha mulher cara...\"",
+            new ClueNote("Qual motivo teria o suspeito B para matar Caio?", "Marcos Costa mandou a mensagem \"Eu n√£o acredito que voc√™ fez isso... minha mulher cara...\"",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome_origem", "Marcos Costa"),
                         new ClueIdentifier("nome_destino", "Caio Porto"),
-                        new ClueIdentifier("mensagem", @"A VIVAN … MINHA ESPOSA CARA|Como vocÍ pode|fudido"),
+                        new ClueIdentifier("mensagem", @"A VIVAN √© MINHA ESPOSA CARA|Como voc√™ pode|fudido"),
                     }
                 )
             ),// 6
 
-            new ClueNote("Qual seria o motivo da demiss„o do suspeito C?", "O motivo da demiss„o de Felicia era dito como n„o declarado",
+            new ClueNote("Qual seria o motivo da demiss√£o do suspeito C?", "O motivo da demiss√£o de Felicia era dito como n√£o declarado",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Felicia"),
                         new ClueIdentifier("sobrenome", "Castro"),
-                        new ClueIdentifier("motivo_desligamento", "n„o declarado"),
+                        new ClueIdentifier("motivo_desligamento", "n√£o declarado"),
 
                     }
                 )
             ),// 7
 
-            new ClueNote("Qual seria o real motivo da demiss„o do suspeito C?", "Felicia havia feito uma reclamaÁ„o de assedio contra Caio Porto",
+            new ClueNote("Qual seria o real motivo da demiss√£o do suspeito C?", "Felicia havia feito uma reclama√ß√£o de assedio contra Caio Porto",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome", "Felicia"),
                         new ClueIdentifier("sobrenome", "Castro"),
-                        new ClueIdentifier("reclamaÁ„o", @"Caio Porto"),
+                        new ClueIdentifier("reclama√ß√£o", @"Caio Porto"),
                     }
                 )
             ),// 8
 
-            new ClueNote("algum suspeito acusou Caio de sua demiss„o?", "Felicia se ressentia de Caio Porto por sua demiss„o",
+            new ClueNote("algum suspeito acusou Caio de sua demiss√£o?", "Felicia se ressentia de Caio Porto por sua demiss√£o",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("nome_origem", "Felicia Castro"),
                         new ClueIdentifier("nome_destino", "Caio Porto"),
-                        new ClueIdentifier("mensagem", @"minha demiss„o"),
+                        new ClueIdentifier("mensagem", @"minha demiss√£o"),
                     }
                 )
             ),// 9

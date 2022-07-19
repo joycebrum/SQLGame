@@ -12,7 +12,7 @@ public class Stage5 : Stage
         this.sqlPopulatePath = "Stage 5/populateDB";
         this.dbPath = "URI=file:" + (Application.platform == RuntimePlatform.OSXPlayer ? Application.persistentDataPath : Application.dataPath) + "/Stage5SQLite.db";
 
-        this.introName.text = "Fase 5 - JustiÁa";
+        this.introName.text = "Fase 5 - Justi√ßa";
         this.released = PlayerPrefs.GetInt(stageIdentifier + "_released") == 1 || false;
 
         base.InitializeStage();
@@ -20,7 +20,7 @@ public class Stage5 : Stage
 
     protected override ClueSolution InitializeFinalSolution()
     {
-        ClueSolution clueSolution = new ClueSolution("Helena Peres foi assassinada por Carlos PatrocÌnio, Miliciano e Coronel da PolÌcia. Soares estava apenas tentando ajudar");
+        ClueSolution clueSolution = new ClueSolution("Helena Peres foi assassinada por Carlos Patroc√≠nio, Miliciano e Coronel da Pol√≠cia. Soares estava apenas tentando ajudar");
         clueSolution.AddSolutionParts(new List<SolutionPart> { clueNotes[9], clueSolutions[0], clueSolutions[1], clueSolutions[2], clueSolutions[3], clueSolutions[4] });
 
         return clueSolution;
@@ -31,10 +31,10 @@ public class Stage5 : Stage
         List<ClueSolution> tempList = new List<ClueSolution>
         {
             new ClueSolution("Soares estava tentando ajudar Helena Peres"),// 0
-            new ClueSolution("Soares consegue encontrar Helena antes por informaÁıes que ela lhe passara pelo celular"),// 1
-            new ClueSolution("O relato de Helena Peres È sobre Carlos PatrocÌnio"),// 2
-            new ClueSolution("Os nomes citados de Milicianos s„o Carlos PatrocÌnio, Joaquim Barbosa e Paulo Moreira"),// 3
-            new ClueSolution("Carlos PatrocÌnio tem a maior patente dentre os trÍs")// 4
+            new ClueSolution("Soares consegue encontrar Helena antes por informa√ß√µes que ela lhe passara pelo celular"),// 1
+            new ClueSolution("O relato de Helena Peres √© sobre Carlos Patroc√≠nio"),// 2
+            new ClueSolution("Os nomes citados de Milicianos s√£o Carlos Patroc√≠nio, Joaquim Barbosa e Paulo Moreira"),// 3
+            new ClueSolution("Carlos Patroc√≠nio tem a maior patente dentre os tr√™s")// 4
         };
 
         tempList[0].AddSolutionParts(new List<SolutionPart> { this.clueNotes[0], this.clueNotes[1]});
@@ -50,7 +50,7 @@ public class Stage5 : Stage
     {
         return new List<ClueNote>
         {
-            new ClueNote("Qual a conex„o de Helena com a pesssoa a quem ela pediu ajuda?", "Soares era marido de uma amiga Ìntima de Helena",
+            new ClueNote("Qual a conex√£o de Helena com a pesssoa a quem ela pediu ajuda?", "Soares era marido de uma amiga √≠ntima de Helena",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "Soares"),
@@ -58,7 +58,7 @@ public class Stage5 : Stage
                     }
                 )
             ), // 0
-            new ClueNote("Helena pediu ajuda a alguÈm", "Soares disse que faria o possÌvel para ajudar Helena e pediu para que ela tomasse cuidado",
+            new ClueNote("Helena pediu ajuda a algu√©m", "Soares disse que faria o poss√≠vel para ajudar Helena e pediu para que ela tomasse cuidado",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "Soares"),
@@ -66,45 +66,45 @@ public class Stage5 : Stage
                     }
                 )
             ), // 1
-            new ClueNote("Helena havia compartilhado alguma informaÁ„o importante com alguÈm no dia de sua morte?", "No dia do sequestro Helena pediu ajuda para Soares e conseguiu passar sua localizaÁ„o",
+            new ClueNote("Helena havia compartilhado alguma informa√ß√£o importante com algu√©m no dia de sua morte?", "No dia do sequestro Helena pediu ajuda para Soares e conseguiu passar sua localiza√ß√£o",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "Soares"),
-                        new ClueIdentifier(null,  "llocalizaÁ„o")
+                        new ClueIdentifier(null,  "llocaliza√ß√£o")
                     }
                 )
             ), // 2
-            new ClueNote("Quem s„o os Milicianos(Miliciano 1)", "Joaquim Barbosa È um miliciano",
+            new ClueNote("Quem s√£o os Milicianos(Miliciano 1)", "Joaquim Barbosa √© um miliciano",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("relato", "Joaquim Barbosa")
                     }
                 )
             ), // 3
-            new ClueNote("Quem s„o os Milicianos(Miliciano 2)", "Paulo Moreira È um miliciano",
+            new ClueNote("Quem s√£o os Milicianos(Miliciano 2)", "Paulo Moreira √© um miliciano",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier("relato", "Paulo Moreira")
                     }
                 )
             ), // 4
-            new ClueNote("Quem s„o os Milicianos(Miliciano 3)", "Carlos PatrocÌnio È um miliciano",
+            new ClueNote("Quem s√£o os Milicianos(Miliciano 3)", "Carlos Patroc√≠nio √© um miliciano",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier("relato", "Carlos PatrocÌnio")
+                        new ClueIdentifier("relato", "Carlos Patroc√≠nio")
                     }
                 )
             ), // 5
-            new ClueNote("Quais os cargos da policia dos Milicianos (Miliciano 3)", "Carlos PatrocÌnio È o Coronel da PolÌcia do Rio de Janeiro",
+            new ClueNote("Quais os cargos da policia dos Milicianos (Miliciano 3)", "Carlos Patroc√≠nio √© o Coronel da Pol√≠cia do Rio de Janeiro",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "Carlos"),
-                        new ClueIdentifier(null, "PatrocÌnio"),
+                        new ClueIdentifier(null, "Patroc√≠nio"),
                         new ClueIdentifier(null, "Coronel")
                     }
                 )
             ), // 6
-            new ClueNote("Quais os cargos da policia dos Milicianos (Miliciano 2)", "Paulo Moreira È Primeiro Tenente da PolÌcia do Rio de Janeiro",
+            new ClueNote("Quais os cargos da policia dos Milicianos (Miliciano 2)", "Paulo Moreira √© Primeiro Tenente da Pol√≠cia do Rio de Janeiro",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "Paulo"),
@@ -113,7 +113,7 @@ public class Stage5 : Stage
                     }
                 )
             ), // 7
-            new ClueNote("Quais os cargos da policia dos Milicianos (Miliciano 1)", "Joaquim Barbosa È Primeiro Sargento da PolÌcia do Rio de Janeiro",
+            new ClueNote("Quais os cargos da policia dos Milicianos (Miliciano 1)", "Joaquim Barbosa √© Primeiro Sargento da Pol√≠cia do Rio de Janeiro",
                 new Clue(new List<ClueIdentifier>
                     {
                         new ClueIdentifier(null, "Joaquim"),
@@ -122,10 +122,10 @@ public class Stage5 : Stage
                     }
                 )
             ), // 8
-            new ClueNote("Alguem ameaÁou Helena?", "Carlos PatrocÌnio ameaÁou Helena Peres por telefone",
+            new ClueNote("Alguem amea√ßou Helena?", "Carlos Patroc√≠nio amea√ßou Helena Peres por telefone",
                 new Clue(new List<ClueIdentifier>
                     {
-                        new ClueIdentifier(null, "Carlos PatrocÌnio"),
+                        new ClueIdentifier(null, "Carlos Patroc√≠nio"),
                         new ClueIdentifier(null, "medidas extemas|me despedia dos seus familiares")
                     }
                 )
