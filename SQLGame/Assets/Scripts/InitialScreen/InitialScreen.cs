@@ -49,7 +49,7 @@ public class InitialScreen : MonoBehaviour
 
     private void DeleteMessages()
     {
-        string path = Application.persistentDataPath + "/VIDE/saves/VA";
+        string path = (Application.platform == RuntimePlatform.OSXPlayer ? Application.persistentDataPath : Application.dataPath) + "/VIDE/saves/VA";
         if (Directory.Exists(path)){
             var files = Directory.GetFiles(path);
 
