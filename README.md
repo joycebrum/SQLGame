@@ -32,7 +32,7 @@ The game is published at the [Itch.io](https://joycebrum.itch.io/sqlgame) platfo
 ## Contribute
 
 ### Report Problems
-If you have what looks like a bug, please use the [Github issue tracking system.](https://github.com/joycebrum/SQLGame) Before you file an issue, please search existing issues to see if your issue is already covered.
+If you have what looks like a bug, please use the [Github issue tracking system.](https://github.com/joycebrum/SQLGame/issues) Before you file an issue, please search existing issues to see if your issue is already covered.
 
 ### Contribute to Scorecards
 Before contributing, please follow our [Code of Conduct](CODE_OF_CONDUCT.md).
