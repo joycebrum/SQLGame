@@ -6,9 +6,8 @@ on:
     - cron: '42 6 * * 2'
   push:
     branches: [ "master" ]
-  pull_request_target:
+  pull_request:
     branches: [ "master" ]
-    types: [opened, reopened, synchronize]
 
 # Declare default permissions as read only.
 permissions: read-all
